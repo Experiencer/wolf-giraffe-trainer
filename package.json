@@ -1,0 +1,8 @@
+{
+  "name": "wolf-giraffe-trainer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GFK-Trainer: Rollenspiel, Coach und Echtzeit-Gespräch",
+  "engines": { "node": ">=20" }
+}
