@@ -1,86 +1,83 @@
-# Wolf & Giraffe Trainer – Deployment auf Vercel
+# Wolf & Giraffe Trainer
 
 ## Worum geht es – und was wird damit erreicht?
-Bisher lief der GFK-Trainer als einzelne HTML-Datei, und die API-Schlüssel mussten im Browser eingetragen werden. Mit diesem Paket läuft die App als Website auf **Vercel**. Die Schlüssel für Claude (Coach) und OpenAI (Echtzeit-Stimme) liegen dann **nur auf dem Server** als „Environment Variables“ – sie erscheinen nie im Browser.
+Der Trainer ist eine Übungs-App für **Gewaltfreie Kommunikation (GFK) nach Marshall B. Rosenberg**. Du führst schwierige Gespräche mit einer KI-Figur – schriftlich, gesprochen oder als natürliches Echtzeit-Gespräch. Ein **Coach** (die Giraffe) begleitet dich: Er würdigt, was schon gelingt, zeigt genau einen nächsten Schritt und hilft, wenn du ihn rufst.
 
-Konkret passiert Folgendes:
-- **Claude-Coach:** Die App fragt `/api/coach` an. Die Server-Funktion reicht die Anfrage mit deinem `ANTHROPIC_API_KEY` an Claude weiter. Damit bewertet der Coach jeden Satz – auch im Echtzeit-Gespräch.
-- **Echtzeit-Gespräch:** Die App fragt `/api/realtime-session` an. Der Server erzeugt mit deinem `OPENAI_API_KEY` einen Sitzungs-Schlüssel, der nur 10 Minuten gilt. Damit verbindet sich der Browser direkt mit OpenAI. Das Mikrofon funktioniert, weil Vercel über HTTPS ausliefert.
-- **Zugangscode (empfohlen):** Ist `APP_ACCESS_CODE` gesetzt, kann nur nutzen, wer den Code kennt. Sonst könnte jeder mit dem Link deine API-Guthaben verbrauchen.
-- Die App erkennt den Server automatisch: Felder für Schlüssel verschwinden, der Schalter „Live-Coaching mit Claude“ ist sofort an.
+Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf dem Server als „Environment Variables“ und erscheinen nie im Browser. Konkret:
+- **Coach und Rollenspiel (Claude):** `/api/coach` leitet Anfragen mit `ANTHROPIC_API_KEY` an Claude weiter – auch im Echtzeit-Gespräch.
+- **Echtzeit-Gespräch (OpenAI):** `/api/realtime-session` erzeugt mit `OPENAI_API_KEY` einen Sitzungs-Schlüssel, der 10 Minuten gilt. Damit verbindet sich der Browser direkt mit OpenAI.
+- **Natürliche Stimme für Coach und Gegenüber (OpenAI):** `/api/tts` liest Texte mit einer OpenAI-Stimme vor. So spricht der Coach seine Hilfe hörbar – auch mitten im Echtzeit-Gespräch.
+- **Zugangscode (empfohlen):** Ist `APP_ACCESS_CODE` gesetzt, kann nur nutzen, wer den Code kennt.
+
+## Was die App kann
+| Bereich | Inhalt |
+|---|---|
+| **Üben** | 24 Szenarien + **eigene Szenarien** (Situation beschreiben → Claude baut daraus eine Übung) |
+| Begleitung | **Geführt** (alle Hilfen, Coach meldet sich nach jedem Satz und greift bei Schwierigkeiten von selbst ein) · **Begleitet** (kurze Rückmeldung, Hilfen auf Knopfdruck, Tipp nach Schwierigkeiten) · **Frei** (Coach hört still zu, nur auf Zuruf; Notizen kommen in die Auswertung) |
+| Antwortart | **Schreiben** · **Sprechen** (Spracherkennung des Browsers) · **Echtzeit** (OpenAI, frei sprechen, unterbrechen möglich) |
+| Immer da | **Coach fragen** (Knopf oder das Wort „Coach“) · **Auszeit** (Knopf, Esc-Taste oder das Wort „Auszeit“) mit kurzer Selbstempathie |
+| Auswertung | in Worten statt Noten: Stärken, ein nächster Schritt, was beim Gegenüber los war; Zahlen nur auf Wunsch |
+| **Kurzübungen** | Beobachtung oder Bewertung? · Gefühl oder Gedanke? · Bedürfnis oder Strategie? |
+| **Übersetzer** | Wolfssatz → Lernform und Alltagsfassung |
+| **Spickzettel** | Die vier Schritte, Gedanke oder Gefühl, die vier Ohren, was Empathie blockiert |
+| **Mein Weg** | Verlauf, Wiederholung nach 1, 3 und 7 Tagen, wie sicher du dich fühlst |
 
 ## Projektstruktur
-| Datei | Zweck |
+| Datei / Ordner | Zweck |
 |---|---|
-| `index.html` | Die komplette App (mit UTF-8-Kopf, daher keine Zeichenfehler mehr) |
+| `index.html` | Die fertige App (wird aus `src/` gebaut – nicht direkt bearbeiten) |
+| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `data/`, `fonts/`, `assets/` |
+| `src/build.py` | Baut `index.html` aus `src/` (Schriften und Bilder werden eingebettet) |
 | `api/config.js` | Sagt der App, welche Schlüssel hinterlegt sind (verrät sie nicht) |
 | `api/coach.js` | Weiterleitung an Claude |
-| `api/realtime-session.js` | Erzeugt den 10-Minuten-Schlüssel für OpenAI Realtime |
+| `api/realtime-session.js` | 10-Minuten-Schlüssel für OpenAI Realtime |
+| `api/tts.js` | Natürliche Stimme (OpenAI Text-to-Speech) |
 | `lib/shared.js` | Gemeinsame Hilfen (Zugangscode-Prüfung) |
 | `vercel.json` | Erlaubt das Mikrofon, setzt Sicherheits-Header |
 | `.env.example` | Vorlage für die Environment Variables |
 
+Nach einer Änderung in `src/` neu bauen: `python3 src/build.py` – dann committen und pushen.
+
 ## Environment Variables
 | Name | Pflicht? | Wofür | Woher |
 |---|---|---|---|
-| `ANTHROPIC_API_KEY` | ja | Claude-Coach, Text-Rollenspiel, Auswertung | console.anthropic.com → API Keys |
-| `OPENAI_API_KEY` | ja, für Echtzeit | Echtzeit-Stimme | platform.openai.com → Projekt → API Keys |
+| `ANTHROPIC_API_KEY` | ja | Coach, Rollenspiel, Auswertung, eigene Szenarien | console.anthropic.com → API Keys |
+| `OPENAI_API_KEY` | für Stimme | Echtzeit-Gespräch **und** natürliche Stimme (Coach + Gegenüber) | platform.openai.com → Projekt → API Keys |
 | `APP_ACCESS_CODE` | empfohlen | Schützt deine Guthaben | selbst ausdenken, lang |
 | `COACH_MODEL` / `COACH_MODEL_QUICK` | nein | Claude-Modelle ändern | Standard: `claude-sonnet-5-5` / `claude-haiku-4-5-20251001` |
 | `REALTIME_MODEL` | nein | Echtzeit-Modell ändern | Standard: `gpt-realtime-2.1` |
+| `TTS_MODEL` | nein | Vorlese-Modell ändern | Standard: `gpt-4o-mini-tts` |
 
-## Weg A – über GitHub (passt zu deinem Git-Workflow)
-1. Auf github.com ein neues **privates** Repository anlegen, z. B. `wolf-giraffe-trainer`.
-2. Den **Inhalt** des Ordners `vercel-app` hochladen (Add file → Upload files → alle Dateien und Ordner hineinziehen). `index.html` muss oben im Repository liegen, nicht in einem Unterordner. Hinweis: Dateien mit Punkt am Anfang (`.env.example`, `.gitignore`) blendet der Mac im Finder aus – mit ⌘ + ⇧ + . werden sie sichtbar.
-3. Auf vercel.com: **Add New → Project** → das Repository importieren.
-4. Framework Preset: **Other**. Build- und Output-Einstellungen leer lassen.
-5. Unter **Environment Variables** die Werte aus der Tabelle eintragen.
-6. **Deploy**. Danach die angezeigte Adresse öffnen.
+Vercel übernimmt geänderte Variablen erst beim **nächsten Deployment**: Deployments → beim neuesten „…“ → **Redeploy**.
 
-Jeder weitere Push auf GitHub aktualisiert die Website automatisch.
+## Deployment
+Das Repository ist mit Vercel verbunden: **Jeder Push auf `main` aktualisiert die Website automatisch.** Framework Preset: **Other**, Build-Einstellungen leer.
 
-## Weg B – mit der Vercel-Kommandozeile
-```bash
-npm i -g vercel
-cd vercel-app
-vercel                      # beim ersten Mal: anmelden, Projekt anlegen
-vercel env add ANTHROPIC_API_KEY
-vercel env add OPENAI_API_KEY
-vercel env add APP_ACCESS_CODE
-vercel --prod               # live schalten
-```
-
-## Wichtig: Änderungen an Variablen
-Vercel übernimmt geänderte Environment Variables erst beim **nächsten Deployment**. Nach jeder Änderung: Deployments → beim neuesten „…“ → **Redeploy**.
+Neu einrichten (falls nötig): vercel.com → **Add New → Project** → Repository importieren → Variablen eintragen → **Deploy**.
 
 ## Test nach dem Deployment
 1. Seite öffnen → Zugangscode eingeben (falls gesetzt).
-2. Oben rechts muss „Live-Coaching mit Claude“ stehen.
-3. Tab **Training**, Szenario S01, einen Satz schicken → das Gegenüber antwortet frei, der Coach zeigt „✓ / →“.
-4. Tab **Live sprechen** → *Echtzeit-Gespräch (OpenAI)* → Starten → Mikrofon erlauben → sprechen.
-5. Nach jedem deiner Sätze erscheint rechts eine Coach-Karte. Sag „Coach“ für Hilfe.
+2. **Einstellungen** (Zahnrad): „Ausführliches KI-Feedback“ zeigt „Online“.
+3. Begleitung **Geführt**, Szenario „Das Handy beim Abendessen“, einen Satz schreiben → der Coach fragt zuerst, was du ausdrücken wolltest, dann kommt seine Karte.
+4. Unten **Echtzeit** → Mikrofon antippen → Hinweis bestätigen → frei sprechen.
+5. **Coach fragen** antippen → das Gespräch pausiert, der Coach **spricht** seine Hilfe. Weiter geht es mit einem Tipp aufs Mikrofon.
+6. **Beenden & auswerten** → Auswertung in Worten.
+7. **+ Eigenes Szenario** → Situation beschreiben → „Speichern & üben“.
 
 ## Sicherheit und Kosten
 - In **beiden** Anbieter-Konsolen ein monatliches **Budget-Limit** setzen.
 - Zugangscode lang wählen und nicht öffentlich teilen.
-- Wenn nur du die App nutzt: in Vercel unter Settings → Deployment Protection den Schutz aktivieren.
-- Kosten grob: Echtzeit 0,45–0,80 $ pro 10 Minuten (OpenAI); Coach-Feedback wenige Cent pro Gespräch (Claude).
-
-## Lokal testen (optional)
-```bash
-cd vercel-app
-cp .env.example .env.local   # Werte eintragen
-vercel dev                   # öffnet http://localhost:3000
-```
+- Grobe Kosten: Echtzeit 0,45–0,80 $ pro 10 Minuten; Vorlesen wenige Cent pro Gespräch (OpenAI); Coach-Feedback wenige Cent pro Gespräch (Claude).
 
 ## Fehlerhilfe
 | Meldung in der App | Ursache | Lösung |
 |---|---|---|
-| „Bitte zuerst den Zugangscode eingeben“ | Code fehlt oder falsch | Code oben eingeben |
-| Oben steht „Schnellanalyse (offline)“ | `ANTHROPIC_API_KEY` fehlt | Variable setzen, Redeploy |
-| „OPENAI_API_KEY ist auf dem Server nicht gesetzt“ | Variable fehlt | setzen, Redeploy |
+| „Bitte zuerst den Zugangscode eingeben“ | Code fehlt oder falsch | Code in den Einstellungen eingeben |
+| „Nicht verbunden – es prüft eine einfache Schnellanalyse“ | `ANTHROPIC_API_KEY` fehlt | Variable setzen, Redeploy |
+| „Echtzeit hier nicht verfügbar“ | `OPENAI_API_KEY` fehlt | Variable setzen, Redeploy |
+| Coach spricht mit Roboterstimme | `/api/tts` nicht erreichbar → Browser-Stimme als Ersatz | `OPENAI_API_KEY` prüfen, Redeploy |
 | „Kein Zugriff aufs Mikrofon“ | Browser-Freigabe fehlt | Schloss-Symbol in der Adresszeile → Mikrofon erlauben |
-| „OpenAI meldet … model“ | Modellname geändert | `REALTIME_MODEL` setzen |
+| „OpenAI meldet … model“ | Modellname geändert | `REALTIME_MODEL` bzw. `TTS_MODEL` setzen |
 | „Limit erreicht (429)“ | Guthaben oder Budget | in der Anbieter-Konsole prüfen |
 
-Fehlermeldungen bitte als Text oder Screenshot zurückschicken – dann kommt v2.
+Fehlermeldungen bitte als Text oder Screenshot zurückschicken – dann kommt die nächste Version.

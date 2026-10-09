@@ -1,0 +1,283 @@
+<div id="app" lang="de" class="lvl-gefuehrt">
+<header class="band"><div class="wrap">
+  <button class="brand" id="homeBtn" aria-label="Wolf und Giraffe – zur Szenario-Auswahl"><img src="__WOLF__" alt=""><b>Wolf &amp; Giraffe</b><img src="__GIRAFFE__" alt=""></button>
+  <span class="spacer"></span>
+  <button class="iconbtn" id="openSettings" aria-haspopup="dialog" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="hide-sm">Einstellungen</span></button>
+</div></header>
+
+<div class="navwrap"><div class="wrap">
+  <div class="tabs" role="tablist" aria-label="Bereiche">
+    <button class="tab" role="tab" id="t-ueben" aria-controls="p-ueben" aria-selected="true">Üben</button>
+    <button class="tab" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false" tabindex="-1">Kurzübungen</button>
+    <button class="tab" role="tab" id="t-xl" aria-controls="p-xl" aria-selected="false" tabindex="-1">Übersetzer</button>
+    <button class="tab" role="tab" id="t-cheat" aria-controls="p-cheat" aria-selected="false" tabindex="-1">Spickzettel</button>
+    <button class="tab" role="tab" id="t-weg" aria-controls="p-weg" aria-selected="false" tabindex="-1">Mein Weg</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+<!-- ================= ÜBEN ================= -->
+<section role="tabpanel" id="p-ueben" aria-labelledby="t-ueben">
+  <div id="gallery">
+    <div class="hero">
+      <div class="banner"><img src="__BANNER__" alt="Wolf und Giraffe – wertschätzend kommunizieren"></div>
+      <h1>Schwierige Gespräche üben</h1>
+      <p>Du sprichst mit einer KI-Figur, die so reagiert wie ein echter Mensch – und ein Coach zeigt dir, was dir schon gelingt und was du als Nächstes probieren kannst. Grundlage ist die Gewaltfreie Kommunikation nach Marshall B. Rosenberg.</p>
+    </div>
+    <div class="continue" id="continueBox" hidden></div>
+
+    <h2 class="section-title">Wie nah soll der Coach bleiben?</h2>
+    <div class="levelpick" role="radiogroup" aria-label="Begleitung durch den Coach" id="levelPick">
+      <button class="levelopt" role="radio" aria-checked="true" data-level="gefuehrt">
+        <svg viewBox="0 0 56 32" aria-hidden="true"><circle cx="18" cy="16" r="10" fill="var(--accent)"/><circle cx="38" cy="16" r="10" fill="var(--coach-ink)"/></svg>
+        <span><b>Geführt</b>Coach meldet sich nach jedem Satz, mit Satzhilfen und Stimmungsanzeige.</span></button>
+      <button class="levelopt" role="radio" aria-checked="false" data-level="begleitet">
+        <svg viewBox="0 0 56 32" aria-hidden="true"><circle cx="14" cy="16" r="10" fill="var(--accent)"/><circle cx="42" cy="18" r="7" fill="var(--coach-ink)"/></svg>
+        <span><b>Begleitet</b>Coach meldet sich kurz. Hilfen gibt es auf Knopfdruck.</span></button>
+      <button class="levelopt" role="radio" aria-checked="false" data-level="frei">
+        <svg viewBox="0 0 56 32" aria-hidden="true"><circle cx="12" cy="16" r="10" fill="var(--accent)"/><circle cx="48" cy="20" r="4" fill="var(--coach-ink)"/></svg>
+        <span><b>Frei</b>Coach hört still zu – du rufst ihn. Seine Notizen bekommst du am Ende.</span></button>
+    </div>
+
+    <h2 class="section-title" style="margin-top:32px">Womit möchtest du üben?</h2>
+    <div class="filters" role="group" aria-label="Szenarien filtern" id="filters">
+      <button class="chip" aria-pressed="true" data-f="all">Alle</button>
+      <button class="chip" aria-pressed="false" data-f="1">Einstieg</button>
+      <button class="chip" aria-pressed="false" data-f="2">Mittel</button>
+      <button class="chip" aria-pressed="false" data-f="3">Herausfordernd</button>
+      <button class="chip" aria-pressed="false" data-f="mine">Meine Szenarien</button>
+    </div>
+    <div class="grid" id="sgrid"></div>
+  </div>
+
+  <div id="practice" hidden>
+    <div class="phead">
+      <button class="btn ghost" id="backBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Szenarien</button>
+      <div class="title"><h1 id="pTitle"></h1><p class="meta" id="pMeta"></p></div>
+      <div class="seg" role="radiogroup" aria-label="Begleitung" id="lvlSeg">
+        <button role="radio" aria-checked="true" data-level="gefuehrt">Geführt</button>
+        <button role="radio" aria-checked="false" data-level="begleitet">Begleitet</button>
+        <button role="radio" aria-checked="false" data-level="frei">Frei</button>
+      </div>
+      <button class="btn" id="pauseBtn" aria-haspopup="dialog" title="Auszeit (Esc)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>Auszeit</button>
+      <button class="btn" id="endBtn">Beenden &amp; auswerten</button>
+    </div>
+
+    <div class="pgrid">
+      <div class="pmain">
+        <details class="scene" id="scene" open><summary><span>Worum geht's?<span class="sumgoal" id="sceneGoal"></span></span></summary><div class="body" id="sceneBody"></div></details>
+        <div class="mood" id="mood" role="meter" aria-label="Offenheit des Gegenübers" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" aria-valuetext="abwehrend">
+          <span class="who" id="moodText"></span><div class="barwrap" aria-hidden="true"><div class="bar"><i id="moodMark" style="left:30%"></i></div><div class="ends"><span>macht zu</span><span>öffnet sich</span></div></div>
+        </div>
+        <div class="stage" id="stage" hidden>
+          <div class="avatars">
+            <div class="av" id="avThem"><div class="pic" id="avThemPic" aria-hidden="true">P</div><span id="avThemName"></span></div>
+            <p class="status" id="status" role="status">Du bist dran</p>
+            <div class="av" id="avMe"><div class="pic" aria-hidden="true">Du</div><span>Du</span></div>
+          </div>
+          <p class="caption" id="caption"></p>
+          <p class="yourline" id="yourline"></p>
+        </div>
+        <div class="log" id="log" role="log" aria-live="polite" aria-label="Gesprächsverlauf"></div>
+        <p class="note" id="sysnote" role="status"></p>
+
+        <div class="composer" id="composer">
+          <div class="modes">
+            <div class="seg" role="radiogroup" aria-label="Wie möchtest du antworten?" id="modeSeg">
+              <button role="radio" aria-checked="true" data-mode="text">Schreiben</button>
+              <button role="radio" aria-checked="false" data-mode="voice">Sprechen</button>
+              <button role="radio" aria-checked="false" data-mode="rt">Echtzeit</button>
+            </div>
+            <button class="btn coach small" id="askCoach"><img src="__GIRAFFE__" alt="" style="width:24px;height:24px;border-radius:50%"><span>Coach fragen</span></button>
+          </div>
+
+          <div id="m-text" class="stack">
+            <div class="helpers" id="helpers" aria-label="Satzhilfe"></div>
+            <button class="linkbtn" id="helpersToggle" hidden>Satzhilfe zeigen</button>
+            <div class="inputrow">
+              <label class="sr" for="say">Deine Antwort</label>
+              <textarea id="say" rows="2" placeholder="Schreib, was du sagen würdest …"></textarea>
+              <button class="btn primary sendbtn" id="send" aria-label="Senden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <p class="xs muted kbdhint">Enter sendet · Umschalt + Enter für eine neue Zeile</p>
+          </div>
+
+          <div id="m-mic" class="stack" hidden>
+            <div class="micwrap">
+              <button class="mic" id="mic" data-state="ready" aria-label="Mikrofon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/><path d="M8 21h8"/></svg></button>
+              <p class="miclabel" id="micLabel"></p>
+            </div>
+            <div id="m-rt-extra" class="stack" hidden>
+              <p class="rtline">Natürliche Stimme · läuft über OpenAI · <button class="linkbtn" id="rtDetails">Details</button></p>
+              <div class="row" style="justify-content:center"><button class="btn small" id="rtStop" hidden>Verbindung trennen</button></div>
+              <p class="notice" id="rtUnavail" hidden></p>
+            </div>
+            <details id="typeInstead"><summary class="linkbtn" style="list-style:none;text-align:center">Lieber tippen oder diktieren</summary>
+              <div class="inputrow" style="margin-top:8px"><label class="sr" for="vSay">Antwort tippen</label><textarea id="vSay" rows="2" placeholder="Tippen oder mit der Mikrofon-Taste deiner Tastatur diktieren …"></textarea><button class="btn primary sendbtn" id="vSend" aria-label="Senden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <aside class="coachcol" id="coachcol" aria-label="Coach">
+        <div class="coachhead"><img src="__GIRAFFE__" alt=""><div><b>Coach</b><span id="coachSub"></span></div></div>
+        <div class="feed" id="feed" aria-live="polite"></div>
+        <p class="legend" aria-hidden="true"><span class="st ok"><span class="dot"></span>da</span><span class="st part"><span class="dot"></span>teilweise</span><span class="st open"><span class="dot"></span>noch offen</span><span class="st na"><span class="dot"></span>nicht nötig</span></p>
+        <p class="collected" id="collected" hidden></p>
+        <button class="btn coach" id="askCoach2">Coach fragen</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KURZÜBUNGEN ================= -->
+<section role="tabpanel" id="p-quiz" aria-labelledby="t-quiz" hidden>
+  <div id="quizHome" class="stack">
+    <h1 class="section-title" style="font-size:24px">Kurzübungen</h1>
+    <p class="muted" style="max-width:65ch">Fünf Minuten, ein Thema: Du entscheidest bei jedem Satz, was er ist. Das Erinnern festigt das Wissen besser als nochmal Lesen.</p>
+    <div class="deckgrid" id="deckgrid"></div>
+  </div>
+  <div id="quizRun" class="quizcard" hidden></div>
+</section>
+
+<!-- ================= ÜBERSETZER ================= -->
+<section role="tabpanel" id="p-xl" aria-labelledby="t-xl" hidden>
+  <div class="two tool">
+    <div class="card stack">
+      <h2>Dein Satz, wie er dir einfällt</h2>
+      <label class="sr" for="wolfIn">Satz</label>
+      <textarea id="wolfIn" rows="4">Du kommst schon wieder zu spät. Das ist echt respektlos!</textarea>
+      <div class="row"><button class="btn primary" id="xlGo">Übersetzen</button><span class="muted small" id="xlState" role="status"></span></div>
+      <div id="xlFlags" class="stack"></div>
+    </div>
+    <div class="card stack">
+      <h2>Lernform</h2>
+      <dl class="ogbb" id="xlOut"></dl>
+      <h2 style="margin-top:8px">Alltag</h2>
+      <div id="xlAlt"></div>
+      <p class="small muted">Beide Fassungen sind GFK. Die Lernform zeigt die vier Schritte deutlich, die Alltagsform klingt wie du – entscheidend ist die Haltung: beobachten statt urteilen, eigene Gefühle und Bedürfnisse zeigen, offen bitten.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPICKZETTEL ================= -->
+<section role="tabpanel" id="p-cheat" aria-labelledby="t-cheat" hidden>
+  <div class="cheat">
+    <div class="card"><h2>Die vier Schritte</h2>
+      <table>
+        <tr><td>Beobachtung</td><td>Was hätte eine Kamera aufgenommen? Ohne „immer“, „nie“ und Etiketten.</td></tr>
+        <tr><td>Gefühl</td><td>Was fühle ich? Nicht „ich fühle, dass …“.</td></tr>
+        <tr><td>Bedürfnis</td><td>Was ist mir wichtig – ohne eine bestimmte Person oder Handlung?</td></tr>
+        <tr><td>Bitte</td><td>Konkret, machbar, jetzt beantwortbar. Ein Nein ist erlaubt.</td></tr>
+      </table>
+      <p style="margin-top:12px"><span class="hand">Probier mal:</span><br>„Als ich … gesehen habe, war ich …, weil mir … wichtig ist. Wärst du bereit, …?“</p>
+    </div>
+    <div class="card"><h2>Gedanke oder Gefühl?</h2>
+      <table>
+        <tr><td>übergangen</td><td>verletzt, traurig – Bedürfnis: dazugehören</td></tr>
+        <tr><td>unter Druck gesetzt</td><td>angespannt – Bedürfnis: Wahlfreiheit, Ruhe</td></tr>
+        <tr><td>nicht ernst genommen</td><td>frustriert – Bedürfnis: gehört werden</td></tr>
+        <tr><td>ausgenutzt</td><td>erschöpft, ärgerlich – Bedürfnis: Gegenseitigkeit</td></tr>
+        <tr><td>im Stich gelassen</td><td>enttäuscht, allein – Bedürfnis: Unterstützung</td></tr>
+        <tr><td>angegriffen</td><td>erschrocken, wütend – Bedürfnis: Sicherheit, Respekt</td></tr>
+      </table>
+    </div>
+    <div class="card"><h2>Die vier Ohren</h2>
+      <table>
+        <tr><td>Wolf nach innen</td><td>„Ich bin schuld.“ – führt zu Scham</td></tr>
+        <tr><td>Wolf nach außen</td><td>„Der spinnt doch.“ – führt zu Gegenangriff</td></tr>
+        <tr><td>Giraffe nach innen</td><td>„Was fühle und brauche ich?“</td></tr>
+        <tr><td>Giraffe nach außen</td><td>„Was fühlt und braucht der andere?“</td></tr>
+      </table>
+    </div>
+    <div class="card"><h2>Was Empathie blockiert</h2>
+      <table>
+        <tr><td>Ratschlag</td><td>„Du solltest einfach …“</td></tr>
+        <tr><td>Trösten</td><td>„Ist doch halb so wild.“</td></tr>
+        <tr><td>Übertrumpfen</td><td>„Das ist gar nichts, bei mir …“</td></tr>
+        <tr><td>Rechtfertigen</td><td>„Aber ich hab doch nur …“</td></tr>
+        <tr><td>Ausfragen</td><td>„Warum hast du nicht …?“</td></tr>
+      </table>
+      <p style="margin-top:12px"><span class="hand">Stattdessen:</span><br>„Bist du …, weil dir … wichtig ist?“</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEIN WEG ================= -->
+<section role="tabpanel" id="p-weg" aria-labelledby="t-weg" hidden>
+  <div class="stack" id="wegBody"></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p><b>Du übst mit KI-Figuren</b> – kein Ersatz für Beratung oder Therapie. Wenn es dir gerade nicht gut geht: TelefonSeelsorge <b>0800 111 0 111</b> oder <b>0800 111 0 222</b>, kostenlos und rund um die Uhr. In akuter Gefahr: 112.</p>
+  <p style="margin-top:8px">Nach Marshall B. Rosenbergs Gewaltfreier Kommunikation · Illustrationen: Katemangostar / Freepik · Schriften: Ultra, Caveat Brush, Source Sans 3 (SIL Open Font License)</p>
+</footer>
+
+<!-- ================= DIALOGE ================= -->
+<dialog id="dlgSettings" class="drawer" aria-labelledby="setTitle"><div class="dlg">
+  <div class="row"><h2 id="setTitle" class="grow">Einstellungen</h2><button class="iconbtn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <h3>Coach</h3>
+  <div class="switchrow"><span>Ausführliches KI-Feedback<small id="liveSub">Ohne Verbindung prüft eine einfache Schnellanalyse.</small></span><button class="sw" id="swLive" role="switch" aria-checked="false" aria-label="Ausführliches KI-Feedback"></button></div>
+  <div class="switchrow"><span>Erst selbst einschätzen<small>Beim Schreiben fragt der Coach zuerst, was du ausdrücken wolltest.</small></span><button class="sw" id="swSelf" role="switch" aria-checked="true" aria-label="Erst selbst einschätzen"></button></div>
+  <h3>Stimme und Ton</h3>
+  <div class="switchrow"><span>Gegenüber spricht hörbar<small>im Modus „Sprechen“</small></span><button class="sw" id="swThem" role="switch" aria-checked="true" aria-label="Gegenüber spricht hörbar"></button></div>
+  <div class="switchrow"><span>Coach spricht seine Hilfe</span><button class="sw" id="swCoachVoice" role="switch" aria-checked="true" aria-label="Coach spricht"></button></div>
+  <div class="switchrow"><span>Feedback vorlesen<small>nach jedem Satz, im Modus „Sprechen“</small></span><button class="sw" id="swFeedback" role="switch" aria-checked="false" aria-label="Feedback vorlesen"></button></div>
+  <div class="switchrow"><span>Mikrofon automatisch öffnen<small>nach jeder Antwort, im Modus „Sprechen“</small></span><button class="sw" id="swHands" role="switch" aria-checked="false" aria-label="Mikrofon automatisch öffnen"></button></div>
+  <div class="field"><label for="optRate">Sprechtempo <output id="rateOut" class="muted">1,0×</output></label><input type="range" id="optRate" min="0.8" max="1.3" step="0.05" value="1"></div>
+  <div class="field" id="natVoices"><label for="rtVoice">Stimme des Gegenübers</label><select id="rtVoice"><option value="marin">Marin – empfohlen</option><option value="cedar">Cedar – empfohlen</option><option value="coral">Coral</option><option value="sage">Sage</option><option value="ash">Ash</option><option value="verse">Verse</option></select>
+    <label for="coachVoice">Stimme des Coachs</label><select id="coachVoice"><option value="sage">Sage – ruhig (Standard)</option><option value="cedar">Cedar</option><option value="marin">Marin</option><option value="coral">Coral</option><option value="ballad">Ballad</option><option value="nova">Nova</option></select>
+    <p class="help">Natürliche Stimmen von OpenAI – am besten einmal ausprobieren. Ohne Verbindung nutzt die App die Stimmen deines Browsers.</p></div>
+  <div class="field" id="browserVoices" hidden><label for="bvThem">Browser-Stimme Gegenüber</label><select id="bvThem"></select><label for="bvCoach">Browser-Stimme Coach</label><select id="bvCoach"></select></div>
+  <h3 id="setPrivacy">Datenschutz</h3>
+  <p class="small muted">Diese App speichert keine Aufnahmen. Für die natürliche Stimme und den ausführlichen Coach gehen deine Sätze an OpenAI bzw. Anthropic. OpenAI nutzt API-Daten laut eigener Angabe nicht zum Training und bewahrt sie bis zu 30 Tage zur Missbrauchskontrolle auf. Bitte keine echten Nachnamen oder sensiblen Daten eingeben.</p>
+  <div class="field" id="setAccess" hidden><label for="accessCode">Zugangscode</label><input id="accessCode" type="password" autocomplete="off"><button class="btn small" id="accessSave">Speichern</button></div>
+  <div class="stack" id="setLocalKeys" hidden>
+    <h3>Schlüssel (nur bei lokaler Nutzung)</h3>
+    <div class="field"><label for="apiKey">Anthropic-Schlüssel (Coach)</label><input id="apiKey" type="password" placeholder="sk-ant-…" autocomplete="off"></div>
+    <div class="field"><label for="oaKey">OpenAI-Schlüssel (Stimme, Echtzeit)</label><input id="oaKey" type="password" placeholder="sk-…" autocomplete="off"></div>
+    <div class="field"><label for="ekKey">Sitzungs-Schlüssel (falls der Browser den OpenAI-Aufruf blockiert)</label><input id="ekKey" placeholder="ek_…" autocomplete="off"><p class="help">Im Terminal erzeugen: <code>curl -s https://api.openai.com/v1/realtime/client_secrets -H "Authorization: Bearer $OPENAI_API_KEY" -H "Content-Type: application/json" -d '{"session":{"type":"realtime","model":"gpt-realtime-2.1"}}'</code> – gilt 10 Minuten.</p></div>
+    <button class="btn" id="keysSave">Schlüssel in diesem Browser speichern</button>
+  </div>
+  <h3>Deine Daten</h3>
+  <p class="small muted">Verlauf, eigene Szenarien und Einstellungen liegen nur in diesem Browser.</p>
+  <div class="row"><button class="btn" id="wipe">Alles löschen</button><span class="small muted" id="wipeNote" role="status"></span></div>
+</div></dialog>
+
+<dialog id="dlgPause" aria-labelledby="pauseTitle"><div class="dlg">
+  <h2 id="pauseTitle">Kurze Pause</h2>
+  <p id="pauseLead">Nichts geht verloren. Nimm dir einen Moment für dich.</p>
+  <div class="field"><span class="lbl" id="seFeelLbl">Was ist gerade in dir los?</span><div class="row" id="seFeel" role="group" aria-labelledby="seFeelLbl"></div></div>
+  <div class="field"><span class="lbl" id="seNeedLbl">Was brauchst du gerade?</span><div class="row" id="seNeed" role="group" aria-labelledby="seNeedLbl"></div></div>
+  <p class="quote" id="seSentence" hidden></p>
+  <div class="help-line"><b>Wenn es gerade schwer ist:</b>TelefonSeelsorge 0800 111 0 111 · 0800 111 0 222 · 116 123 – kostenlos, rund um die Uhr. In akuter Gefahr: 112.</div>
+  <div class="actions"><button class="btn" id="pRestart">Szene neu beginnen</button><button class="btn" id="pQuit">Für heute aufhören</button><button class="btn primary" id="pResume">Weiter, wenn ich bereit bin</button></div>
+</div></dialog>
+
+<dialog id="dlgReport" aria-labelledby="repTitle"><div class="dlg" id="repBody"></div></dialog>
+
+<dialog id="dlgCustom" aria-labelledby="custTitle"><div class="dlg">
+  <div class="row"><h2 id="custTitle" class="grow">Eigenes Szenario</h2><button class="iconbtn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <form id="custForm" class="stack">
+    <p class="small muted">Beschreibe eine Situation aus deinem Leben. Bitte nutze Vornamen oder Rollen statt echter Nachnamen.</p>
+    <div class="field"><label for="cWho">Mit wem willst du sprechen?</label><input id="cWho" type="text" required placeholder="z. B. meine Schwester Anna, 34"></div>
+    <div class="field"><label for="cWhat">Was ist passiert?</label><textarea id="cWhat" rows="3" required placeholder="z. B. Sie hat meinen Geburtstag vergessen und sich seit zwei Wochen nicht gemeldet."></textarea></div>
+    <div class="field"><label for="cGoal">Was möchtest du im Gespräch erreichen? <span class="muted">(optional)</span></label><input id="cGoal" type="text" placeholder="z. B. sagen, dass mich das verletzt hat, ohne Vorwurf"></div>
+    <div class="field"><label for="cReact">Wie reagiert die Person oft? <span class="muted">(optional)</span></label><input id="cReact" type="text" placeholder="z. B. wird schnell defensiv, wechselt das Thema"></div>
+    <div class="field"><span class="lbl" id="cStartLbl">Wer beginnt?</span>
+      <div class="seg" role="radiogroup" aria-labelledby="cStartLbl" id="cStart"><button type="button" role="radio" aria-checked="true" data-v="them">Die andere Person</button><button type="button" role="radio" aria-checked="false" data-v="me">Ich</button></div></div>
+    <div class="field"><span class="lbl" id="cLvlLbl">Wie schwer soll es sein?</span>
+      <div class="seg" role="radiogroup" aria-labelledby="cLvlLbl" id="cLvl"><button type="button" role="radio" aria-checked="true" data-v="1">Einstieg</button><button type="button" role="radio" aria-checked="false" data-v="2">Mittel</button><button type="button" role="radio" aria-checked="false" data-v="3">Herausfordernd</button></div></div>
+    <div class="actions"><span class="small muted grow" id="custState" role="status"></span><button class="btn primary" type="submit">Szenario erstellen</button></div>
+  </form>
+  <div id="custPreview" class="stack" hidden></div>
+</div></dialog>
+
+<dialog id="dlgConsent" aria-labelledby="consTitle"><div class="dlg">
+  <h2 id="consTitle">Echtzeit-Gespräch</h2>
+  <p>Du sprichst gleich frei mit einer <b>KI-Stimme</b>, nicht mit einem Menschen. Du kannst sie jederzeit unterbrechen.</p>
+  <p class="small muted">Deine Stimme geht zur Verarbeitung an OpenAI. Diese App speichert keine Aufnahmen. Laut OpenAI werden API-Daten nicht zum Training genutzt und bis zu 30 Tage zur Missbrauchskontrolle aufbewahrt. Kosten pro 10 Minuten: grob 0,45–0,80 $.</p>
+  <div class="actions"><button class="btn" data-close>Abbrechen</button><button class="btn primary" id="consOk">Verstanden, starten</button></div>
+</div></dialog>
+</div>

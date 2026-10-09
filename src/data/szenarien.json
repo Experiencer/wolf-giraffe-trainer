@@ -1,0 +1,247 @@
+{
+  "version": "1.0",
+  "titel": "GFK-Trainingsszenarien",
+  "hinweis": "Jedes Szenario: Kontext für den Übenden, Rolle + Eröffnungssatz für die Simulator-Figur, verborgene Gefühle/Bedürfnisse (nur für Simulator/Coach), Lernziel und Eskalationsverhalten.",
+  "szenarien": [
+    {
+      "id": "S01", "bereich": "Partnerschaft", "stufe": 1, "fokus": "Ehrlicher Ausdruck",
+      "titel": "Das Handy beim Abendessen",
+      "kontext": "Du erzählst beim Abendessen von deinem schwierigen Tag. Dein Partner/deine Partnerin scrollt dabei auf dem Handy.",
+      "rolle": "Partner/in, müde, liest Nachrichten von der eigenen Mutter, die krank ist.",
+      "eroeffnung": "Hm? Ja, ich hör doch zu. Erzähl weiter.",
+      "verborgen": {"gefuehle": ["besorgt", "erschöpft"], "beduerfnisse": ["Sicherheit (Mutter)", "Erholung", "Verständnis"]},
+      "lernziel": "Beobachtung statt 'Du hörst nie zu', eigene Bitte konkret formulieren.",
+      "eskalation": "Bei Vorwurf: wird gereizt ('Immer muss ich alles stehen und liegen lassen'). Bei Empathie: erzählt von der Sorge um die Mutter."
+    },
+    {
+      "id": "S02", "bereich": "WG / Nachbarschaft", "stufe": 1, "fokus": "Bitte statt Forderung",
+      "titel": "Die Musik um Mitternacht",
+      "kontext": "Dein Nachbar hört zum dritten Mal diese Woche nach Mitternacht laute Musik. Du musst um 6 Uhr aufstehen. Du klingelst.",
+      "rolle": "Nachbar, Mitte 20, hatte Geburtstag, fühlt sich schnell bevormundet.",
+      "eroeffnung": "Ja? Ist was passiert?",
+      "verborgen": {"gefuehle": ["ausgelassen", "unsicher bei Kritik"], "beduerfnisse": ["Freude", "Gemeinschaft", "Autonomie"]},
+      "lernziel": "Konkrete, machbare Bitte mit Uhrzeit; Nein-Antwort empathisch aufnehmen.",
+      "eskalation": "Bei Drohung (Vermieter, Polizei): blockt ab. Bei echter Bitte: bietet Kompromiss an."
+    },
+    {
+      "id": "S03", "bereich": "Arbeit", "stufe": 2, "fokus": "Empathie hören",
+      "titel": "Kritik vom Chef vor dem Team",
+      "kontext": "Im Meeting sagt deine Chefin vor allen, dein Bericht sei 'unbrauchbar'. Danach sprichst du sie unter vier Augen an.",
+      "rolle": "Chefin, steht selbst unter Druck der Geschäftsführung, Deadline morgen.",
+      "eroeffnung": "Ich hab jetzt wirklich keine Zeit für Befindlichkeiten. Der Bericht muss bis morgen stehen.",
+      "verborgen": {"gefuehle": ["gestresst", "ängstlich"], "beduerfnisse": ["Verlässlichkeit", "Kompetenz zeigen", "Unterstützung"]},
+      "lernziel": "Erst Empathie für den Druck der Chefin, dann eigener Ausdruck zur öffentlichen Kritik.",
+      "eskalation": "Bei Rechtfertigung: wird ungeduldig. Bei Empathie für den Druck: wird weicher, gibt zu, dass das vor dem Team unnötig war."
+    },
+    {
+      "id": "S04", "bereich": "Familie", "stufe": 2, "fokus": "Empathie hören",
+      "titel": "Die Mutter am Telefon",
+      "kontext": "Deine Mutter ruft an. Du hast dich zwei Wochen nicht gemeldet.",
+      "rolle": "Mutter, 70, lebt allein, fühlt sich einsam, drückt das als Vorwurf aus.",
+      "eroeffnung": "Ach, du lebst ja noch. Ich dachte schon, ich müsste die Polizei anrufen.",
+      "verborgen": {"gefuehle": ["einsam", "traurig", "besorgt"], "beduerfnisse": ["Verbindung", "Bedeutung", "Sicherheit"]},
+      "lernziel": "Den Vorwurf nicht persönlich nehmen (4 Ohren), Einsamkeit und Bedürfnis nach Verbindung hören.",
+      "eskalation": "Bei Rechtfertigung: Liste weiterer Vorwürfe. Bei Empathie: 'Ja… es ist halt so still hier.'"
+    },
+    {
+      "id": "S05", "bereich": "Selbstempathie", "stufe": 1, "fokus": "Innerer Wolf",
+      "titel": "Der verpatzte Vortrag",
+      "kontext": "Du hast bei einer Präsentation den Faden verloren. Seitdem sagt eine innere Stimme: 'Du bist so peinlich.'",
+      "rolle": "Der innere Kritiker (Simulator spricht als innere Stimme).",
+      "eroeffnung": "Typisch. Alle haben gesehen, dass du es nicht drauf hast.",
+      "verborgen": {"gefuehle": ["beschämt", "enttäuscht"], "beduerfnisse": ["Kompetenz", "Anerkennung", "Sicherheit"]},
+      "lernziel": "Selbstvorwurf in Gefühle/Bedürfnisse übersetzen; Bedauern statt Schuld.",
+      "eskalation": "Wird leiser, wenn der Übende ihr unerfülltes Bedürfnis anerkennt."
+    },
+    {
+      "id": "S06", "bereich": "Kinder", "stufe": 1, "fokus": "Bitte & Autonomie",
+      "titel": "Hausaufgaben vs. Spielkonsole",
+      "kontext": "Dein 11-jähriges Kind spielt seit zwei Stunden, die Mathe-Hausaufgabe ist für morgen.",
+      "rolle": "Kind, 11, hat Angst vor Mathe, flüchtet ins Spiel.",
+      "eroeffnung": "Gleich! Nur noch diese Runde!",
+      "verborgen": {"gefuehle": ["überfordert", "ängstlich"], "beduerfnisse": ["Kompetenz", "Spiel", "Selbstbestimmung"]},
+      "lernziel": "Keine Drohung/Strafe; Bedürfnisse des Kindes hören, gemeinsame Strategie finden.",
+      "eskalation": "Bei Drohung: Trotz ('Du bist so gemein!'). Bei Empathie: 'Mathe ist einfach blöd, ich check das nicht.'"
+    },
+    {
+      "id": "S07", "bereich": "Arbeit", "stufe": 2, "fokus": "Ehrlicher Ausdruck",
+      "titel": "Der Kollege, der sich mit fremden Federn schmückt",
+      "kontext": "Ein Kollege hat deine Idee im Meeting als seine präsentiert.",
+      "rolle": "Kollege, ehrgeizig, glaubt teilweise wirklich, die Idee gemeinsam entwickelt zu haben.",
+      "eroeffnung": "Lief doch super heute, oder? Der Bereichsleiter war total begeistert.",
+      "verborgen": {"gefuehle": ["stolz", "unsicher"], "beduerfnisse": ["Anerkennung", "Zugehörigkeit", "Karriere-Sicherheit"]},
+      "lernziel": "Beobachtung ohne Unterstellung ('Du hast geklaut'), Bedürfnis nach Wertschätzung/Fairness benennen.",
+      "eskalation": "Bei Vorwurf 'Ideenklau': defensiv. Bei Beobachtung + Bitte: bietet an, es beim Bereichsleiter richtigzustellen."
+    },
+    {
+      "id": "S08", "bereich": "Freundschaft", "stufe": 1, "fokus": "Nein sagen",
+      "titel": "Schon wieder Umzugshilfe",
+      "kontext": "Ein Freund bittet dich zum dritten Mal in diesem Jahr, am Samstag beim Umzug zu helfen. Du brauchst das Wochenende dringend für dich.",
+      "rolle": "Freund, verlässt sich gern auf dich, ist schnell gekränkt.",
+      "eroeffnung": "Du bist doch dabei am Samstag? Ohne dich schaffen wir das nie.",
+      "verborgen": {"gefuehle": ["gestresst", "hoffnungsvoll"], "beduerfnisse": ["Unterstützung", "Sicherheit", "Leichtigkeit"]},
+      "lernziel": "Nein als Ja zu eigenem Bedürfnis ausdrücken, ohne Rechtfertigungsorgie; Empathie für Enttäuschung.",
+      "eskalation": "Bei Ausrede: 'Für andere hast du immer Zeit.' Bei ehrlichem Nein + Empathie: akzeptiert, fragt nach Alternative."
+    },
+    {
+      "id": "S09", "bereich": "Kundenkontakt", "stufe": 2, "fokus": "Empathie bei Wut",
+      "titel": "Der wütende Kunde",
+      "kontext": "Du arbeitest im Kundenservice. Ein Kunde wartet seit drei Wochen auf eine Reparatur.",
+      "rolle": "Kunde, Selbstständiger, braucht das Gerät für seine Arbeit, hat Verdienstausfall.",
+      "eroeffnung": "Das ist doch ein Saftladen hier! Drei Wochen! Wissen Sie, was mich das kostet?",
+      "verborgen": {"gefuehle": ["wütend", "verzweifelt"], "beduerfnisse": ["Verlässlichkeit", "finanzielle Sicherheit", "ernst genommen werden"]},
+      "lernziel": "Nicht rechtfertigen, sondern Empathie geben, bis der Kunde sich gehört fühlt; erst dann Lösung.",
+      "eskalation": "Bei Floskeln ('Ich verstehe Ihren Ärger'): lauter. Bei konkreter Empathie: beruhigt sich, wird kooperativ."
+    },
+    {
+      "id": "S10", "bereich": "Partnerschaft", "stufe": 3, "fokus": "Konfliktklärung",
+      "titel": "Geld und Urlaub",
+      "kontext": "Du möchtest das Ersparte für einen großen Urlaub nutzen, dein Partner möchte es als Rücklage behalten.",
+      "rolle": "Partner/in, aus Familie mit Geldsorgen, Sicherheit hat hohen Stellenwert.",
+      "eroeffnung": "Ich versteh nicht, wie man so leichtsinnig mit Geld umgehen kann.",
+      "verborgen": {"gefuehle": ["ängstlich", "angespannt"], "beduerfnisse": ["Sicherheit", "Vorsorge", "Gehört werden"]},
+      "lernziel": "Konflikt auf Bedürfnis-Ebene (Erholung/Abenteuer vs. Sicherheit) heben; Strategien suchen, die beiden dienen.",
+      "eskalation": "Bei Gegenangriff ('Du bist geizig'): verhärtet. Bei Empathie für Sicherheit: erzählt von früheren Geldsorgen."
+    },
+    {
+      "id": "S11", "bereich": "Arbeit", "stufe": 2, "fokus": "Feedback geben",
+      "titel": "Mitarbeiter verpasst Deadlines",
+      "kontext": "Du leitest ein kleines Team. Ein Mitarbeiter hat die letzten drei Abgabetermine um mehrere Tage verpasst.",
+      "rolle": "Mitarbeiter, pflegt nebenbei seinen kranken Vater, hat es niemandem erzählt.",
+      "eroeffnung": "Sie wollten mich sprechen?",
+      "verborgen": {"gefuehle": ["erschöpft", "beschämt"], "beduerfnisse": ["Verständnis", "Entlastung", "Würde"]},
+      "lernziel": "Konkrete Beobachtung (Daten), eigenes Bedürfnis (Planbarkeit), Verbindungsbitte vor Lösung.",
+      "eskalation": "Bei Urteil ('unzuverlässig'): verschließt sich. Bei Beobachtung + Interesse: öffnet sich."
+    },
+    {
+      "id": "S12", "bereich": "Familie", "stufe": 3, "fokus": "Empathie hören",
+      "titel": "Der Teenager knallt die Tür",
+      "kontext": "Deine 15-jährige Tochter kommt nach Hause, wirft die Tasche hin und knallt die Zimmertür. Du klopfst.",
+      "rolle": "Tochter, 15, wurde in der Schule von Freundinnen ausgeschlossen.",
+      "eroeffnung": "Lass mich einfach in Ruhe!",
+      "verborgen": {"gefuehle": ["verletzt", "einsam", "wütend"], "beduerfnisse": ["Zugehörigkeit", "Akzeptanz", "Rückzug/Raum"]},
+      "lernziel": "Empathie für Rückzug, auch für Schweigen; kein Ausfragen oder Ratschlag.",
+      "eskalation": "Bei Ausfragen/Belehren: Schweigen. Bei Empathie ohne Druck: öffnet die Tür einen Spalt."
+    },
+    {
+      "id": "S13", "bereich": "Selbstempathie", "stufe": 2, "fokus": "Bedauern & Selbstvergebung",
+      "titel": "Ich habe mein Kind angeschrien",
+      "kontext": "Du hast dein Kind heute laut angeschrien, weil es Saft auf deinen Laptop gekippt hat. Jetzt nagen Schuldgefühle.",
+      "rolle": "Der innere Kritiker.",
+      "eroeffnung": "Du bist genau so wie dein Vater. Ein schlechter Vater/eine schlechte Mutter.",
+      "verborgen": {"gefuehle": ["beschämt", "traurig"], "beduerfnisse": ["Fürsorge", "Integrität", "Gelassenheit"]},
+      "lernziel": "Bedauern über unerfülltes Bedürfnis (Fürsorge) + Selbstempathie für das Bedürfnis im Moment (Schutz des Laptops/Arbeit); GFK-Entschuldigung planen.",
+      "eskalation": "Wird milder, wenn beide Bedürfnisse (damals und heute) gewürdigt werden."
+    },
+    {
+      "id": "S14", "bereich": "Freundschaft", "stufe": 2, "fokus": "Ehrlicher Ausdruck",
+      "titel": "Die immer zu späte Freundin",
+      "kontext": "Eure Verabredung war um 19 Uhr. Deine Freundin kommt um 19:40, wie die letzten beiden Male auch.",
+      "rolle": "Freundin, chaotischer Alltag mit Job und Kind, schämt sich insgeheim.",
+      "eroeffnung": "Sorry sorry sorry! Der Bus! Du kennst das ja.",
+      "verborgen": {"gefuehle": ["gehetzt", "verlegen"], "beduerfnisse": ["Verständnis", "Leichtigkeit", "Akzeptanz"]},
+      "lernziel": "Beobachtung mit Zahlen statt 'immer', Ärger ausdrücken ohne Schuld; konkrete Bitte für zukünftige Treffen.",
+      "eskalation": "Bei Vorwurf: 'Du bist echt pedantisch.' Bei Ehrlichkeit + Empathie: erzählt vom Stress, schlägt Lösung vor."
+    },
+    {
+      "id": "S15", "bereich": "Gesellschaft", "stufe": 3, "fokus": "Empathie bei Abwertung",
+      "titel": "Abwertender Spruch am Familientisch",
+      "kontext": "Ein Onkel macht bei der Familienfeier einen abfälligen Spruch über Geflüchtete. Du willst nicht schweigen, aber auch keinen Eklat.",
+      "rolle": "Onkel, 65, hat Angst um Rente und Veränderung, fühlt sich 'nicht mehr gehört'.",
+      "eroeffnung": "Ist doch so! Man darf ja heute gar nichts mehr sagen.",
+      "verborgen": {"gefuehle": ["ängstlich", "frustriert"], "beduerfnisse": ["Sicherheit", "gehört werden", "Orientierung"]},
+      "lernziel": "Empathie geben, ohne zuzustimmen; eigene Werte (Würde, Gleichwertigkeit) ehrlich ausdrücken.",
+      "eskalation": "Bei Belehrung: 'Ihr jungen Leute …' Bei Empathie: spricht über eigene Ängste; hört dann auch die andere Sicht."
+    },
+    {
+      "id": "S16", "bereich": "Arbeit", "stufe": 1, "fokus": "Wertschätzung",
+      "titel": "Danke an die Kollegin",
+      "kontext": "Eine Kollegin ist gestern spontan für dich eingesprungen, als dein Kind krank war. Du willst dich bedanken – nicht nur mit 'Danke, super!'",
+      "rolle": "Kollegin, bescheiden, wiegelt Dank gern ab.",
+      "eroeffnung": "Ach, das war doch selbstverständlich.",
+      "verborgen": {"gefuehle": ["verlegen", "freudig"], "beduerfnisse": ["Beitrag", "Gesehen werden"]},
+      "lernziel": "GFK-Dank: konkrete Handlung + erfülltes Bedürfnis + Gefühl.",
+      "eskalation": "Bei konkretem GFK-Dank: berührt, sagt, dass ihr das viel bedeutet."
+    },
+    {
+      "id": "S17", "bereich": "Partnerschaft", "stufe": 2, "fokus": "Wertschätzung empfangen / Kritik hören",
+      "titel": "'Du bist so kalt geworden'",
+      "kontext": "Dein Partner sagt dir nach einem Abend nebeneinanderher, du seist kalt geworden.",
+      "rolle": "Partner/in, vermisst Zärtlichkeit, traut sich nicht, es direkt zu sagen.",
+      "eroeffnung": "Du bist so kalt geworden in letzter Zeit.",
+      "verborgen": {"gefuehle": ["einsam", "traurig", "unsicher"], "beduerfnisse": ["Nähe", "Zärtlichkeit", "Gesehen werden"]},
+      "lernziel": "Kritik mit Giraffenohren nach außen hören (statt Schuld bei mir/beim anderen).",
+      "eskalation": "Bei Verteidigung: 'Siehst du, du blockst schon wieder.' Bei Empathie: 'Ich vermisse dich einfach.'"
+    },
+    {
+      "id": "S18", "bereich": "Behörde / Dienstleister", "stufe": 2, "fokus": "Ehrlicher Ausdruck im Machtgefälle",
+      "titel": "Die Sachbearbeiterin",
+      "kontext": "Dein Antrag wurde zum zweiten Mal wegen eines fehlenden Formulars abgelehnt, das dir vorher niemand genannt hat.",
+      "rolle": "Sachbearbeiterin, 40 offene Fälle, wird täglich angeschrien.",
+      "eroeffnung": "Ohne Formular B12 kann ich da nichts machen. Vorschrift ist Vorschrift.",
+      "verborgen": {"gefuehle": ["erschöpft", "abgestumpft"], "beduerfnisse": ["Respekt", "Ordnung", "Entlastung"]},
+      "lernziel": "Empathie für die Lage der Sachbearbeiterin; klare Handlungsbitte (z. B. vollständige Liste schriftlich).",
+      "eskalation": "Bei Vorwurf: 'Beschweren Sie sich bei meinem Vorgesetzten.' Bei Empathie + klarer Bitte: hilft aktiv."
+    },
+    {
+      "id": "S19", "bereich": "Mediation", "stufe": 3, "fokus": "Vermitteln",
+      "titel": "Streit zwischen zwei Kollegen",
+      "kontext": "Zwei Teammitglieder streiten über die Urlaubsplanung im Sommer. Du moderierst. Der Simulator spielt beide Personen.",
+      "rolle": "A: 'Ich habe schulpflichtige Kinder.' B: 'Ich hatte schon drei Jahre nie Sommerurlaub.'",
+      "eroeffnung": "A: Es ist doch klar, dass Eltern Vorrang haben. — B: Ach ja, und ich darf ewig zurückstecken?",
+      "verborgen": {"gefuehle": ["A: angespannt", "B: frustriert"], "beduerfnisse": ["A: Familienzeit, Planbarkeit", "B: Fairness, Erholung, Gesehen werden"]},
+      "lernziel": "Rosenbergs Mediationsstruktur: Bedürfnisse jeder Seite hören und gegenseitig spiegeln lassen, erst dann Lösungen.",
+      "eskalation": "Bei Partei-Ergreifen: der andere wird lauter. Bei korrekter Spiegelung: beide werden kooperativ."
+    },
+    {
+      "id": "S20", "bereich": "Selbstempathie", "stufe": 2, "fokus": "Wut-Prozess",
+      "titel": "Im Stau geschnitten",
+      "kontext": "Ein Autofahrer hat dich riskant geschnitten. Du kochst vor Wut und erzählst es dem Coach.",
+      "rolle": "Coach (Simulator führt durch den Wut-Prozess).",
+      "eroeffnung": "Was geht dir gerade durch den Kopf über den anderen Fahrer?",
+      "verborgen": {"gefuehle": ["erschrocken", "wütend"], "beduerfnisse": ["Sicherheit", "Rücksicht"]},
+      "lernziel": "Stopp – Urteile erkennen – Bedürfnisse dahinter – Gefühl hinter der Wut (oft Angst).",
+      "eskalation": "Coach bleibt geduldig, fragt nach Urteilen, übersetzt sie gemeinsam."
+    },
+    {
+      "id": "S21", "bereich": "Kinder", "stufe": 3, "fokus": "Schützende Macht",
+      "titel": "Das Kind läuft zur Straße",
+      "kontext": "Dein 4-jähriges Kind rennt Richtung Straße. Du hältst es fest. Es schreit und tritt. Danach: das Gespräch.",
+      "rolle": "Kind, 4, wollte zum Hund auf der anderen Seite.",
+      "eroeffnung": "Neiiin! Lass mich! Ich will zum Hund!",
+      "verborgen": {"gefuehle": ["wütend", "enttäuscht"], "beduerfnisse": ["Autonomie", "Neugier", "Kontakt (Hund)"]},
+      "lernziel": "Schützende statt strafende Macht; danach Empathie für die Enttäuschung, eigenes Gefühl (Schreck) und Bedürfnis (Sicherheit) einfach ausdrücken.",
+      "eskalation": "Bei Schimpfen: weint lauter. Bei Empathie: beruhigt sich, lässt sich auf Hand-geben ein."
+    },
+    {
+      "id": "S22", "bereich": "Arbeit", "stufe": 3, "fokus": "Nein zum Chef",
+      "titel": "Noch ein Projekt obendrauf",
+      "kontext": "Dein Chef will dir ein weiteres Projekt geben. Du arbeitest seit Wochen 50 Stunden.",
+      "rolle": "Chef, schätzt dich, hat niemanden sonst, dem er es zutraut.",
+      "eroeffnung": "Ich weiß, ist viel gerade. Aber du bist der/die Einzige, der/die das kann. Ich zähl auf dich.",
+      "verborgen": {"gefuehle": ["unter Druck", "vertrauensvoll"], "beduerfnisse": ["Verlässlichkeit", "Ergebnis", "Unterstützung"]},
+      "lernziel": "Ehrliches Nein (Ja zu Gesundheit/Qualität) im Machtgefälle; Empathie für Chef; Alternativen anbieten.",
+      "eskalation": "Bei bloßem 'Geht nicht': enttäuscht/Druck. Bei Bedürfnis-Dialog: sucht mit dir nach Prioritäten."
+    },
+    {
+      "id": "S23", "bereich": "Partnerschaft", "stufe": 3, "fokus": "Entschuldigung in GFK",
+      "titel": "Den Jahrestag vergessen",
+      "kontext": "Du hast euren Jahrestag vergessen. Dein Partner hatte gekocht und gewartet.",
+      "rolle": "Partner/in, tief verletzt, deutet es als Zeichen mangelnder Liebe.",
+      "eroeffnung": "Weißt du eigentlich, was heute für ein Tag ist?",
+      "verborgen": {"gefuehle": ["verletzt", "traurig", "enttäuscht"], "beduerfnisse": ["Bedeutung", "Wertschätzung", "Verbindung"]},
+      "lernziel": "GFK-Entschuldigung: zuerst Empathie, dann eigenes Bedauern (Trauer statt Schuld-Ritual), dann Angebot.",
+      "eskalation": "Bei 'Sorry, war halt viel los': mehr Verletzung. Bei Empathie und echtem Bedauern: Tränen, dann Annäherung."
+    },
+    {
+      "id": "S24", "bereich": "Online", "stufe": 2, "fokus": "Empathie bei Angriff",
+      "titel": "Der beleidigende Kommentar",
+      "kontext": "Unter deinem Social-Media-Beitrag schreibt jemand: 'Was für ein dämlicher Beitrag, typisch Möchtegern-Experte.'",
+      "rolle": "Kommentator, hat selbst schlechte Erfahrungen mit dem Thema gemacht.",
+      "eroeffnung": "Was für ein dämlicher Beitrag, typisch Möchtegern-Experte.",
+      "verborgen": {"gefuehle": ["frustriert", "verbittert"], "beduerfnisse": ["Gehört werden", "Ehrlichkeit", "Kompetenz anerkannt"]},
+      "lernziel": "Vier Ohren üben; Entscheidung: antworten mit Empathie oder bewusst nicht antworten (Selbstfürsorge).",
+      "eskalation": "Bei Gegenangriff: Flamewar. Bei Empathie-Frage: schreibt von eigenen Erfahrungen."
+    }
+  ]
+}
