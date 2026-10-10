@@ -53,6 +53,7 @@ with sync_playwright() as p:
 
     # 1 Galerie + Zugangscode
     ok("Galerie sichtbar", pg.is_visible("#gallery"))
+    ok("Schriftzug hell: weiß", pg.evaluate("getComputedStyle(document.querySelector('.brand b')).color") == "rgb(255, 255, 255)")
     ok("24 Szenarien + Eigenes-Karte", pg.locator("#sgrid .scard").count() == 25, pg.locator("#sgrid .scard").count())
     ok("Zugangscode-Karte (locked)", pg.is_visible("#gAccess"))
     pg.screenshot(path=S + "v5_gallery_light.png")
@@ -392,6 +393,68 @@ with sync_playwright() as p:
         pg.screenshot(path=S + f"v6_mob_{scheme}_k10.png", full_page=True)
         ok(f"Handy {scheme}: kein waagrechtes Scrollen", max(sw) <= 390, sw)
         ctx.close()
+
+    # 17 (v6.1) Übungsansicht + Auszeit auf dem Handy (hell/dunkel) und am Desktop dunkel:
+    #    Schriftzug-Farbe, Tippflächen mindestens 44 px, kein waagrechtes Scrollen, Auszeit im Bild.
+    #    Wichtig: Tippflächen VOR jedem Ganzseiten-Screenshot messen – screenshot(full_page=True) setzt in
+    #    Handy-Kontexten die Touch-Erkennung (pointer:coarse) zurück, danach messen alle Knöpfe zu klein.
+    SMALL_JS = """() => [...document.querySelectorAll('button, a[href], [role=tab], select, summary, input:not([type=hidden]), textarea')]
+      .filter(e => { const r = e.getBoundingClientRect(), c = getComputedStyle(e);
+        return r.width > 0 && r.height > 0 && c.visibility !== 'hidden' && !e.closest('[hidden]') && !e.closest('dialog:not([open])') && r.height < 43.5; })
+      .map(e => (e.innerText || e.getAttribute('aria-label') || e.id || e.tagName).trim().replace(/\\s+/g, ' ').slice(0, 30) + ' ' + Math.round(e.getBoundingClientRect().height))"""
+    DLG_JS = "(() => { const r = document.querySelector('#dlgPause').getBoundingClientRect(); return [Math.round(r.left), Math.round(r.right)]; })()"
+    SCROLLW = "document.documentElement.scrollWidth"
+    WORT = "getComputedStyle(document.querySelector('.brand b')).color"
+
+    def uebung_mit_coach(pg):
+        reset(); pg.goto(BASE); pg.wait_for_timeout(500)
+        pg.fill("#gAccess", "geheim"); pg.click("#gAccessSave")
+        pg.click('[data-open="S01"]'); pg.wait_for_timeout(300)
+        pg.fill("#say", "Du hörst mir nie zu!"); pg.press("#say", "Enter")
+        pg.locator('.fcard.turn [data-self="O"]:visible').first.click()
+        pg.wait_for_function("[...document.querySelectorAll('.fcard.turn')].some(e => e.offsetParent !== null && e.textContent.includes('Schon gut'))", timeout=6000)
+        pg.wait_for_timeout(300)
+
+    for scheme, wort in [("light", "rgb(255, 255, 255)"), ("dark", "rgb(244, 237, 231)")]:
+        ctx = b.new_context(viewport={"width": 390, "height": 844}, color_scheme=scheme, is_mobile=True, has_touch=True)
+        pg = ctx.new_page(); errs = []
+        pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
+        pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
+        reset(); pg.goto(BASE); pg.wait_for_timeout(500)
+        ok(f"Handy {scheme}: Schriftzug-Farbe", pg.evaluate(WORT) == wort, pg.evaluate(WORT))
+        ok(f"Handy {scheme}: Galerie, Tippflächen ≥ 44 px", pg.evaluate(SMALL_JS) == [], pg.evaluate(SMALL_JS))
+        uebung_mit_coach(pg)
+        sw = [pg.evaluate(SCROLLW)]
+        ok(f"Handy {scheme}: Übung mit Coach, Tippflächen ≥ 44 px", pg.evaluate(SMALL_JS) == [], pg.evaluate(SMALL_JS))
+        ok(f"Handy {scheme}: Logo-Knopf mindestens 44 px hoch", pg.evaluate("document.querySelector('#homeBtn').getBoundingClientRect().height") >= 44)
+        pg.screenshot(path=S + f"v61_mob_{scheme}_uebung.png")
+        pg.click("#log"); pg.keyboard.press("Escape"); pg.wait_for_timeout(250)
+        sw.append(pg.evaluate(SCROLLW)); dlg = pg.evaluate(DLG_JS)
+        ok(f"Handy {scheme}: Auszeit offen und im Bild", pg.evaluate("document.querySelector('#dlgPause').open") and dlg[0] >= 0 and dlg[1] <= 390, dlg)
+        ok(f"Handy {scheme}: Auszeit, Tippflächen ≥ 44 px", pg.evaluate(SMALL_JS) == [], pg.evaluate(SMALL_JS))
+        pg.screenshot(path=S + f"v61_mob_{scheme}_auszeit.png")
+        pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
+        ok(f"Handy {scheme}: Übung + Auszeit ohne waagrechtes Scrollen", max(sw) <= 390, sw)
+        ok(f"Handy {scheme}: Übung + Auszeit ohne Konsolenfehler", not errs, errs)
+        pg.screenshot(path=S + f"v61_mob_{scheme}_uebung_ganz.png", full_page=True)   # zuletzt: setzt die Touch-Erkennung zurück
+        ctx.close()
+
+    ctx = b.new_context(viewport={"width": 1280, "height": 900}, color_scheme="dark")
+    pg = ctx.new_page(); errs = []
+    pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
+    pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
+    uebung_mit_coach(pg)
+    ok("Desktop dunkel: Schriftzug-Farbe", pg.evaluate(WORT) == "rgb(244, 237, 231)", pg.evaluate(WORT))
+    ok("Desktop dunkel: Coach-Spalte sichtbar", pg.is_visible("#coachcol") and "Schon gut" in pg.inner_text("#feed"))
+    pg.screenshot(path=S + "v61_desk_dark_uebung.png")
+    sw = [pg.evaluate(SCROLLW)]
+    pg.click("#log"); pg.keyboard.press("Escape"); pg.wait_for_timeout(250)
+    sw.append(pg.evaluate(SCROLLW))
+    ok("Desktop dunkel: Auszeit offen", pg.evaluate("document.querySelector('#dlgPause').open"))
+    pg.screenshot(path=S + "v61_desk_dark_auszeit.png")
+    ok("Desktop dunkel: kein waagrechtes Scrollen", max(sw) <= 1280, sw)
+    ok("Desktop dunkel: ohne Konsolenfehler", not errs, errs)
+    ctx.close()
     b.close()
 
 fails = [r for r in results if not r[1]]

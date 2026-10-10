@@ -31,7 +31,8 @@ python3 tests/test_app.py                 # muss "x/x bestanden" melden
 Einmalig für die Tests: `pip install playwright && python3 -m playwright install chromium`.
 Auf dem Mac (macOS 13) stattdessen das installierte Chrome nutzen:
 `CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" python3 tests/test_app.py`
-Der Test macht Screenshots hell, dunkel und in Handy-Breite (`tests/shots/v6_*`).
+Der Test macht Screenshots hell, dunkel und in Handy-Breite (`tests/shots/v6_*`, `v61_*`).
+Falle bei Handy-Tests: `screenshot(full_page=True)` setzt die Touch-Erkennung (`pointer:coarse`) zurück, danach messen Knöpfe 36–40 statt 44 px. Tippflächen deshalb **vor** jeder Ganzseiten-Aufnahme messen.
 Danach Screenshots in `tests/shots/` ansehen (hell, dunkel, mobil) – kein waagrechtes Scrollen, keine Konsolenfehler.
 
 ## Regeln

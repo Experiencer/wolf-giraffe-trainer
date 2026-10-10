@@ -21,6 +21,7 @@
   --accent-soft:#FFE6D9; --accent-soft-ink:#8F2F00;
   --coach-soft:#FCEBDC; --coach-ink:#8A4A12;
   --band:#FC4700; --band-ink:#1A1411; --band-line:transparent;
+  --brand-ink:#FFFFFF; /* Schriftzug „Wolf & Giraffe“: weiß wie im Original-Banner (Logo, daher von der Kontrastpflicht ausgenommen) */
   --ok-bg:#E2F3E9; --ok-ink:#1F6A45; --part-bg:#FBF0CF; --part-ink:#7A5600;
   --open-bg:#ECEFF3; --open-ink:#4B5866; --open-border:#7D8A97;
   --focus:#1D4ED8; --shadow:0 1px 2px rgba(34,27,23,.06),0 8px 24px rgba(34,27,23,.06);
@@ -37,7 +38,7 @@
   --ok-bg:#183226; --ok-ink:#8EDCB0; --part-bg:#33290F; --part-ink:#F2CC66;
   --open-bg:#252B31; --open-ink:#B9C4CF; --open-border:#6E7A86;
   --focus:#8AB4FF; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --lkg-mix:50%;
+  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --brand-ink:#F4EDE7; --lkg-mix:50%;
   color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#161210; --surface:#211B18; --surface-2:#2A231F; --text:#F4EDE7; --muted:#B7AAA2;
@@ -47,7 +48,7 @@
   --ok-bg:#183226; --ok-ink:#8EDCB0; --part-bg:#33290F; --part-ink:#F2CC66;
   --open-bg:#252B31; --open-ink:#B9C4CF; --open-border:#6E7A86;
   --focus:#8AB4FF; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --lkg-mix:50%;
+  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --brand-ink:#F4EDE7; --lkg-mix:50%;
   color-scheme:dark }
 
 *{box-sizing:border-box}
@@ -73,7 +74,7 @@ p{margin:0}
 /* Marken-Band */
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
 .band .wrap{display:flex;align-items:center;gap:12px;min-height:56px}
-.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--band-ink);border:0;background:none;padding:0;cursor:pointer}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--brand-ink);border:0;background:none;padding:0;cursor:pointer}
 .brand img{width:36px;height:36px;border-radius:50%}
 .brand b{font:400 20px/1 var(--f-display);letter-spacing:.01em}
 .band .spacer{flex:1}
@@ -455,7 +456,7 @@ table.pseudo td:first-child{white-space:nowrap}
 .ernote{text-align:left;max-width:860px;padding-inline:0;color:var(--coach-ink);font-weight:600}
 @keyframes flash{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
 .flash{animation:flash 1.2s ease-out}
-@media (pointer:coarse){.btn.small,.linkbtn{min-height:44px}.linkbtn{display:inline-flex;align-items:center}}
+@media (pointer:coarse){.btn.small,.linkbtn{min-height:44px}.linkbtn{display:inline-flex;align-items:center}.brand{min-height:44px}}
 @media (max-width:700px){
   .tabs{flex-wrap:wrap;-webkit-mask-image:none;mask-image:none;padding-right:0;gap:0 2px}
   .tab{padding:10px 10px;min-height:44px}
