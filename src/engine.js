@@ -209,8 +209,11 @@ function loadBrowserVoices(){
   browserVoices = speechSynthesis.getVoices().filter(v => /^de/i.test(v.lang));
 }
 if("speechSynthesis" in window){ loadBrowserVoices(); speechSynthesis.onvoiceschanged = () => { loadBrowserVoices(); if(typeof renderBrowserVoiceSelects === "function") renderBrowserVoiceSelects(); }; }
+let speakGen = 0;   // zählt hoch, sobald etwas Neues gesprochen oder abgebrochen wird – laufende Ausgaben hören dann auf
 function hushAll(){
+  speakGen++;
   try{ player.pause(); player.removeAttribute("src"); player.load(); }catch(e){}
+  try{ document.getElementById("avThem")?.classList.remove("talking"); }catch(e){}
   try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
 }
 async function fetchTts(text, who){
@@ -244,26 +247,49 @@ function speakBrowser(text, who){
     }, 80);
   });
 }
-/* Spricht Text als Gegenüber ("them") oder Coach ("coach"). Natürliche Stimme über OpenAI, sonst Browser. */
+/* v6: Text in Sprech-Stücke teilen. Der erste Satz kommt allein, damit die Stimme schnell startet;
+   der Rest wird zu Stücken bis ca. 240 Zeichen zusammengefasst (höchstens 4 Stücke). */
+function speechChunks(text){
+  const parts = String(text || "").replace(/\s+/g, " ").trim().split(/(?<=[.!?…])\s+(?=[„"A-ZÄÖÜ0-9])/).filter(Boolean);
+  const out = [];
+  for(const p of parts){
+    const i = out.length - 1;
+    if(out.length >= 2 && (out[i].length + p.length < 240 || out.length >= 4)) out[i] += " " + p;
+    else out.push(p);
+  }
+  return out;
+}
+/* Spielt eine Audiodatei ab. true = zu Ende gespielt oder bewusst angehalten, false = Abspielen nicht möglich. */
+async function playBlob(blob){
+  const url = URL.createObjectURL(blob);
+  try{
+    player.src = url; player.playbackRate = settings.rate;
+    return await new Promise((res) => {
+      player.onended = () => res(true); player.onerror = () => res(false);
+      player.onpause = () => { if(!player.ended) res(true); };
+      player.play().catch(() => res(false));
+    });
+  } finally { URL.revokeObjectURL(url); }
+}
+/* Spricht Text als Gegenüber ("them") oder Coach ("coach"). Natürliche Stimme über OpenAI, sonst Browser.
+   v6: Alle Stücke werden gleichzeitig angefragt; das erste wird abgespielt, sobald es da ist. */
 async function speak(text, who){
   if(!text) return;
-  hushAll();
+  hushAll(); const gen = speakGen;
   speakingUI(who, true);
   try{
     if(canTts()){
-      try{
-        const blob = await fetchTts(text, who);
-        const url = URL.createObjectURL(blob);
-        player.src = url; player.playbackRate = settings.rate;
-        const played = await new Promise((res) => {
-          player.onended = () => res(true); player.onerror = () => res(false);
-          player.onpause = () => { if(!player.ended) res(true); };
-          player.play().catch(() => res(false));
-        });
-        URL.revokeObjectURL(url);
-        if(played) return;
-      }catch(e){ if(e && e.code === "access") askAccess(); }
+      const chunks = speechChunks(text);
+      const jobs = chunks.map(c => fetchTts(c, who).catch(e => { if(e && e.code === "access") askAccess(); return null; }));
+      for(let i = 0; i < chunks.length; i++){
+        const blob = await jobs[i];
+        if(gen !== speakGen) return;
+        const ok = blob ? await playBlob(blob) : false;
+        if(gen !== speakGen) return;
+        if(!ok){ await speakBrowser(chunks.slice(i).join(" "), who); return; }
+      }
+      return;
     }
     await speakBrowser(text, who);
-  } finally { speakingUI(who, false); }
+  } finally { if(gen === speakGen) speakingUI(who, false); }
 }

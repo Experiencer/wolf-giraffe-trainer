@@ -181,12 +181,20 @@ with sync_playwright() as p:
     pg.evaluate("""() => { __rt({type:'input_audio_buffer.speech_started'}); __rt({type:'conversation.item.input_audio_transcription.completed', item_id:'i1', transcript:'Du bist immer so egoistisch!'}); }""")
     pg.wait_for_timeout(1200)
     ok("Nutzersatz + Coach-Karte in Echtzeit", pg.locator("#log .msg.me").count() >= 1 and "Schon gut" in pg.inner_text("#feed"))
+    # v6: Nach der Antwort des Gegenübers wird die Coach-Hilfe im Hintergrund vorbereitet
+    reset()
+    pg.evaluate("""() => { __rt({type:'response.created'}); __rt({type:'response.output_audio_transcript.done', transcript:'Egoistisch? Ich mache hier alles allein.'}); __rt({type:'response.done'}); }""")
+    pg.wait_for_timeout(800)
+    pre = [x for x in calls() if "anthropic" in x["url"] and "einschaetzung" in x["body"]]
+    ok("v6: Coach-Hilfe vorbereitet (Echtzeit)", len(pre) == 1, len(pre))
     reset(); pg.evaluate("window.__sent = []")
     pg.click("#askCoach2"); pg.wait_for_timeout(2500)
     sent = pg.evaluate("window.__sent")
     ok("Kein response.cancel ohne laufende Antwort", not any(s.get("type") == "response.cancel" for s in sent), sent)
-    tts = [x for x in calls() if "audio/speech" in x["url"]]
-    ok("Coach spricht in Echtzeit (TTS)", len(tts) >= 1 and '"voice":"sage"' in tts[-1]["body"] and "Vermutlich" in tts[-1]["body"], [x["body"][:100] for x in tts])
+    ok("v6: Coach nutzt vorbereitete Hilfe (kein neuer Claude-Aufruf)", not any("anthropic" in x["url"] and "einschaetzung" in x["body"] for x in calls()))
+    tts = [x for x in calls() if "audio/speech" in x["url"] and '"voice":"sage"' in x["body"]]
+    ok("Coach spricht in Echtzeit (TTS)", any("Vermutlich" in x["body"] for x in tts), [x["body"][:100] for x in tts])
+    ok("v6: Coach-Stimme in Stücken (erster Satz zuerst)", any("Vermutlich" in x["body"] and "Klingt" not in x["body"] for x in tts) and any("Klingt" in x["body"] and "Vermutlich" not in x["body"] for x in tts), [x["body"][:100] for x in tts])
     ok("Pause-Zustand", "Pause" in pg.inner_text("#micLabel"))
     pg.evaluate("""() => __rt({type:'error', error:{type:'invalid_request_error', code:'response_cancel_not_active', message:'Cancellation failed: no active response found'}})""")
     ok("Cancel-Fehler wird nicht angezeigt", "Cancellation" not in pg.inner_text("#sysnote"))

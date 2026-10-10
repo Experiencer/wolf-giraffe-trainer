@@ -48,7 +48,7 @@ export default {
       const data = await r.json().catch(() => ({}));
       return json({ error: r.status === 429 ? "rate_limited" : "upstream_error", message: data?.error?.message || `OpenAI meldet ${r.status}` }, r.status === 429 ? 429 : 502);
     }
-    const audio = await r.arrayBuffer();
-    return new Response(audio, { status: 200, headers: { "content-type": "audio/mpeg", "cache-control": "no-store" } });
+    // v6: Audio direkt durchreichen, statt erst die ganze Datei auf dem Server zu sammeln.
+    return new Response(r.body, { status: 200, headers: { "content-type": "audio/mpeg", "cache-control": "no-store" } });
   },
 };

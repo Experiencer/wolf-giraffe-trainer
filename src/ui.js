@@ -127,6 +127,7 @@ function backToGallery(){
 }
 function resetSession(){
   SESSION.ctl && SESSION.ctl.abort(); stopListen(); hushAll(); if(RT.on) rtStop();
+  HELP.key = ""; HELP.p = null;
   Object.assign(SESSION, {open:30, turns:[], log:[], posUsed:false, struggle:0, sinceHelp:9, busy:false, coachBusy:false, lastThem:"", startedAt:Date.now(), saved:null});
   for(const k in CARDS) delete CARDS[k];
   const sz = SESSION.cur, name = personName(sz);
@@ -353,6 +354,7 @@ async function submitTurn(text, from){
   them(r.reply.say, r.reply.narr);
   SESSION.turns.push({role:"assistant", content: r.reply.say || `(${r.reply.narr})`});
   SESSION.busy = false; setBusy(false); status("Du bist dran");
+  prefetchHelp();
   const intervene = evaluateStruggle(r, before);
   if(MODE === "voice"){
     if(r.reply.say && settings.themVoice) await speak(r.reply.say, "them");
@@ -381,6 +383,31 @@ function offlineHelp(){
   return {einschaetzung: SESSION.lastThem ? `Hinter „${SESSION.lastThem}“ könnte ${g} stecken – vielleicht ist da ${b} wichtig.` : `Dein Gegenüber ist vielleicht ${g}.`,
     warum: tip, vorschlag: empathyFocus ? `„Bist du gerade ${g}, weil dir ${b} wichtig ist?“` : "„Als ich … erlebt habe, war ich …, weil mir … wichtig ist. Wärst du bereit, …?“"};
 }
+/* ===================== Coach-Hilfe vorbereiten (v6) =====================
+   Im Sprechen- und Echtzeit-Modus wird nach jeder Antwort des Gegenübers die Hilfe schon im Hintergrund geholt.
+   Ruft man dann „Coach“, ist der Text meist schon da – nur noch die Stimme muss entstehen.
+   Kosten: ein kurzer zusätzlicher Claude-Aufruf pro Gesprächsrunde. */
+const HELP = {key:"", p:null};
+const helpKey = () => SESSION.cur ? SESSION.startedAt + ":" + SESSION.turns.length : "";
+function fetchHelp(auto){
+  const transcript = SESSION.turns.map(t => (t.role === "user" ? "NUTZER: " : "GEGENÜBER: ") + t.content).join("\n");
+  return llmJSON(`Du bist ein warmer GFK-Coach nach Marshall B. Rosenberg und begleitest ein Rollenspiel. ${auto ? "Der Nutzer hat gerade mehrfach Schwierigkeiten – halte kurz an und hilf ihm, ohne zu bewerten." : "Der Nutzer ruft dich um Hilfe."}
+Szenario (verborgene Gefühle/Bedürfnisse nur als Vermutung weitergeben): ${JSON.stringify(SESSION.cur)}
+Verlauf:
+${transcript}
+
+Antworte NUR mit JSON: {"einschaetzung":"1 Satz: was beim Gegenüber gerade los sein könnte (als Vermutung)","warum":"1 Satz: worauf es jetzt ankommt","vorschlag":"1 natürlicher Satz, den der Nutzer jetzt sagen könnte"}`, {tier:"quick"});
+}
+function prefetchHelp(){
+  if(MODE === "text" || !liveOn() || !SESSION.cur || SESSION.coachBusy) return;
+  const key = helpKey(); if(!key || HELP.key === key) return;
+  HELP.key = key; HELP.p = fetchHelp(false).catch(() => null);
+}
+/* Gibt die vorbereitete Hilfe zurück, wenn sich das Gespräch seitdem nicht verändert hat (sonst null). */
+function takeHelp(auto){
+  if(auto || !HELP.p || HELP.key !== helpKey()) return null;
+  const p = HELP.p; HELP.key = ""; HELP.p = null; return p;
+}
 async function callCoach(auto){
   if(SESSION.coachBusy || !SESSION.cur) return;
   SESSION.coachBusy = true; stopListen();
@@ -390,13 +417,9 @@ async function callCoach(auto){
   let h = null;
   if(liveOn()){
     try{
-      const transcript = SESSION.turns.map(t => (t.role === "user" ? "NUTZER: " : "GEGENÜBER: ") + t.content).join("\n");
-      h = await llmJSON(`Du bist ein warmer GFK-Coach nach Marshall B. Rosenberg und begleitest ein Rollenspiel. ${auto ? "Der Nutzer hat gerade mehrfach Schwierigkeiten – halte kurz an und hilf ihm, ohne zu bewerten." : "Der Nutzer ruft dich um Hilfe."}
-Szenario (verborgene Gefühle/Bedürfnisse nur als Vermutung weitergeben): ${JSON.stringify(SESSION.cur)}
-Verlauf:
-${transcript}
-
-Antworte NUR mit JSON: {"einschaetzung":"1 Satz: was beim Gegenüber gerade los sein könnte (als Vermutung)","warum":"1 Satz: worauf es jetzt ankommt","vorschlag":"1 natürlicher Satz, den der Nutzer jetzt sagen könnte"}`, {tier:"quick"});
+      const pre = takeHelp(auto);
+      if(pre) h = await pre;
+      if(!h) h = await fetchHelp(auto);
     }catch(e){ if(e && e.code === "access") askAccess(); }
   }
   if(!h) h = offlineHelp();
@@ -612,8 +635,8 @@ function rtEvent(ev){
     case "response.output_audio_transcript.done": {
       const text = (ev.transcript || RT.aiText || "").trim();
       if(!text || RT.paused || /^mhm\.?$/i.test(text)) break;
-      if(RT.skipFirst){ RT.skipFirst = false; $("#caption").textContent = text; break; }
-      them(text); SESSION.turns.push({role:"assistant", content:text}); break; }
+      if(RT.skipFirst){ RT.skipFirst = false; $("#caption").textContent = text; prefetchHelp(); break; }
+      them(text); SESSION.turns.push({role:"assistant", content:text}); prefetchHelp(); break; }
     case "response.done":
       RT.responseActive = false; $("#avThem").classList.remove("talking");
       if(!RT.paused) status("Du bist dran – sprich einfach"); break;
