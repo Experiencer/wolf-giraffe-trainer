@@ -29,6 +29,9 @@ node tests/devserver.mjs &                # Test-Server (Port 8766, Code "geheim
 python3 tests/test_app.py                 # muss "x/x bestanden" melden
 ```
 Einmalig für die Tests: `pip install playwright && python3 -m playwright install chromium`.
+Auf dem Mac (macOS 13) stattdessen das installierte Chrome nutzen:
+`CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" python3 tests/test_app.py`
+Der Test macht Screenshots hell, dunkel und in Handy-Breite (`tests/shots/v6_*`).
 Danach Screenshots in `tests/shots/` ansehen (hell, dunkel, mobil) – kein waagrechtes Scrollen, keine Konsolenfehler.
 
 ## Regeln

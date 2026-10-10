@@ -1,10 +1,11 @@
 """Funktionstest des Trainers gegen den Test-Server (tests/devserver.mjs, Port 8766).
 
 Vorbereitung (einmalig):  pip install playwright && python3 -m playwright install chromium
+(Auf älteren Macs ohne Playwright-Chromium: CHROME_PATH auf das installierte Google Chrome setzen.)
 Ablauf:  1) python3 src/build.py   2) node tests/devserver.mjs   3) python3 tests/test_app.py
 Screenshots landen in tests/shots/ (nicht im Git).
 """
-import json, sys, pathlib, urllib.request
+import json, os, sys, pathlib, urllib.request
 from playwright.sync_api import sync_playwright
 
 BASE = "http://localhost:8766/"
@@ -38,7 +39,8 @@ window.__rt = ev => window.__dc.onmessage({data: JSON.stringify(ev)});
 """
 
 with sync_playwright() as p:
-    b = p.chromium.launch(args=["--autoplay-policy=no-user-gesture-required"])
+    # Browser wählbar (z. B. auf dem Mac: CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+    b = p.chromium.launch(executable_path=os.environ.get("CHROME_PATH") or None, args=["--autoplay-policy=no-user-gesture-required"])
     ctx = b.new_context(viewport={"width": 1280, "height": 900}, color_scheme="light")
     ctx.add_init_script(FAKE_RT)
     pg = ctx.new_page()
