@@ -17,16 +17,22 @@ Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf de
 | Antwortart | **Schreiben** · **Sprechen** (Spracherkennung des Browsers) · **Echtzeit** (OpenAI, frei sprechen, unterbrechen möglich) |
 | Immer da | **Coach fragen** (Knopf oder das Wort „Coach“) · **Auszeit** (Knopf, Esc-Taste oder das Wort „Auszeit“) mit kurzer Selbstempathie |
 | Auswertung | in Worten statt Noten: Stärken, ein nächster Schritt, was beim Gegenüber los war; Zahlen nur auf Wunsch |
-| **Kurzübungen** | Beobachtung oder Bewertung? · Gefühl oder Gedanke? · Bedürfnis oder Strategie? |
+| **Zuhören** (v6) | Empathisch zuhören: 15 Personen in drei Stufen erzählen, du vermutest Gefühl und Bedürfnis (Wörter wählen, schreiben oder sprechen) – die Person reagiert menschlich, ohne Richtig/Falsch |
+| **Kurzübungen** (v6) | 23 Übungen zu allen Abschnitten der Wissensbasis + gemischte Runde: Einordnen, Umformulieren (erst selbst einschätzen), Schritt für Schritt · Modus „Hören und sprechen“ |
+| **Lernkarten** (v6) | 84 Gefühls-, 62 Bedürfniskarten, 20 Pseudogefühle, „Karte ziehen“ · PDFs: Gefühlskarten, Bedürfniskarten, Spickzettel, Workshop-Handout |
 | **Übersetzer** | Wolfssatz → Lernform und Alltagsfassung |
-| **Spickzettel** | Die vier Schritte, Gedanke oder Gefühl, die vier Ohren, was Empathie blockiert |
-| **Mein Weg** | Verlauf, Wiederholung nach 1, 3 und 7 Tagen, wie sicher du dich fühlst |
+| **Spickzettel** (v6) | 16 Karten (§1–§13) mit Merksatz, „Probier mal“ und Hörkarte (unter 1 Minute) |
+| **Mein Weg** | Übungstage dieser Woche (ohne Serie), Stand der Kurzübungen in Worten, Zuhören, Entdeckungen, Verlauf, Wiederholung nach 1, 3 und 7 Tagen |
+| Feiern (v6) | Konfetti und grüner Abschluss nur bei ganz gelungener Übung; abschaltbar, respektiert „Bewegung reduzieren“, Ton standardmäßig aus |
 
 ## Projektstruktur
 | Datei / Ordner | Zweck |
 |---|---|
 | `index.html` | Die fertige App (wird aus `src/` gebaut – nicht direkt bearbeiten) |
-| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `data/`, `fonts/`, `assets/` |
+| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `lernen.js` (v6: Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg), `data/`, `fonts/`, `assets/` |
+| `src/data/` | Inhalte: `szenarien.json`, `kurzuebungen.json`, `empathie.json`, `spickzettel.json`, `lernkarten.json`, `handout.json` |
+| `pdf/` | Druckfertige PDFs (auf Vercel unter `/pdf/…`), erzeugt mit `python3 tools/make_pdfs.py` |
+| `tools/make_pdfs.py` | Erzeugt die vier PDFs aus `src/data/` (braucht `pip install reportlab fonttools brotli`) |
 | `src/build.py` | Baut `index.html` aus `src/` (Schriften und Bilder werden eingebettet) |
 | `api/config.js` | Sagt der App, welche Schlüssel hinterlegt sind (verrät sie nicht) |
 | `api/coach.js` | Weiterleitung an Claude |

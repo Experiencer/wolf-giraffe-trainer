@@ -1,0 +1,920 @@
+{
+ "quelle": "Eigene Zusammenstellung nach Marshall B. Rosenberg, angelehnt an das Feelings & Needs Inventory des Center for Nonviolent Communication (© 2005, www.cnvc.org). Keine Empfehlung durch das CNVC.",
+ "gefuehle": {
+  "erfuellt": [
+   {
+    "gruppe": "froh und lebendig",
+    "woerter": [
+     {
+      "w": "froh",
+      "k": "Leicht ums Herz, ein Lächeln kommt fast von selbst"
+     },
+     {
+      "w": "glücklich",
+      "k": "Warm und weit innen, gerade fühlt sich vieles stimmig an"
+     },
+     {
+      "w": "vergnügt",
+      "k": "Gut gelaunt und zum Lachen aufgelegt"
+     },
+     {
+      "w": "lebendig",
+      "k": "Wach und voller Energie, du spürst dich deutlich"
+     },
+     {
+      "w": "begeistert",
+      "k": "Feuer und Flamme, du willst am liebsten gleich loslegen"
+     },
+     {
+      "w": "heiter",
+      "k": "Hell und leicht gestimmt, wie an einem sonnigen Morgen"
+     },
+     {
+      "w": "ausgelassen",
+      "k": "Übermütig und voller Schwung, vielleicht möchtest du tanzen"
+     },
+     {
+      "w": "munter",
+      "k": "Frisch und beweglich, die Müdigkeit ist verflogen"
+     }
+    ]
+   },
+   {
+    "gruppe": "ruhig und entspannt",
+    "woerter": [
+     {
+      "w": "ruhig",
+      "k": "Der Atem geht langsam, nichts drängt"
+     },
+     {
+      "w": "entspannt",
+      "k": "Schultern locker, der Körper darf loslassen"
+     },
+     {
+      "w": "gelassen",
+      "k": "Die Dinge dürfen sein, wie sie sind, ohne dich umzuwerfen"
+     },
+     {
+      "w": "ausgeglichen",
+      "k": "Innerlich im Lot, weder zu viel noch zu wenig"
+     },
+     {
+      "w": "erleichtert",
+      "k": "Ein Gewicht fällt ab, du atmest tief aus"
+     },
+     {
+      "w": "zufrieden",
+      "k": "Es ist gut so, gerade fehlt dir nichts"
+     },
+     {
+      "w": "behaglich",
+      "k": "Wohlig und gemütlich, wie unter einer warmen Decke"
+     },
+     {
+      "w": "geborgen",
+      "k": "Gut aufgehoben, du darfst dich anlehnen"
+     }
+    ]
+   },
+   {
+    "gruppe": "zuversichtlich und kraftvoll",
+    "woerter": [
+     {
+      "w": "zuversichtlich",
+      "k": "Du rechnest mit Gutem und traust dem, was kommt"
+     },
+     {
+      "w": "hoffnungsvoll",
+      "k": "Ein Licht am Horizont, es könnte gut werden"
+     },
+     {
+      "w": "sicher",
+      "k": "Fester Boden unter den Füßen, nichts bedroht dich"
+     },
+     {
+      "w": "stolz",
+      "k": "Aufrecht und warm in der Brust, weil dir etwas gelungen ist"
+     },
+     {
+      "w": "motiviert",
+      "k": "Du hast Lust anzupacken und spürst Antrieb"
+     },
+     {
+      "w": "mutig",
+      "k": "Ein Kribbeln und trotzdem ein klares Ja zum nächsten Schritt"
+     },
+     {
+      "w": "entschlossen",
+      "k": "Klarer Kopf, die Entscheidung steht"
+     },
+     {
+      "w": "kraftvoll",
+      "k": "Energie im ganzen Körper, du fühlst dich stark"
+     }
+    ]
+   },
+   {
+    "gruppe": "neugierig und angeregt",
+    "woerter": [
+     {
+      "w": "neugierig",
+      "k": "Du möchtest mehr wissen, Fragen tauchen auf"
+     },
+     {
+      "w": "angeregt",
+      "k": "Gedanken sprudeln, du bist innerlich in Bewegung"
+     },
+     {
+      "w": "inspiriert",
+      "k": "Neue Ideen kommen, etwas in dir will gestalten"
+     },
+     {
+      "w": "interessiert",
+      "k": "Du wendest dich zu und hörst genauer hin"
+     },
+     {
+      "w": "fasziniert",
+      "k": "Gebannt, du kannst kaum wegschauen"
+     },
+     {
+      "w": "gespannt",
+      "k": "Erwartungsvolles Kribbeln, was wohl als Nächstes kommt"
+     },
+     {
+      "w": "erstaunt",
+      "k": "Große Augen, etwas überrascht dich angenehm"
+     },
+     {
+      "w": "wach",
+      "k": "Klar und aufmerksam, alle Sinne sind da"
+     }
+    ]
+   },
+   {
+    "gruppe": "verbunden und dankbar",
+    "woerter": [
+     {
+      "w": "dankbar",
+      "k": "Warm in der Brust, weil dir etwas geschenkt wurde"
+     },
+     {
+      "w": "berührt",
+      "k": "Etwas geht dir nahe, vielleicht werden die Augen feucht"
+     },
+     {
+      "w": "verbunden",
+      "k": "Du fühlst dich mit jemandem auf einer Wellenlänge"
+     },
+     {
+      "w": "liebevoll",
+      "k": "Weich und zugewandt, du möchtest Gutes geben"
+     },
+     {
+      "w": "zärtlich",
+      "k": "Sanft und nah, voller Fürsorge"
+     },
+     {
+      "w": "vertrauensvoll",
+      "k": "Offen und unbesorgt, du kannst dich zeigen"
+     },
+     {
+      "w": "warmherzig",
+      "k": "Freundlich gestimmt, das Herz ist offen"
+     },
+     {
+      "w": "erfüllt",
+      "k": "Satt im besten Sinn, etwas Wichtiges ist da"
+     }
+    ]
+   }
+  ],
+  "unerfuellt": [
+   {
+    "gruppe": "traurig",
+    "woerter": [
+     {
+      "w": "traurig",
+      "k": "Schwer in der Brust, vielleicht Tränen, der Blick geht nach innen"
+     },
+     {
+      "w": "enttäuscht",
+      "k": "Etwas Erhofftes ist nicht gekommen, die Luft ist raus"
+     },
+     {
+      "w": "niedergeschlagen",
+      "k": "Kraft und Mut sind gesunken, alles wirkt grau"
+     },
+     {
+      "w": "bedrückt",
+      "k": "Als läge etwas Schweres auf dir"
+     },
+     {
+      "w": "verletzt",
+      "k": "Ein Stich innen, etwas hat dich getroffen"
+     },
+     {
+      "w": "einsam",
+      "k": "Allein mit dir, auch wenn vielleicht Menschen um dich sind"
+     },
+     {
+      "w": "bestürzt",
+      "k": "Fassungslos und getroffen von dem, was passiert ist"
+     },
+     {
+      "w": "wehmütig",
+      "k": "Leise Sehnsucht nach etwas, das vorbei ist"
+     }
+    ]
+   },
+   {
+    "gruppe": "ängstlich und besorgt",
+    "woerter": [
+     {
+      "w": "ängstlich",
+      "k": "Enge im Hals oder Bauch, du möchtest dich schützen"
+     },
+     {
+      "w": "besorgt",
+      "k": "Gedanken kreisen um das, was schiefgehen könnte"
+     },
+     {
+      "w": "nervös",
+      "k": "Unruhige Hände, schneller Puls, Kribbeln im Bauch"
+     },
+     {
+      "w": "unruhig",
+      "k": "Du kannst kaum stillsitzen, innen ist etwas in Bewegung"
+     },
+     {
+      "w": "beunruhigt",
+      "k": "Ein ungutes Gefühl, als stimme etwas nicht"
+     },
+     {
+      "w": "erschrocken",
+      "k": "Zusammengezuckt, das Herz klopft plötzlich schnell"
+     },
+     {
+      "w": "verzweifelt",
+      "k": "Du siehst gerade keinen Ausweg, alles scheint zu viel"
+     }
+    ]
+   },
+   {
+    "gruppe": "ärgerlich",
+    "woerter": [
+     {
+      "w": "ärgerlich",
+      "k": "Hitze steigt auf, du möchtest etwas loswerden"
+     },
+     {
+      "w": "wütend",
+      "k": "Viel Energie, Kiefer fest, der Puls schlägt hoch"
+     },
+     {
+      "w": "gereizt",
+      "k": "Dünnhäutig, schon Kleinigkeiten bringen dich auf"
+     },
+     {
+      "w": "frustriert",
+      "k": "Du kommst nicht weiter, obwohl du dich bemühst"
+     },
+     {
+      "w": "genervt",
+      "k": "Etwas geht dir auf die Nerven, die Geduld wird knapp"
+     },
+     {
+      "w": "empört",
+      "k": "Innerlich aufgebracht, weil etwas gegen deine Werte geht"
+     },
+     {
+      "w": "ungeduldig",
+      "k": "Es geht dir zu langsam, innerlich trommelst du mit den Fingern"
+     }
+    ]
+   },
+   {
+    "gruppe": "angespannt",
+    "woerter": [
+     {
+      "w": "angespannt",
+      "k": "Muskeln fest, Schultern hochgezogen, flacher Atem"
+     },
+     {
+      "w": "gestresst",
+      "k": "Zu viel auf einmal, der Kopf rattert"
+     },
+     {
+      "w": "überfordert",
+      "k": "Mehr, als du gerade tragen kannst"
+     },
+     {
+      "w": "verkrampft",
+      "k": "Der Körper hält fest, nichts kann fließen"
+     },
+     {
+      "w": "zerrissen",
+      "k": "Zwei Seiten in dir ziehen in verschiedene Richtungen"
+     },
+     {
+      "w": "aufgewühlt",
+      "k": "Innen stürmt es, Gedanken und Gefühle wirbeln"
+     },
+     {
+      "w": "überwältigt",
+      "k": "So viel auf einmal, dass dir kurz die Worte fehlen"
+     }
+    ]
+   },
+   {
+    "gruppe": "erschöpft",
+    "woerter": [
+     {
+      "w": "erschöpft",
+      "k": "Die Kraft ist aufgebraucht, du brauchst eine Pause"
+     },
+     {
+      "w": "müde",
+      "k": "Schwere Lider, der Körper will ruhen"
+     },
+     {
+      "w": "ausgelaugt",
+      "k": "Leer gesaugt, als hätte etwas alle Energie gezogen"
+     },
+     {
+      "w": "kraftlos",
+      "k": "Arme und Beine wie Blei, selbst Kleines kostet Mühe"
+     },
+     {
+      "w": "lustlos",
+      "k": "Nichts reizt dich gerade, zu nichts kannst du dich aufraffen"
+     },
+     {
+      "w": "leer",
+      "k": "Innen still und dumpf, wenig ist zu spüren"
+     },
+     {
+      "w": "schlapp",
+      "k": "Der Körper hängt durch, Bewegung kostet Überwindung"
+     }
+    ]
+   },
+   {
+    "gruppe": "verwirrt und unsicher",
+    "woerter": [
+     {
+      "w": "verwirrt",
+      "k": "Gedanken durcheinander, du verstehst gerade nicht, was los ist"
+     },
+     {
+      "w": "unsicher",
+      "k": "Du zögerst und weißt nicht recht, ob du darfst oder kannst"
+     },
+     {
+      "w": "ratlos",
+      "k": "Du weißt gerade nicht weiter"
+     },
+     {
+      "w": "hilflos",
+      "k": "Du möchtest etwas tun und findest keinen Ansatzpunkt"
+     },
+     {
+      "w": "irritiert",
+      "k": "Etwas passt nicht zusammen und bringt dich aus dem Takt"
+     },
+     {
+      "w": "zwiespältig",
+      "k": "Ja und Nein zugleich, du kannst dich nicht entscheiden"
+     },
+     {
+      "w": "verlegen",
+      "k": "Warme Wangen, du möchtest kurz unsichtbar sein"
+     },
+     {
+      "w": "beschämt",
+      "k": "Du möchtest im Boden versinken und senkst den Blick"
+     }
+    ]
+   }
+  ]
+ },
+ "beduerfnisse": [
+  {
+   "bereich": "Körper und Sicherheit",
+   "id": "koerper",
+   "woerter": [
+    {
+     "w": "Erholung",
+     "k": "Klingt oft so: „Ich muss mal wieder richtig auftanken.“"
+    },
+    {
+     "w": "Gesundheit",
+     "k": "Klingt oft so: „Ich will mich wieder fit und gesund fühlen.“"
+    },
+    {
+     "w": "Ruhe",
+     "k": "Klingt oft so: „Ich brauch einfach mal fünf Minuten für mich.“"
+    },
+    {
+     "w": "Schutz",
+     "k": "Klingt oft so: „Da möchte ich nicht allein hingehen.“"
+    },
+    {
+     "w": "Sicherheit",
+     "k": "Klingt oft so: „Ich will wissen, dass nichts passieren kann.“"
+    },
+    {
+     "w": "Bewegung",
+     "k": "Klingt oft so: „Ich muss mal raus und mich bewegen.“"
+    },
+    {
+     "w": "Nahrung",
+     "k": "Klingt oft so: „Lass uns erst was essen, ich hab Hunger.“"
+    },
+    {
+     "w": "Berührung",
+     "k": "Klingt oft so: „Nimmst du mich mal kurz in den Arm?“"
+    },
+    {
+     "w": "Verlässlichkeit",
+     "k": "Klingt oft so: „Ich will mich darauf verlassen können.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Verbindung",
+   "id": "verbindung",
+   "woerter": [
+    {
+     "w": "Zugehörigkeit",
+     "k": "Klingt oft so: „Ich möchte einfach dazugehören.“"
+    },
+    {
+     "w": "Nähe",
+     "k": "Klingt oft so: „Ich hätte gern mal wieder Zeit nur mit dir.“"
+    },
+    {
+     "w": "Akzeptanz",
+     "k": "Klingt oft so: „Kannst du mich so nehmen, wie ich bin?“"
+    },
+    {
+     "w": "Wertschätzung",
+     "k": "Klingt oft so: „Ein kleines Danke würde mir schon reichen.“"
+    },
+    {
+     "w": "gesehen werden",
+     "k": "Klingt oft so: „Merkt eigentlich jemand, was ich hier leiste?“"
+    },
+    {
+     "w": "Verständnis",
+     "k": "Klingt oft so: „Ich möchte, dass du verstehst, wie es mir geht.“"
+    },
+    {
+     "w": "Vertrauen",
+     "k": "Klingt oft so: „Ich möchte dir glauben können.“"
+    },
+    {
+     "w": "Unterstützung",
+     "k": "Klingt oft so: „Allein schaffe ich das gerade nicht.“"
+    },
+    {
+     "w": "Einbezogensein",
+     "k": "Klingt oft so: „Warum hat mich da keiner gefragt?“"
+    },
+    {
+     "w": "Rücksicht",
+     "k": "Klingt oft so: „Denk bitte auch ein bisschen an mich.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Autonomie",
+   "id": "autonomie",
+   "woerter": [
+    {
+     "w": "Selbstbestimmung",
+     "k": "Klingt oft so: „Das möchte ich selbst entscheiden.“"
+    },
+    {
+     "w": "Wahlfreiheit",
+     "k": "Klingt oft so: „Ich will eine echte Wahl haben.“"
+    },
+    {
+     "w": "Freiheit",
+     "k": "Klingt oft so: „Ich mag nicht für alles Rechenschaft ablegen.“"
+    },
+    {
+     "w": "Unabhängigkeit",
+     "k": "Klingt oft so: „Das krieg ich auch allein hin.“"
+    },
+    {
+     "w": "Freiraum",
+     "k": "Klingt oft so: „Ich brauch gerade ein bisschen Abstand.“"
+    },
+    {
+     "w": "Mitbestimmung",
+     "k": "Klingt oft so: „Ich will mitreden, wenn es um mich geht.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Sinn und Wachstum",
+   "id": "sinn",
+   "woerter": [
+    {
+     "w": "Beitrag",
+     "k": "Klingt oft so: „Ich will etwas tun, das wirklich hilft.“"
+    },
+    {
+     "w": "Kompetenz",
+     "k": "Klingt oft so: „Ich will zeigen, dass ich das kann.“"
+    },
+    {
+     "w": "Lernen",
+     "k": "Klingt oft so: „Ich will verstehen, wie das funktioniert.“"
+    },
+    {
+     "w": "Klarheit",
+     "k": "Klingt oft so: „Sag mir bitte genau, was du meinst.“"
+    },
+    {
+     "w": "Kreativität",
+     "k": "Klingt oft so: „Ich hätte da eine ganz neue Idee.“"
+    },
+    {
+     "w": "Wirksamkeit",
+     "k": "Klingt oft so: „Ich will, dass mein Einsatz etwas bewirkt.“"
+    },
+    {
+     "w": "Orientierung",
+     "k": "Klingt oft so: „Ich weiß gerade nicht, wo es langgeht.“"
+    },
+    {
+     "w": "Sinn",
+     "k": "Klingt oft so: „Wofür mache ich das eigentlich alles?“"
+    },
+    {
+     "w": "Entwicklung",
+     "k": "Klingt oft so: „Ich will nicht ewig auf der Stelle treten.“"
+    },
+    {
+     "w": "Herausforderung",
+     "k": "Klingt oft so: „Gib mir ruhig etwas Kniffliges.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Integrität",
+   "id": "integritaet",
+   "woerter": [
+    {
+     "w": "Ehrlichkeit",
+     "k": "Klingt oft so: „Sag mir bitte einfach, wie es wirklich ist.“"
+    },
+    {
+     "w": "Authentizität",
+     "k": "Klingt oft so: „Ich will mich nicht verstellen müssen.“"
+    },
+    {
+     "w": "Stimmigkeit",
+     "k": "Klingt oft so: „Das passt nicht zu dem, was mir wichtig ist.“"
+    },
+    {
+     "w": "Fairness",
+     "k": "Klingt oft so: „Das ist doch nicht gerecht verteilt.“"
+    },
+    {
+     "w": "Gegenseitigkeit",
+     "k": "Klingt oft so: „Ich gebe so viel – kommt da auch was zurück?“"
+    },
+    {
+     "w": "Respekt",
+     "k": "Klingt oft so: „Ich möchte ernst genommen werden.“"
+    },
+    {
+     "w": "Würde",
+     "k": "Klingt oft so: „So möchte ich nicht behandelt werden.“"
+    },
+    {
+     "w": "Selbstachtung",
+     "k": "Klingt oft so: „Da mache ich nicht mehr mit, das bin ich mir wert.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Leichtigkeit",
+   "id": "leichtigkeit",
+   "woerter": [
+    {
+     "w": "Spiel",
+     "k": "Klingt oft so: „Lass uns einfach mal rumalbern.“"
+    },
+    {
+     "w": "Freude",
+     "k": "Klingt oft so: „Ich möchte mich mal wieder auf etwas freuen.“"
+    },
+    {
+     "w": "Humor",
+     "k": "Klingt oft so: „Ich will mal wieder richtig lachen.“"
+    },
+    {
+     "w": "Leichtigkeit",
+     "k": "Klingt oft so: „Muss denn immer alles so schwer sein?“"
+    },
+    {
+     "w": "Genuss",
+     "k": "Klingt oft so: „Heute gönne ich mir mal was Schönes.“"
+    },
+    {
+     "w": "Abwechslung",
+     "k": "Klingt oft so: „Immer derselbe Trott, mir fehlt was Neues.“"
+    },
+    {
+     "w": "Spontaneität",
+     "k": "Klingt oft so: „Lass uns einfach losfahren, ganz ohne Plan.“"
+    }
+   ]
+  },
+  {
+   "bereich": "Frieden",
+   "id": "frieden",
+   "woerter": [
+    {
+     "w": "Harmonie",
+     "k": "Klingt oft so: „Ich will nicht schon wieder streiten.“"
+    },
+    {
+     "w": "Ordnung",
+     "k": "Klingt oft so: „Ich will wissen, wo was liegt.“"
+    },
+    {
+     "w": "Schönheit",
+     "k": "Klingt oft so: „Ich brauch was Schönes um mich herum.“"
+    },
+    {
+     "w": "Gleichgewicht",
+     "k": "Klingt oft so: „Arbeit und Freizeit sind gerade völlig schief.“"
+    },
+    {
+     "w": "Einfachheit",
+     "k": "Klingt oft so: „Geht das nicht ein bisschen einfacher?“"
+    },
+    {
+     "w": "Versöhnung",
+     "k": "Klingt oft so: „Ich will, dass wir wieder gut miteinander sind.“"
+    },
+    {
+     "w": "Stille",
+     "k": "Klingt oft so: „Kann es hier mal einen Moment still sein?“"
+    }
+   ]
+  },
+  {
+   "bereich": "Lebensübergänge",
+   "id": "uebergaenge",
+   "woerter": [
+    {
+     "w": "Feiern",
+     "k": "Klingt oft so: „Das muss gefeiert werden!“"
+    },
+    {
+     "w": "Trauern",
+     "k": "Klingt oft so: „Ich bin noch nicht so weit, loszulassen.“"
+    },
+    {
+     "w": "Abschied",
+     "k": "Klingt oft so: „Ich will mich richtig verabschieden können.“"
+    },
+    {
+     "w": "Neubeginn",
+     "k": "Klingt oft so: „Ich will noch mal ganz von vorn anfangen.“"
+    },
+    {
+     "w": "Erinnern",
+     "k": "Klingt oft so: „Ich will nicht, dass das vergessen wird.“"
+    }
+   ]
+  }
+ ],
+ "pseudo": [
+  {
+   "w": "abgelehnt",
+   "gefuehle": [
+    "traurig",
+    "einsam"
+   ],
+   "beduerfnisse": [
+    "Akzeptanz",
+    "Zugehörigkeit"
+   ]
+  },
+  {
+   "w": "angegriffen",
+   "gefuehle": [
+    "erschrocken",
+    "wütend"
+   ],
+   "beduerfnisse": [
+    "Sicherheit",
+    "Respekt"
+   ]
+  },
+  {
+   "w": "ausgenutzt",
+   "gefuehle": [
+    "erschöpft",
+    "ärgerlich"
+   ],
+   "beduerfnisse": [
+    "Gegenseitigkeit",
+    "Fairness"
+   ]
+  },
+  {
+   "w": "betrogen",
+   "gefuehle": [
+    "enttäuscht",
+    "wütend"
+   ],
+   "beduerfnisse": [
+    "Ehrlichkeit",
+    "Vertrauen"
+   ]
+  },
+  {
+   "w": "bevormundet",
+   "gefuehle": [
+    "gereizt",
+    "frustriert"
+   ],
+   "beduerfnisse": [
+    "Selbstbestimmung",
+    "Respekt"
+   ]
+  },
+  {
+   "w": "beschuldigt",
+   "gefuehle": [
+    "verletzt",
+    "empört"
+   ],
+   "beduerfnisse": [
+    "Verständnis",
+    "Fairness"
+   ]
+  },
+  {
+   "w": "im Stich gelassen",
+   "gefuehle": [
+    "enttäuscht",
+    "hilflos"
+   ],
+   "beduerfnisse": [
+    "Unterstützung",
+    "Verlässlichkeit"
+   ]
+  },
+  {
+   "w": "manipuliert",
+   "gefuehle": [
+    "verwirrt",
+    "ärgerlich"
+   ],
+   "beduerfnisse": [
+    "Ehrlichkeit",
+    "Wahlfreiheit"
+   ]
+  },
+  {
+   "w": "missverstanden",
+   "gefuehle": [
+    "frustriert",
+    "traurig"
+   ],
+   "beduerfnisse": [
+    "Verständnis",
+    "gesehen werden"
+   ]
+  },
+  {
+   "w": "nicht ernst genommen",
+   "gefuehle": [
+    "enttäuscht",
+    "gereizt"
+   ],
+   "beduerfnisse": [
+    "Respekt",
+    "Wertschätzung"
+   ]
+  },
+  {
+   "w": "nicht gesehen",
+   "gefuehle": [
+    "traurig",
+    "einsam"
+   ],
+   "beduerfnisse": [
+    "gesehen werden",
+    "Wertschätzung"
+   ]
+  },
+  {
+   "w": "provoziert",
+   "gefuehle": [
+    "gereizt",
+    "angespannt"
+   ],
+   "beduerfnisse": [
+    "Respekt",
+    "Rücksicht"
+   ]
+  },
+  {
+   "w": "übergangen",
+   "gefuehle": [
+    "verletzt",
+    "traurig"
+   ],
+   "beduerfnisse": [
+    "Einbezogensein",
+    "Wertschätzung"
+   ]
+  },
+  {
+   "w": "unter Druck gesetzt",
+   "gefuehle": [
+    "angespannt",
+    "gestresst"
+   ],
+   "beduerfnisse": [
+    "Wahlfreiheit",
+    "Ruhe"
+   ]
+  },
+  {
+   "w": "verlassen",
+   "gefuehle": [
+    "einsam",
+    "traurig"
+   ],
+   "beduerfnisse": [
+    "Nähe",
+    "Zugehörigkeit"
+   ]
+  },
+  {
+   "w": "verraten",
+   "gefuehle": [
+    "verletzt",
+    "bestürzt"
+   ],
+   "beduerfnisse": [
+    "Vertrauen",
+    "Verlässlichkeit"
+   ]
+  },
+  {
+   "w": "ignoriert",
+   "gefuehle": [
+    "frustriert",
+    "einsam"
+   ],
+   "beduerfnisse": [
+    "gesehen werden",
+    "Einbezogensein"
+   ]
+  },
+  {
+   "w": "ungerecht behandelt",
+   "gefuehle": [
+    "ärgerlich",
+    "enttäuscht"
+   ],
+   "beduerfnisse": [
+    "Fairness",
+    "Würde"
+   ]
+  },
+  {
+   "w": "kritisiert",
+   "gefuehle": [
+    "verletzt",
+    "unsicher"
+   ],
+   "beduerfnisse": [
+    "Wertschätzung",
+    "Akzeptanz"
+   ]
+  },
+  {
+   "w": "eingeengt",
+   "gefuehle": [
+    "angespannt",
+    "gereizt"
+   ],
+   "beduerfnisse": [
+    "Freiraum",
+    "Selbstbestimmung"
+   ]
+  }
+ ]
+}

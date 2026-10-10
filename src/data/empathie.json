@@ -1,0 +1,939 @@
+{
+ "intro": "Hier übst du empathisches Zuhören. Jemand erzählt dir etwas, und du fragst vorsichtig nach, was die Person fühlt und was ihr wichtig ist. Es gibt kein Richtig oder Falsch – die Person zeigt dir selbst, wie nah du dran bist.",
+ "ansage": "Jetzt geht es ums Zuhören. Gleich erzählt dir jemand etwas. Hör in Ruhe hin. Dann frag vorsichtig nach, was die Person vielleicht fühlt und was ihr wichtig ist. Du musst nichts lösen. Die Person sagt dir selbst, ob du sie getroffen hast.",
+ "erzaehlungen": [
+  {
+   "id": "E01",
+   "stufe": 1,
+   "bereich": "Familie",
+   "person": "Mira",
+   "rolle": "deine Schwester, 34, zwei kleine Kinder",
+   "anrede": "du",
+   "situation": "Mira ruft dich abends an, im Hintergrund weint ein Kind.",
+   "sagt": "Ich hab seit drei Wochen keine Nacht mehr durchgeschlafen. Die Kleine zahnt, und der Große bringt jede Woche was Neues aus der Kita mit. Heute stand ich im Supermarkt und wusste nicht mehr, was ich eigentlich kaufen wollte. Ich kann echt nicht mehr.",
+   "gefuehle": [
+    "erschöpft",
+    "überfordert"
+   ],
+   "nahe_gefuehle": [
+    "müde",
+    "ausgelaugt",
+    "kraftlos",
+    "angespannt"
+   ],
+   "beduerfnisse": [
+    "Erholung",
+    "Entlastung"
+   ],
+   "nahe_beduerfnisse": [
+    "Ruhe",
+    "Unterstützung",
+    "Gesundheit",
+    "Leichtigkeit"
+   ],
+   "auswahl_g": [
+    "gelangweilt",
+    "wütend",
+    "müde",
+    "überfordert",
+    "erschöpft",
+    "enttäuscht",
+    "verlegen",
+    "ausgelaugt"
+   ],
+   "auswahl_b": [
+    "Ordnung",
+    "Anerkennung",
+    "Ruhe",
+    "Unterstützung",
+    "Lernen",
+    "Entlastung",
+    "Fairness",
+    "Erholung"
+   ],
+   "reaktion": {
+    "treffer": "Ja … genau. Einfach mal durchatmen, ohne dass jemand an mir zieht. Das wär’s.",
+    "teil_gefuehl": "Ja, total. Ich hätte so gern mal eine Stunde, in der niemand was von mir will. Und eine Nacht, die jemand anders übernimmt.",
+    "teil_beduerfnis": "Ja, darum geht’s. Das Gefühl ist aber eher: komplett erschöpft. Ich bin einfach leer.",
+    "daneben": "Hm, nee, eigentlich nicht. Ich bin nur so müde, dass mir sogar der Einkauf über den Kopf wächst.",
+    "blocker": "Hm … ich weiß. Ich glaub, ich brauch gerade keine Lösung. Nur jemanden, der mir kurz zuhört.",
+    "mehr": "Weißt du, was mich am meisten fertigmacht? Ich hab den Großen heute angemeckert, nur weil er Saft verschüttet hat. So will ich eigentlich gar nicht sein."
+   },
+   "muster": "Bist du erschöpft und überfordert, weil du dringend Erholung und Entlastung brauchst?",
+   "alltag": "Puh. Klingt, als wärst du echt am Ende deiner Kräfte und bräuchtest mal eine Pause nur für dich?",
+   "lernhinweis": "Bei Erschöpfung hilft eine kurze, warme Vermutung mehr als jeder Tipp – Mira möchte gerade gehört werden, nicht gerettet."
+  },
+  {
+   "id": "E02",
+   "stufe": 1,
+   "bereich": "Arbeit",
+   "person": "Kofi",
+   "rolle": "dein Kollege, 41, Projektleiter in deinem Team",
+   "anrede": "du",
+   "situation": "In der Mittagspause erzählt Kofi, dass er bald in eine andere Stadt zieht.",
+   "sagt": "Jetzt ist es offiziell: Ende März bin ich weg, wir ziehen nach Leipzig, weil meine Frau dort ihre Traumstelle bekommen hat. Ich freu mich riesig für sie, für uns alle. Aber fünfzehn Jahre hier, das Team, der Bäcker an der Ecke … Beim Kartonkaufen gestern hätte ich fast geheult.",
+   "gefuehle": [
+    "wehmütig",
+    "froh"
+   ],
+   "nahe_gefuehle": [
+    "traurig",
+    "gerührt",
+    "aufgeregt",
+    "zerrissen"
+   ],
+   "beduerfnisse": [
+    "Abschied",
+    "Zugehörigkeit"
+   ],
+   "nahe_beduerfnisse": [
+    "Verbindung",
+    "Trauer",
+    "Nähe",
+    "Wertschätzung"
+   ],
+   "auswahl_g": [
+    "verlegen",
+    "traurig",
+    "wehmütig",
+    "enttäuscht",
+    "neidisch",
+    "froh",
+    "gereizt",
+    "gerührt"
+   ],
+   "auswahl_b": [
+    "Abschied",
+    "Kompetenz",
+    "Sicherheit",
+    "Trauer",
+    "Ordnung",
+    "Zugehörigkeit",
+    "Verbindung",
+    "Selbstbestimmung"
+   ],
+   "reaktion": {
+    "treffer": "Ja … genau das. Ich will mich richtig verabschieden können, von euch und von allem hier. Fünfzehn Jahre sind ja nicht nichts.",
+    "teil_gefuehl": "Ja, beides gleichzeitig, verrückt, oder? Mir wird gerade klar, wie sehr ich hier hingehöre. Und dass ich das jetzt loslassen muss.",
+    "teil_beduerfnis": "Ja, darum geht’s. Aber es ist nicht nur schwer. Ich bin gleichzeitig richtig froh. Und wehmütig. Beides auf einmal.",
+    "daneben": "Hm, nee, das ist es eher nicht. Es ist mehr so: Ich lauf durchs Büro und denk bei jedem Schreibtisch, das ist bald vorbei.",
+    "blocker": "Mhm, ja … Ich glaub, ich wollte gar keine Antwort. Nur mal laut sagen, wie komisch sich das gerade anfühlt.",
+    "mehr": "Und ehrlich gesagt hab ich ein bisschen Angst, dass ihr mich nach drei Monaten vergessen habt."
+   },
+   "muster": "Bist du wehmütig und zugleich froh, weil dir ein guter Abschied wichtig ist und du hier so viel Zugehörigkeit erlebt hast?",
+   "alltag": "Klingt nach einem lachenden und einem weinenden Auge. Ist dir das hier richtig ans Herz gewachsen?",
+   "lernhinweis": "Gemischte Gefühle dürfen nebeneinanderstehen – die Vermutung muss sich nicht für eins entscheiden."
+  },
+  {
+   "id": "E03",
+   "stufe": 1,
+   "bereich": "Nachbarschaft",
+   "person": "Dariusz",
+   "rolle": "dein Nachbar, 58, pflegt seine Mutter mit Demenz",
+   "anrede": "du",
+   "situation": "Du triffst Dariusz im Treppenhaus, als er vom Einkaufen für seine Mutter kommt.",
+   "sagt": "Gestern hat meine Mutter mich gefragt, wer ich bin. Ganz freundlich, so wie man einen Fremden fragt. Ich hab gelächelt und gesagt, ich bin der Dariusz. Und dann bin ich in die Küche und musste mich erst mal hinsetzen.",
+   "gefuehle": [
+    "traurig",
+    "erschüttert"
+   ],
+   "nahe_gefuehle": [
+    "bestürzt",
+    "erschrocken",
+    "niedergeschlagen",
+    "hilflos",
+    "wehmütig"
+   ],
+   "beduerfnisse": [
+    "Nähe",
+    "Trauer"
+   ],
+   "nahe_beduerfnisse": [
+    "Verbindung",
+    "Abschied",
+    "Unterstützung",
+    "Verständnis"
+   ],
+   "auswahl_g": [
+    "nervös",
+    "enttäuscht",
+    "traurig",
+    "wütend",
+    "erschüttert",
+    "hilflos",
+    "verlegen",
+    "bestürzt"
+   ],
+   "auswahl_b": [
+    "Klarheit",
+    "Verbindung",
+    "Anerkennung",
+    "Ordnung",
+    "Trauer",
+    "Abschied",
+    "Freiheit",
+    "Nähe"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Sie ist noch da, und trotzdem vermisse ich sie. Klingt verrückt, oder? Aber genau so ist es.",
+    "teil_gefuehl": "Ja, sehr. Ich vermisse sie, obwohl sie im Zimmer nebenan sitzt. Und es tut gut, das mal laut auszusprechen.",
+    "teil_beduerfnis": "Ja, darum geht’s. Und wie es mir geht? Eher wie ein Schlag in die Magengrube. Erschüttert, glaube ich.",
+    "daneben": "Nein, eher nicht. Es ist mehr dieser Blick, so höflich, als wäre ich ein Besucher.",
+    "blocker": "Ja … das hat der Arzt auch gesagt. Ich glaub, ich wollte gerade nur, dass es mal jemand hört.",
+    "mehr": "Früher hat sie mir abends polnische Lieder vorgesungen. Gestern hab ich ihr eins vorgesungen, und sie hat mitgesummt."
+   },
+   "muster": "Bist du traurig und erschüttert, weil dir die Nähe zu deiner Mutter so wichtig ist und deine Trauer Raum braucht?",
+   "alltag": "Oh Mann. Das hat dich richtig getroffen, oder? Dass sie da ist und gleichzeitig ein Stück weg?",
+   "lernhinweis": "Bei Trauer braucht es keine Lösung und keine Erklärung zur Krankheit – Dasein und eine leise Vermutung reichen."
+  },
+  {
+   "id": "E04",
+   "stufe": 1,
+   "bereich": "Ausbildung",
+   "person": "Noah",
+   "rolle": "dein Neffe, 17, macht eine Ausbildung zum Elektroniker",
+   "anrede": "du",
+   "situation": "Noah kommt direkt nach seiner Zwischenprüfung zu dir in die Küche.",
+   "sagt": "Ich hab bestanden! Echt jetzt! Nach meinen Mathenoten in der Schule hab ich gedacht, das wird eh nix. Aber der Prüfer hat gesagt, meine Verdrahtung war die sauberste in der ganzen Gruppe.",
+   "gefuehle": [
+    "stolz",
+    "erleichtert"
+   ],
+   "nahe_gefuehle": [
+    "froh",
+    "glücklich",
+    "zufrieden",
+    "überrascht"
+   ],
+   "beduerfnisse": [
+    "Kompetenz",
+    "Anerkennung"
+   ],
+   "nahe_beduerfnisse": [
+    "Wertschätzung",
+    "gesehen werden",
+    "Lernen",
+    "Wirksamkeit"
+   ],
+   "auswahl_g": [
+    "stolz",
+    "neugierig",
+    "erleichtert",
+    "überrascht",
+    "froh",
+    "verlegen",
+    "nervös",
+    "gelassen"
+   ],
+   "auswahl_b": [
+    "Harmonie",
+    "Anerkennung",
+    "Wertschätzung",
+    "Lernen",
+    "Kompetenz",
+    "Ordnung",
+    "Selbstbestimmung",
+    "Ruhe"
+   ],
+   "reaktion": {
+    "treffer": "Ja! Genau! Zum ersten Mal hat jemand gesehen, was ich draufhab. Und nicht nur, was ich nicht kann.",
+    "teil_gefuehl": "Ja, voll! Ich hab endlich mal gemerkt, dass ich was richtig gut kann. Und jemand hat’s laut gesagt.",
+    "teil_beduerfnis": "Ja, das ist es. Aber vor allem bin ich so erleichtert. Ich hab drei Nächte kaum geschlafen.",
+    "daneben": "Hm, nee, nicht so richtig. Es geht mehr um das, was der Prüfer gesagt hat. Ausgerechnet über mich.",
+    "blocker": "Mhm. Okay. Ich wollte mich gerade eigentlich einfach nur mit dir freuen.",
+    "mehr": "In der Schule war ich immer der, der’s nicht checkt. Heute war ich mal der Beste. Das fühlt sich krass an."
+   },
+   "muster": "Bist du stolz und erleichtert, weil sich gerade dein Wunsch nach Kompetenz und Anerkennung erfüllt?",
+   "alltag": "Wow, du strahlst ja richtig! Tut gut, dass mal jemand gesehen hat, was du kannst, oder?",
+   "lernhinweis": "Empathie gilt auch für Freude – hier geht es darum, ein erfülltes Bedürfnis mitzufeiern, statt gleich weiterzudenken."
+  },
+  {
+   "id": "E05",
+   "stufe": 1,
+   "bereich": "Pflege",
+   "person": "Chiara",
+   "rolle": "eine gute Freundin von dir, 29, Pflegefachkraft im Krankenhaus",
+   "anrede": "du",
+   "situation": "Chiara schickt dir nach dem Nachtdienst eine Sprachnachricht.",
+   "sagt": "Ich hatte heute Nacht dreiundzwanzig Patienten allein auf Station. Die alte Dame in Zimmer vier hat immer wieder geklingelt, weil sie Angst hatte, und ich konnte nie länger als eine Minute bleiben. Ich bin nicht Pflegerin geworden, um Menschen im Minutentakt abzuhaken.",
+   "gefuehle": [
+    "traurig",
+    "frustriert"
+   ],
+   "nahe_gefuehle": [
+    "bedrückt",
+    "erschöpft",
+    "hilflos",
+    "enttäuscht",
+    "ärgerlich"
+   ],
+   "beduerfnisse": [
+    "Beitrag",
+    "Sinn"
+   ],
+   "nahe_beduerfnisse": [
+    "Wirksamkeit",
+    "Unterstützung",
+    "Verbindung",
+    "Kompetenz"
+   ],
+   "auswahl_g": [
+    "bedrückt",
+    "eifersüchtig",
+    "erschöpft",
+    "traurig",
+    "nervös",
+    "frustriert",
+    "verwirrt",
+    "verlegen"
+   ],
+   "auswahl_b": [
+    "Beitrag",
+    "Anerkennung",
+    "Harmonie",
+    "Freiheit",
+    "Ordnung",
+    "Unterstützung",
+    "Sinn",
+    "Verbindung"
+   ],
+   "reaktion": {
+    "treffer": "Ja … genau. Ich will für die Menschen wirklich da sein, nicht nur Häkchen setzen. Dafür mach ich das doch.",
+    "teil_gefuehl": "Ja, total. Ich will, dass die Leute bei mir merken, da kümmert sich jemand. Und heute Nacht ging das einfach nicht.",
+    "teil_beduerfnis": "Ja, das ist es. Gefühlt ist es eher so ein Kloß im Hals. Traurig, glaub ich.",
+    "daneben": "Hm, nein, eher nicht. Mir geht diese Frau nicht aus dem Kopf, wie sie meine Hand festgehalten hat.",
+    "blocker": "Mhm, ich weiß. Ich wollte das gerade nur bei jemandem loswerden, ohne dass es gleich gelöst wird.",
+    "mehr": "Bevor ich gegangen bin, hab ich mich noch fünf Minuten zu ihr gesetzt. Sie hat gesagt: Endlich mal jemand mit Zeit. Das hat gesessen."
+   },
+   "muster": "Bist du traurig und frustriert, weil dir wichtig ist, mit deiner Arbeit etwas beizutragen, und du darin Sinn erleben möchtest?",
+   "alltag": "Oh Chiara. Klingt, als würdest du dich so gern richtig kümmern, und die Nacht hat’s einfach nicht zugelassen?",
+   "lernhinweis": "Personalmangel ist ein echtes strukturelles Problem – Empathie heißt hier, Chiaras Werte zu hören, statt das System zu erklären oder schnell zu lösen."
+  },
+  {
+   "id": "E06",
+   "stufe": 2,
+   "bereich": "Partnerschaft",
+   "person": "Lukas",
+   "rolle": "ein guter Freund von dir, 39, verheiratet mit Tarek",
+   "anrede": "du",
+   "situation": "Ihr trefft euch nach der Arbeit auf ein Getränk, und Lukas erzählt von zu Hause.",
+   "sagt": "Tarek macht wieder Überstunden, dritte Woche am Stück. Ich bin inzwischen echt gut im Kochen für eine Person. Nudeln mit mir selbst, sehr romantisch. Na ja, immerhin gewinne ich jetzt jeden Streit um die Fernbedienung.",
+   "gefuehle": [
+    "einsam",
+    "traurig"
+   ],
+   "nahe_gefuehle": [
+    "enttäuscht",
+    "bedrückt",
+    "sehnsüchtig",
+    "frustriert"
+   ],
+   "beduerfnisse": [
+    "Nähe",
+    "Verbindung"
+   ],
+   "nahe_beduerfnisse": [
+    "Zugehörigkeit",
+    "Gegenseitigkeit",
+    "Wertschätzung",
+    "Vertrauen"
+   ],
+   "auswahl_g": [
+    "eifersüchtig",
+    "einsam",
+    "belustigt",
+    "traurig",
+    "enttäuscht",
+    "sehnsüchtig",
+    "gelassen",
+    "wütend"
+   ],
+   "auswahl_b": [
+    "Zugehörigkeit",
+    "Freiheit",
+    "Ruhe",
+    "Nähe",
+    "Kompetenz",
+    "Verbindung",
+    "Gegenseitigkeit",
+    "Spiel"
+   ],
+   "reaktion": {
+    "treffer": "Ja … ehrlich gesagt, ja. Ich vermisse ihn, obwohl er jede Nacht neben mir einschläft.",
+    "teil_gefuehl": "Hm. Ja, schon. Ich hätte einfach gern mal wieder einen Abend, an dem wir zusammen am Tisch sitzen und quatschen.",
+    "teil_beduerfnis": "Ja, darum geht’s. Aber sauer bin ich gar nicht so. Eher … einsam. Auch wenn das komisch klingt, wenn man verheiratet ist.",
+    "daneben": "Nee, das trifft’s nicht. Der Witz mit der Fernbedienung ist ehrlich gesagt nur Fassade.",
+    "blocker": "Ja … schon klar. Weißt du, ich wollte gar keine Antwort. Nur dass mal jemand hinter den Witz guckt.",
+    "mehr": "Neulich hab ich ihm geschrieben: Wollen wir mal wieder ausgehen? Und dann hab ich’s gelöscht, bevor ich auf Senden gedrückt hab."
+   },
+   "muster": "Bist du einsam und traurig, weil dir Nähe und Verbindung in eurer Beziehung so wichtig sind?",
+   "alltag": "Klingt witzig. Und ein bisschen so, als würde er dir gerade ziemlich fehlen?",
+   "lernhinweis": "Hinter Ironie liegt oft etwas Verletzliches – den Witz kurz würdigen und dann leise nach dem Gefühl darunter fragen."
+  },
+  {
+   "id": "E07",
+   "stufe": 2,
+   "bereich": "Studium",
+   "person": "Emre",
+   "rolle": "dein Kommilitone, 24, studiert mit dir Soziale Arbeit, nutzt einen Rollstuhl",
+   "anrede": "du",
+   "situation": "Emre kommt fünfzig Minuten zu spät ins Seminar und rollt neben dich.",
+   "sagt": "Aufzug am Hauptbahnhof kaputt. Drittes Mal diese Woche. Ich bin zwei Stationen weitergefahren und mit dem Bus zurück, fünfzig Minuten extra. Aber hey, ich kenn jetzt jede barrierefreie Haltestelle der Stadt auswendig.",
+   "gefuehle": [
+    "frustriert",
+    "genervt"
+   ],
+   "nahe_gefuehle": [
+    "ärgerlich",
+    "erschöpft",
+    "gereizt",
+    "müde",
+    "wütend"
+   ],
+   "beduerfnisse": [
+    "Verlässlichkeit",
+    "Selbstbestimmung"
+   ],
+   "nahe_beduerfnisse": [
+    "Planbarkeit",
+    "Fairness",
+    "Autonomie",
+    "Leichtigkeit",
+    "Einbezogensein"
+   ],
+   "auswahl_g": [
+    "hilflos",
+    "ängstlich",
+    "genervt",
+    "verlegen",
+    "gelassen",
+    "erschöpft",
+    "ärgerlich",
+    "frustriert"
+   ],
+   "auswahl_b": [
+    "Unterstützung",
+    "Harmonie",
+    "Fairness",
+    "Planbarkeit",
+    "Verlässlichkeit",
+    "Ruhe",
+    "Selbstbestimmung",
+    "Schutz"
+   ],
+   "reaktion": {
+    "treffer": "Ja. Genau. Ich will einfach losfahren und ankommen, wie alle anderen auch. Ohne Plan B, C und D.",
+    "teil_gefuehl": "Ja, und wie. Ich will morgens einfach in die Bahn steigen und wissen, dass ich pünktlich da bin. So wie du.",
+    "teil_beduerfnis": "Ja, darum geht’s. Und gefühlt? Einfach nur genervt. Und frustriert, dass das überhaupt ein Thema ist.",
+    "daneben": "Nee, eigentlich nicht. Mich ärgert eher, dass ich jeden Weg planen muss wie eine Expedition.",
+    "blocker": "Ach, bitte kein Mitleid. Und die Apps kenn ich alle schon. Ich wollte einfach nur mal Dampf ablassen.",
+    "mehr": "Weißt du, was mich am meisten wurmt? Dass ich mich am Ende noch bei der Dozentin entschuldige, als wär’s meine Schuld."
+   },
+   "muster": "Bist du frustriert und genervt, weil dir Verlässlichkeit und Selbstbestimmung wichtig sind?",
+   "alltag": "Boah, schon wieder? Klingt, als hättest du so richtig die Nase voll davon, dich auf nichts verlassen zu können?",
+   "lernhinweis": "Mitleid oder Hilfsangebote gehen hier am Kern vorbei – Emre wünscht sich keine Hilfe, sondern dass die Wege für ihn genauso verlässlich funktionieren wie für alle."
+  },
+  {
+   "id": "E08",
+   "stufe": 2,
+   "bereich": "Familie",
+   "person": "Günter",
+   "rolle": "dein Vater, 79, verwitwet",
+   "anrede": "du",
+   "situation": "Dein Vater hat nach einem Sehtest beschlossen, nicht mehr Auto zu fahren, und du besuchst ihn am Wochenende.",
+   "sagt": "Passt schon. … Ist halt so in meinem Alter. Die Schlüssel liegen in der Schublade, falls du das Auto willst.",
+   "gefuehle": [
+    "traurig",
+    "niedergeschlagen"
+   ],
+   "nahe_gefuehle": [
+    "wehmütig",
+    "bedrückt",
+    "mutlos",
+    "besorgt"
+   ],
+   "beduerfnisse": [
+    "Freiheit",
+    "Abschied"
+   ],
+   "nahe_beduerfnisse": [
+    "Selbstbestimmung",
+    "Autonomie",
+    "Trauer",
+    "Gegenseitigkeit"
+   ],
+   "auswahl_g": [
+    "niedergeschlagen",
+    "wehmütig",
+    "bedrückt",
+    "wütend",
+    "traurig",
+    "erleichtert",
+    "gelassen",
+    "verwirrt"
+   ],
+   "auswahl_b": [
+    "Selbstbestimmung",
+    "Trauer",
+    "Ruhe",
+    "Abschied",
+    "Freiheit",
+    "Ordnung",
+    "Lernen",
+    "Sicherheit"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Fünfzig Jahre bin ich gefahren. Wohin ich wollte, wann ich wollte. Das war ein Stück Freiheit, weißt du.",
+    "teil_gefuehl": "Ja … schon. Fünfzig Jahre bin ich einfach losgefahren, wenn mir danach war. Jetzt muss ich für jeden Weg fragen.",
+    "teil_beduerfnis": "Ja, darum geht’s wohl. Gefühlt ist es eher so ein Druck auf der Brust. Traurig, glaub ich. Sagt man ja nicht so leicht.",
+    "daneben": "Nein, nein. … Ich hab heute Morgen nur aus dem Fenster geschaut, und da stand das Auto.",
+    "blocker": "Ja, ja. Vernünftig ist es, ich weiß. … Ist schon gut.",
+    "mehr": "Am meisten fehlt mir der Sonntag. Da bin ich immer raus zum Friedhof, zu deiner Mutter. Und jetzt will ich dich nicht jedes Mal fragen müssen."
+   },
+   "muster": "Bist du traurig, weil dir deine Freiheit wichtig ist und du gerade Abschied von etwas nimmst, das dir viel bedeutet hat?",
+   "alltag": "Hm. Ist vielleicht doch nicht so leicht, die Schlüssel abzugeben, oder? Nach fünfzig Jahren?",
+   "lernhinweis": "Bei Einsilbigkeit hilft Geduld – eine kurze Vermutung anbieten und Stille aushalten, statt mit Fragen oder Aufmunterung nachzuschieben."
+  },
+  {
+   "id": "E09",
+   "stufe": 2,
+   "bereich": "Arbeit",
+   "person": "Nadia",
+   "rolle": "deine Kollegin, 44, in der Buchhaltung",
+   "anrede": "du",
+   "situation": "Kurz nach einer Rundmail zur Umstrukturierung kommt Nadia an deinen Schreibtisch.",
+   "sagt": "Sag mal, weißt du, ob die Umstrukturierung auch die Buchhaltung betrifft? Ich frag nur, weil wir nächste Woche den Mietvertrag für die größere Wohnung unterschreiben wollen. In der Kaffeeküche erzählt jeder was anderes.",
+   "gefuehle": [
+    "besorgt",
+    "unsicher"
+   ],
+   "nahe_gefuehle": [
+    "angespannt",
+    "nervös",
+    "unruhig",
+    "ängstlich",
+    "verwirrt"
+   ],
+   "beduerfnisse": [
+    "Sicherheit",
+    "Klarheit"
+   ],
+   "nahe_beduerfnisse": [
+    "Planbarkeit",
+    "Orientierung",
+    "Verlässlichkeit",
+    "Ehrlichkeit",
+    "Vertrauen"
+   ],
+   "auswahl_g": [
+    "enttäuscht",
+    "neugierig",
+    "ärgerlich",
+    "unsicher",
+    "besorgt",
+    "gelassen",
+    "nervös",
+    "angespannt"
+   ],
+   "auswahl_b": [
+    "Klarheit",
+    "Orientierung",
+    "Mitsprache",
+    "Sicherheit",
+    "Freiheit",
+    "Planbarkeit",
+    "Anerkennung",
+    "Harmonie"
+   ],
+   "reaktion": {
+    "treffer": "Ja, genau das. Ich brauch einfach festen Boden unter den Füßen, bevor ich so was unterschreibe.",
+    "teil_gefuehl": "Ja, ziemlich. Ich will einfach wissen, woran ich bin, bevor wir uns an eine höhere Miete binden.",
+    "teil_beduerfnis": "Ja, darum geht’s. Und ehrlich gesagt bin ich ziemlich besorgt. Ich schlaf seit der Mail schlecht.",
+    "daneben": "Nee, eigentlich nicht. Es ist eher dieser Mietvertrag, der bei uns auf dem Küchentisch liegt.",
+    "blocker": "Hm, ja, vielleicht frag ich mal die Chefin. Ich hatte nur gehofft, du verstehst kurz, warum mich das so umtreibt.",
+    "mehr": "Wir haben ein Jahr gesucht. Endlich ein eigenes Zimmer für jedes Kind. Und jetzt hab ich Angst, dass wir uns verkalkulieren."
+   },
+   "muster": "Bist du besorgt und unsicher, weil dir Sicherheit und Klarheit wichtig sind, bevor ihr den Vertrag unterschreibt?",
+   "alltag": "Klingt, als würde dir das gerade ganz schön im Magen liegen, so kurz vor dem Mietvertrag?",
+   "lernhinweis": "Hinter einer Sachfrage steckt oft eine Sorge – wer nur die Frage beantwortet, verpasst den Menschen, der sie stellt."
+  },
+  {
+   "id": "E10",
+   "stufe": 2,
+   "bereich": "WG",
+   "person": "Aylin",
+   "rolle": "deine Mitbewohnerin, 26, kellnert in einem Restaurant",
+   "anrede": "du",
+   "situation": "Aylin kommt spät in die WG-Küche und legt ihr Handy etwas zu laut auf den Tisch.",
+   "sagt": "Rate mal, wer Samstag doch arbeitet. Der Chef hat den Dienstplan zum dritten Mal geändert, per Nachricht, um elf Uhr nachts. Der Typ kriegt echt nichts auf die Reihe. Und ich darf jetzt meiner Schwester sagen, dass ich zu ihrem Geburtstag nicht komme.",
+   "gefuehle": [
+    "enttäuscht",
+    "ärgerlich"
+   ],
+   "nahe_gefuehle": [
+    "wütend",
+    "frustriert",
+    "traurig",
+    "gereizt",
+    "genervt"
+   ],
+   "beduerfnisse": [
+    "Planbarkeit",
+    "Rücksicht"
+   ],
+   "nahe_beduerfnisse": [
+    "Verlässlichkeit",
+    "Respekt",
+    "Selbstbestimmung",
+    "Fairness",
+    "Verbindung"
+   ],
+   "auswahl_g": [
+    "traurig",
+    "ärgerlich",
+    "enttäuscht",
+    "verlegen",
+    "eifersüchtig",
+    "wütend",
+    "verwirrt",
+    "ängstlich"
+   ],
+   "auswahl_b": [
+    "Lernen",
+    "Respekt",
+    "Planbarkeit",
+    "Ruhe",
+    "Kompetenz",
+    "Rücksicht",
+    "Verlässlichkeit",
+    "Ordnung"
+   ],
+   "reaktion": {
+    "treffer": "Ja! Genau. Ich will mein Leben auch mal planen können. Und dass jemand mitdenkt, dass wir auch noch was anderes haben als die Arbeit.",
+    "teil_gefuehl": "Ja, total. Ich will einfach eine Woche vorher wissen, wann ich frei hab. Und dass jemand dran denkt, dass ich auch ein Leben hab.",
+    "teil_beduerfnis": "Ja, darum geht’s. Aber eigentlich bin ich nicht nur sauer. Vor allem bin ich enttäuscht. Ich hatte mich so auf den Abend gefreut.",
+    "daneben": "Nee, eher nicht. Es geht weniger um ihn als darum, dass ich meiner Schwester schon wieder absagen muss.",
+    "blocker": "Ja, ja, alle sagen, ich soll mir was anderes suchen. Ich wollte gerade einfach nur mal meckern dürfen.",
+    "mehr": "Das ist schon das zweite Mal dieses Jahr. Langsam hab ich Angst, meine Schwester denkt, ich hab keine Lust auf sie."
+   },
+   "muster": "Bist du enttäuscht und ärgerlich, weil dir Planbarkeit und Rücksicht auf dein Leben neben der Arbeit wichtig sind?",
+   "alltag": "Ach Mist, ausgerechnet der Geburtstag deiner Schwester. Klingt, als würdest du dir echt wünschen, mal fest planen zu können?",
+   "lernhinweis": "Bei Klagen über Dritte geht es nicht darum, über den Chef mitzuurteilen, sondern Aylins eigene Gefühle und Bedürfnisse zu hören."
+  },
+  {
+   "id": "E11",
+   "stufe": 3,
+   "bereich": "Freundschaft",
+   "person": "Leonie",
+   "rolle": "deine beste Freundin, 31, seit Monaten auf Jobsuche",
+   "anrede": "du",
+   "situation": "Du hast Leonie ein Urlaubsfoto geschickt, jetzt ruft sie dich an.",
+   "sagt": "Du weißt genau, dass heute mein Vorstellungsgespräch war. Seit Wochen rede ich von nichts anderem. Und du schickst mir ein Foto von deinem Cocktail am Strand? Du interessierst dich doch eh nur für dich!",
+   "gefuehle": [
+    "verletzt",
+    "enttäuscht"
+   ],
+   "nahe_gefuehle": [
+    "traurig",
+    "wütend",
+    "ärgerlich",
+    "einsam",
+    "besorgt"
+   ],
+   "beduerfnisse": [
+    "gesehen werden",
+    "Verbindung"
+   ],
+   "nahe_beduerfnisse": [
+    "Verständnis",
+    "Unterstützung",
+    "Nähe",
+    "Wertschätzung",
+    "Gegenseitigkeit"
+   ],
+   "auswahl_g": [
+    "verwirrt",
+    "neidisch",
+    "traurig",
+    "enttäuscht",
+    "gelangweilt",
+    "wütend",
+    "verletzt",
+    "verlegen"
+   ],
+   "auswahl_b": [
+    "Verständnis",
+    "Ordnung",
+    "Fairness",
+    "Verbindung",
+    "Freiheit",
+    "gesehen werden",
+    "Ruhe",
+    "Unterstützung"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Genau das. Ich wollte, dass du an mich denkst. Dass ich dir wichtig genug bin, um nachzufragen.",
+    "teil_gefuehl": "Ja. Total. Ich hätte mir so gewünscht, dass du heute an mich denkst und fragst, wie es gelaufen ist.",
+    "teil_beduerfnis": "Ja, darum geht’s. Und ehrlich gesagt bin ich nicht nur sauer. Ich bin verletzt.",
+    "daneben": "Nein. … Ich gönn dir den Urlaub ja. Es geht um heute. Um dieses eine Gespräch.",
+    "blocker": "Hm. … Ich will gerade gar keine Erklärung. Ich wollte nur, dass du kurz bei mir bist.",
+    "mehr": "Ich glaub, es lief nicht gut. Die haben so komisch geguckt, als es um die Lücke im Lebenslauf ging. Und ich wollte das einfach mit dir teilen."
+   },
+   "muster": "Bist du verletzt und enttäuscht, weil dir wichtig ist, gesehen zu werden und dich mit mir verbunden zu fühlen?",
+   "alltag": "Autsch. Klingt, als hättest du dir heute so gewünscht, dass ich an dich denke, und dann kam dieses Foto?",
+   "lernhinweis": "Der Vorwurf lädt zum Rechtfertigen ein – hilfreicher ist, erst Leonies Verletzung zu hören; deine Sicht und dein Bedauern haben danach Platz."
+  },
+  {
+   "id": "E12",
+   "stufe": 3,
+   "bereich": "Kundenkontakt",
+   "person": "Jelena",
+   "rolle": "Kundin, 32, Heizung seit Freitag defekt, Baby zu Hause",
+   "anrede": "Sie",
+   "situation": "Du arbeitest im Kundendienst eines Heizungsbetriebs, und Jelena ruft zum dritten Mal an.",
+   "sagt": "Jetzt hören Sie mir mal zu! Seit Freitag ist meine Heizung kaputt, ich hab ein sechs Monate altes Baby, und Sie erzählen mir zum dritten Mal was von einem Ersatzteil. Haben Sie überhaupt eine Ahnung, wie kalt es nachts bei uns ist?",
+   "gefuehle": [
+    "besorgt",
+    "erschöpft"
+   ],
+   "nahe_gefuehle": [
+    "verzweifelt",
+    "wütend",
+    "ängstlich",
+    "angespannt",
+    "hilflos"
+   ],
+   "beduerfnisse": [
+    "Sicherheit",
+    "Verlässlichkeit"
+   ],
+   "nahe_beduerfnisse": [
+    "Schutz",
+    "Gesundheit",
+    "Klarheit",
+    "Unterstützung",
+    "Planbarkeit"
+   ],
+   "auswahl_g": [
+    "besorgt",
+    "verlegen",
+    "erschöpft",
+    "gelangweilt",
+    "wütend",
+    "eifersüchtig",
+    "verzweifelt",
+    "verwirrt"
+   ],
+   "auswahl_b": [
+    "Klarheit",
+    "Sicherheit",
+    "Schutz",
+    "Harmonie",
+    "Freiheit",
+    "Verlässlichkeit",
+    "Anerkennung",
+    "Selbstbestimmung"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Genau. Ich will einfach, dass mein Kind es warm hat. Und dass ich mich auf das verlassen kann, was man mir sagt.",
+    "teil_gefuehl": "Ja, das bin ich. Ich will einfach, dass meine Tochter nachts warm schläft. Und dass eine Zusage auch eine Zusage ist.",
+    "teil_beduerfnis": "Ja, darum geht es. Und ehrlich gesagt bin ich nicht nur sauer. Ich bin vor allem besorgt. Und so müde, ich hab zwei Nächte kaum geschlafen.",
+    "daneben": "Nein, darum geht es nicht. Es geht um meine Tochter, die mit Mütze im Bett liegt.",
+    "blocker": "Bitte keine Erklärungen mehr über Lieferzeiten. … Ich wollte eigentlich nur, dass mir mal jemand richtig zuhört.",
+    "mehr": "Ich bin heute Nacht dreimal aufgestanden, um zu fühlen, ob ihre Hände kalt sind. Ich kann einfach nicht mehr."
+   },
+   "muster": "Sind Sie besorgt und erschöpft, weil Ihnen die Sicherheit Ihres Kindes wichtig ist und Sie sich auf Zusagen verlassen können möchten?",
+   "alltag": "Zwei Nächte mit Baby ohne Heizung, das klingt nach richtig viel Sorge. Sie möchten sich endlich darauf verlassen können, dass jemand kommt, oder?",
+   "lernhinweis": "Empathie heißt hier weder, die Verzögerung zu verteidigen, noch Schuld zu übernehmen – erst die Sorge hören, dann den nächsten konkreten Schritt besprechen."
+  },
+  {
+   "id": "E13",
+   "stufe": 3,
+   "bereich": "Familie",
+   "person": "Malik",
+   "rolle": "dein Sohn, 15",
+   "anrede": "du",
+   "situation": "Du hast ein lustiges Foto von Malik im Schlafanzug in die Familiengruppe gestellt, jetzt steht er wütend in deiner Tür.",
+   "sagt": "Bist du komplett bescheuert? Du stellst einfach ein Foto von mir im Schlafanzug in die Familiengruppe? Can hat das in unsere Klassengruppe weitergeschickt! Du kapierst echt gar nichts!",
+   "gefuehle": [
+    "wütend",
+    "beschämt"
+   ],
+   "nahe_gefuehle": [
+    "ärgerlich",
+    "verlegen",
+    "verletzt",
+    "gereizt",
+    "unsicher"
+   ],
+   "beduerfnisse": [
+    "Selbstbestimmung",
+    "Respekt"
+   ],
+   "nahe_beduerfnisse": [
+    "Mitsprache",
+    "Schutz",
+    "Vertrauen",
+    "Privatsphäre",
+    "Zugehörigkeit"
+   ],
+   "auswahl_g": [
+    "beschämt",
+    "verlegen",
+    "gelangweilt",
+    "überrascht",
+    "verwirrt",
+    "wütend",
+    "eifersüchtig",
+    "ärgerlich"
+   ],
+   "auswahl_b": [
+    "Respekt",
+    "Selbstbestimmung",
+    "Ruhe",
+    "Lernen",
+    "Mitsprache",
+    "Privatsphäre",
+    "Spiel",
+    "Ordnung"
+   ],
+   "reaktion": {
+    "treffer": "Ja! Genau! Das ist mein Bild, das geht nur mich was an. Ich bin doch kein Baby mehr.",
+    "teil_gefuehl": "Ja, Mann! Ich will selber entscheiden, welche Fotos von mir rumgehen. Und dass ihr mich vorher fragt.",
+    "teil_beduerfnis": "Ja, darum geht’s. Und es ist nicht nur Wut. Es ist so peinlich, ich will morgen gar nicht in die Schule.",
+    "daneben": "Nein! Es geht nicht um das Foto an sich. Es geht darum, dass mich keiner gefragt hat.",
+    "blocker": "Ja, ja, war lustig gemeint, ich weiß. … Darum geht’s doch gar nicht.",
+    "mehr": "Die haben mich den ganzen Tag ‚Bärchen‘ genannt, wegen dem Schlafanzug. Ich hab so getan, als wär’s mir egal."
+   },
+   "muster": "Bist du wütend und beschämt, weil dir Selbstbestimmung und Respekt wichtig sind?",
+   "alltag": "Okay. Du bist richtig sauer, und es ist dir mega peinlich, oder? Du willst selbst bestimmen, welche Fotos von dir rumgehen?",
+   "lernhinweis": "Hinter „Du kapierst gar nichts“ steckt ein Bedürfnis, kein Urteil, das du übernehmen musst – erst Empathie, danach Bedauern und Wiedergutmachung."
+  },
+  {
+   "id": "E14",
+   "stufe": 3,
+   "bereich": "Behörde",
+   "person": "Thomas",
+   "rolle": "Bürger, 52, alleinerziehender Vater von zwei Kindern",
+   "anrede": "Sie",
+   "situation": "Du arbeitest in der Wohngeldstelle, und Thomas sitzt zum dritten Mal wegen seines Antrags vor dir.",
+   "sagt": "Das ist jetzt das dritte Mal, dass ich hier sitze, und jedes Mal fehlt ein anderes Blatt! Sie schieben hier Papier hin und her, und ich weiß nicht, wie ich im März die Miete zahlen soll. Für Sie bin ich doch nur eine Nummer!",
+   "gefuehle": [
+    "verzweifelt",
+    "frustriert"
+   ],
+   "nahe_gefuehle": [
+    "wütend",
+    "erschöpft",
+    "besorgt",
+    "ärgerlich",
+    "ängstlich"
+   ],
+   "beduerfnisse": [
+    "Sicherheit",
+    "Respekt"
+   ],
+   "nahe_beduerfnisse": [
+    "Klarheit",
+    "Verlässlichkeit",
+    "gesehen werden",
+    "Planbarkeit",
+    "Fairness"
+   ],
+   "auswahl_g": [
+    "frustriert",
+    "verzweifelt",
+    "gelangweilt",
+    "verwirrt",
+    "gelassen",
+    "besorgt",
+    "wütend",
+    "eifersüchtig"
+   ],
+   "auswahl_b": [
+    "Ruhe",
+    "gesehen werden",
+    "Lernen",
+    "Ordnung",
+    "Harmonie",
+    "Sicherheit",
+    "Respekt",
+    "Klarheit"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Genau. Ich will einfach wissen, dass meine Kinder und ich die Wohnung behalten. Und dass ich hier wie ein Mensch behandelt werde.",
+    "teil_gefuehl": "Ja, das bin ich. Ich will nur wissen, dass wir nächsten Monat noch ein Dach über dem Kopf haben. Und dass mich hier jemand ernst nimmt.",
+    "teil_beduerfnis": "Ja, darum geht es. Aber die Wut ist nur obendrauf. Eigentlich bin ich verzweifelt. Ich weiß nicht mehr weiter.",
+    "daneben": "Nein, darum geht es nicht. Es geht um zwei Kinder, die mich fragen, ob wir umziehen müssen.",
+    "blocker": "Ich weiß, dass Sie sich auch an Vorschriften halten müssen. Aber gerade will ich keine Erklärung. Ich will, dass mir mal jemand zuhört.",
+    "mehr": "Seit der Trennung mach ich das alles allein. Heute Morgen hat meine Tochter gefragt, ob sie ihr Zimmer behalten darf."
+   },
+   "muster": "Sind Sie verzweifelt und frustriert, weil Ihnen Sicherheit für Ihre Familie wichtig ist und Sie mit Respekt behandelt werden möchten?",
+   "alltag": "Drei Termine und immer noch kein Ergebnis, das klingt wirklich zermürbend. Sie machen sich große Sorgen um die Miete und möchten hier ernst genommen werden?",
+   "lernhinweis": "Das Machtgefälle zwischen Amt und Bürger ist real – Empathie heißt, die Existenzsorge hinter dem Angriff zu hören, ohne dich zu rechtfertigen oder etwas zuzusagen, das du nicht halten kannst."
+  },
+  {
+   "id": "E15",
+   "stufe": 3,
+   "bereich": "Verein",
+   "person": "Gisela",
+   "rolle": "Mitglied im Sportverein, 71, steht seit zwanzig Jahren beim Sommerfest am Grill",
+   "anrede": "du",
+   "situation": "Der Vorstand, zu dem du gehörst, hat das Sommerfest auf Sonntag gelegt, und Gisela schreibt in die Vereinsgruppe.",
+   "sagt": "Wer hat eigentlich entschieden, dass das Sommerfest auf Sonntag gelegt wird? Ich steh seit zwanzig Jahren am Grill, aber mich fragt ja keiner. Ihr Jungen macht eh, was ihr wollt. Dann macht euren Kram doch allein.",
+   "gefuehle": [
+    "ärgerlich",
+    "enttäuscht"
+   ],
+   "nahe_gefuehle": [
+    "traurig",
+    "wütend",
+    "verletzt",
+    "gereizt",
+    "frustriert"
+   ],
+   "beduerfnisse": [
+    "Wertschätzung",
+    "Einbezogensein"
+   ],
+   "nahe_beduerfnisse": [
+    "Mitsprache",
+    "Anerkennung",
+    "Zugehörigkeit",
+    "gesehen werden",
+    "Beitrag"
+   ],
+   "auswahl_g": [
+    "ärgerlich",
+    "enttäuscht",
+    "eifersüchtig",
+    "verwirrt",
+    "ängstlich",
+    "verletzt",
+    "gelassen",
+    "traurig"
+   ],
+   "auswahl_b": [
+    "Zugehörigkeit",
+    "Wertschätzung",
+    "Einbezogensein",
+    "Ruhe",
+    "Ordnung",
+    "Mitsprache",
+    "Lernen",
+    "Freiheit"
+   ],
+   "reaktion": {
+    "treffer": "Ja. … Genau das. Zwanzig Jahre steh ich da am Grill, und dann erfahr ich das aus einer Rundmail. Ich will doch dazugehören und nicht nur Würstchen wenden.",
+    "teil_gefuehl": "Ja, bin ich. Ich hätte mir gewünscht, dass mal jemand anruft und fragt: Gisela, was meinst du? Nach zwanzig Jahren.",
+    "teil_beduerfnis": "Ja, darum geht’s. Aber so richtig böse bin ich gar nicht. Eher enttäuscht. Das tut mehr weh, als ich zugeben wollte.",
+    "daneben": "Nein, um den Sonntag an sich geht’s gar nicht. Es geht darum, wie ich davon erfahren hab.",
+    "blocker": "Ja, ja, ihr hattet eure Gründe, schon klar. Ich wollte eigentlich nur, dass mal jemand merkt, dass ich auch noch da bin.",
+    "mehr": "Weißt du, seit mein Mann gestorben ist, ist der Verein so ziemlich der einzige Ort, wo ich noch unter Leute komme."
+   },
+   "muster": "Bist du ärgerlich und enttäuscht, weil dir Wertschätzung wichtig ist und du gern einbezogen werden möchtest?",
+   "alltag": "Oh, das hat dich echt gewurmt, oder? Nach zwanzig Jahren am Grill nicht mal gefragt zu werden?",
+   "lernhinweis": "Im Gruppenchat liegt es nahe, die Entscheidung zu verteidigen – erst hören, was Gisela wichtig ist, nämlich dazuzugehören und gefragt zu werden, dann über das Fest sprechen."
+  }
+ ]
+}

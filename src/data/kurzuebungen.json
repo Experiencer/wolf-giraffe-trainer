@@ -1,0 +1,2947 @@
+{
+ "gruppen": [
+  {
+   "id": "grundlagen",
+   "titel": "Grundlagen",
+   "sub": "Haltung, Giraffe und Wolf"
+  },
+  {
+   "id": "vier",
+   "titel": "Die vier Schritte",
+   "sub": "Beobachtung, Gefühl, Bedürfnis, Bitte"
+  },
+  {
+   "id": "hoeren",
+   "titel": "Zuhören und Empathie",
+   "sub": "Vier Ohren, Vermutungen, Blocker"
+  },
+  {
+   "id": "selbst",
+   "titel": "Mit dir selbst",
+   "sub": "Selbstvergebung, Wut, Dank"
+  },
+  {
+   "id": "konflikt",
+   "titel": "Konflikt und Grenzen",
+   "sub": "Mediation, Macht, Missverständnisse"
+  }
+ ],
+ "uebungen": [
+  {
+   "id": "K01",
+   "titel": "Auslöser oder Ursache?",
+   "thema": "Grundannahmen: Auslöser und Ursache",
+   "abschnitt": "§1",
+   "gruppe": "grundlagen",
+   "typ": "wahl",
+   "dauer": "3 Min.",
+   "intro": "Was andere tun, kann Gefühle auslösen – die Ursache liegt in deinen eigenen Bedürfnissen. Ordne ein, wo jeder Satz den Grund für das Gefühl sucht.",
+   "ansage": "In dieser Übung hörst du Sätze über Gefühle. Entscheide, wo der Satz den Grund für das Gefühl sucht. Sag Ursache, wenn der andere als Grund dargestellt wird. Sag Verantwortung, wenn das Gefühl mit einem eigenen Bedürfnis verbunden ist.",
+   "frage": "Wo sucht der Satz den Grund für das Gefühl?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Ursache beim anderen",
+     "sprich": [
+      "ursache",
+      "beim anderen"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Eigene Verantwortung",
+     "sprich": [
+      "verantwortung",
+      "eigene",
+      "bei mir"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "Wegen dir hab ich jetzt den ganzen Abend schlechte Laune.",
+     "ans": "a",
+     "why": "„Wegen dir“ macht den anderen zum Grund. Was dir selbst gefehlt hat, bleibt offen.",
+     "giraffe": "Ich bin seit unserem Streit noch geknickt. Mir ist wichtig, dass wir wieder gut miteinander sind."
+    },
+    {
+     "t": "Ich bin enttäuscht, weil ich mich auf unseren Abend gefreut hatte. Mir ist gemeinsame Zeit mit dir wichtig.",
+     "ans": "b",
+     "why": "Das Gefühl wird mit etwas verbunden, das dir selbst wichtig ist, vielleicht Nähe und Verbindung. So kann der andere hören, worum es geht."
+    },
+    {
+     "t": "Die Kundin vorhin hat mich total gestresst.",
+     "ans": "a",
+     "why": "Die Kundin erscheint als Ursache. Darunter liegt vielleicht der Wunsch, in Ruhe arbeiten und verstanden werden zu können.",
+     "giraffe": "Nach dem Gespräch mit der Kundin bin ich angespannt. Mir war wichtig, in Ruhe erklären zu können, und das hat nicht geklappt."
+    },
+    {
+     "t": "Mein Mitbewohner bringt mich mit seinem Geschirr echt auf die Palme.",
+     "ans": "a",
+     "why": "Der Mitbewohner wird zum Grund für den Ärger. Dein eigenes Bedürfnis, vielleicht Ordnung oder Erholung, kommt nicht vor.",
+     "giraffe": "Wenn ich abends volles Geschirr in der Spüle sehe, bin ich gereizt. Mir ist Ordnung wichtig, gerade nach einem langen Tag."
+    },
+    {
+     "t": "Als Papa zum dritten Mal nach der Uhrzeit gefragt hat, war ich gereizt. Ich habe kaum geschlafen und brauche gerade selbst Ruhe.",
+     "ans": "b",
+     "why": "Die Gereiztheit wird mit dem eigenen Zustand und dem Bedürfnis nach Ruhe verbunden, nicht mit dem Fragen des Vaters."
+    },
+    {
+     "t": "Ich werde nervös, wenn beim Amt noch Unterlagen fehlen, weil mir Klarheit und Planbarkeit wichtig sind.",
+     "ans": "b",
+     "why": "Die Nervosität wird mit eigenen Bedürfnissen verbunden: Klarheit und Planbarkeit. Niemand wird beschuldigt."
+    },
+    {
+     "t": "Ich bin wütend, weil du dich den ganzen Tag nicht gemeldet hast.",
+     "ans": "a",
+     "why": "Trotz „Ich bin wütend“ steckt der Grund im „weil du“. Die GFK fragt weiter: Was ist mir selbst so wichtig, dass ich wütend werde?",
+     "giraffe": "Ich habe den ganzen Tag nichts von dir gehört und bin wütend und besorgt. Mir ist wichtig zu wissen, dass es dir gut geht."
+    },
+    {
+     "t": "Du machst mich so glücklich mit deinen Nachrichten.",
+     "ans": "a",
+     "why": "Auch ein angenehmes Gefühl wird hier dem anderen zugeschrieben. Die GFK verbindet es mit dem erfüllten Bedürfnis, zum Beispiel Nähe.",
+     "giraffe": "Wenn ich morgens deine Nachricht lese, freue ich mich. Mir ist Nähe zu dir wichtig."
+    },
+    {
+     "t": "Ich bin traurig, dass du nicht mehr zum Chor kommst. Mir fehlen unser Singen und die Gespräche in der Pause.",
+     "ans": "b",
+     "why": "„Dass du nicht mehr kommst“ nennt nur den Auslöser. Der zweite Satz zeigt, was der sprechenden Person selbst fehlt: Verbindung und Freude. Niemand wird beschuldigt."
+    },
+    {
+     "t": "Ich bin frustriert über die Note in der Berufsschule. Ich habe viel gelernt, und mir ist wichtig, dass meine Mühe sichtbar wird.",
+     "ans": "b",
+     "why": "Der Frust wird mit eigenen Bedürfnissen verbunden: Wirksamkeit und gesehen werden. Die Lehrkraft wird nicht zum Grund gemacht."
+    }
+   ],
+   "merksatz": "Andere lösen Gefühle aus. Die Ursache liegt in dem, was dir wichtig ist.",
+   "spick": "SZ01"
+  },
+  {
+   "id": "K02",
+   "titel": "Wolf-Detektor",
+   "thema": "Lebensentfremdende Kommunikation",
+   "abschnitt": "§3",
+   "gruppe": "grundlagen",
+   "typ": "wahl",
+   "dauer": "4 Min.",
+   "intro": "Wolfssprache hat typische Muster. Erkenne, welches Muster in einem Satz steckt – und sieh dir an, wie er als Giraffe klingen könnte.",
+   "ansage": "Du hörst gleich Sätze in Wolfssprache. Entscheide, welches Muster darin steckt. Sag Urteil, Vergleich, Verantwortung, Forderung oder Verdienst. Danach bekommst du eine kurze Erklärung und einen Vorschlag in Giraffensprache.",
+   "frage": "Welches Muster steckt darin?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Urteil",
+     "sprich": [
+      "urteil",
+      "etikett"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Vergleich",
+     "sprich": [
+      "vergleich",
+      "vergleichen"
+     ]
+    },
+    {
+     "id": "c",
+     "text": "Verantwortung abgeben",
+     "sprich": [
+      "verantwortung",
+      "abgeben"
+     ]
+    },
+    {
+     "id": "d",
+     "text": "Forderung",
+     "sprich": [
+      "forderung",
+      "drohung"
+     ]
+    },
+    {
+     "id": "e",
+     "text": "Verdienst-Denken",
+     "sprich": [
+      "verdienst",
+      "verdient",
+      "belohnung",
+      "strafe"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "Der neue Azubi ist einfach faul.",
+     "ans": "a",
+     "why": "„Faul“ ist ein Etikett über die Person, keine Beschreibung von Verhalten. Dahinter steckt vielleicht Sorge um den Auftrag.",
+     "giraffe": "Der neue Azubi hat heute zweimal gefragt, ob er früher gehen kann. Ich mach mir Sorgen, ob wir den Auftrag schaffen."
+    },
+    {
+     "t": "Da kann ich nichts machen, Vorschrift ist Vorschrift.",
+     "ans": "c",
+     "why": "Die Verantwortung wird an die Vorschrift abgegeben. Dass du selbst entscheidest, sie einzuhalten, und warum, bleibt unsichtbar.",
+     "giraffe": "Ich halte mich hier an die Regel, weil mir wichtig ist, alle gleich zu behandeln. Das ärgert Sie gerade, oder? Darf ich Ihnen zeigen, was noch möglich ist?"
+    },
+    {
+     "t": "Deine Schwester hat in deinem Alter längst allein gewohnt.",
+     "ans": "b",
+     "why": "Hier wird an einer anderen Person gemessen. Was dich selbst bewegt, vielleicht Sorge, bleibt verborgen.",
+     "giraffe": "Ich mach mir Gedanken, wie es für dich weitergeht. Magst du mir erzählen, was du dir für die nächsten Monate vorstellst?"
+    },
+    {
+     "t": "Wenn du dein Zimmer bis heute Abend nicht aufräumst, gibt’s am Wochenende kein Handy.",
+     "ans": "d",
+     "why": "Eine Strafe für den Fall eines Neins macht aus der Bitte eine Forderung. Mitmachen geschieht dann eher aus Angst als freiwillig.",
+     "giraffe": "Mir ist wichtig, dass wir uns hier alle wohlfühlen. Wärst du bereit, bis zum Abendessen die Wäsche vom Boden aufzuheben?"
+    },
+    {
+     "t": "Geschieht ihm recht, dass er durch die Prüfung gefallen ist. In der Lerngruppe hat er ja nie mitgearbeitet.",
+     "ans": "e",
+     "why": "Hier zählt, wer was verdient hat. Darunter liegt vielleicht Ärger, weil dir Gegenseitigkeit in der Lerngruppe wichtig war.",
+     "giraffe": "Ich war in der Lerngruppe oft frustriert, weil mir Gegenseitigkeit wichtig ist. Das möchte ich vor der nächsten Prüfung mit ihm ansprechen."
+    },
+    {
+     "t": "Mit dir kann man echt nicht reden.",
+     "ans": "a",
+     "why": "Ein Urteil über die ganze Person. Darunter liegt vielleicht der Wunsch, verstanden zu werden.",
+     "giraffe": "Ich bin gerade ratlos, wie wir weiterkommen. Mir ist wichtig, dass wir beide gehört werden. Magst du mir sagen, was dir am wichtigsten ist?"
+    },
+    {
+     "t": "Du bringst mich dazu, dass ich laut werde.",
+     "ans": "c",
+     "why": "Das eigene Handeln wird dem anderen zugeschoben. Du hast eine Wahl, auch wenn es sich gerade nicht so anfühlt.",
+     "giraffe": "Ich merke, wie ich laut werde. Ich bin gerade sehr angespannt und brauche eine kurze Pause, bevor wir weiterreden."
+    },
+    {
+     "t": "Die anderen Eltern schaffen es doch auch, ihre Kinder pünktlich um vier abzuholen.",
+     "ans": "b",
+     "why": "Gemessen wird an anderen Eltern. Das kann beschämen und sagt nicht, was die sprechende Person selbst braucht.",
+     "giraffe": "Heute sind Sie um halb fünf gekommen, mein Dienst endet um vier. Ich brauche Verlässlichkeit für meine eigene Planung. Was würde Ihnen helfen, es bis vier zu schaffen?"
+    },
+    {
+     "t": "Wenn du brav bist, hast du dir ein Eis verdient.",
+     "ans": "e",
+     "why": "Auch Belohnung folgt der Logik von Verdienen. Mitmachen geschieht dann für den Lohn, nicht aus Freude am Beitragen.",
+     "giraffe": "Ich hab mich gefreut, wie entspannt wir den Einkauf zusammen geschafft haben. Magst du jetzt ein Eis mit mir essen?"
+    },
+    {
+     "t": "Ich muss jeden Sonntag zu meinen Eltern, das gehört sich halt so.",
+     "ans": "c",
+     "why": "„Muss“ und „gehört sich so“ verdecken die eigene Wahl. Dahinter steht vielleicht Verbundenheit oder Sorge um die Eltern.",
+     "giraffe": "Ich fahre sonntags zu meinen Eltern, weil mir die Verbindung zu ihnen wichtig ist. Manchmal wünsche ich mir auch einen freien Sonntag."
+    },
+    {
+     "t": "Entweder du kommst mit zu meiner Feier, oder du brauchst dich gar nicht mehr zu melden.",
+     "ans": "d",
+     "why": "Ein Nein wird mit Kontaktabbruch bestraft. So wird es eine Forderung, auch wenn ein echter Wunsch dahintersteht.",
+     "giraffe": "Ich würde mich riesig freuen, wenn du kommst. Mir bedeutet es viel, diesen Abend mit dir zu feiern. Hast du Lust?"
+    },
+    {
+     "t": "Die Leute vom Amt sind doch alle unfähig.",
+     "ans": "a",
+     "why": "„Unfähig“ ist ein Urteil über eine ganze Gruppe. Dahinter steht vielleicht der Wunsch nach Verlässlichkeit und Klarheit.",
+     "giraffe": "Ich warte seit sechs Wochen auf meinen Bescheid und bin frustriert. Ich brauche Planungssicherheit."
+    }
+   ],
+   "merksatz": "Hinter jedem Wolfssatz steckt ein Bedürfnis, nur tragisch ausgedrückt.",
+   "spick": "SZ03"
+  },
+  {
+   "id": "K03",
+   "titel": "Vom Müssen zum Wählen",
+   "thema": "Verantwortung für das eigene Handeln",
+   "abschnitt": "§3",
+   "gruppe": "grundlagen",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "„Ich muss“ klingt nach Zwang. Formuliere um: Wofür entscheidest du dich – und welches Bedürfnis steckt dahinter?",
+   "ansage": "Du hörst Sätze mit muss oder sollte. Sag den Satz neu, und zwar so: Ich entscheide mich dafür, weil mir etwas wichtig ist. Findest du kein Bedürfnis dahinter, ist das auch eine Erkenntnis. Dann darfst du prüfen, ob du es überhaupt weiter tun willst.",
+   "aufgabe": "Formuliere als Entscheidung: Ich entscheide mich, …, weil mir … wichtig ist.",
+   "check": "entscheidung",
+   "items": [
+    {
+     "t": "Ich muss jeden Abend noch meine Mails checken.",
+     "muster": [
+      "Ich entscheide mich, abends noch meine Mails zu lesen, weil mir ein ruhiger Start in den nächsten Tag wichtig ist.",
+      "Ich schau abends noch kurz in die Mails, dann schlaf ich ruhiger. Mal sehen, ob mir Erholung gerade nicht wichtiger ist."
+     ],
+     "pruef": [
+      "Ist „muss“ aus dem Satz verschwunden?",
+      "Nennst du ein Bedürfnis, zum Beispiel Ruhe oder Sicherheit?"
+     ],
+     "warn": [
+      "muss",
+      "müss",
+      "sollte"
+     ],
+     "tipp": "Was hast du davon, wenn du die Mails liest? Und was, wenn du es lässt?"
+    },
+    {
+     "t": "Ich sollte mal wieder Oma im Pflegeheim besuchen.",
+     "muster": [
+      "Ich entscheide mich, Oma am Sonntag im Pflegeheim zu besuchen, weil mir die Verbindung zu ihr wichtig ist.",
+      "Ich fahr Sonntag zu Oma. Ich vermisse unsere Gespräche."
+     ],
+     "pruef": [
+      "Klingt der Satz nach Wahl statt nach Pflicht?",
+      "Nennst du ein Bedürfnis, zum Beispiel Verbindung oder Fürsorge?"
+     ],
+     "warn": [
+      "sollte",
+      "muss",
+      "müss"
+     ],
+     "tipp": "Was bedeutet dir Oma? Was möchtest du ihr oder dir mit dem Besuch schenken?"
+    },
+    {
+     "t": "Ich muss zum Elternabend, sonst heißt es wieder, ich kümmere mich nicht.",
+     "muster": [
+      "Ich entscheide mich, zum Elternabend zu gehen, weil ich mitbekommen möchte, was in der Klasse los ist, und mir Mitsprache wichtig ist.",
+      "Ich geh hin, weil ich mitreden will, wenn es um mein Kind geht."
+     ],
+     "pruef": [
+      "Steht da deine Wahl statt der Angst vor dem Urteil anderer?",
+      "Nennst du, wofür du hingehst?"
+     ],
+     "warn": [
+      "muss",
+      "müss",
+      "sonst",
+      "heißt es"
+     ],
+     "tipp": "Geht es dir um dein Kind, um Mitsprache oder um Anerkennung? Alles darf da sein. Benenne, was für dich zählt."
+    },
+    {
+     "t": "Ich muss am Wochenende einspringen, sonst ist die Station unterbesetzt.",
+     "muster": [
+      "Ich entscheide mich einzuspringen, weil mir die Sicherheit der Patientinnen und Patienten und der Zusammenhalt im Team wichtig sind.",
+      "Ich spring ein, weil mir die Leute auf Station am Herzen liegen. Und bei der Dienstplanung sag ich, dass ich danach Erholung brauche."
+     ],
+     "pruef": [
+      "Steht da eine Entscheidung statt eines Zwangs?",
+      "Nennst du ein Bedürfnis, zum Beispiel Fürsorge oder Zusammenhalt?"
+     ],
+     "warn": [
+      "muss",
+      "müss",
+      "sonst"
+     ],
+     "tipp": "Wofür springst du ein? Und was brauchst du selbst, damit es dir dabei gut geht? Unterbesetzung ist kein persönliches Versäumnis – du darfst auch Nein sagen oder es im Team ansprechen."
+    },
+    {
+     "t": "Ich sollte endlich mehr Sport machen.",
+     "muster": [
+      "Ich entscheide mich, zweimal pro Woche schwimmen zu gehen, weil mir Gesundheit und Bewegung wichtig sind.",
+      "Ich geh dienstags schwimmen. Das tut mir gut, und ich schlaf danach besser."
+     ],
+     "pruef": [
+      "Ist „sollte“ aus dem Satz verschwunden?",
+      "Ist es dein eigener Grund, nicht nur eine Erwartung von außen?"
+     ],
+     "warn": [
+      "sollte",
+      "muss",
+      "müss",
+      "endlich"
+     ],
+     "tipp": "Findest du keinen eigenen Grund? Dann ist es vielleicht ein fremdes „sollte“. Du darfst prüfen, ob du es wirklich willst."
+    },
+    {
+     "t": "Ich muss meinem Bruder beim Umzug helfen, er hat mir ja auch geholfen.",
+     "muster": [
+      "Ich entscheide mich, meinem Bruder beim Umzug zu helfen, weil mir Gegenseitigkeit und unsere Verbindung wichtig sind.",
+      "Ich helf ihm am Samstag. Mir ist wichtig, dass wir füreinander da sind."
+     ],
+     "pruef": [
+      "Klingt Helfen jetzt nach Wahl statt nach Schuld?",
+      "Nennst du ein Bedürfnis, zum Beispiel Gegenseitigkeit oder Verbundenheit?"
+     ],
+     "warn": [
+      "muss",
+      "müss",
+      "schulde",
+      "ja auch"
+     ],
+     "tipp": "Hilfst du, weil du etwas schuldest, oder weil dir etwas an ihm liegt? Beides darfst du ehrlich anschauen."
+    },
+    {
+     "t": "Ich muss die Steuererklärung machen.",
+     "muster": [
+      "Ich entscheide mich, die Steuererklärung bis Ende Mai zu machen, weil mir Ordnung und finanzielle Sicherheit wichtig sind.",
+      "Ich mach die Steuer am Samstag. Dann hab ich den Kopf frei."
+     ],
+     "pruef": [
+      "Ist „muss“ aus dem Satz verschwunden?",
+      "Nennst du, was dir die erledigte Erklärung bringt?"
+     ],
+     "warn": [
+      "muss",
+      "müss",
+      "sollte"
+     ],
+     "tipp": "Auch bei echten Pflichten wählst du, mit allen Folgen. Wofür entscheidest du dich, wenn du sie machst?"
+    },
+    {
+     "t": "Als Vorstand im Sportverein muss ich ja jedes Fest organisieren.",
+     "muster": [
+      "Ich entscheide mich, das Sommerfest zu organisieren, weil mir Gemeinschaft im Verein wichtig ist.",
+      "Ich organisier das Fest, weil ich die Leute gern zusammenbringe. Fürs nächste Mal hol ich mir Hilfe dazu, mir ist auch Entlastung wichtig."
+     ],
+     "pruef": [
+      "Sprichst du von deiner Entscheidung statt von deiner Rolle?",
+      "Nennst du ein Bedürfnis, zum Beispiel Gemeinschaft oder Beitrag?"
+     ],
+     "warn": [
+      "muss",
+      "müss"
+     ],
+     "tipp": "Stell dir vor, die Rolle zwingt dich zu nichts. Was würdest du trotzdem gern tun, und warum?"
+    }
+   ],
+   "merksatz": "Was du tust, wählst du. Und hinter jeder Wahl steht ein Bedürfnis.",
+   "spick": "SZ03"
+  },
+  {
+   "id": "obs",
+   "typ": "wahl",
+   "intro": "Was hätte eine Kamera aufgenommen – und was ist schon eine Deutung?",
+   "titel": "Beobachtung oder Bewertung?",
+   "thema": "Beobachtung",
+   "abschnitt": "§4.1",
+   "gruppe": "vier",
+   "dauer": "3 Min.",
+   "frage": "Beobachtung oder Bewertung?",
+   "ansage": "In dieser Übung hörst du zehn Sätze. Entscheide bei jedem: Hätte eine Kamera das genau so aufgenommen? Dann sag Beobachtung. Steckt schon eine Deutung oder ein Urteil darin? Dann sag Bewertung.",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Beobachtung",
+     "sprich": [
+      "beobachtung",
+      "kamera",
+      "keine bewertung"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Bewertung",
+     "sprich": [
+      "bewertung",
+      "urteil",
+      "deutung",
+      "keine beobachtung"
+     ]
+    }
+   ],
+   "merksatz": "Erst die Kamera, dann die Meinung.",
+   "spick": "SZ05",
+   "items": [
+    {
+     "t": "„Du kommst immer zu spät.“",
+     "ans": "b",
+     "why": "„Immer“ verallgemeinert. Eine Beobachtung nennt konkrete Zeitpunkte."
+    },
+    {
+     "t": "„Du bist heute um 9:20 Uhr gekommen, verabredet war 9 Uhr.“",
+     "ans": "a",
+     "why": "Zeit und Ereignis sind konkret – das hätte eine Kamera aufgenommen."
+    },
+    {
+     "t": "„Er ist faul.“",
+     "ans": "b",
+     "why": "„Faul“ ist ein Etikett über die Person, keine Beschreibung von Verhalten."
+    },
+    {
+     "t": "„Er hat diese Woche die Spülmaschine nicht ausgeräumt.“",
+     "ans": "a",
+     "why": "Konkretes Verhalten in einem klaren Zeitraum."
+    },
+    {
+     "t": "„Sie hat mich in der Besprechung ignoriert.“",
+     "ans": "b",
+     "why": "„Ignoriert“ ist eine Deutung dessen, was sie angeblich wollte."
+    },
+    {
+     "t": "„Sie hat in der Besprechung auf meine zwei Fragen nicht geantwortet.“",
+     "ans": "a",
+     "why": "Beschreibt, was passiert ist, ohne zu deuten."
+    },
+    {
+     "t": "„Mein Chef ist unfair.“",
+     "ans": "b",
+     "why": "„Unfair“ ist ein Urteil. Die Beobachtung dahinter wäre, was er konkret getan hat."
+    },
+    {
+     "t": "„Mein Chef hat mir drei Projekte gegeben und meinem Kollegen eins.“",
+     "ans": "a",
+     "why": "Zahlen und Handlung – überprüfbar und urteilsfrei."
+    },
+    {
+     "t": "„Du hörst mir nie zu.“",
+     "ans": "b",
+     "why": "„Nie“ verallgemeinert und unterstellt. Das löst meist Verteidigung aus."
+    },
+    {
+     "t": "„Während ich erzählt habe, hast du zweimal aufs Handy geschaut.“",
+     "ans": "a",
+     "why": "Konkrete Situation, konkretes Verhalten."
+    }
+   ]
+  },
+  {
+   "id": "K04",
+   "titel": "Kamera-Test",
+   "thema": "Beobachtung ohne Bewertung",
+   "abschnitt": "§4.1",
+   "gruppe": "vier",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Eine Kamera nimmt auf, was passiert – ohne Deutung. Formuliere jede Bewertung so, wie eine Kamera die Situation festhalten würde, am besten mit Zeit und Ort.",
+   "ansage": "Stell dir vor, du schaust durch eine Videokamera. Die Kamera sieht, was passiert, aber sie urteilt nicht. Du hörst jetzt Bewertungen. Sag jeweils, was eine Kamera aufgenommen hätte, am besten mit Zeit und Situation.",
+   "aufgabe": "Beschreibe, was eine Kamera aufgenommen hätte – mit Zeit oder Situation.",
+   "check": "beobachtung",
+   "items": [
+    {
+     "t": "Du lässt mich mit dem ganzen Haushalt allein.",
+     "muster": [
+      "Diese Woche habe ich an vier Abenden gekocht und zweimal die Wäsche gemacht.",
+      "Ich hab diese Woche viermal gekocht und die Wäsche gemacht."
+     ],
+     "pruef": [
+      "Könnte eine Kamera genau das aufnehmen?",
+      "Nennst du einen Zeitraum oder eine Anzahl?",
+      "Ist der Vorwurf „allein lassen“ verschwunden?"
+     ],
+     "warn": [
+      "immer",
+      "nie",
+      "allein",
+      "ständig"
+     ],
+     "tipp": "Was ist konkret passiert? Zähl nach: Wer hat wann was gemacht?"
+    },
+    {
+     "t": "Mein Kollege ist total unzuverlässig.",
+     "muster": [
+      "Mein Kollege hat die letzten zwei Berichte jeweils zwei Tage nach der vereinbarten Frist geschickt.",
+      "Die letzten zwei Berichte kamen zwei Tage nach dem Termin, den wir ausgemacht hatten."
+     ],
+     "pruef": [
+      "Beschreibst du Verhalten statt einer Eigenschaft?",
+      "Gibt es einen Zeitpunkt oder eine Anzahl?"
+     ],
+     "warn": [
+      "unzuverlässig",
+      "total",
+      "immer",
+      "nie",
+      "ständig"
+     ],
+     "tipp": "Welche Zusage? Welcher Termin? Was ist dann passiert?"
+    },
+    {
+     "t": "Die Nachbarn feiern ständig rücksichtslos bis in die Nacht.",
+     "muster": [
+      "Am Freitag und am Samstag war aus der Wohnung über mir bis etwa zwei Uhr Musik zu hören.",
+      "Freitag und Samstag lief bei euch bis zwei Uhr Musik."
+     ],
+     "pruef": [
+      "Steht da ein konkreter Tag oder eine Uhrzeit?",
+      "Sind Wörter wie „ständig“ oder „rücksichtslos“ verschwunden?"
+     ],
+     "warn": [
+      "ständig",
+      "rücksichtslos",
+      "dauernd",
+      "immer",
+      "jede nacht"
+     ],
+     "tipp": "An welchen Tagen? Bis wann? Was genau war zu hören?"
+    },
+    {
+     "t": "Die Lehrerin hat meinen Sohn vor der ganzen Klasse bloßgestellt.",
+     "muster": [
+      "Mein Sohn hat erzählt, dass die Lehrerin am Dienstag seine Arbeit vor der Klasse vorgelesen und dazu „Das war wohl nichts“ gesagt hat.",
+      "Laut meinem Sohn hat die Lehrerin am Dienstag seine Arbeit laut vorgelesen und gesagt: „Das war wohl nichts.“"
+     ],
+     "pruef": [
+      "Beschreibst du, was gesagt oder getan wurde?",
+      "Ist klar, woher du es weißt?"
+     ],
+     "warn": [
+      "bloßgestellt",
+      "vorgeführt",
+      "gedemütigt",
+      "fertiggemacht"
+     ],
+     "tipp": "Was genau hat die Lehrerin gesagt oder getan? Und woher weißt du es?"
+    },
+    {
+     "t": "Du interessierst dich überhaupt nicht für mein Leben.",
+     "muster": [
+      "Als ich dir gestern von meinem Vorstellungsgespräch erzählt habe, hast du nach dem ersten Satz vom Fußballspiel angefangen.",
+      "Gestern hab ich vom Vorstellungsgespräch erzählt, und nach einem Satz ging’s um Fußball."
+     ],
+     "pruef": [
+      "Beschreibst du Verhalten statt der Gedanken des anderen?",
+      "Gibt es eine konkrete Situation?"
+     ],
+     "warn": [
+      "überhaupt",
+      "nie",
+      "interessierst",
+      "egal",
+      "immer"
+     ],
+     "tipp": "Was hat die Person getan, das dich zu diesem Schluss bringt?"
+    },
+    {
+     "t": "Der Gast an Tisch fünf war total unverschämt.",
+     "muster": [
+      "Der Gast an Tisch fünf hat mit der flachen Hand auf den Tresen geschlagen und gerufen: „Wird das heute noch was?“",
+      "Der Gast von Tisch fünf hat auf den Tresen gehauen und laut gerufen, ob das heute noch was wird."
+     ],
+     "pruef": [
+      "Könnte eine Kamera genau das aufnehmen?",
+      "Ist das Urteil „unverschämt“ verschwunden?"
+     ],
+     "warn": [
+      "unverschämt",
+      "frech",
+      "respektlos",
+      "unmöglich",
+      "total"
+     ],
+     "tipp": "Was hat der Gast gesagt oder getan? Welche Worte, welche Geste?"
+    },
+    {
+     "t": "Im Bad herrscht bei dir mal wieder das reinste Chaos.",
+     "muster": [
+      "Im Bad liegen seit Montag drei Handtücher auf dem Boden, und im Waschbecken sind Zahnpastareste.",
+      "Seit Montag liegen drei Handtücher im Bad auf dem Boden."
+     ],
+     "pruef": [
+      "Nennst du, was genau zu sehen ist?",
+      "Sind „mal wieder“ und „Chaos“ verschwunden?"
+     ],
+     "warn": [
+      "chaos",
+      "mal wieder",
+      "schon wieder",
+      "immer",
+      "saustall"
+     ],
+     "tipp": "Was würde ein Foto vom Bad zeigen?"
+    },
+    {
+     "t": "Die Sachbearbeiterin wollte mir gar nicht helfen.",
+     "muster": [
+      "Die Sachbearbeiterin hat gesagt, dass sie für meinen Antrag nicht zuständig ist, und mir eine andere Telefonnummer gegeben.",
+      "Sie hat gesagt, sie ist nicht zuständig, und mir eine andere Nummer gegeben."
+     ],
+     "pruef": [
+      "Beschreibst du, was sie gesagt oder getan hat?",
+      "Ist die Vermutung „wollte nicht“ verschwunden?"
+     ],
+     "warn": [
+      "wollte",
+      "gar nicht",
+      "keine lust",
+      "abgewimmelt"
+     ],
+     "tipp": "„Wollte nicht“ ist eine Vermutung über ihre Absicht. Was hat sie gesagt oder getan?"
+    }
+   ],
+   "merksatz": "Erst beschreiben, was passiert ist. Dann kann der andere zuhören, statt sich zu verteidigen.",
+   "spick": "SZ05"
+  },
+  {
+   "id": "feel",
+   "typ": "wahl",
+   "intro": "Echte Gefühle beschreiben, was in dir los ist – nicht, was der andere dir angeblich antut, und kein Urteil über dich.",
+   "titel": "Gefühl oder Gedanke?",
+   "thema": "Gefühle",
+   "abschnitt": "§4.2",
+   "gruppe": "vier",
+   "dauer": "3 Min.",
+   "frage": "Gefühl oder Gedanke?",
+   "ansage": "Du hörst zehn Sätze, die mit Gefühlen zu tun haben. Beschreibt der Satz, was in dir los ist? Dann sag Gefühl. Deutet er, was der andere angeblich tut oder denkt, oder urteilt er über dich selbst? Dann sag Gedanke.",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Gefühl",
+     "sprich": [
+      "gefühl",
+      "gefühle",
+      "kein gedanke"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Gedanke",
+     "sprich": [
+      "gedanke",
+      "gedanken",
+      "deutung",
+      "kein gefühl"
+     ]
+    }
+   ],
+   "merksatz": "Ein Gefühl beschreibt, wie es mir geht – ein Gedanke deutet oder urteilt, über andere oder über mich.",
+   "spick": "SZ06",
+   "items": [
+    {
+     "t": "„Ich fühle mich übergangen.“",
+     "ans": "b",
+     "why": "„Übergangen“ deutet, was der andere getan hat. Darunter liegt vielleicht Traurigkeit oder Verletzung."
+    },
+    {
+     "t": "„Ich bin enttäuscht.“",
+     "ans": "a",
+     "why": "Beschreibt einen inneren Zustand."
+    },
+    {
+     "t": "„Ich fühle, dass du mich nicht magst.“",
+     "ans": "b",
+     "why": "„Ich fühle, dass …“ leitet fast immer einen Gedanken ein."
+    },
+    {
+     "t": "„Ich bin erleichtert.“",
+     "ans": "a",
+     "why": "Ein echtes Gefühl."
+    },
+    {
+     "t": "„Ich fühle mich ausgenutzt.“",
+     "ans": "b",
+     "why": "Eine Deutung über den anderen. Darunter vielleicht: erschöpft, ärgerlich."
+    },
+    {
+     "t": "„Ich bin nervös.“",
+     "ans": "a",
+     "why": "Ein körpernahes, echtes Gefühl."
+    },
+    {
+     "t": "„Ich fühle mich wie ein Idiot.“",
+     "ans": "b",
+     "why": "Ein Urteil über dich selbst – der innere Wolf. Darunter vielleicht: beschämt, unsicher."
+    },
+    {
+     "t": "„Ich bin traurig.“",
+     "ans": "a",
+     "why": "Ein echtes Gefühl."
+    },
+    {
+     "t": "„Ich fühle mich unter Druck gesetzt.“",
+     "ans": "b",
+     "why": "Deutet, was der andere tut. Darunter vielleicht: angespannt, gestresst."
+    },
+    {
+     "t": "„Ich bin neugierig.“",
+     "ans": "a",
+     "why": "Ein echtes Gefühl."
+    }
+   ]
+  },
+  {
+   "id": "K05",
+   "titel": "Pseudogefühle übersetzen",
+   "thema": "Gefühle und Pseudogefühle",
+   "abschnitt": "§4.2",
+   "gruppe": "vier",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Manche „Gefühle“ beschreiben eigentlich, was der andere dir angeblich antut. Finde das echte Gefühl darunter und das Bedürfnis dahinter.",
+   "ansage": "Du hörst Sätze wie: Ich fühle mich übergangen. Solche Wörter deuten, was der andere getan hat. Sag stattdessen, wie es dir geht und was dir wichtig ist. Zum Beispiel: Ich bin traurig, weil mir Wertschätzung wichtig ist.",
+   "aufgabe": "Nenne ein echtes Gefühl und das Bedürfnis dahinter.",
+   "check": "gefuehl",
+   "items": [
+    {
+     "t": "Ich fühle mich vom Team übergangen. Die Entscheidung ist ohne mich gefallen.",
+     "muster": [
+      "Ich bin enttäuscht und unsicher, weil mir wichtig ist, bei Entscheidungen einbezogen zu werden.",
+      "Ich bin echt enttäuscht. Ich wäre gern dabei gewesen, als ihr das entschieden habt."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel enttäuscht oder traurig?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "übergangen",
+      "fühle mich von",
+      "als ob",
+      "ignoriert"
+     ],
+     "tipp": "Wie geht es dir, wenn du an die Entscheidung denkst? Eher traurig, ärgerlich oder unsicher?"
+    },
+    {
+     "t": "Ich fühle mich ausgenutzt, weil ich schon wieder die Spätschicht übernehmen soll.",
+     "muster": [
+      "Ich bin erschöpft und ärgerlich, weil mir Fairness und Erholung wichtig sind.",
+      "Ich bin echt platt und auch sauer. Mir ist wichtig, dass die Spätschichten fair verteilt sind."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel erschöpft oder ärgerlich?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "ausgenutzt",
+      "benutzt",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Was spürst du im Körper, wenn du an die nächste Spätschicht denkst?"
+    },
+    {
+     "t": "Ich fühle mich von meiner Mutter bevormundet, wenn sie mir sagt, wie ich mein Kind erziehen soll.",
+     "muster": [
+      "Ich bin gereizt und angespannt, weil mir Selbstbestimmung und Vertrauen in meine Entscheidungen wichtig sind.",
+      "Da werde ich richtig gereizt. Ich will das selbst entscheiden und wünsche mir, dass du mir das zutraust."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel gereizt oder angespannt?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "bevormundet",
+      "kontrolliert",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Was ist dir als Elternteil wichtig, wenn es um dein Kind geht?"
+    },
+    {
+     "t": "Ich fühle mich von meinen Geschwistern im Stich gelassen, was Papas Pflege angeht.",
+     "muster": [
+      "Ich bin erschöpft und traurig, weil ich mir Unterstützung und Gemeinsamkeit in der Familie wünsche.",
+      "Ich bin richtig erschöpft und auch traurig. Ich wünsche mir, dass wir das als Familie zusammen tragen."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel erschöpft oder traurig?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "im stich",
+      "allein gelassen",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Wie geht es dir am Ende eines Pflegetags? Und was würde dich entlasten?"
+    },
+    {
+     "t": "Ich fühle mich nicht ernst genommen, wenn die Ärztin beim Gespräch nur auf den Bildschirm schaut.",
+     "muster": [
+      "Ich bin unsicher und etwas hilflos, weil mir wichtig ist, mit meinen Fragen gehört zu werden.",
+      "Ich bin gerade etwas unsicher. Mir ist wichtig, dass meine Fragen ankommen. Darf ich sie Ihnen kurz stellen?"
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel unsicher oder hilflos?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "nicht ernst genommen",
+      "ignoriert",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Was hättest du gern in diesem Gespräch? Was soll ankommen?"
+    },
+    {
+     "t": "Ich fühle mich angegriffen, wenn du so über meine Freunde redest.",
+     "muster": [
+      "Ich bin verletzt und ärgerlich, weil mir Respekt für die Menschen wichtig ist, die mir nahestehen.",
+      "Da werd ich traurig und auch sauer. Meine Freunde sind mir wichtig, und ich wünsche mir Respekt für sie."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel verletzt oder ärgerlich?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "angegriffen",
+      "attackiert",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Welches Gefühl liegt unter dem Angriff? Eher Schmerz, Ärger oder Angst?"
+    },
+    {
+     "t": "Ich fühle mich in der Klasse total abgelehnt.",
+     "muster": [
+      "Ich bin traurig und einsam, weil ich mir Zugehörigkeit wünsche.",
+      "In den Pausen bin ich oft traurig. Ich würde so gern irgendwo dazugehören."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel traurig oder einsam?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "abgelehnt",
+      "ausgeschlossen",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Wie fühlst du dich in den Pausen? Und wonach sehnst du dich dann?"
+    },
+    {
+     "t": "Ich fühle mich kontrolliert, wenn meine Chefin dreimal am Tag nach dem Stand fragt.",
+     "muster": [
+      "Ich bin angespannt und gereizt, weil mir Vertrauen und Selbstständigkeit bei der Arbeit wichtig sind.",
+      "Ehrlich gesagt werde ich da unruhig. Ich arbeite am besten, wenn ich mir die Zeit selbst einteilen kann."
+     ],
+     "pruef": [
+      "Steht ein echtes Gefühl da, zum Beispiel angespannt oder unruhig?",
+      "Nennst du ein Bedürfnis, in dem keine bestimmte Person vorkommt?"
+     ],
+     "warn": [
+      "kontrolliert",
+      "überwacht",
+      "fühle mich von",
+      "als ob"
+     ],
+     "tipp": "Was brauchst du, um gut arbeiten zu können?"
+    }
+   ],
+   "merksatz": "Ein Pseudogefühl erzählt, was der andere tut. Ein echtes Gefühl erzählt, wie es dir geht.",
+   "spick": "SZ06"
+  },
+  {
+   "id": "need",
+   "typ": "wahl",
+   "intro": "Bedürfnisse teilen alle Menschen. Strategien nennen eine bestimmte Person oder Handlung.",
+   "titel": "Bedürfnis oder Strategie?",
+   "thema": "Bedürfnisse",
+   "abschnitt": "§4.3",
+   "gruppe": "vier",
+   "dauer": "3 Min.",
+   "frage": "Bedürfnis oder Strategie?",
+   "ansage": "Du hörst zehn Sätze. Ist darin etwas, das alle Menschen brauchen, ganz ohne bestimmte Person oder Handlung? Dann sag Bedürfnis. Kommt eine bestimmte Person oder Handlung vor? Dann sag Strategie.",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Bedürfnis",
+     "sprich": [
+      "bedürfnis",
+      "bedürfnisse",
+      "keine strategie"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Strategie",
+     "sprich": [
+      "strategie",
+      "strategien",
+      "kein bedürfnis"
+     ]
+    }
+   ],
+   "merksatz": "Kommt eine bestimmte Person oder Handlung vor, ist es eine Strategie.",
+   "spick": "SZ07",
+   "items": [
+    {
+     "t": "„Ich brauche, dass du mich anrufst.“",
+     "ans": "b",
+     "why": "Nennt Person und Handlung. Das Bedürfnis dahinter: Verbindung, Sicherheit."
+    },
+    {
+     "t": "„Mir ist Verlässlichkeit wichtig.“",
+     "ans": "a",
+     "why": "Universell – unabhängig davon, wer es erfüllt."
+    },
+    {
+     "t": "„Ich brauche Ruhe.“",
+     "ans": "a",
+     "why": "Ein universelles Bedürfnis."
+    },
+    {
+     "t": "„Ich will, dass du dich entschuldigst.“",
+     "ans": "b",
+     "why": "Eine bestimmte Handlung. Dahinter vielleicht: Anerkennung, Respekt."
+    },
+    {
+     "t": "„Mir ist Wertschätzung wichtig.“",
+     "ans": "a",
+     "why": "Ein universelles Bedürfnis."
+    },
+    {
+     "t": "„Ich brauche einen neuen Job.“",
+     "ans": "b",
+     "why": "Eine Strategie. Dahinter vielleicht: Sinn, Sicherheit, Entwicklung."
+    },
+    {
+     "t": "„Ich brauche Unterstützung.“",
+     "ans": "a",
+     "why": "Universell – noch offen, wer und wie."
+    },
+    {
+     "t": "„Du musst pünktlich sein.“",
+     "ans": "b",
+     "why": "Eine Forderung an eine Person. Dahinter: Verlässlichkeit."
+    },
+    {
+     "t": "„Mir ist Selbstbestimmung wichtig.“",
+     "ans": "a",
+     "why": "Ein universelles Bedürfnis."
+    },
+    {
+     "t": "„Ich brauche ein Wochenende ohne Termine.“",
+     "ans": "b",
+     "why": "Eine konkrete Strategie. Dahinter: Erholung, Freiraum."
+    }
+   ]
+  },
+  {
+   "id": "K06",
+   "titel": "Das Bedürfnis hinter der Strategie",
+   "thema": "Bedürfnisse und Strategien",
+   "abschnitt": "§4.3",
+   "gruppe": "vier",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "„Ich brauche, dass du …“ nennt eine Strategie: eine bestimmte Person oder Handlung. Finde das Bedürfnis dahinter, das alle Menschen kennen.",
+   "ansage": "Du hörst Sätze, in denen sich jemand eine ganz bestimmte Handlung wünscht. Sag, welches Bedürfnis dahinter stecken könnte. Bedürfnisse teilen alle Menschen, zum Beispiel Ruhe, Verbindung oder Sicherheit. Wenn du magst, hängst du noch eine offene Bitte an.",
+   "aufgabe": "Nenne das Bedürfnis dahinter. Wenn du magst, schließ eine offene Bitte an.",
+   "check": "beduerfnis",
+   "items": [
+    {
+     "t": "Ich brauche, dass du mir abends schreibst, wenn du gut angekommen bist.",
+     "muster": [
+      "Mir sind Sicherheit und Verbindung wichtig. Wärst du bereit, mir heute kurz zu schreiben, wenn du zu Hause bist?",
+      "Ich bin einfach ruhiger, wenn ich weiß, dass du gut angekommen bist. Schreibst du mir heute kurz?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "brauche, dass",
+      "brauche dass",
+      "musst",
+      "sollst"
+     ],
+     "tipp": "Was hättest du, wenn die Nachricht kommt? Das ist meist das Bedürfnis."
+    },
+    {
+     "t": "Ich will, dass du dich bei mir entschuldigst.",
+     "muster": [
+      "Mir sind Verständnis und Anerkennung wichtig. Magst du dir anhören, wie es mir an dem Abend ging?",
+      "Ich wünsche mir Verständnis dafür, wie es mir an dem Abend ging. Hast du kurz Zeit, dass ich es dir erzähle?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "will, dass",
+      "will dass",
+      "entschuldig",
+      "musst"
+     ],
+     "tipp": "Was würde eine Entschuldigung dir geben? Gesehen werden? Respekt? Vertrauen?"
+    },
+    {
+     "t": "Ich brauche, dass ihr nach 22 Uhr leise seid.",
+     "muster": [
+      "Mir sind Ruhe und Erholung wichtig, weil ich um fünf aufstehe. Wärt ihr bereit, die Musik ab 22 Uhr leiser zu drehen?",
+      "Ich steh um fünf auf und brauch echt meinen Schlaf. Könnt ihr ab zehn die Musik runterdrehen?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "brauche, dass",
+      "brauche dass",
+      "müsst",
+      "sollt"
+     ],
+     "tipp": "Wofür brauchst du die Stille? Was ist dir dabei wichtig?"
+    },
+    {
+     "t": "Ich will, dass mein Chef mir endlich mehr Gehalt zahlt.",
+     "muster": [
+      "Mir sind Wertschätzung und finanzielle Sicherheit wichtig. Wären Sie bereit, nächste Woche einen Termin mit mir zu machen, um über mein Gehalt zu sprechen?",
+      "Mir geht’s um Anerkennung für meine Arbeit und um ein sicheres Auskommen. Können wir nächste Woche über mein Gehalt sprechen?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "will, dass",
+      "will dass",
+      "endlich",
+      "muss"
+     ],
+     "tipp": "Was würde mehr Gehalt für dich erfüllen? Sicherheit? Anerkennung? Fairness?"
+    },
+    {
+     "t": "Ich brauche, dass du auch mal die Kinder ins Bett bringst.",
+     "muster": [
+      "Mir sind Erholung und Gegenseitigkeit wichtig. Wärst du bereit, heute und am Donnerstag die Kinder ins Bett zu bringen?",
+      "Ich bin abends total leer und hätte gern mal Zeit für mich. Übernimmst du heute das Zubettbringen?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "brauche, dass",
+      "brauche dass",
+      "auch mal",
+      "musst"
+     ],
+     "tipp": "Was würdest du an einem freien Abend auftanken?"
+    },
+    {
+     "t": "Ich will, dass meine Tochter Medizin studiert.",
+     "muster": [
+      "Mir sind Sicherheit und Sinn für ihr Leben wichtig. Ich frage sie: Magst du mir erzählen, was dich an Berufen reizt?",
+      "Ich wünsch ihr eine sichere Zukunft und Arbeit, die ihr Freude macht. Ich frag sie mal, wovon sie selbst träumt."
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Bleibt Raum für das, was deine Tochter selbst will?"
+     ],
+     "warn": [
+      "will, dass",
+      "will dass",
+      "muss",
+      "soll"
+     ],
+     "tipp": "Was wünschst du deiner Tochter, ganz unabhängig vom Studienfach?"
+    },
+    {
+     "t": "Ich brauche, dass die Kolleginnen im Großraumbüro leiser telefonieren.",
+     "muster": [
+      "Mir sind Ruhe und Konzentration wichtig. Wärt ihr bereit, längere Telefonate im Besprechungsraum zu führen?",
+      "Ich brauch gerade Ruhe für die Abrechnung. Könntet ihr längere Telefonate im Besprechungsraum führen?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "brauche, dass",
+      "brauche dass",
+      "müssen",
+      "sollen"
+     ],
+     "tipp": "Was willst du gerade schaffen, und was hilft dir dabei?"
+    },
+    {
+     "t": "Ich will, dass du beim Essen endlich das Handy weglegst.",
+     "muster": [
+      "Mir sind Nähe und Verbindung wichtig, gerade beim gemeinsamen Essen. Wärst du bereit, das Handy beim Abendessen in die Küche zu legen?",
+      "Ich vermisse dich ein bisschen, wenn wir zusammen essen. Magst du das Handy beim Essen mal weglegen?"
+     ],
+     "pruef": [
+      "Kommt in deinem Bedürfnis keine bestimmte Person oder Handlung vor?",
+      "Könnte jeder Mensch dieses Bedürfnis haben?",
+      "Falls du eine Bitte angehängt hast: Ist sie offen für ein Nein?"
+     ],
+     "warn": [
+      "will, dass",
+      "will dass",
+      "endlich",
+      "musst",
+      "immer"
+     ],
+     "tipp": "Was fehlt dir beim Essen, wenn das Handy auf dem Tisch liegt?"
+    }
+   ],
+   "merksatz": "Über Strategien kann man streiten, über Bedürfnisse kaum. Dort beginnt Verbindung.",
+   "spick": "SZ07"
+  },
+  {
+   "id": "K07",
+   "titel": "Bitte schärfen",
+   "thema": "Bitte statt Forderung",
+   "abschnitt": "§4.4",
+   "gruppe": "vier",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Eine gute Bitte ist konkret, positiv und machbar – und ein Nein ist erlaubt. Mach aus jedem Satz eine Bitte, die das erfüllt.",
+   "ansage": "Du hörst Wünsche, die noch vage, verneint oder fordernd klingen. Mach daraus eine Bitte. Sie ist konkret und sagt, was du möchtest, nicht was du nicht möchtest. Und der andere kann dazu Nein sagen. Bei manchen Sätzen geht es um eine Bitte für das Gespräch selbst.",
+   "aufgabe": "Formuliere eine konkrete, positive Bitte, die ein Nein zulässt.",
+   "check": "bitte",
+   "items": [
+    {
+     "t": "Ich wünsche mir, dass du mehr Verantwortung im Haushalt übernimmst.",
+     "muster": [
+      "Wärst du bereit, ab dieser Woche dienstags und freitags den Müll rauszubringen und die Spülmaschine auszuräumen?",
+      "Magst du ab jetzt dienstags und freitags Müll und Spülmaschine übernehmen?"
+     ],
+     "pruef": [
+      "Ist klar, wer was bis wann tun soll?",
+      "Sagst du, was du möchtest, statt was du nicht möchtest?",
+      "Könnte die andere Person ehrlich Nein sagen?"
+     ],
+     "warn": [
+      "mehr",
+      "verantwortung",
+      "endlich",
+      "musst"
+     ],
+     "tipp": "Welche zwei Aufgaben würden dich spürbar entlasten? Nenne sie konkret."
+    },
+    {
+     "t": "Hör auf, mich in Meetings ständig zu unterbrechen.",
+     "muster": [
+      "Wärst du bereit, mich im Meeting morgen erst ausreden zu lassen und deine Punkte danach einzubringen?",
+      "Lässt du mich morgen erst ausreden? Dann bin ich gespannt auf deine Punkte."
+     ],
+     "pruef": [
+      "Sagst du, was du möchtest, statt was du nicht möchtest?",
+      "Bezieht sich die Bitte auf eine konkrete Situation?",
+      "Könnte die andere Person ehrlich Nein sagen?"
+     ],
+     "warn": [
+      "hör auf",
+      "nicht mehr",
+      "ständig",
+      "unterbrich"
+     ],
+     "tipp": "Was soll stattdessen passieren? Beschreibe das Verhalten, das du dir wünschst."
+    },
+    {
+     "t": "Du räumst jetzt sofort dein Zeug aus dem Flur, sonst stell ich es vor die Tür.",
+     "muster": [
+      "Mir ist ein freier Flur wichtig, damit niemand stolpert. Wärst du bereit, deine Schuhe und Taschen bis heute Abend in dein Zimmer zu bringen?",
+      "Ich bin vorhin fast über die Schuhe im Flur gestolpert. Kannst du sie bis heute Abend in dein Zimmer bringen?"
+     ],
+     "pruef": [
+      "Ist die Drohung verschwunden?",
+      "Ist die Bitte machbar, mit einem klaren Zeitpunkt?",
+      "Könnte die andere Person ehrlich Nein sagen?"
+     ],
+     "warn": [
+      "sofort",
+      "sonst",
+      "gefälligst"
+     ],
+     "tipp": "Was möchtest du erreichen, und was ist dir dabei wichtig? Sag es ohne „sonst“."
+    },
+    {
+     "t": "Ich möchte, dass du dich in der Schule mehr anstrengst.",
+     "muster": [
+      "Wärst du bereit, dich am Sonntag eine halbe Stunde mit mir hinzusetzen und zu überlegen, wie du dich auf die Mathearbeit vorbereiten willst?",
+      "Magst du Sonntag mit mir eine halbe Stunde draufschauen, wie du dich auf die Mathearbeit vorbereiten willst?"
+     ],
+     "pruef": [
+      "Nennst du eine konkrete Handlung statt „mehr anstrengen“?",
+      "Ist die Bitte für dein Kind machbar?",
+      "Könnte dein Kind ehrlich Nein sagen?"
+     ],
+     "warn": [
+      "mehr",
+      "anstreng",
+      "endlich",
+      "musst"
+     ],
+     "tipp": "Woran würdest du merken, dass es passiert? Mach daraus eine kleine, konkrete Handlung."
+    },
+    {
+     "t": "(Mail an die Hausverwaltung) Ich erwarte, dass das mit der Heizung jetzt endlich erledigt wird.",
+     "muster": [
+      "Wären Sie bereit, mir bis Freitag zu sagen, an welchem Tag jemand die Heizung repariert?",
+      "Können Sie mir bis Freitag einen Termin für die Heizungsreparatur nennen?"
+     ],
+     "pruef": [
+      "Ist klar, was bis wann passieren soll?",
+      "Ist die Bitte für die Hausverwaltung machbar?",
+      "Könnte die andere Seite ehrlich Nein sagen?"
+     ],
+     "warn": [
+      "erwarte",
+      "endlich",
+      "sofort",
+      "gefälligst"
+     ],
+     "tipp": "Was kann die Hausverwaltung als Nächstes konkret tun? Bitte um genau das."
+    },
+    {
+     "t": "Ihr solltet euch mehr im Verein einbringen.",
+     "muster": [
+      "Wärt ihr bereit, euch bis Sonntag für eine Schicht beim Kuchenverkauf am Sommerfest einzutragen, wenn ihr Zeit und Lust habt?",
+      "Wer hat Lust, beim Sommerfest eine Stunde Kuchen zu verkaufen? Die Liste hängt bis Sonntag am Brett."
+     ],
+     "pruef": [
+      "Ist klar, was genau gebraucht wird?",
+      "Steht ein Zeitpunkt da?",
+      "Ist ein Nein ausdrücklich in Ordnung?"
+     ],
+     "warn": [
+      "solltet",
+      "mehr",
+      "einbringen",
+      "müsst"
+     ],
+     "tipp": "Wobei genau brauchst du Unterstützung? Nenne eine Aufgabe und einen Termin."
+    },
+    {
+     "t": "(Du hast deinem Kollegen die neue Abrechnung erklärt.) Hast du das jetzt überhaupt kapiert?",
+     "muster": [
+      "Ich habe viel auf einmal erklärt und möchte sichergehen, dass es klar war. Magst du mir kurz in deinen Worten sagen, was bei dir angekommen ist?",
+      "Das war ’ne Menge auf einmal. Magst du kurz sagen, was du mitgenommen hast? Dann weiß ich, ob ich was vergessen hab."
+     ],
+     "pruef": [
+      "Sagst du, warum du fragst, damit es nicht wie ein Test klingt?",
+      "Kann dein Kollege leicht und ohne Druck antworten?"
+     ],
+     "warn": [
+      "überhaupt",
+      "kapiert",
+      "checkst"
+     ],
+     "tipp": "Eine Rückfrage zum Verständnis klingt schnell wie eine Prüfung. Sag dazu, warum sie dir hilft."
+    },
+    {
+     "t": "(Du hast deiner Schwester gerade erzählt, dass du die Ausbildung wechseln willst.) Und? Findest du das jetzt auch bescheuert?",
+     "muster": [
+      "Mir ist wichtig, wie du das siehst. Wie geht es dir, wenn du das hörst?",
+      "Ich bin ein bisschen nervös, was du dazu sagst. Wie geht’s dir damit?"
+     ],
+     "pruef": [
+      "Lädt deine Bitte ein, ein Gefühl zu teilen, statt ein Urteil abzugeben?",
+      "Kann deine Schwester frei antworten?"
+     ],
+     "warn": [
+      "bescheuert",
+      "blöd",
+      "findest du"
+     ],
+     "tipp": "Frag nach dem, was gerade in ihr lebendig ist, statt nach Zustimmung."
+    }
+   ],
+   "merksatz": "Ob es eine Bitte war, zeigt sich beim Nein: Bleibst du neugierig, war es eine Bitte.",
+   "spick": "SZ08"
+  },
+  {
+   "id": "K08",
+   "titel": "Das Ja hinter dem Nein",
+   "thema": "Ein Nein empathisch hören",
+   "abschnitt": "§4.4",
+   "gruppe": "vier",
+   "typ": "umformulieren",
+   "dauer": "4 Min.",
+   "intro": "Ein Nein ist ein Ja zu etwas anderem. Vermute, wozu die Person gerade Ja sagt – als Frage, nicht als Feststellung.",
+   "ansage": "Du hörst, wie jemand Nein sagt. Überleg, wozu diese Person gerade Ja sagt. Sag deine Vermutung als Frage, zum Beispiel: Brauchst du heute Abend Zeit für dich? Es geht nicht darum, das Nein wegzureden.",
+   "aufgabe": "Vermute als Frage: Wozu sagt die Person gerade Ja?",
+   "check": "empathie",
+   "items": [
+    {
+     "t": "(Du fragst deine Kollegin, ob sie heute länger bleibt.) Nein, heute geht das nicht.",
+     "muster": [
+      "Bist du erschöpft und brauchst heute Abend Erholung?",
+      "Okay. Brauchst du den Abend heute für dich?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "komm schon",
+      "nur heute"
+     ],
+     "tipp": "Was könnte ihr heute Abend wichtiger sein? Erholung? Familie? Etwas, das ihr am Herzen liegt?"
+    },
+    {
+     "t": "(Du fragst deinen Sohn, ob er mit zu Oma fährt.) Nö, keine Lust.",
+     "muster": [
+      "Möchtest du heute selbst entscheiden, wie du deinen Sonntag verbringst?",
+      "Hast du heute auf was ganz anderes Lust?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "undankbar",
+      "musst"
+     ],
+     "tipp": "Was macht einen Sonntag für ihn schön? Freiheit? Spiel? Freunde?"
+    },
+    {
+     "t": "(Du fragst eine Freundin, ob sie dir Geld leiht.) Nein, das möchte ich nicht.",
+     "muster": [
+      "Ist dir Klarheit wichtig, und möchtest du unsere Freundschaft schützen?",
+      "Ist es dir wichtig, Geld und Freundschaft auseinanderzuhalten?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "geizig",
+      "dachte, wir"
+     ],
+     "tipp": "Wozu könnte sie Ja sagen? Zu Sicherheit? Zu Klarheit zwischen euch?"
+    },
+    {
+     "t": "(Du fragst deinen Partner, ob ihr am Wochenende seine Eltern besucht.) Nein, dieses Wochenende nicht.",
+     "muster": [
+      "Wünschst du dir dieses Wochenende Ruhe und Zeit für uns zwei?",
+      "Brauchst du mal ein Wochenende ohne Programm?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "immer",
+      "nie"
+     ],
+     "tipp": "Was könnte er sich für dieses Wochenende wünschen?"
+    },
+    {
+     "t": "(Du fragst auf dem Amt, ob du die Unterlagen nächste Woche nachreichen darfst.) Nein, die Frist endet morgen.",
+     "muster": [
+      "Ist Ihnen wichtig, dass für alle Anträge dieselben Regeln gelten?",
+      "Geht es Ihnen darum, dass es für alle gerecht bleibt?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "bürokrat",
+      "stur"
+     ],
+     "tipp": "Auch eine Sachbearbeiterin sagt Ja zu etwas, vielleicht zu Fairness, Ordnung oder Sicherheit im Job. Vielleicht hat sie keinen Spielraum. Dann hilft die Frage: Was ist bis morgen möglich?"
+    },
+    {
+     "t": "(Du lädst deine Nachbarin zum Hoffest ein.) Danke, aber ich komme nicht.",
+     "muster": [
+      "Brauchen Sie gerade eher Ruhe als Trubel?",
+      "Ist Ihnen gerade eher nach Ruhe?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "schade, dass",
+      "nie"
+     ],
+     "tipp": "Was könnte ihr an einem freien Nachmittag wichtiger sein als ein Fest?"
+    },
+    {
+     "t": "(Du bittest deine Mitbewohnerin, im Urlaub deine Pflanzen zu gießen.) Nee, sorry, das wird mir zu viel.",
+     "muster": [
+      "Bist du gerade selbst ziemlich ausgelastet und brauchst Entlastung?",
+      "Hast du gerade selbst genug um die Ohren?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?",
+      "Darf ihr Nein bestehen bleiben?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "ist doch nur",
+      "nur ein paar"
+     ],
+     "tipp": "„Zu viel“ deutet auf ein Bedürfnis hin. Welches könnte das sein?"
+    },
+    {
+     "t": "(Du fragst deine Chefin, ob du freitags im Homeoffice arbeiten kannst.) Nein, das möchte ich im Moment nicht.",
+     "muster": [
+      "Ist Ihnen gerade wichtig, dass das Team gut erreichbar ist und eng zusammenarbeitet?",
+      "Geht es Ihnen darum, dass wir als Team gerade gut zusammenarbeiten können?"
+     ],
+     "pruef": [
+      "Ist deine Vermutung eine Frage, keine Feststellung?",
+      "Geht es um ein Bedürfnis der Person statt um ein Argument gegen ihr Nein?"
+     ],
+     "warn": [
+      "aber",
+      "trotzdem",
+      "unfair",
+      "alle anderen"
+     ],
+     "tipp": "Ihr Ja zu hören heißt nicht, dein Anliegen aufzugeben. Es ist ein erster Schritt zu einer Lösung für beide."
+    }
+   ],
+   "merksatz": "Ein Nein ist ein Ja zu etwas anderem. Wer neugierig bleibt, bleibt in Verbindung.",
+   "spick": "SZ08"
+  },
+  {
+   "id": "K09",
+   "titel": "Vier Ohren",
+   "thema": "Vier Arten, eine schwierige Botschaft zu hören",
+   "abschnitt": "§5",
+   "gruppe": "hoeren",
+   "typ": "wahl",
+   "dauer": "4 Min.",
+   "intro": "Eine schwierige Botschaft kannst du auf vier Arten hören. Ordne jede Reaktion einem Ohr zu.",
+   "ansage": "Du hörst eine schwierige Botschaft und danach eine Reaktion darauf. Entscheide, mit welchem Ohr da gehört wurde. Sag Wolf innen, wenn die Schuld bei sich selbst gesucht wird. Sag Wolf außen, wenn die Schuld beim anderen liegt. Sag Giraffe innen für Selbstempathie und Giraffe außen für Empathie mit dem anderen.",
+   "frage": "Mit welchem Ohr wird hier gehört?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Wolfsohr innen: Schuld bei mir",
+     "sprich": [
+      "wolf innen",
+      "wolfsohr innen",
+      "schuld bei mir"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Wolfsohr außen: Schuld beim anderen",
+     "sprich": [
+      "wolf außen",
+      "wolfsohr außen",
+      "schuld beim anderen"
+     ]
+    },
+    {
+     "id": "c",
+     "text": "Giraffenohr innen: Selbstempathie",
+     "sprich": [
+      "giraffe innen",
+      "giraffenohr innen",
+      "selbstempathie"
+     ]
+    },
+    {
+     "id": "d",
+     "text": "Giraffenohr außen: Empathie",
+     "sprich": [
+      "giraffe außen",
+      "giraffenohr außen",
+      "einfühlen"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "(Chefin: „Das ist schon wieder unvollständig.“) Ich bin einfach zu blöd für diesen Job.",
+     "ans": "a",
+     "why": "Die Kritik wird gegen dich selbst gewendet. Das ist sehr menschlich, führt aber eher zu Scham als zu Klarheit.",
+     "giraffe": "Autsch, das trifft mich. Ich bin enttäuscht, weil mir gute Arbeit wichtig ist."
+    },
+    {
+     "t": "(Chefin: „Das ist schon wieder unvollständig.“) Sind Sie angespannt, weil Sie sich bei dem Termin auf vollständige Unterlagen verlassen wollen?",
+     "ans": "d",
+     "why": "Hinter der Kritik werden Gefühl und Bedürfnis der Chefin vermutet: Verlässlichkeit. Das heißt nicht, ihr in allem recht zu geben."
+    },
+    {
+     "t": "(Chefin: „Das ist schon wieder unvollständig.“) Die soll sich mal an die eigene Nase fassen, ihre Vorgaben waren total unklar.",
+     "ans": "b",
+     "why": "Die Schuld wird beim anderen gesucht. Das schützt kurz, führt aber eher zu Ärger und Gegenangriff.",
+     "giraffe": "Ich war unsicher, was genau gebraucht wird. Mir ist Klarheit wichtig. Können wir die Vorgaben kurz zusammen durchgehen?"
+    },
+    {
+     "t": "(Chefin: „Das ist schon wieder unvollständig.“) Ich bin enttäuscht und ziemlich erschöpft. Mir ist wichtig, dass meine Mühe etwas bewirkt.",
+     "ans": "c",
+     "why": "Hier wird nach innen gehört: auf das eigene Gefühl und Bedürfnis, ohne sich zu verurteilen. Das ist Selbstempathie."
+    },
+    {
+     "t": "(Deine Partnerin: „Nie hast du Zeit für mich.“) Autsch, das sitzt. Ich bin traurig und müde, und ich wünsche mir auch mehr Zeit zu zweit.",
+     "ans": "c",
+     "why": "Erst werden das eigene Gefühl und Bedürfnis wahrgenommen, bevor geantwortet wird. So lässt sich ruhiger reagieren."
+    },
+    {
+     "t": "(Deine Partnerin: „Nie hast du Zeit für mich.“) Das sagt die Richtige! Du hängst doch selbst nur am Laptop.",
+     "ans": "b",
+     "why": "Ein Gegenvorwurf. Die Schuld wandert zurück, und das Gespräch wird meist hitziger.",
+     "giraffe": "Ich merke, dass mich das trifft. Mir fehlt die Zeit zu zweit auch. Wollen wir uns den Samstagabend freihalten?"
+    },
+    {
+     "t": "(Deine Partnerin: „Nie hast du Zeit für mich.“) Bist du traurig, weil du dir mehr Nähe zwischen uns wünschst?",
+     "ans": "d",
+     "why": "Hinter dem „nie“ werden ein Gefühl und ein Bedürfnis vermutet: Nähe. Ob das „nie“ stimmt, ist dafür nicht wichtig."
+    },
+    {
+     "t": "(Deine Partnerin: „Nie hast du Zeit für mich.“) Stimmt ja, ich krieg einfach gar nichts auf die Reihe.",
+     "ans": "a",
+     "why": "Der Vorwurf wird ganz übernommen, als Urteil über dich. Darunter liegt vielleicht der Wunsch, der Beziehung gerecht zu werden.",
+     "giraffe": "Das tut weh. Mir ist unsere Beziehung wichtig, und ich bin gerade ganz schön erschöpft."
+    },
+    {
+     "t": "(Gast im Restaurant: „Unmöglich, wie lange man hier warten muss!“) Was bildet der sich ein? Ich renne hier seit Stunden rum.",
+     "ans": "b",
+     "why": "Innerlich wird der Gast verurteilt. Nach einem langen Tag verständlich, aber es heizt den eigenen Ärger weiter an.",
+     "giraffe": "Vielleicht ist er ungeduldig, weil seine Zeit knapp ist. Ich sag ihm kurz, wie lange es noch dauert."
+    },
+    {
+     "t": "(Gast im Restaurant: „Unmöglich, wie lange man hier warten muss!“) Ich bin gestresst und ganz schön am Limit. Ich bräuchte gerade selbst Unterstützung.",
+     "ans": "c",
+     "why": "Selbstempathie mitten im Trubel: Gefühl und Bedürfnis werden bemerkt, ohne Schuld zu verteilen."
+    },
+    {
+     "t": "(Gast im Restaurant: „Unmöglich, wie lange man hier warten muss!“) Er hat recht, ich hätte ihn längst bedienen müssen. Ich bin so unfähig.",
+     "ans": "a",
+     "why": "Die Schuld wird bei dir selbst gesucht. Das erzeugt Scham, dabei sind es vielleicht einfach zu viele Tische für eine Person.",
+     "giraffe": "Ich bin unruhig, weil mir wichtig ist, dass meine Gäste gut versorgt sind. Und ich bin nur eine Person."
+    },
+    {
+     "t": "(Gast im Restaurant: „Unmöglich, wie lange man hier warten muss!“) Sind Sie ungeduldig, weil Ihre Zeit heute knapp ist?",
+     "ans": "d",
+     "why": "Eine Vermutung zu Gefühl und Bedürfnis des Gastes, als Frage. Sie öffnet eher ein Gespräch als eine Rechtfertigung."
+    }
+   ],
+   "merksatz": "Du kannst wählen, mit welchem Ohr du hörst, auch mitten im Gespräch.",
+   "spick": "SZ09"
+  },
+  {
+   "id": "K10",
+   "titel": "Empathie-Blocker erkennen",
+   "thema": "Empathie und ihre Blocker",
+   "abschnitt": "§6",
+   "gruppe": "hoeren",
+   "typ": "wahl",
+   "dauer": "4 Min.",
+   "intro": "Wenn jemand von etwas Schwerem erzählt, wollen wir helfen – und blockieren dabei manchmal die Verbindung. Ordne jede Antwort ein.",
+   "ansage": "Du hörst kurze Erzählungen und eine Antwort darauf. Entscheide, was die Antwort tut. Sag Ratschlag, Trösten, Geschichte, Ausfragen, Erklären oder Empathie. Viele Antworten sind gut gemeint. Es geht nur darum, sie zu erkennen.",
+   "frage": "Was tut diese Antwort?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Ratschlag",
+     "sprich": [
+      "ratschlag",
+      "tipp",
+      "rat geben"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Trösten oder Beschwichtigen",
+     "sprich": [
+      "trösten",
+      "beschwichtigen",
+      "aufmuntern"
+     ]
+    },
+    {
+     "id": "c",
+     "text": "Eigene Geschichte oder Übertrumpfen",
+     "sprich": [
+      "geschichte",
+      "übertrumpfen"
+     ]
+    },
+    {
+     "id": "d",
+     "text": "Ausfragen",
+     "sprich": [
+      "ausfragen",
+      "verhör",
+      "nachbohren"
+     ]
+    },
+    {
+     "id": "e",
+     "text": "Erklären oder Rechtfertigen",
+     "sprich": [
+      "erklären",
+      "rechtfertigen"
+     ]
+    },
+    {
+     "id": "f",
+     "text": "Empathie",
+     "sprich": [
+      "empathie",
+      "einfühlen"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "(Lea: „Mein Vermieter hat mir wegen Eigenbedarf gekündigt.“) Du musst sofort zum Mieterverein, die prüfen das.",
+     "ans": "a",
+     "why": "Ein schneller Tipp, gut gemeint. Für den Schreck bleibt dabei kaum Raum. Erst Verbindung, dann Lösung.",
+     "giraffe": "Oh nein. Bist du erschrocken und machst dir Sorgen, wie es weitergeht?"
+    },
+    {
+     "t": "(Sofia: „Seit dem Umzug kenne ich hier niemanden.“) Fühlst du dich gerade einsam und sehnst dich nach Menschen, bei denen du ankommen kannst?",
+     "ans": "f",
+     "why": "Eine Vermutung als Frage: Gefühl und Bedürfnis werden angeboten. Sofia kann bestätigen oder korrigieren."
+    },
+    {
+     "t": "(Jonas: „Ich hab die Gesellenprüfung nicht bestanden.“) Ach, das ist doch kein Weltuntergang. Nächstes Mal klappt’s bestimmt.",
+     "ans": "b",
+     "why": "Beschwichtigen will entlasten. Die Enttäuschung wird dabei aber kleiner gemacht, statt gehört zu werden.",
+     "giraffe": "Mist. Bist du enttäuscht, weil du so viel reingesteckt hast?"
+    },
+    {
+     "t": "(Tobias: „Mein Freund hat gestern mit mir Schluss gemacht.“) Wann genau? Was hat er gesagt? Gibt’s da jemand anderen?",
+     "ans": "d",
+     "why": "Viele Fragen nach Fakten. Sie zeigen Interesse, lenken aber weg von dem, was Tobias gerade fühlt.",
+     "giraffe": "Oh, Tobias. Ist es gerade richtig schwer für dich?"
+    },
+    {
+     "t": "(Jana: „Meine Mutter erkennt mich manchmal nicht mehr.“) Kenn ich. Bei meinem Opa war das damals noch viel schlimmer.",
+     "ans": "c",
+     "why": "Die eigene, noch „schlimmere“ Geschichte lenkt den Blick von Jana weg. Ihr Schmerz bekommt so wenig Raum.",
+     "giraffe": "Das klingt so schmerzhaft. Bist du traurig, weil dir die Verbindung zu ihr so viel bedeutet?"
+    },
+    {
+     "t": "(Deine Kollegin Aylin: „Du hast mich im Meeting vor allen kritisiert.“) Ich wollte doch nur, dass das Projekt klappt. Der Chef hat total Druck gemacht.",
+     "ans": "e",
+     "why": "Die Antwort erklärt das eigene Verhalten. Das ist verständlich, aber Aylin fühlt sich so eher nicht gehört.",
+     "giraffe": "Hat dich das verletzt, weil dir Respekt und Vertrauen im Team wichtig sind?"
+    },
+    {
+     "t": "(Deine Nachbarin Ruth: „Mein Hund ist letzte Woche gestorben.“) Kopf hoch, er hatte doch ein langes, schönes Leben bei Ihnen.",
+     "ans": "b",
+     "why": "Aufmuntern will trösten. Für die Trauer bleibt dabei aber wenig Platz.",
+     "giraffe": "Oh nein. Fehlt er Ihnen sehr?"
+    },
+    {
+     "t": "(Kai: „Mein Chef hat meinen Urlaub einfach wieder gestrichen.“) Schreib ihm eine Mail und häng die Genehmigung an, dann kann er nichts machen.",
+     "ans": "a",
+     "why": "Ein praktischer Rat. Er springt zur Lösung, bevor Kais Ärger gehört wurde.",
+     "giraffe": "Echt jetzt? Bist du sauer, weil du dich auf den Urlaub verlassen hast?"
+    },
+    {
+     "t": "(Kundin am Telefon: „Ich warte seit drei Wochen auf meine Rückerstattung!“) Sind Sie verärgert, weil Sie mit einer schnellen Erstattung gerechnet hatten?",
+     "ans": "f",
+     "why": "Gefühl und Bedürfnis der Kundin werden als Frage vermutet. Auch im Kundenkontakt kann das eine Brücke bauen."
+    },
+    {
+     "t": "(Dein Sohn: „In der Klasse lachen alle über meine Schuhe.“) Als ich so alt war wie du, musste ich die Sachen von meinem Bruder auftragen. Da hab ich vielleicht was erlebt …",
+     "ans": "c",
+     "why": "Eine eigene Geschichte aus der Kindheit. Gut gemeint, aber die Aufmerksamkeit wandert vom Kind zu dir.",
+     "giraffe": "Das klingt richtig unangenehm. Wünschst du dir, in der Klasse einfach dazuzugehören?"
+    },
+    {
+     "t": "(Dein Kollege Paul: „Ich werde nach der Probezeit nicht übernommen.“) Wann hast du das erfahren? Was genau hat die Personalabteilung gesagt? Gab’s vorher schon Gespräche?",
+     "ans": "d",
+     "why": "Fragen nach dem Ablauf. Sie können später helfen, vorher bleibt Pauls Gefühl unbeachtet.",
+     "giraffe": "Puh. Bist du enttäuscht, weil du dich dort so eingesetzt hast?"
+    },
+    {
+     "t": "(Dein Mitbewohner Finn: „Du hast schon wieder meinen Joghurt gegessen.“) Der stand halt ganz vorne, und es stand kein Name drauf.",
+     "ans": "e",
+     "why": "Eine Rechtfertigung. Sie verteidigt dich, statt Finns Ärger zu hören.",
+     "giraffe": "Oh, sorry. Hast du dich auf den Joghurt gefreut und bist jetzt sauer?"
+    }
+   ],
+   "merksatz": "Erst Verbindung, dann Lösung. Empathie heißt da sein, ohne eigenes Programm.",
+   "spick": "SZ10"
+  },
+  {
+   "id": "K11",
+   "titel": "Vermutung statt Diagnose",
+   "thema": "Empathie statt Diagnose",
+   "abschnitt": "§6",
+   "gruppe": "hoeren",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Eine Diagnose sagt, wie jemand ist. Eine Vermutung fragt, was in ihm los sein könnte. Mach aus jeder Deutung eine Frage nach Gefühl und Bedürfnis.",
+   "ansage": "In dieser Übung hörst du Sätze, die einem Menschen ein Etikett geben. Verwandle jeden Satz in eine vorsichtige Frage. Frag nach einem Gefühl und nach dem, was der Person wichtig sein könnte. Eine Alltagsfassung ist genauso gut wie die Lernform.",
+   "aufgabe": "Mach aus der Deutung eine Frage: Wie könnte es der Person gehen, und was ist ihr vielleicht wichtig?",
+   "check": "empathie",
+   "items": [
+    {
+     "t": "(Deine Partnerin fragt zum dritten Mal, mit wem du heute Abend ausgehst.) „Du bist doch nur eifersüchtig.“",
+     "muster": [
+      "Bist du beunruhigt, weil dir Sicherheit zwischen uns wichtig ist?",
+      "Macht dir das gerade Sorgen, dass ich heute ohne dich weggehe?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "eifersüchtig",
+      "doch",
+      "nur"
+     ],
+     "tipp": "Was könnte jemand brauchen, der so oft nachfragt?"
+    },
+    {
+     "t": "(Eine Kollegin seufzt laut und tippt sehr schnell.) „Sie sind ja total gestresst, Sie sollten mal Urlaub machen.“",
+     "muster": [
+      "Sind Sie gerade angespannt, weil Ihnen mehr Ruhe bei der Arbeit wichtig wäre?",
+      "Klingt nach einem vollen Tag. Ist es gerade viel?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Hast du den Ratschlag weggelassen?"
+     ],
+     "warn": [
+      "sollten",
+      "solltest",
+      "total"
+     ],
+     "tipp": "Lass den Ratschlag weg. Was könnte ihr gerade fehlen?"
+    },
+    {
+     "t": "(Dein Sohn, 15, knallt nach einem Streit ums Handy die Zimmertür zu.) „Du bist einfach mitten in der Pubertät.“",
+     "muster": [
+      "Bist du wütend, weil dir wichtig ist, selbst über deine Handyzeit zu bestimmen?",
+      "Ganz schön sauer gerade, oder? Willst du da mehr mitreden?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "pubertät",
+      "typisch",
+      "einfach"
+     ],
+     "tipp": "Worum ging der Streit? Was möchte dein Sohn vielleicht selbst entscheiden?"
+    },
+    {
+     "t": "(Eine Freundin erzählt, dass sie ihre Bewerbung seit zwei Wochen nicht abschickt.) „Du bist halt total perfektionistisch.“",
+     "muster": [
+      "Bist du unsicher, weil dir wichtig ist, mit deinem Können gesehen zu werden?",
+      "Klingt, als wär dir die Stelle richtig wichtig. Hast du Sorge, dass es noch nicht reicht?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "perfektionistisch",
+      "halt",
+      "total"
+     ],
+     "tipp": "Was könnte jemanden zögern lassen, dem eine Sache viel bedeutet?"
+    },
+    {
+     "t": "(Deine Nachbarin beschwert sich, dass dein Hund morgens bellt.) „Sie sind einfach überempfindlich.“",
+     "muster": [
+      "Sind Sie erschöpft, weil Ihnen morgens Ruhe zum Ausschlafen wichtig ist?",
+      "Das Bellen weckt Sie morgens, oder? Sie hätten gern Ihre Ruhe."
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "überempfindlich",
+      "übertreiben",
+      "einfach"
+     ],
+     "tipp": "Was fehlt jemandem, der morgens vom Bellen aufwacht?"
+    },
+    {
+     "t": "(Dein Mitbewohner hat seit drei Tagen kaum ein Wort mit dir gesprochen.) „Du bist beleidigt, gib’s doch zu.“",
+     "muster": [
+      "Bist du verletzt, weil dir mehr Rücksicht von mir wichtig gewesen wäre?",
+      "Du bist so still in letzter Zeit. Ist zwischen uns etwas, das dich beschäftigt?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "beleidigt",
+      "schmollst",
+      "zugeben"
+     ],
+     "tipp": "Auch Schweigen hat Gefühle und Bedürfnisse. Was könnte dahinter liegen?"
+    },
+    {
+     "t": "(In der Pflege: Ein Bewohner lehnt zum zweiten Mal das Mittagessen ab.) „Sie sind heute aber stur.“",
+     "muster": [
+      "Sind Sie unzufrieden, weil Sie selbst bestimmen möchten, wann und was Sie essen?",
+      "Heute ist Ihnen gar nicht nach Essen, hm? Möchten Sie lieber selbst sagen, wann?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "stur",
+      "trotzig",
+      "müssen"
+     ],
+     "tipp": "Was könnte ein Mensch wollen, der vieles im Alltag nicht mehr selbst entscheiden kann?"
+    },
+    {
+     "t": "(Unter deinem Beitrag in einem Forum steht ein wütender Kommentar.) „Du bist doch nur ein Troll, der Streit sucht.“",
+     "muster": [
+      "Bist du verärgert, weil dir wichtig ist, dass deine Sicht auch vorkommt?",
+      "Das scheint dich richtig aufzuregen. Fehlt dir in meinem Beitrag etwas, das dir wichtig ist?"
+     ],
+     "pruef": [
+      "Ist es eine Frage statt einer Feststellung?",
+      "Nennst du ein Gefühl oder ein Bedürfnis statt einer Eigenschaft?",
+      "Könnte die Person leicht Nein sagen und dich korrigieren?"
+     ],
+     "warn": [
+      "troll",
+      "doch",
+      "nur"
+     ],
+     "tipp": "Hinter einem wütenden Kommentar steht oft der Wunsch, gehört zu werden."
+    }
+   ],
+   "merksatz": "Eine Vermutung lädt ein, sich zu zeigen. Eine Diagnose lädt ein, sich zu wehren.",
+   "spick": "SZ10"
+  },
+  {
+   "id": "K12",
+   "titel": "Selbstvergebung in drei Schritten",
+   "thema": "Selbstvergebung",
+   "abschnitt": "§7",
+   "gruppe": "selbst",
+   "typ": "schritte",
+   "dauer": "4 Min.",
+   "intro": "Du bedauerst etwas, das du getan hast? Hier gehst du vom Selbstvorwurf zum Bedauern – und zu Verständnis für dich selbst. Nimm für den Anfang etwas Kleines aus dem Alltag.",
+   "ansage": "Diese Übung begleitet dich zur Selbstvergebung. Du schaust auf etwas, das du bedauerst. Erst spürst du, was dabei zu kurz kam. Dann fragst du, was du dir damals erfüllen wolltest. Nimm für den Anfang etwas Kleines aus dem Alltag.",
+   "beispiel": "Ich habe meiner Freundin Lina eine Stunde vor unserem Treffen per Nachricht abgesagt.",
+   "schritte": [
+    {
+     "key": "tat",
+     "titel": "Was ist passiert?",
+     "frage": "Was hast du getan, das du bedauerst? Beschreib es so, wie eine Kamera es aufgenommen hätte.",
+     "ansage": "Was hast du getan, das du bedauerst? Beschreib es so, wie eine Kamera es aufgenommen hätte. Ganz ohne Urteil über dich.",
+     "hilfe": "Lass Wörter wie „blöd“, „schon wieder“ oder „typisch ich“ weg – nur das, was passiert ist.",
+     "chips": [],
+     "platzhalter": "Ich habe Lina eine Stunde vor unserem Treffen per Nachricht abgesagt"
+    },
+    {
+     "key": "bedauern",
+     "titel": "Bedauern spüren",
+     "frage": "Wie fühlst du dich, wenn du daran denkst? Und welches Bedürfnis kam dabei zu kurz – bei dir oder bei jemand anderem?",
+     "ansage": "Wie fühlst du dich, wenn du daran denkst? Und welches Bedürfnis kam dabei zu kurz, bei dir oder bei jemand anderem? Trauer darf da sein. Schuld ist eher ein Gedanke über dich.",
+     "hilfe": "Zum Beispiel: traurig, weil mir Verlässlichkeit wichtig ist. „Traurig“ trifft es oft besser als „schuldig“.",
+     "chips": [
+      "traurig",
+      "bedrückt",
+      "enttäuscht",
+      "verlegen",
+      "unruhig",
+      "besorgt",
+      "betroffen",
+      "niedergeschlagen"
+     ],
+     "platzhalter": "traurig, weil mir Verlässlichkeit und Verbindung wichtig sind"
+    },
+    {
+     "key": "beduerfnis_damals",
+     "titel": "Was wolltest du damals?",
+     "frage": "Welches Bedürfnis wolltest du dir mit deinem Handeln damals erfüllen?",
+     "ansage": "Und jetzt die andere Seite. Welches Bedürfnis wolltest du dir damals mit deinem Handeln erfüllen? Auch das war ein Versuch, für etwas Wichtiges zu sorgen.",
+     "hilfe": "Jede Handlung ist ein Versuch, ein Bedürfnis zu erfüllen – auch eine, die du heute anders machen würdest.",
+     "chips": [
+      "Erholung",
+      "Ruhe",
+      "Selbstbestimmung",
+      "Schutz",
+      "Sicherheit",
+      "Leichtigkeit",
+      "Klarheit",
+      "Ehrlichkeit",
+      "Gesundheit"
+     ],
+     "platzhalter": "Erholung und Ruhe"
+    },
+    {
+     "key": "bitte",
+     "titel": "Bitte an dich",
+     "optional": true,
+     "frage": "Magst du dir für das nächste Mal etwas vornehmen? Eine kleine, freundliche Bitte an dich. Du kannst diesen Schritt auch auslassen.",
+     "ansage": "Magst du dir für das nächste Mal etwas vornehmen? Eine kleine, freundliche Bitte an dich. Du kannst diesen Schritt auch auslassen.",
+     "hilfe": "Sag, was du tun möchtest, nicht, was du lassen solltest.",
+     "chips": [],
+     "platzhalter": "früher absagen, sobald ich merke, dass mir die Kraft fehlt"
+    }
+   ],
+   "satz": "Was ich bedauere: {tat}. Wenn ich daran denke, bin ich {bedauern}. Damals wollte ich für {beduerfnis_damals} sorgen. Nächstes Mal möchte ich {bitte}.",
+   "abschluss": "Danke, dass du dir diese Zeit genommen hast. Beide Seiten in dir wurden gehört: die, die etwas bedauert, und die, die damals für etwas Wichtiges sorgen wollte.",
+   "merksatz": "Bedauern schaut auf das Bedürfnis, das zu kurz kam. Selbstvergebung schaut auf das Bedürfnis, das du dir damals erfüllen wolltest.",
+   "spick": "SZ11"
+  },
+  {
+   "id": "K13",
+   "titel": "Wut-Stopp in vier Schritten",
+   "thema": "Wut",
+   "abschnitt": "§8",
+   "gruppe": "selbst",
+   "typ": "schritte",
+   "dauer": "4 Min.",
+   "intro": "Wut ist ein Weckruf: Meist steckt ein „Jemand sollte …“ dahinter. In vier Schritten kommst du von der Wut zu dem, was dir wichtig ist.",
+   "ansage": "Diese Übung hilft dir, mit Wut umzugehen, ohne sie wegzudrücken. Du hältst kurz an, hörst deine Gedanken, findest deine Bedürfnisse und sagst dann, was in dir los ist. Nimm eine Situation, die dich ärgert, aber nicht überrollt.",
+   "beispiel": "Mein Kollege Jonas hat in der Teambesprechung meinen Vorschlag vorgestellt, ohne meinen Namen zu nennen.",
+   "schritte": [
+    {
+     "key": "stopp",
+     "titel": "Stopp",
+     "frage": "Halt kurz an. Atme dreimal langsam aus. Was spürst du gerade im Körper?",
+     "ansage": "Halt kurz an. Atme dreimal langsam aus. Was spürst du gerade in deinem Körper?",
+     "hilfe": "Du brauchst jetzt nichts zu tun und nichts zu sagen. Nur wahrnehmen, was da ist.",
+     "chips": [
+      "heiß",
+      "angespannt",
+      "zittrig",
+      "unruhig",
+      "Herzklopfen",
+      "Druck im Bauch",
+      "enger Hals"
+     ],
+     "platzhalter": "Mir ist heiß, mein Kiefer ist fest"
+    },
+    {
+     "key": "urteil",
+     "titel": "Urteile hören",
+     "frage": "Was denkst du gerade über die andere Person? Schreib es ruhig ungefiltert auf – das bleibt bei dir.",
+     "ansage": "Was denkst du gerade über die andere Person? Sag es ruhig ungefiltert. Die App speichert es nicht.",
+     "hilfe": "Oft steckt ein „sollte“ darin: „Er hätte …“, „Sie darf doch nicht …“. Genau diese Gedanken zeigen dir den Weg.",
+     "chips": [],
+     "platzhalter": "Er ist ein Angeber, er hätte mich wenigstens nennen müssen"
+    },
+    {
+     "key": "beduerfnis",
+     "titel": "Bedürfnisse finden",
+     "frage": "Welches Bedürfnis steckt hinter diesen Gedanken? Was ist dir hier wirklich wichtig?",
+     "ansage": "Hör hinter deine Gedanken. Welches Bedürfnis steckt darin? Was ist dir hier wirklich wichtig?",
+     "hilfe": "Frag bei jedem Urteil: Was wünsche ich mir eigentlich, das gerade fehlt?",
+     "chips": [
+      "Anerkennung",
+      "Fairness",
+      "Respekt",
+      "Ehrlichkeit",
+      "Wertschätzung",
+      "Zusammenarbeit",
+      "Vertrauen",
+      "Rücksicht",
+      "Ruhe",
+      "Selbstbestimmung"
+     ],
+     "platzhalter": "Anerkennung und Fairness"
+    },
+    {
+     "key": "ausdruck",
+     "titel": "Ausdrücken",
+     "frage": "Wie kannst du sagen, was in dir los ist? Nenn dein Gefühl und dein Bedürfnis – und wenn du magst, eine Bitte.",
+     "ansage": "Jetzt darfst du es sagen. Nenn dein Gefühl und dein Bedürfnis. Wenn du magst, hängst du eine Bitte an.",
+     "hilfe": "Ist dein Gegenüber selbst aufgewühlt? Dann hilft oft zuerst ein Satz Verständnis für ihn oder sie. Danach kann er oder sie dich leichter hören.",
+     "chips": [
+      "wütend",
+      "enttäuscht",
+      "verletzt",
+      "frustriert",
+      "traurig",
+      "besorgt",
+      "hilflos",
+      "gereizt"
+     ],
+     "platzhalter": "Ich bin wütend und enttäuscht, weil mir Anerkennung für meine Arbeit wichtig ist. Wärst du bereit, im nächsten Treffen zu sagen, dass der Vorschlag von mir kam?"
+    }
+   ],
+   "satz": "Mein Wolf sagte: {urteil}. Dahinter steht mein Bedürfnis nach {beduerfnis}. So kann ich es sagen: {ausdruck}",
+   "abschluss": "Danke, dass du deiner Wut zugehört hast, statt sie wegzudrücken oder an jemandem auszulassen. Sie hat dich zu dem geführt, was dir wirklich wichtig ist.",
+   "merksatz": "Wut zeigt auf einen Sollte-Gedanken – und dahinter auf ein Bedürfnis.",
+   "spick": "SZ12"
+  },
+  {
+   "id": "K14",
+   "titel": "Vom Lob zum Dank",
+   "thema": "Dank statt Lob",
+   "abschnitt": "§9",
+   "gruppe": "selbst",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Lob sagt, wie jemand ist. Dank sagt, was die Handlung für dich bedeutet hat. Verwandle jedes Lob in einen Dank aus drei Teilen.",
+   "ansage": "Lob ist auch ein Urteil, nur ein freundliches. In dieser Übung verwandelst du Lob in Dank. Sag, was die Person konkret getan hat. Sag dann, welches Bedürfnis sich dadurch erfüllt hat und wie du dich fühlst.",
+   "aufgabe": "Schreib einen Dank: Was hat die Person getan? Was hat sich dadurch bei dir erfüllt? Wie fühlst du dich?",
+   "check": "dank",
+   "items": [
+    {
+     "t": "(Deine Mitbewohnerin Aylin hat das Bad geputzt, obwohl du in deiner Prüfungswoche dran gewesen wärst.) „Super gemacht!“",
+     "muster": [
+      "Als du gestern das Bad geputzt hast, obwohl ich dran war, war ich richtig erleichtert. Mir war in der Prüfungswoche Entlastung so wichtig.",
+      "Danke fürs Bad! Das hat mich in der Prüfungswoche echt entlastet."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "super",
+      "toll",
+      "spitze"
+     ],
+     "tipp": "Was hat Aylin getan – und was hat dir das in dieser Woche ermöglicht?"
+    },
+    {
+     "t": "(Deine Tochter, acht Jahre alt, hat ohne Erinnerung den Tisch gedeckt.) „Du bist die Beste!“",
+     "muster": [
+      "Als du vorhin von dir aus den Tisch gedeckt hast, habe ich mich gefreut. Mir ist wichtig, dass wir uns zu Hause gegenseitig helfen.",
+      "Oh, du hast ja schon den Tisch gedeckt! Das freut mich – so konnte ich in Ruhe fertig kochen."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "beste",
+      "brav",
+      "toll"
+     ],
+     "tipp": "Was genau hat sie getan, und was hat dir das beim Kochen gebracht?"
+    },
+    {
+     "t": "(Dein Kollege Samir hat dir vor der Präsentation beim Sortieren der Unterlagen geholfen.) „Du bist ein Schatz.“",
+     "muster": [
+      "Als du mir heute früh beim Sortieren geholfen hast, war ich erleichtert, weil mir vor der Präsentation Ruhe und Unterstützung wichtig waren.",
+      "Danke fürs Sortieren heute früh! So konnte ich ganz entspannt in die Präsentation gehen."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "schatz",
+      "toll",
+      "super"
+     ],
+     "tipp": "Wie bist du in die Präsentation gegangen – und warum?"
+    },
+    {
+     "t": "(Dein Azubi Mateo hat eine Kundin am Telefon beraten, während du in der Werkstatt beschäftigt warst.) „Gut gemacht, weiter so!“",
+     "muster": [
+      "Als du vorhin die Kundin am Telefon beraten hast, während ich in der Werkstatt war, war ich beruhigt. Mir ist wichtig, dass wir uns im Team aufeinander verlassen können.",
+      "Danke, dass du die Kundin übernommen hast! So konnte ich in der Werkstatt in Ruhe fertig werden."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "gut gemacht",
+      "weiter so",
+      "brav"
+     ],
+     "tipp": "Was hat Mateo getan, und was hat dir das in dem Moment ermöglicht?"
+    },
+    {
+     "t": "(Deine Nachbarin hat dein Paket mit einem Geburtstagsgeschenk angenommen und dir einen Zettel an die Tür geklebt.) „Sie sind ein Engel!“",
+     "muster": [
+      "Als Sie mein Paket angenommen und mir den Zettel an die Tür geklebt haben, war ich so erleichtert. Mir war wichtig, dass das Geburtstagsgeschenk sicher ankommt.",
+      "Danke, dass Sie mein Paket genommen haben! Da ist ein Geburtstagsgeschenk drin – ich bin echt erleichtert."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "engel",
+      "toll",
+      "super"
+     ],
+     "tipp": "Was stand für dich auf dem Spiel – und wie geht es dir jetzt?"
+    },
+    {
+     "t": "(Dein Partner hat dir gestern Abend zugehört, als du nach einem schweren Tag in der Pflege erzählt hast.) „Du bist so ein toller Zuhörer.“",
+     "muster": [
+      "Als du mir gestern Abend zugehört hast, ohne gleich Tipps zu geben, war ich berührt und danach viel ruhiger. Ich brauchte einfach Verständnis.",
+      "Danke für gestern Abend. Dass du einfach zugehört hast, hat mich richtig runtergebracht – genau das hab ich gebraucht."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "toll",
+      "bester",
+      "super"
+     ],
+     "tipp": "Was hat er konkret getan – oder gerade nicht getan?"
+    },
+    {
+     "t": "(Eine Sachbearbeiterin im Bürgeramt hat dir genau erklärt, welche Unterlagen noch fehlen.) „Sie sind aber kompetent!“",
+     "muster": [
+      "Als Sie mir eben Schritt für Schritt erklärt haben, welche Unterlagen noch fehlen, war ich erleichtert, weil mir Klarheit gerade sehr wichtig ist.",
+      "Danke, dass Sie mir das so genau erklärt haben. Jetzt weiß ich, was ich mitbringen muss – das beruhigt mich."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "kompetent",
+      "super",
+      "toll"
+     ],
+     "tipp": "Was weißt du jetzt, was du vorher nicht wusstest?"
+    },
+    {
+     "t": "(Deine Freundin Nora hat dir zwei Stellen in deinem Anschreiben gezeigt, die sie unklar fand.) „Du bist so klug.“",
+     "muster": [
+      "Als du mir die zwei unklaren Stellen in meinem Anschreiben gezeigt hast, war ich dankbar, weil mir Ehrlichkeit und Klarheit bei meiner Bewerbung wichtig sind.",
+      "Danke, dass du so ehrlich warst! Jetzt weiß ich genau, wo ich nachbessern kann – das gibt mir Sicherheit."
+     ],
+     "pruef": [
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, welches Bedürfnis sich dadurch erfüllt hat?",
+      "Sagst du, wie es dir damit geht – statt, wie die Person ist?"
+     ],
+     "warn": [
+      "klug",
+      "schlau",
+      "super"
+     ],
+     "tipp": "Was hat dir ihre Ehrlichkeit gebracht?"
+    }
+   ],
+   "merksatz": "Lob bewertet die Person. Dank zeigt, wie ihre Handlung dein Leben schöner gemacht hat.",
+   "spick": "SZ13"
+  },
+  {
+   "id": "K15",
+   "titel": "Wertschätzung annehmen",
+   "thema": "Wertschätzung empfangen",
+   "abschnitt": "§9",
+   "gruppe": "selbst",
+   "typ": "wahl",
+   "dauer": "3 Min.",
+   "intro": "Dank anzunehmen ist oft schwerer, als Dank zu geben. Wie nimmt die Person die Wertschätzung auf?",
+   "ansage": "Jemand bedankt sich, und du hörst die Antwort darauf. Ordne ein, wie der Dank angenommen wird. Sag abwiegeln, ausgleichen, abgehoben oder annehmen.",
+   "frage": "Wie wird der Dank aufgenommen?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Abwiegeln",
+     "sprich": [
+      "abwiegeln",
+      "kleinreden",
+      "abwinken"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Sofort ausgleichen",
+     "sprich": [
+      "ausgleichen",
+      "zurückgeben",
+      "revanchieren"
+     ]
+    },
+    {
+     "id": "c",
+     "text": "Von oben herab",
+     "sprich": [
+      "abgehoben",
+      "überheblich",
+      "von oben"
+     ]
+    },
+    {
+     "id": "d",
+     "text": "Mit Freude annehmen",
+     "sprich": [
+      "annehmen",
+      "freude",
+      "freuen"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "(Deine Kollegin dankt dir, weil du ihre Schicht übernommen hast.) „Ach, das war doch nichts.“",
+     "ans": "a",
+     "why": "Du machst deinen Beitrag kleiner. Oft ist das Bescheidenheit – der Dank kann so aber kaum ankommen.",
+     "giraffe": "Gern! Schön, dass dir das geholfen hat."
+    },
+    {
+     "t": "(Dein Nachbar dankt dir, dass du in seinem Urlaub die Blumen gegossen hast.) „Gern! Ich freu mich, dass alle noch blühen. Hat mir sogar Spaß gemacht.“",
+     "ans": "d",
+     "why": "Du nimmst den Dank an und freust dich mit – ohne kleinzureden und ohne etwas zu verrechnen."
+    },
+    {
+     "t": "(Ein Freund dankt dir für die Hilfe beim Umzug.) „Klar. Dafür hilfst du mir dann bei meinem.“",
+     "ans": "b",
+     "why": "Der Dank wird sofort verrechnet. Dann steht der Ausgleich im Mittelpunkt, nicht die Freude am Geben.",
+     "giraffe": "Gern! Ich freu mich, dass du jetzt in deiner neuen Wohnung bist."
+    },
+    {
+     "t": "(Eine Schülerin dankt dir für die Extra-Erklärung nach der Stunde.) „Na ja, das ist halt mein Job.“",
+     "ans": "a",
+     "why": "Der Hinweis auf die Pflicht schiebt den Dank weg. Dabei hast du wirklich etwas beigetragen.",
+     "giraffe": "Gern! Ich freu mich, dass es jetzt klarer für dich ist."
+    },
+    {
+     "t": "(Deine Schwester dankt dir, dass du am Wochenende bei eurer Mutter im Pflegeheim warst.) „Ich hab ja gleich gesagt, dass ich das besser hinkriege als du.“",
+     "ans": "c",
+     "why": "Der Dank wird zum Vergleich. Du stellst dich über deine Schwester, und die Verbindung kommt zu kurz.",
+     "giraffe": "Gern. Es tut mir gut zu hören, dass du dich am Wochenende erholen konntest."
+    },
+    {
+     "t": "(Ein Gast im Café dankt dir für die schnelle Hilfe, als sein Kaffee umgekippt ist.) „Sehr gern! Schön, dass Sie Ihre Pause jetzt doch noch genießen können.“",
+     "ans": "d",
+     "why": "Du nimmst den Dank an und freust dich über das, was deine Hilfe möglich gemacht hat."
+    },
+    {
+     "t": "(Dein Mann dankt dir für das Abendessen.) „Dann kochst du aber morgen, abgemacht?“",
+     "ans": "b",
+     "why": "Statt den Dank anzunehmen, wird gleich eine Gegenleistung verhandelt. Die Freude am Geben geht dabei unter.",
+     "giraffe": "Gern! Ich freu mich, dass es dir geschmeckt hat."
+    },
+    {
+     "t": "(Jemand aus deinem Sportverein dankt dir für die Organisation des Turniers.) „Tja, ohne mich würde hier ja gar nichts laufen.“",
+     "ans": "c",
+     "why": "Du stellst dich über die anderen. Der Dank landet auf einem Podest statt in einer Begegnung.",
+     "giraffe": "Danke dir! Ich freu mich, dass das Turnier so gut gelaufen ist."
+    },
+    {
+     "t": "(Deine Freundin Mei dankt dir, dass du sie zum Arzttermin begleitet hast.) „Das berührt mich. Ich bin gern mitgekommen – es war mir wichtig, für dich da zu sein.“",
+     "ans": "d",
+     "why": "Du nimmst den Dank an, teilst dein Gefühl und sagst, welches Bedürfnis du dir damit erfüllt hast."
+    },
+    {
+     "t": "(Deine Chefin dankt dir für den ausführlichen Bericht.) „Ach, der ist eigentlich gar nicht so gut geworden, da fehlt noch einiges.“",
+     "ans": "a",
+     "why": "Du wertest deine eigene Arbeit ab. Darunter liegt vielleicht ein hoher Anspruch – der Dank kommt so aber nicht an.",
+     "giraffe": "Danke, das freut mich! Ich hab mir damit viel Mühe gegeben."
+    }
+   ],
+   "merksatz": "Dank annehmen heißt: sich mitfreuen, dass man zum Leben eines anderen beigetragen hat – ohne Kleinreden, ohne Rechnung, ohne Podest.",
+   "spick": "SZ13"
+  },
+  {
+   "id": "K16",
+   "titel": "Spiegeln wie in der Mediation",
+   "thema": "Mediation",
+   "abschnitt": "§10",
+   "gruppe": "konflikt",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "In der Mediation gibt B zuerst wieder, was A wichtig ist – bevor B selbst spricht. Übe genau diesen Moment: zuhören, spiegeln, nicht verteidigen.",
+   "ansage": "Stell dir vor, du sitzt in einem Klärungsgespräch. Jemand ist aufgebracht und spricht über dich. Deine Aufgabe ist nur, wiederzugeben, welche Gefühle und Bedürfnisse du hörst. Deine eigene Sicht kommt später dran.",
+   "aufgabe": "Du bist die angesprochene Person. Gib wieder, welche Gefühle und Bedürfnisse du bei deinem Gegenüber hörst – ohne dich zu verteidigen.",
+   "check": "empathie",
+   "items": [
+    {
+     "t": "(Klärungsgespräch in der WG. Dein Mitbewohner Lars sagt mit Blick auf dich:) „Das Geschirr bleibt ständig stehen! Ich bin doch nicht der Putzdienst hier.“",
+     "muster": [
+      "Ich höre, dass du genervt bist, weil dir eine faire Aufteilung im Haushalt wichtig ist. Stimmt das?",
+      "Du bist echt genervt und willst, dass die Arbeit in der WG fair verteilt ist, stimmt’s?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "ich habe doch",
+      "stimmt nicht",
+      "gar nicht"
+     ],
+     "tipp": "Was fehlt Lars, wenn das Geschirr stehen bleibt?"
+    },
+    {
+     "t": "(Familiengespräch in der Beratungsstelle. Deine Tochter, 14, sagt:) „Immer wollt ihr wissen, wo ich bin! Ich bin doch kein Baby mehr.“",
+     "muster": [
+      "Ich höre, dass du wütend bist, weil dir Vertrauen und mehr Selbstbestimmung wichtig sind. Stimmt das?",
+      "Du willst, dass wir dir mehr zutrauen und du mehr selbst entscheiden kannst – so ungefähr?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "wir machen uns",
+      "zu deinem besten",
+      "gar nicht"
+     ],
+     "tipp": "Was wünscht sich jemand, der sich wie ein Baby behandelt fühlt?"
+    },
+    {
+     "t": "(Teamgespräch mit Moderation. Deine Kollegin Ewa sagt mit Blick auf dich:) „Bei mir landen immer die schwierigen Kunden. Ich hab das so satt!“",
+     "muster": [
+      "Ich höre, dass du erschöpft bist, weil dir eine faire Verteilung im Team wichtig ist. Ist das so?",
+      "Das zehrt an dir, und du wünschst dir, dass die schwierigen Fälle fairer verteilt werden, stimmt’s?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "ich habe doch",
+      "stimmt nicht",
+      "zufall"
+     ],
+     "tipp": "Hör auf das „so satt“: Was braucht Ewa gerade?"
+    },
+    {
+     "t": "(Schlichtungsgespräch im Haus. Dein Nachbar aus dem Erdgeschoss sagt:) „Jeden Abend dieses Getrampel von oben! Das ist einfach rücksichtslos.“",
+     "muster": [
+      "Ich höre, dass Sie erschöpft sind, weil Ihnen abends Ruhe zum Erholen wichtig ist. Ist das so?",
+      "Sie brauchen abends Ihre Ruhe, und die fehlt Ihnen gerade sehr. Verstehe ich Sie da richtig?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "übertreiben",
+      "ganz normal",
+      "stimmt nicht"
+     ],
+     "tipp": "Hinter „rücksichtslos“ steckt oft ein Bedürfnis. Welches?"
+    },
+    {
+     "t": "(Paarberatung. Dein Partner Tobias sagt:) „Er ist ständig mit seinen Freunden unterwegs. Ich bin ihm offenbar egal.“",
+     "muster": [
+      "Ich höre, dass du traurig und einsam bist, weil dir Nähe und gemeinsame Zeit wichtig sind. Stimmt das?",
+      "Du vermisst unsere Zeit zu zweit, und dir fehlt Nähe – hab ich das richtig gehört?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "stimmt nicht",
+      "gar nicht",
+      "ich habe doch"
+     ],
+     "tipp": "Statt zu widersprechen: Was vermisst Tobias vielleicht?"
+    },
+    {
+     "t": "(Elterngespräch in der Schule. Ein Vater sagt zu dir als Lehrkraft:) „Mein Sohn ist vor der ganzen Klasse bloßgestellt worden. So geht man nicht mit Kindern um!“",
+     "muster": [
+      "Ich höre, dass Sie besorgt und aufgebracht sind, weil Ihnen Schutz und Respekt für Ihren Sohn wichtig sind. Stimmt das?",
+      "Sie machen sich Sorgen um Ihren Sohn und möchten, dass er in der Klasse respektvoll behandelt wird. Ist es das?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "so war das nicht",
+      "ihr sohn hat",
+      "stimmt nicht"
+     ],
+     "tipp": "Erklären kommt später. Was ist dem Vater gerade wichtig?"
+    },
+    {
+     "t": "(Mitgliederversammlung im Sportverein. Juri sagt zu dir, weil du die Kasse führst:) „Über das Geld wird hier einfach entschieden, ohne uns zu fragen!“",
+     "muster": [
+      "Ich höre, dass du verärgert bist, weil dir Mitbestimmung und Klarheit wichtig sind. Stimmt das?",
+      "Du willst gefragt werden, bevor über das Vereinsgeld entschieden wird – das ist dir wichtig, oder?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "satzung",
+      "stimmt nicht",
+      "ich habe doch"
+     ],
+     "tipp": "Was wünscht sich jemand, der sich nicht gefragt fühlt?"
+    },
+    {
+     "t": "(Gespräch mit einer Pflegeberaterin. Deine Schwester Dilan sagt zu dir:) „Ich mach hier alles allein, und du kommst einmal im Monat vorbei und spielst den Helden.“",
+     "muster": [
+      "Ich höre, dass du erschöpft und enttäuscht bist, weil dir Unterstützung und eine faire Verteilung bei Papas Pflege wichtig sind. Stimmt das?",
+      "Du trägst gerade so viel allein und wünschst dir, dass wir uns die Pflege gerechter teilen. Ist es so?"
+     ],
+     "pruef": [
+      "Gibst du Gefühl oder Bedürfnis wieder – nicht den Vorwurf?",
+      "Lässt du deine eigene Sicht für diesen Moment draußen?",
+      "Kann dein Gegenüber leicht bestätigen oder korrigieren?"
+     ],
+     "warn": [
+      "aber",
+      "ich habe doch",
+      "ich kann nicht",
+      "stimmt nicht"
+     ],
+     "tipp": "Hör unter dem Vorwurf: Was braucht Dilan, um durchzuhalten?"
+    }
+   ],
+   "merksatz": "Wer sich gehört fühlt, kann auch zuhören. Spiegeln heißt nicht zustimmen.",
+   "spick": "SZ14"
+  },
+  {
+   "id": "K17",
+   "titel": "Schützend oder strafend?",
+   "thema": "Schützende Macht",
+   "abschnitt": "§11",
+   "gruppe": "konflikt",
+   "typ": "wahl",
+   "dauer": "3 Min.",
+   "intro": "Macht kann schützen oder strafen. Der Unterschied liegt in der Absicht: Leben und Wohlergehen bewahren – oder Leid zufügen, damit jemand „lernt“.",
+   "ansage": "Du hörst kurze Situationen, in denen jemand Macht einsetzt. Entscheide, ob die Handlung eher schützt oder eher straft. Sag schützend oder strafend.",
+   "frage": "Ist diese Handlung schützend oder strafend?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Schützend",
+     "sprich": [
+      "schützend",
+      "schützen",
+      "schutz"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Strafend",
+     "sprich": [
+      "strafend",
+      "strafen",
+      "strafe"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "Ein Vater hält sein Kind am Arm fest, als es auf die Straße laufen will.",
+     "ans": "a",
+     "why": "Er greift ein, um Leben zu schützen – ohne Urteil und ohne Absicht, dem Kind wehzutun."
+    },
+    {
+     "t": "Eine Mutter nimmt ihrem Sohn eine Woche lang das Handy weg, damit er lernt, nicht mehr frech zu sein.",
+     "ans": "b",
+     "why": "Der Verlust soll wehtun, damit sich etwas ändert. Das weckt oft eher Groll als Einsicht.",
+     "giraffe": "Sie sagt ihm, wie sein Ton bei ihr angekommen ist und dass ihr Respekt wichtig ist – und fragt, was bei ihm los war."
+    },
+    {
+     "t": "Ein Lehrer lässt eine Schülerin vor der Klasse laut vorlesen, was sie Gemeines in den Klassenchat geschrieben hat.",
+     "ans": "b",
+     "why": "Bloßstellen soll beschämen. Das schützt niemanden, sondern fügt Leid zu.",
+     "giraffe": "Er spricht nach der Stunde allein mit ihr, sagt, was er gelesen hat, fragt, was los war, und kümmert sich um die betroffene Mitschülerin."
+    },
+    {
+     "t": "Eine Lehrerin geht auf dem Schulhof dazwischen und hält ein Kind kurz fest, das gerade auf ein anderes einschlägt.",
+     "ans": "a",
+     "why": "Sie verhindert, dass jemand verletzt wird. Das Festhalten dient dem Schutz, nicht der Strafe."
+    },
+    {
+     "t": "Eine Teamleiterin streicht einem Mitarbeiter die geplante Fortbildung, weil er zweimal zu spät kam.",
+     "ans": "b",
+     "why": "Die Fortbildung hat mit den Verspätungen nichts zu tun. Der Entzug soll ihn treffen, damit er lernt.",
+     "giraffe": "Sie spricht ihn auf die beiden Verspätungen an, sagt, warum ihr Verlässlichkeit wichtig ist, und fragt, was er braucht, um pünktlich zu sein."
+    },
+    {
+     "t": "In der Werkstatt schaltet ein Geselle die Säge ab, weil ein Azubi ohne Schutzbrille daran arbeitet.",
+     "ans": "a",
+     "why": "Er schützt die Augen des Azubis. Es geht um Sicherheit, nicht darum, ihn zu bestrafen."
+    },
+    {
+     "t": "Ein Fußballtrainer lässt die ganze Mannschaft Strafrunden laufen, weil zwei Spieler im Training herumgealbert haben.",
+     "ans": "b",
+     "why": "Alle sollen leiden, damit die zwei „lernen“. Das erzeugt oft Ärger untereinander statt Verständnis.",
+     "giraffe": "Er unterbricht kurz, sagt, dass ihm eine konzentrierte Übung wichtig ist, und fragt die beiden, was sie gerade brauchen."
+    },
+    {
+     "t": "Eine Trainerin nimmt einen Spieler vom Platz, weil er nach einem Zusammenprall über Schwindel klagt.",
+     "ans": "a",
+     "why": "Sie schützt seine Gesundheit. Die Entscheidung hat nichts mit Strafe zu tun."
+    },
+    {
+     "t": "Ein Autofahrer fährt einem Radfahrer, der ihn geschnitten hat, absichtlich dicht auf und hupt lange.",
+     "ans": "b",
+     "why": "Er will dem Radfahrer Angst machen, als Denkzettel. Das gefährdet sogar beide.",
+     "giraffe": "Er lässt Abstand, atmet durch und merkt vielleicht: Er hat sich erschrocken, weil ihm Sicherheit wichtig ist."
+    },
+    {
+     "t": "Eine Radfahrerin hält einen Fußgänger am Rucksack zurück, weil von links ein Bus kommt.",
+     "ans": "a",
+     "why": "Ein kurzer, beherzter Griff, um Schaden zu verhindern – ohne Vorwurf und ohne Absicht zu strafen."
+    }
+   ],
+   "merksatz": "Schützende Macht verhindert Schaden. Strafende Macht will, dass es wehtut. Die Frage dahinter: Was soll die Person tun – und aus welchem Grund?",
+   "spick": "SZ15"
+  },
+  {
+   "id": "K18",
+   "titel": "Mythos oder Fakt?",
+   "thema": "Missverständnisse und Grenzen",
+   "abschnitt": "§12/§13",
+   "gruppe": "konflikt",
+   "typ": "wahl",
+   "dauer": "4 Min.",
+   "intro": "Über GFK gibt es viele Annahmen. Manche stimmen, manche sind Missverständnisse. Prüf dein Bild – auch mit den Grenzen der Methode.",
+   "ansage": "Du hörst Aussagen über Gewaltfreie Kommunikation. Manche stimmen, manche sind verbreitete Missverständnisse. Sag Fakt, wenn die Aussage stimmt, oder Mythos, wenn sie so nicht stimmt.",
+   "frage": "Stimmt das – oder ist es ein verbreiteter Mythos?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Stimmt",
+     "sprich": [
+      "fakt",
+      "wahr",
+      "ja"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Stimmt so nicht",
+     "sprich": [
+      "mythos",
+      "irrtum",
+      "nein",
+      "stimmt nicht",
+      "nicht wahr"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "GFK heißt, immer nett und freundlich zu sein.",
+     "ans": "b",
+     "why": "GFK will Ehrlichkeit. Ein klares Nein und deutlicher Ärger gehören dazu – nur ohne Urteil über den anderen."
+    },
+    {
+     "t": "Die vier Schritte sind eine feste Formel, die man immer genau so sagen muss.",
+     "ans": "b",
+     "why": "Die vier Schritte sind eine Lernhilfe. Im Alltag zählt die Absicht, und natürliche Sprache ist ausdrücklich willkommen."
+    },
+    {
+     "t": "Wut ist in der GFK erlaubt.",
+     "ans": "a",
+     "why": "Wut gilt als wichtiges Signal. Sie zeigt auf Sollte-Gedanken und dahinter auf unerfüllte Bedürfnisse."
+    },
+    {
+     "t": "Wer GFK gut beherrscht, braucht keine Therapie mehr.",
+     "ans": "b",
+     "why": "GFK kann im Alltag helfen. Bei Trauma, Gewalt in Beziehungen oder einer seelischen Krise ersetzt sie keine fachliche Hilfe."
+    },
+    {
+     "t": "Die Wirkung von GFK ist durch viele große Studien eindeutig belegt.",
+     "ans": "b",
+     "why": "Es gibt viele Praxisberichte, aber vergleichsweise wenige kontrollierte Studien. Die Lage gilt als vielversprechend, aber begrenzt."
+    },
+    {
+     "t": "Mit den richtigen Worten lässt sich jedes Machtgefälle ausgleichen.",
+     "ans": "b",
+     "why": "Sprache kann Verbindung schaffen. In Hierarchien bleiben aber strukturelle Fragen, die Worte allein nicht lösen."
+    },
+    {
+     "t": "Oft reicht schon ein einzelner Schritt, zum Beispiel nur zuhören und Empathie geben.",
+     "ans": "a",
+     "why": "Niemand muss alle vier Schritte auf einmal benutzen. Manchmal ist eine Vermutung oder eine Bitte genau das, was hilft."
+    },
+    {
+     "t": "GFK-Begriffe lassen sich auch benutzen, um andere zu steuern oder abzuwerten.",
+     "ans": "a",
+     "why": "Leider ja. Wer GFK als Hebel einsetzt, spricht außen Giraffe und innen Wolf. Das Gegenüber spürt das meist."
+    },
+    {
+     "t": "In der GFK sagt man nicht Nein.",
+     "ans": "b",
+     "why": "Ein Nein ist in der GFK ein Ja zu einem anderen Bedürfnis. Klare Grenzen sind willkommen."
+    },
+    {
+     "t": "Wortgetreue GFK wirkt auf manche Menschen gestelzt oder therapeutisch.",
+     "ans": "a",
+     "why": "Diese Kritik ist verbreitet und nachvollziehbar. Darum übst du hier auch die Alltags-Giraffe."
+    }
+   ],
+   "merksatz": "GFK ist eine Haltung, keine Formel – mit Stärken und mit Grenzen.",
+   "spick": "SZ16"
+  },
+  {
+   "id": "K19",
+   "titel": "GFK als Hebel erkennen",
+   "thema": "Missbrauch von GFK",
+   "abschnitt": "§12/§13",
+   "gruppe": "konflikt",
+   "typ": "wahl",
+   "dauer": "4 Min.",
+   "intro": "GFK-Worte können verbinden – oder als Hebel dienen, um andere zu steuern oder abzuwerten. Achte auf die Absicht hinter den Worten.",
+   "ansage": "Du hörst Sätze mit Wörtern aus der GFK. Manche suchen echte Verbindung. Andere nutzen die Worte, um Druck zu machen oder jemanden abzuwerten. Sag Verbindung oder steuern.",
+   "frage": "Sucht dieser Satz Verbindung – oder steuert er?",
+   "optionen": [
+    {
+     "id": "a",
+     "text": "Verbindung",
+     "sprich": [
+      "verbindung",
+      "verbinden",
+      "kontakt"
+     ]
+    },
+    {
+     "id": "b",
+     "text": "Steuern oder abwerten",
+     "sprich": [
+      "steuern",
+      "abwerten",
+      "hebel",
+      "druck"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "t": "(Mitten im Streit mit deiner Partnerin.) „Das ist jetzt aber keine Beobachtung, das ist eine Bewertung!“",
+     "ans": "b",
+     "why": "Hier wird GFK zum Maßstab gegen den anderen. Das lenkt vom Anliegen ab und kann beschämen.",
+     "giraffe": "Ärgert dich gerade etwas sehr? Magst du mir erzählen, was genau passiert ist?"
+    },
+    {
+     "t": "(Nach einem Streit unter Freunden.) „Ich fühle mich von dir verletzt, also wirst du dich jetzt entschuldigen.“",
+     "ans": "b",
+     "why": "Das Gefühl wird zum Druckmittel, und für ein Nein bleibt kein Platz. Das ist eine Forderung im GFK-Gewand.",
+     "giraffe": "Ich bin verletzt, weil mir Respekt zwischen uns wichtig ist. Magst du mir sagen, wie es dir damit geht?"
+    },
+    {
+     "t": "(In der WG.) „Wärst du bereit, heute den Müll runterzubringen? Wenn nicht, ist das okay, dann frag ich Elif.“",
+     "ans": "a",
+     "why": "Konkret, machbar, und ein Nein ist wirklich in Ordnung – es gibt sogar schon einen anderen Weg."
+    },
+    {
+     "t": "(Zum Sohn, kurz bevor Besuch kommt.) „Wärst du bereit, jetzt aufzuräumen? Ich frag ja nur. Aber du weißt, was sonst passiert.“",
+     "ans": "b",
+     "why": "Es klingt wie eine Bitte, aber ein Nein hätte Folgen. Damit ist es eine Forderung.",
+     "giraffe": "Gleich kommt Besuch, und mir ist ein freier Flur wichtig. Wärst du bereit, in der nächsten Viertelstunde deine Sachen in dein Zimmer zu bringen?"
+    },
+    {
+     "t": "(In einer hitzigen Diskussion im Gruppenchat.) „Du sprichst gerade total Wolf. Lern erst mal GFK, dann reden wir weiter.“",
+     "ans": "b",
+     "why": "Die GFK-Begriffe werden zum Etikett über den anderen – ein Urteil im Giraffenkostüm.",
+     "giraffe": "Ich merke, das Gespräch wird gerade hitzig. Was ist dir bei dem Thema am wichtigsten?"
+    },
+    {
+     "t": "(Eine Kollegin ärgert sich, dass ihr Bericht in der Runde nicht erwähnt wurde.) „Bist du sauer, weil dir wichtig ist, dass deine Arbeit gesehen wird?“",
+     "ans": "a",
+     "why": "Eine offene Vermutung als Frage. Die Kollegin kann bestätigen oder korrigieren."
+    },
+    {
+     "t": "(Ein Teamleiter zu einer Mitarbeiterin.) „Ich bin enttäuscht, dass Sie am Wochenende nicht einspringen wollen. Mir ist Teamgeist eben wichtig.“",
+     "ans": "b",
+     "why": "Gefühl und Bedürfnis werden genutzt, um Druck zu machen. Durch das Machtgefälle fällt ein Nein hier besonders schwer.",
+     "giraffe": "Ich mache mir Sorgen um die Lieferung am Montag. Könnten Sie sich vorstellen, am Samstag ein paar Stunden einzuspringen? Wenn nicht, ist das in Ordnung, dann suchen wir eine andere Lösung."
+    },
+    {
+     "t": "(Mitten in einem hitzigen Gespräch mit deinem Vater.) „Ich bin gerade zu aufgewühlt, um gut zuzuhören. Können wir in zehn Minuten weiterreden?“",
+     "ans": "a",
+     "why": "Du sorgst für dich und bittest um eine Pause. Das schützt die Verbindung, statt sie abzubrechen."
+    },
+    {
+     "t": "(Zu einem Freund, der viel von sich erzählt.) „Ich will ja nur dein Bedürfnis verstehen: Du brauchst halt ständig Aufmerksamkeit, oder?“",
+     "ans": "b",
+     "why": "Die Frageform tarnt eine Diagnose. „Ständig“ und „halt“ zeigen ein Urteil statt einer offenen Vermutung.",
+     "giraffe": "Dir scheint das Erzählen heute viel zu bedeuten. Brauchst du gerade jemanden, der einfach zuhört?"
+    },
+    {
+     "t": "(Nach einer Besprechung, zu einem Kollegen.) „Ich hab dich vorhin unterbrochen. Magst du noch mal erzählen, was du sagen wolltest?“",
+     "ans": "a",
+     "why": "Du benennst dein eigenes Verhalten ohne Ausrede und lädst ein, weiterzusprechen. Das schafft Verbindung."
+    }
+   ],
+   "merksatz": "Außen Giraffe, innen Wolf – das spürt das Gegenüber. Entscheidend ist, ob ein Nein wirklich willkommen ist.",
+   "spick": "SZ16"
+  },
+  {
+   "id": "K20",
+   "titel": "Alltags-Giraffe",
+   "thema": "Alltags-Giraffe",
+   "abschnitt": "§12",
+   "gruppe": "konflikt",
+   "typ": "umformulieren",
+   "dauer": "5 Min.",
+   "intro": "Die vier Schritte sind eine Lernhilfe, keine Pflicht. Hier machst du aus steifen Lernform-Sätzen Alltagssprache – mit derselben Absicht.",
+   "ansage": "Diese Sätze folgen den vier Schritten sehr genau und klingen dadurch steif. Sag sie so, wie du wirklich sprechen würdest. Wichtig ist nur, dass dein Anliegen hörbar bleibt und die Bitte ein Nein zulässt.",
+   "aufgabe": "Sag dasselbe so, wie du es im Alltag sagen würdest. Gefühl oder Bedürfnis sollen hörbar bleiben, die Bitte darf ein Nein zulassen.",
+   "check": "alltag",
+   "items": [
+    {
+     "t": "Wenn ich sehe, dass deine Schuhe im Flur liegen, fühle ich mich gereizt, weil mein Bedürfnis nach Ordnung nicht erfüllt ist. Wärst du bereit, sie ins Regal zu stellen?",
+     "muster": [
+      "Stellst du deine Schuhe ins Regal? Im Flur fall ich sonst drüber.",
+      "Deine Schuhe liegen im Flur – das nervt mich gerade ein bisschen, ich mag’s, wenn da frei ist. Stellst du sie ins Regal?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist dein Anliegen, also Gefühl oder Bedürfnis, noch hörbar?",
+      "Darf dein Gegenüber zur Bitte Nein sagen?"
+     ],
+     "warn": [
+      "schon wieder",
+      "immer",
+      "ständig"
+     ],
+     "tipp": "Wie würdest du das zu jemandem sagen, mit dem du gern zusammenwohnst?"
+    },
+    {
+     "t": "Wenn ich höre, dass du später kommst, fühle ich mich enttäuscht, weil mein Bedürfnis nach Verlässlichkeit nicht erfüllt ist. Wärst du bereit, mir in Zukunft eine Stunde vorher Bescheid zu geben?",
+     "muster": [
+      "Oh, schade. Kannst du mir nächstes Mal eine Stunde vorher schreiben?",
+      "Ach, schade – ich hatte mich schon drauf eingestellt. Mir hilft’s, wenn ich planen kann. Kannst du mir nächstes Mal eine Stunde vorher Bescheid geben?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist dein Anliegen, also Gefühl oder Bedürfnis, noch hörbar?",
+      "Darf dein Gegenüber zur Bitte Nein sagen?"
+     ],
+     "warn": [
+      "immer",
+      "nie",
+      "typisch"
+     ],
+     "tipp": "Ein kurzes „schade“ kann schon das ganze Gefühl tragen."
+    },
+    {
+     "t": "Wenn ich sehe, dass die Unterlagen noch nicht da sind, fühle ich mich besorgt, weil mein Bedürfnis nach Planungssicherheit nicht erfüllt ist. Wären Sie bereit, sie mir bis Donnerstag zu schicken?",
+     "muster": [
+      "Mir fehlen noch die Unterlagen. Schaffen Sie es, sie mir bis Donnerstag zu schicken?",
+      "Die Unterlagen sind noch nicht bei mir, und das macht mich etwas unruhig – ich möchte nächste Woche gut planen können. Wäre Donnerstag für Sie machbar?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist dein Anliegen, also Gefühl oder Bedürfnis, noch hörbar?",
+      "Darf dein Gegenüber zur Bitte Nein sagen?"
+     ],
+     "warn": [
+      "endlich",
+      "immer noch",
+      "eigentlich längst"
+     ],
+     "tipp": "Im Beruf darf es knapp sein. Was ist das Wichtigste, das die Person wissen soll?"
+    },
+    {
+     "t": "Wenn du hörst, dass dein Antrag abgelehnt wurde, fühlst du dich dann frustriert, weil dein Bedürfnis nach Fairness nicht erfüllt ist?",
+     "muster": [
+      "Oh nein, abgelehnt? Das ist echt frustrierend, oder?",
+      "Abgelehnt – nach all der Mühe? Klingt, als fändest du das ziemlich unfair."
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist es eine Vermutung, die die Person bestätigen oder korrigieren kann?",
+      "Hast du Ratschläge und Trost erst mal weggelassen?"
+     ],
+     "warn": [
+      "solltest",
+      "kopf hoch",
+      "wird schon"
+     ],
+     "tipp": "Empathie im Alltag ist oft nur ein halber Satz mit Fragezeichen."
+    },
+    {
+     "t": "Wenn ich höre, dass nach 22 Uhr Musik aus Ihrer Wohnung kommt, fühle ich mich erschöpft, weil mein Bedürfnis nach Erholung nicht erfüllt ist. Wären Sie bereit, unter der Woche ab 22 Uhr leiser zu machen?",
+     "muster": [
+      "Ich muss früh raus – könnten Sie unter der Woche ab 22 Uhr leiser machen?",
+      "Hallo, ich wohne direkt unter Ihnen. Abends höre ich Ihre Musik recht deutlich, und ich stehe um fünf auf. Wäre es für Sie okay, unter der Woche ab 22 Uhr leiser zu machen?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist dein Anliegen, also Gefühl oder Bedürfnis, noch hörbar?",
+      "Darf dein Gegenüber zur Bitte Nein sagen?"
+     ],
+     "warn": [
+      "rücksichtslos",
+      "jeden abend",
+      "unmöglich"
+     ],
+     "tipp": "Ein kurzer Satz über dich macht die Bitte verständlich."
+    },
+    {
+     "t": "Als du gestern die Kinder abgeholt hast, fühlte ich mich erleichtert, weil mein Bedürfnis nach Unterstützung erfüllt wurde.",
+     "muster": [
+      "Danke, dass du gestern die Kinder geholt hast – das war so eine Erleichterung!",
+      "Danke fürs Abholen gestern! Ich hing im Meeting fest und war richtig froh, dass ich mich auf dich verlassen kann."
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Nennst du, was die Person konkret getan hat?",
+      "Wird hörbar, was das für dich bedeutet hat?"
+     ],
+     "warn": [
+      "super",
+      "toll",
+      "beste"
+     ],
+     "tipp": "Dank im Alltag: was die Person getan hat und was es dir bedeutet."
+    },
+    {
+     "t": "Wenn ich höre, dass du mich bittest, am Samstag beim Umzug zu helfen, fühle ich mich zerrissen, weil mir Erholung wichtig ist und Unterstützung für dich auch. Wärst du bereit zu hören, dass ich Nein sage?",
+     "muster": [
+      "Samstag schaff ich nicht, ich brauch das Wochenende echt zum Ausruhen. Kann ich dir Freitagabend beim Packen helfen?",
+      "Ich würd dir echt gern helfen, aber ich bin total durch und brauch den Samstag für mich. Wie wär’s, wenn ich Freitagabend zum Kistenpacken komme?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist hörbar, wozu du gerade Ja sagst?",
+      "Bietest du, wenn du magst, einen anderen Weg an?"
+     ],
+     "warn": [
+      "muss leider",
+      "keine wahl",
+      "geht halt nicht"
+     ],
+     "tipp": "Ein Nein ist ein Ja zu etwas anderem. Wozu sagst du gerade Ja?"
+    },
+    {
+     "t": "Wenn ich lese, dass in diesem Chat zwanzig Nachrichten zum Kuchenbuffet kommen, fühle ich mich überfordert, weil mein Bedürfnis nach Übersicht nicht erfüllt ist. Wärt ihr bereit, Absprachen dazu in einer Liste zu sammeln?",
+     "muster": [
+      "Puh, ich verlier gerade den Überblick. Wollen wir das in einer Liste sammeln?",
+      "Ich komm bei den vielen Nachrichten kaum noch mit und hätte gern einen klaren Überblick. Soll ich eine Liste anlegen, in die sich alle eintragen?"
+     ],
+     "pruef": [
+      "Klingt der Satz so, wie du wirklich sprechen würdest?",
+      "Ist dein Anliegen, also Gefühl oder Bedürfnis, noch hörbar?",
+      "Darf dein Gegenüber zur Bitte Nein sagen?"
+     ],
+     "warn": [
+      "chaos",
+      "nervig",
+      "endlich"
+     ],
+     "tipp": "Im Gruppenchat wirkt ein kurzer, freundlicher Vorschlag oft am besten."
+    }
+   ],
+   "merksatz": "Alltags-Giraffe zählt: Nicht die Formel entscheidet, sondern ob Verbindung und Freiwilligkeit spürbar sind.",
+   "spick": "SZ16"
+  }
+ ]
+}

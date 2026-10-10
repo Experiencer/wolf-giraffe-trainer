@@ -1,0 +1,454 @@
+{
+  "titel": "Übungen für Teilnehmende",
+  "untertitel": "Gewaltfreie Kommunikation üben – allein, zu zweit und in der Gruppe",
+  "einleitung": "Dieses Handout begleitet einen Übungsabend oder Workshop zur Gewaltfreien Kommunikation. Jede Übung zeigt oben, ob du sie allein, zu zweit, zu dritt oder in der Gruppe machst und wie lange sie ungefähr dauert. Auf den Arbeitsblättern ist Platz zum Schreiben; Vorschläge findest du im Lösungsteil am Ende – schau erst hinein, wenn du selbst etwas ausprobiert hast. Die Vorschläge sind Anregungen, keine Prüfung: Wenn deine Antwort anders klingt, aber dasselbe ausdrückt, passt sie genauso.",
+  "loesungen_einleitung": "Hier stehen Vorschläge, keine einzig gültigen Antworten. Gefühle und Bedürfnisse sind immer Vermutungen – nur die Person selbst weiß, was für sie stimmt. Wo es passt, gibt es zwei Fassungen: die Lernform mit deutlichen Schritten und eine Alltagsfassung, die klingt wie ein Mensch.",
+  "uebungen": [
+    {
+      "id": "H01",
+      "titel": "Beobachtung oder Bewertung?",
+      "form": "allein",
+      "zeit": "10 Min.",
+      "ziel": "Du unterscheidest, was eine Kamera aufnehmen würde, von dem, was du darüber denkst.",
+      "ablauf": [
+        "Lies jeden Satz und frag dich: Hätte eine Videokamera genau das aufnehmen können?",
+        "Kreuze an, ob der Satz eher eine Beobachtung oder eine Bewertung ist.",
+        "Bei einer Bewertung: Schreib auf die Linien eine Beobachtung, die dahinterstecken könnte – mit Zeit, Ort und dem, was zu sehen oder zu hören war.",
+        "Achte auf Warnsignale wie „immer“, „nie“, „ständig“, „schon wieder“, Eigenschaftswörter über Menschen und Gedankenlesen."
+      ],
+      "ankreuzen": [
+        "Beobachtung",
+        "Bewertung"
+      ],
+      "aufgaben": [
+        {
+          "t": "Mein Mitbewohner Felix lässt ständig sein Geschirr stehen.",
+          "zeilen": 2
+        },
+        {
+          "t": "Meine Kollegin Ewa hat in der Teambesprechung zweimal auf die Uhr geschaut, während ich mein Projekt vorgestellt habe.",
+          "zeilen": 2
+        },
+        {
+          "t": "Der Sachbearbeiter im Bürgeramt war total unfreundlich zu mir.",
+          "zeilen": 2
+        },
+        {
+          "t": "Meine Tochter Lena saß heute nach der Schule von 14 bis 17 Uhr mit dem Handy auf dem Sofa.",
+          "zeilen": 2
+        },
+        {
+          "t": "Mein Partner Tobias interessiert sich überhaupt nicht für meine Arbeit.",
+          "zeilen": 2
+        },
+        {
+          "t": "Die Trainerin im Verein bevorzugt immer dieselben Spielerinnen.",
+          "zeilen": 2
+        }
+      ],
+      "loesungen": [
+        "Bewertung – „ständig“ verallgemeinert. Mögliche Beobachtung: „Heute früh standen zwei Teller und eine Pfanne von Felix in der Spüle.“",
+        "Beobachtung – Ort, Anzahl und Handlung sind konkret. Ob Ewa sich gelangweilt hat, wäre schon eine Deutung.",
+        "Bewertung – „unfreundlich“ ist ein Urteil. Mögliche Beobachtung: „Der Sachbearbeiter hat mich nicht angesehen und gesagt: ‚Das Formular ist unvollständig. Der Nächste, bitte.‘“",
+        "Beobachtung – Zeit und Ort sind genau. Ein Wort wie „schon wieder rumgehangen“ würde daraus eine Bewertung machen.",
+        "Bewertung – hier wird Gedanken gelesen. Mögliche Beobachtung: „Als ich gestern von meiner Prüfung erzählt habe, hat Tobias weiter auf den Fernseher geschaut und nichts gefragt.“",
+        "Bewertung – „bevorzugt“ und „immer“ deuten und verallgemeinern. Mögliche Beobachtung: „In den letzten vier Spielen standen dieselben elf Spielerinnen in der Startaufstellung.“"
+      ]
+    },
+    {
+      "id": "H02",
+      "titel": "Pseudogefühle übersetzen",
+      "form": "allein",
+      "zeit": "15 Min.",
+      "material": "Gefühls- und Bedürfniskarten (wenn vorhanden)",
+      "ziel": "Du findest hinter Wörtern wie „übergangen“ das Gefühl, das wirklich in dir ist, und das Bedürfnis dahinter.",
+      "ablauf": [
+        "Pseudogefühle klingen wie Gefühle, beschreiben aber, was andere uns angeblich antun. Darin steckt eine Deutung.",
+        "Lies die Situation und stell dir vor, du steckst mittendrin.",
+        "Frag dich: Wie geht es mir dabei wirklich – im Bauch, in der Brust, im Kopf? Schreib ein oder zwei echte Gefühle auf.",
+        "Frag weiter: Was ist mir hier wichtig? Schreib ein Bedürfnis dazu.",
+        "Wenn dir kein Wort einfällt, helfen die Gefühls- und Bedürfniskarten."
+      ],
+      "satzhilfen": [
+        "Ich bin … (Gefühl), weil mir … (Bedürfnis) wichtig ist.",
+        "Unter „übergangen“ liegt bei mir vielleicht …"
+      ],
+      "aufgaben": [
+        {
+          "t": "Die Urlaubsplanung im Team wurde beschlossen, während du krank warst. Du denkst: „Ich fühle mich übergangen.“",
+          "zeilen": 2
+        },
+        {
+          "t": "Deine Schwester erzählt beim Familienessen von deinen Umzugsplänen, bevor du es selbst sagen konntest. Du denkst: „Ich fühle mich verraten.“",
+          "zeilen": 2
+        },
+        {
+          "t": "Deine Chefin schreibt am Freitag um 17 Uhr: „Die Präsentation brauche ich bis Montag früh.“ Du denkst: „Ich fühle mich unter Druck gesetzt.“",
+          "zeilen": 2
+        },
+        {
+          "t": "Ein Nachbar sagt im Treppenhaus: „Ihr Kinderwagen steht schon wieder im Weg.“ Du denkst: „Ich fühle mich angegriffen.“",
+          "zeilen": 2
+        },
+        {
+          "t": "Du hast drei Wochen lang die Arzttermine für deinen Vater organisiert. Deine Geschwister haben nicht nachgefragt. Du denkst: „Ich fühle mich ausgenutzt.“",
+          "zeilen": 2
+        },
+        {
+          "t": "Du stellst in der WG-Runde deinen Vorschlag zum Putzplan vor, und Noah sagt: „Jaja, schon klar.“ Du denkst: „Ich fühle mich nicht ernst genommen.“",
+          "zeilen": 2
+        }
+      ],
+      "loesungen": [
+        "„übergangen“ – vielleicht traurig, enttäuscht oder verunsichert. Bedürfnis: Einbezogensein, Mitbestimmung, Zugehörigkeit.",
+        "„verraten“ – vielleicht verletzt, traurig oder wütend. Bedürfnis: Vertrauen, Selbstbestimmung – selbst entscheiden, wann du etwas erzählst.",
+        "„unter Druck gesetzt“ – vielleicht angespannt, gestresst oder ärgerlich. Bedürfnis: Erholung, Wahlfreiheit, Ruhe.",
+        "„angegriffen“ – vielleicht erschrocken, gereizt oder angespannt. Bedürfnis: Rücksicht, Verständnis, ein friedliches Miteinander.",
+        "„ausgenutzt“ – vielleicht erschöpft, enttäuscht oder traurig. Bedürfnis: Unterstützung, Gegenseitigkeit, Wertschätzung.",
+        "„nicht ernst genommen“ – vielleicht frustriert, enttäuscht oder gereizt. Bedürfnis: gehört werden, Respekt, Mitbestimmung."
+      ]
+    },
+    {
+      "id": "H03",
+      "titel": "Das Bedürfnis hinter der Strategie",
+      "form": "allein",
+      "zeit": "15 Min.",
+      "ziel": "Du erkennst, wann ein Wunsch an eine bestimmte Person oder Handlung gebunden ist, und findest das Bedürfnis, das alle Menschen kennen.",
+      "ablauf": [
+        "Eine Strategie nennt eine bestimmte Person, Handlung, einen Ort oder Zeitpunkt. Ein Bedürfnis kommt ohne all das aus.",
+        "Lies den Satz und frag dich: Wozu will ich das? Was wäre dann für mich erfüllt?",
+        "Schreib ein oder zwei Bedürfnisse auf.",
+        "Dann: Welche andere Strategie könnte dasselbe Bedürfnis auch erfüllen? Je mehr Wege dir einfallen, desto leichter wird ein Gespräch."
+      ],
+      "satzhilfen": [
+        "Wenn ich das bekomme, dann habe ich endlich …",
+        "Bedürfnis: … · Andere Strategie: …"
+      ],
+      "aufgaben": [
+        {
+          "t": "„Ich brauche, dass du mich jeden Abend anrufst.“",
+          "zeilen": 2
+        },
+        {
+          "t": "„Ich will ein eigenes Büro.“",
+          "zeilen": 2
+        },
+        {
+          "t": "„Die Kinder müssen um 20 Uhr im Bett sein.“",
+          "zeilen": 2
+        },
+        {
+          "t": "„Ich will, dass mein Kollege Daniel zugibt, dass er unrecht hatte.“",
+          "zeilen": 2
+        },
+        {
+          "t": "„Mein Bruder soll jeden Samstag bei Papa vorbeischauen.“",
+          "zeilen": 2
+        },
+        {
+          "t": "„Beim Abendessen sind Handys verboten.“",
+          "zeilen": 2
+        }
+      ],
+      "loesungen": [
+        "Bedürfnis: Verbindung, Nähe, Sicherheit. Andere Strategien: eine kurze Sprachnachricht am Abend, ein fester Videoabend pro Woche.",
+        "Bedürfnis: Ruhe, Rückzug, Wirksamkeit bei der Arbeit. Andere Strategien: feste stille Stunden im Team, Kopfhörer, ein Tag im Homeoffice.",
+        "Bedürfnis: Erholung und Zeit für dich, Gesundheit der Kinder. Andere Strategien: eine ruhige Abendrunde ab halb acht, abwechselnd ins Bett bringen.",
+        "Bedürfnis: Anerkennung, Fairness, Verständnis. Andere Strategie: ein Gespräch, in dem Daniel sagt, was bei ihm angekommen ist.",
+        "Bedürfnis: Unterstützung, Gegenseitigkeit, Entlastung – und für Papa vielleicht Gesellschaft. Andere Strategien: ein gemeinsamer Plan unter allen Geschwistern, Nachbarschaftshilfe.",
+        "Bedürfnis: Verbindung, Aufmerksamkeit füreinander, Gemeinschaft. Andere Strategie: eine handyfreie halbe Stunde, die alle gemeinsam vereinbaren."
+      ]
+    },
+    {
+      "id": "H04",
+      "titel": "Bitten schärfen",
+      "form": "allein oder zu zweit",
+      "zeit": "15 Min.",
+      "ziel": "Du formulierst Bitten, die konkret, positiv, machbar und offen für ein Nein sind.",
+      "ablauf": [
+        "Eine Bitte sagt, was du dir wünschst – nicht, was aufhören soll.",
+        "Prüfe jede Bitte mit vier Fragen: Ist sie konkret – wer, was, wann? Ist sie positiv formuliert? Ist sie jetzt machbar? Darf die andere Person Nein sagen?",
+        "Schreib die Bitte neu. Wenn du magst, in zwei Fassungen: einmal deutlich nach Lehrbuch, einmal so, wie du es im Alltag sagen würdest.",
+        "Zu zweit: Lest euch die Bitten vor. Die andere Person sagt, ob sie gern Ja sagen würde – und was ihr ein Ja leichter machen würde."
+      ],
+      "satzhilfen": [
+        "Wärst du bereit, …?",
+        "Magst du mir sagen, was bei dir angekommen ist?",
+        "Wären Sie bereit, bis …?",
+        "Und wenn nicht – was wäre dir lieber?"
+      ],
+      "aufgaben": [
+        {
+          "t": "„Hör auf, mich ständig zu unterbrechen!“",
+          "zeilen": 3
+        },
+        {
+          "t": "„Kannst du mal mehr im Haushalt machen?“",
+          "zeilen": 3
+        },
+        {
+          "t": "Am Telefon mit dem Kundenservice: „Ich erwarte, dass Sie sich endlich um meine Reklamation kümmern.“",
+          "zeilen": 3
+        },
+        {
+          "t": "„Verstehst du überhaupt, was ich meine?“",
+          "zeilen": 3
+        },
+        {
+          "t": "„Du räumst jetzt sofort dein Zimmer auf, sonst gibt’s kein Tablet!“",
+          "zeilen": 3
+        }
+      ],
+      "loesungen": [
+        "Lernform: „Wärst du bereit, mich ausreden zu lassen, bis ich meine zwei Punkte gesagt habe? Danach bin ich gespannt auf deine Sicht.“ – Alltag: „Lässt du mich kurz zu Ende reden? Dann bist du dran.“",
+        "Lernform: „Wärst du bereit, ab dieser Woche dienstags und freitags den Müll rauszubringen und die Spülmaschine auszuräumen?“ – Alltag: „Magst du Müll und Spülmaschine übernehmen – dienstags und freitags?“",
+        "Lernform: „Wären Sie bereit, mir bis Donnerstag per E-Mail mitzuteilen, ob das Gerät repariert oder ersetzt wird?“ – Alltag: „Können Sie mir bis Donnerstag kurz schreiben, wie es weitergeht?“",
+        "Eine Verbindungsbitte. Lernform: „Magst du mir in deinen Worten sagen, was bei dir angekommen ist? Ich will sichergehen, dass ich mich verständlich ausgedrückt habe.“ – Alltag: „Sag mal kurz, was du verstanden hast – ich weiß nicht, ob ich’s gut erklärt habe.“",
+        "Die Drohung macht aus der Bitte eine Forderung. Lernform: „Bist du bereit, die Legosteine bis zum Abendessen in die Kiste zu räumen? Mir ist wichtig, dass niemand drauftritt.“ – Alltag: „Schaffst du’s, die Legos bis zum Essen wegzuräumen? Oder brauchst du Hilfe?“"
+      ]
+    },
+    {
+      "id": "H05",
+      "titel": "Empathie-Raten zu dritt",
+      "form": "zu dritt",
+      "zeit": "30 Min.",
+      "material": "Bedürfniskarten, eine Uhr",
+      "ziel": "Du übst, Gefühle und Bedürfnisse als Frage zu vermuten – und lässt dich von der erzählenden Person bestätigen oder korrigieren.",
+      "ablauf": [
+        "Verteilt die Rollen: A erzählt, B hört zu und vermutet, C beobachtet und achtet auf die Zeit.",
+        "A erzählt zwei bis drei Minuten von einer Situation, die noch nachklingt – etwas Alltägliches, nichts, was gerade sehr aufwühlt.",
+        "B vermutet als Frage, was in A lebendig sein könnte. Nur ein Gefühl oder nur ein Bedürfnis zu vermuten ist auch gut. Kurze Vermutungen lassen sich leichter korrigieren.",
+        "A antwortet ehrlich: „Ja, genau.“ – „Teilweise, eher …“ – „Nein, eigentlich nicht.“ Nur A weiß, was stimmt. Eine Vermutung, die nicht trifft, hilft A oft, selbst klarer zu werden.",
+        "Die Bedürfniskarten liegen offen auf dem Tisch. B darf eine Karte hinlegen, statt zu sprechen. A behält die Karten, die passen.",
+        "Nach acht Minuten erzählt C, was sie oder er beobachtet hat. Dann wechselt ihr die Rollen, bis jede Person jede Rolle einmal hatte."
+      ],
+      "satzhilfen": [
+        "Bist du …, weil dir … wichtig ist?",
+        "Klingt, als hättest du dir mehr … gewünscht?",
+        "Geht’s dir vielleicht um …?",
+        "Brauchst du gerade einfach …?",
+        "Für A: „Ja, genau.“ · „Teilweise, eher …“ · „Nee, mir geht’s mehr um …“"
+      ],
+      "beobachter": {
+        "titel": "Für C – die beobachtende Person",
+        "hinweis": "Du beschreibst, was du gehört und gesehen hast, ohne zu bewerten. Erzähl zuerst, was gut gelungen ist, dann höchstens eine Anregung.",
+        "leitfragen": [
+          "Welche Vermutung hat A sichtbar erleichtert oder ins Weitererzählen gebracht?",
+          "Hat B gefragt, statt zu behaupten?",
+          "Wo kamen Rat, Trost oder eine eigene Geschichte – und wie hat A darauf reagiert?",
+          "Woran war zu merken, dass A sich gehört fühlte – an Worten, Tempo, Haltung?",
+          "Welchen einen Satz von B möchtest du zurückmelden?"
+        ]
+      },
+      "hinweis": "Wer erzählt, entscheidet, wie tief es geht. Jede Person darf jederzeit passen oder aufhören."
+    },
+    {
+      "id": "H06",
+      "titel": "Spiegeln: „Ich höre dich sagen …“",
+      "form": "Gruppe",
+      "zeit": "25 Min.",
+      "material": "eine Uhr",
+      "ziel": "Du gibst wieder, was du gehört hast, bevor du selbst etwas sagst – und erlebst, wie es ist, wirklich gehört zu werden.",
+      "ablauf": [
+        "Setzt euch zu dritt bis zu fünft in einen Kreis. Die Übung folgt dem Prinzip des Empathy Circle: Eine Person spricht, eine Person spiegelt, die anderen hören still zu.",
+        "Die sprechende Person wählt, wer ihr zuhört. Sie sagt ein paar Sätze – nicht mehr, als man sich gut merken kann.",
+        "Die zuhörende Person gibt in eigenen Worten wieder, was sie gehört hat – ohne eigene Meinung, ohne Rat und ohne Fragen nach Wann, Wo oder Warum.",
+        "Die sprechende Person sagt, ob es so stimmt, ergänzt oder erzählt weiter. So geht es hin und her, bis sie sich gehört fühlt.",
+        "Nach etwa vier Minuten wird die zuhörende Person zur sprechenden und wählt selbst, wer ihr zuhört. So kommt jede Person einmal zum Sprechen und einmal zum Spiegeln.",
+        "Ein Thema für den Einstieg: „Was beschäftigt dich gerade?“ oder „Was war heute schön, was schwer?“"
+      ],
+      "satzhilfen": [
+        "Ich höre dich sagen, dass …",
+        "Du meinst …?",
+        "Dir ist wichtig, dass …",
+        "Hab ich das so getroffen?",
+        "Für die sprechende Person: „Ja, genau.“ · „Fast – eher …“ · „Da fehlt noch …“"
+      ],
+      "beobachter": {
+        "titel": "Für alle, die gerade still zuhören",
+        "hinweis": "Ihr hört mit, ohne einzugreifen. Am Ende einer Runde dürft ihr kurz erzählen, was euch aufgefallen ist – beschreibend, nicht wertend.",
+        "leitfragen": [
+          "Blieb das Spiegeln bei dem, was gesagt wurde, oder kam etwas Eigenes dazu – eine Meinung, ein Rat, eine Deutung?",
+          "Woran war zu erkennen, dass sich die sprechende Person gehört fühlte?",
+          "Wann war ein Abschnitt zu lang zum Spiegeln, und wie habt ihr das gelöst?",
+          "Was hat dir selbst geholfen, beim stillen Zuhören ganz da zu bleiben?"
+        ]
+      }
+    },
+    {
+      "id": "H07",
+      "titel": "Vier Ohren",
+      "form": "allein",
+      "zeit": "15 Min.",
+      "ziel": "Du erkennst, mit welchem Ohr du eine schwierige Botschaft hörst, und probierst bewusst alle vier aus.",
+      "ablauf": [
+        "Lies die Botschaft im Kasten. Stell dir vor, sie wird gerade zu dir gesagt.",
+        "Schreib zu jedem der vier Ohren auf, was du denken oder antworten könntest.",
+        "Spür kurz nach: Wie geht es dir mit jeder Antwort? Welches Ohr ist bei dir oft als Erstes wach?",
+        "Die Wolfsohren gehören dazu. Sie zeigen, dass dir etwas wichtig ist – und dass hier Übersetzungsarbeit wartet."
+      ],
+      "situation": "Deine Kollegin Hanna sagt nach der Besprechung zu dir: „Du hast schon wieder nicht zugehört. Mit dir kann man echt nicht arbeiten.“",
+      "aufgaben": [
+        {
+          "t": "Wolfsohr nach innen – die Schuld liegt bei mir:",
+          "zeilen": 2
+        },
+        {
+          "t": "Wolfsohr nach außen – die Schuld liegt bei Hanna:",
+          "zeilen": 2
+        },
+        {
+          "t": "Giraffenohr nach innen – was fühle und brauche ich?",
+          "zeilen": 2
+        },
+        {
+          "t": "Giraffenohr nach außen – was fühlt und braucht Hanna vielleicht?",
+          "zeilen": 2
+        }
+      ],
+      "loesungen": [
+        "„Sie hat recht, ich bin einfach unaufmerksam. Ich krieg das nie hin.“ – Das führt eher zu Scham.",
+        "„Die übertreibt total. Sie sagt ja selbst nie klar, was sie will.“ – Das führt eher zu Ärger und Gegenangriff.",
+        "„Ich bin erschrocken und auch traurig. Mir ist wichtig, dass wir gut zusammenarbeiten und dass gesehen wird, wie sehr ich mich bemühe.“",
+        "Lernform: „Bist du frustriert, weil dir wichtig ist, dass deine Punkte ankommen?“ – Alltag: „Klingt, als wär heute was Wichtiges von dir untergegangen?“"
+      ]
+    },
+    {
+      "id": "H08",
+      "titel": "Wut in vier Schritten",
+      "form": "allein",
+      "zeit": "20 Min.",
+      "ziel": "Du nutzt Ärger als Hinweis auf etwas, das dir wichtig ist – statt ihn runterzuschlucken oder an jemandem auszulassen.",
+      "ablauf": [
+        "Stopp: Atme ein paar Mal tief durch. Sag oder tu erst einmal nichts.",
+        "Urteile wahrnehmen: Schreib deine wütenden Gedanken ungefiltert auf. Hier darf der Wolf laut sein.",
+        "Bedürfnisse finden: Frag bei jedem Urteil: Was ist mir eigentlich wichtig, das gerade zu kurz kommt?",
+        "Ausdrücken: Schreib auf, was du sagen könntest – Gefühl, Bedürfnis und eine Bitte. Oft hilft es, vorher zu vermuten, was die andere Person gebraucht hat."
+      ],
+      "situation": "Denk an eine Situation aus den letzten Wochen, über die du dich geärgert hast – etwas Alltägliches, nicht das Schwerste.",
+      "aufgaben": [
+        {
+          "t": "Was ist passiert? Nur das, was eine Kamera aufgenommen hätte:",
+          "zeilen": 2
+        },
+        {
+          "t": "Meine wütenden Gedanken – ungefiltert:",
+          "zeilen": 3
+        },
+        {
+          "t": "Was mir dahinter wichtig ist:",
+          "zeilen": 2
+        },
+        {
+          "t": "Was die andere Person vielleicht gebraucht hat:",
+          "zeilen": 2
+        },
+        {
+          "t": "Was ich sagen möchte – Gefühl, Bedürfnis, Bitte:",
+          "zeilen": 3
+        }
+      ],
+      "loesungen_hinweis": "Hier gibt es keine Musterlösung – nur ein Beispiel, wie es aussehen kann.",
+      "loesungen": [
+        "Am Montag und am Mittwoch hat Paul das gemeinsame Auto mit fast leerem Tank abgestellt. Heute musste ich deshalb tanken und kam zwanzig Minuten zu spät zur Arbeit.",
+        "„Rücksichtslos! Immer bleibt alles an mir hängen. Der denkt nur an sich.“",
+        "Verlässlichkeit, Gegenseitigkeit und ein entspannter Start in den Tag.",
+        "Vielleicht Entlastung, weil er abends erschöpft ist – oder er hat es schlicht vergessen und braucht Leichtigkeit.",
+        "Lernform: „Paul, heute war der Tank fast leer, und ich kam zu spät. Ich war richtig sauer. Mir ist wichtig, dass ich mich morgens aufs Auto verlassen kann. Wärst du bereit zu tanken, wenn die Anzeige unter einem Viertel steht?“ – Alltag: „Paul, ich war heute echt sauer – leerer Tank, zu spät zur Arbeit. Kannst du tanken, wenn’s unter ein Viertel geht? Was würde dir helfen, dran zu denken?“"
+      ],
+      "hinweis": "Wut ist in der Gewaltfreien Kommunikation erlaubt. Es geht nicht darum, sie wegzumachen, sondern ihre Botschaft zu hören."
+    },
+    {
+      "id": "H09",
+      "titel": "Selbstvergebung",
+      "form": "allein",
+      "zeit": "20 Min.",
+      "ziel": "Du begegnest dir nach etwas, das du bedauerst, mit Verständnis: Du betrauerst, was zu kurz kam, und erkennst, was du damals erfüllen wolltest.",
+      "ablauf": [
+        "Denk an eine Situation, in der du etwas gesagt oder getan hast, das du heute bedauerst – etwas Alltägliches.",
+        "Schreib auf, wie dein innerer Wolf darüber spricht. Lass ihn ausreden.",
+        "Übersetze: Welches Bedürfnis – deins oder das von jemand anderem – kam durch dein Handeln zu kurz? Spür, wie es ist, das zu betrauern. Trauer statt Schuld.",
+        "Dann die andere Seite: Was wolltest du damals mit deinem Handeln erfüllen? Auch dieser Teil von dir bekommt Verständnis.",
+        "Zum Schluss: Gibt es eine Bitte an dich selbst oder ein Angebot an jemand anderen?"
+      ],
+      "aufgaben": [
+        {
+          "t": "Die Situation – was ist passiert?",
+          "zeilen": 2
+        },
+        {
+          "t": "Mein innerer Wolf sagt:",
+          "zeilen": 2
+        },
+        {
+          "t": "Was mir fehlt, wenn ich daran denke – Gefühle und Bedürfnisse:",
+          "zeilen": 2
+        },
+        {
+          "t": "Was ich damals erfüllen wollte:",
+          "zeilen": 2
+        },
+        {
+          "t": "Meine Bitte an mich – oder mein Angebot an jemanden:",
+          "zeilen": 2
+        }
+      ],
+      "loesungen_hinweis": "Auch hier: keine Musterlösung, nur ein Beispiel.",
+      "loesungen": [
+        "Beim Abendessen habe ich meinen Sohn Elias laut angefahren, als er vor seinen Freunden sein Glas umgestoßen hat.",
+        "„Was bin ich nur für ein Mensch. Ich hab mich null im Griff.“",
+        "Traurig und beschämt. Mir ist Respekt wichtig – und dass sich Elias bei uns sicher und angenommen fühlt.",
+        "Ich war erschöpft nach einem langen Tag und wollte Ruhe und ein bisschen Ordnung – auch das sind wichtige Bedürfnisse.",
+        "Bitte an mich: Wenn ich merke, dass ich müde bin, sage ich: „Ich brauch kurz fünf Minuten.“ Angebot an Elias: „Ich hab dich vorhin vor deinen Freunden laut angefahren. Das tut mir leid – mir ist wichtig, dass du dich bei uns wohlfühlst. Wie war das für dich?“"
+      ],
+      "hinweis": "Wenn dich eine Erinnerung sehr belastet, sprich mit einem Menschen, dem du vertraust, oder hol dir Unterstützung."
+    },
+    {
+      "id": "H10",
+      "titel": "Dank statt Lob",
+      "form": "zu zweit",
+      "zeit": "15 Min.",
+      "ziel": "Du drückst Dank so aus, dass die andere Person erfährt, was sie konkret beigetragen hat und was es dir bedeutet.",
+      "ablauf": [
+        "Lob wie „Super gemacht!“ ist auch ein Urteil – nur ein freundliches. Ein Dank in der Giraffensprache erzählt stattdessen, was bei dir angekommen ist.",
+        "Denk an etwas, das dein Gegenüber oder ein anderer Mensch für dich getan hat.",
+        "Schreib den Dank in drei Teilen: Was hat die Person konkret getan? Welches Bedürfnis wurde dadurch erfüllt? Wie fühlst du dich, wenn du daran denkst?",
+        "Lies den Dank vor – deinem Gegenüber oder stellvertretend für den Menschen, dem er gilt. Wer zuhört, nimmt ihn an, ohne abzuwinken: einfach atmen und wirken lassen.",
+        "Erzählt euch, was sich beim Hören anders angefühlt hat als bei einem Lob. Dann wechselt ihr."
+      ],
+      "satzhilfen": [
+        "Als du …, …",
+        "Damit hast du mir … geschenkt.",
+        "Ich bin richtig …, wenn ich daran denke.",
+        "Mir war … gerade so wichtig."
+      ],
+      "aufgaben": [
+        {
+          "t": "Was hat die Person konkret getan?",
+          "zeilen": 2
+        },
+        {
+          "t": "Welches Bedürfnis wurde dadurch bei mir erfüllt?",
+          "zeilen": 1
+        },
+        {
+          "t": "Wie fühle ich mich, wenn ich daran denke?",
+          "zeilen": 1
+        },
+        {
+          "t": "Mein Dank in einem Stück – so, wie ich ihn sagen würde:",
+          "zeilen": 3
+        }
+      ],
+      "loesungen_hinweis": "Ein Beispiel aus der Gastronomie.",
+      "loesungen": [
+        "Jana hat letzten Dienstag meine Schicht in der Küche übernommen, als meine Tochter Lina Fieber hatte.",
+        "Unterstützung, Sicherheit, Zusammenhalt im Team.",
+        "Erleichtert, dankbar, berührt.",
+        "Lernform: „Jana, als du letzten Dienstag meine Schicht übernommen hast, konnte ich bei Lina bleiben. Unterstützung war mir da so wichtig – ich bin dir sehr dankbar und erleichtert.“ – Alltag: „Jana, dass du Dienstag für mich eingesprungen bist – ich konnte bei Lina bleiben. Das hat mir so viel bedeutet. Danke dir!“"
+      ]
+    }
+  ],
+  "quelle": "Nach Marshall B. Rosenberg, Gewaltfreie Kommunikation. Eigene Übungsformulierungen für den Wolf & Giraffe Trainer; die Spiegelübung folgt dem Prinzip des Empathy Circle nach Edwin Rutsch. Gefühls- und Bedürfnislisten angelehnt an das Feelings & Needs Inventory des CNVC (© 2005, www.cnvc.org). Keine Empfehlung durch das CNVC.",
+  "hilfe": "Hinweis: Diese Übungen dienen dem Lernen und ersetzen keine Beratung oder Therapie. Wenn dich ein Thema sehr belastet: TelefonSeelsorge, kostenfrei und rund um die Uhr, 0800 111 0 111 oder 0800 111 0 222. In akuter Gefahr: 112."
+}

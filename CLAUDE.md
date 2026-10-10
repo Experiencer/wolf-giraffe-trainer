@@ -10,8 +10,9 @@ Technische Regeln für die Arbeit am Code. Inhaltliche Leitlinien (GFK-Coach, Ex
 ## Aufbau
 | Pfad | Zweck |
 |---|---|
-| `src/body.html` · `src/styles.css` · `src/engine.js` · `src/ui.js` | Quelltext der App (kein Framework) |
-| `src/data/szenarien.json` · `src/data/quiz.json` | Inhalte: 24 Szenarien, 3 Kurzübungen |
+| `src/body.html` · `src/styles.css` · `src/engine.js` · `src/ui.js` · `src/lernen.js` | Quelltext der App (kein Framework). `lernen.js` (v6) enthält Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg und ruft am Ende `init()` auf |
+| `src/data/*.json` | Inhalte: `szenarien.json` (24), `kurzuebungen.json` (23 Übungen), `empathie.json` (15 Personen), `spickzettel.json` (16), `lernkarten.json`, `handout.json` (Workshop) |
+| `pdf/` · `tools/make_pdfs.py` | Druck-PDFs und ihr Generator (`python3 tools/make_pdfs.py`, nach Änderungen an lernkarten/spickzettel/handout) |
 | `src/fonts/` · `src/assets/` | Schriften (SIL OFL) und Bilder, werden eingebettet |
 | `src/build.py` | baut `index.html` (+ Kopien unter `/mnt/user-data/outputs/gfk-coach/`, falls vorhanden) |
 | `index.html` | **erzeugt** – nie von Hand bearbeiten |
@@ -38,6 +39,8 @@ Danach Screenshots in `tests/shots/` ansehen (hell, dunkel, mobil) – kein waag
 - Farben nur über die Variablen am Anfang von `styles.css` (hell + dunkel). Neue Farbpaare auf Kontrast prüfen (Text ≥ 4,5 : 1, Bedienelemente ≥ 3 : 1).
 - Keine Emotionserkennung aus Audio. Keine Audioaufnahmen speichern. Nutzerdaten nur in `localStorage` (Präfix `gfk.`).
 - Nutzersichtbare Texte: du-Form, kurz, ohne Technikbegriffe. Feedback: erst würdigen, dann genau ein nächster Schritt.
+- Inhalte in `src/data/` folgen dem Trainingskonzept (`04_Konzept-und-Recherche/Trainingskonzept-v6.md` im Projektordner). Neue Texte: du-Form, „…“, Feedback erst würdigen, nie „falsch“.
+- Feiern (Konfetti) nur über `celebrate()`, immer abschaltbar; keine Serien, Ranglisten oder Strafen (Produktprinzipien).
 - Szenarien ändern: `src/data/szenarien.json`; Felder `id, bereich, stufe, fokus, titel, kontext, rolle, eroeffnung, verborgen{gefuehle,beduerfnisse}, lernziel, eskalation`.
 
 ## Commit und Deployment

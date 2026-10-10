@@ -1,0 +1,650 @@
+[
+ {
+  "id": "SZ01",
+  "titel": "Grundannahmen in fünf Sätzen",
+  "gruppe": "grundlagen",
+  "abschnitt": "§1",
+  "kurz": "Fünf Grundannahmen erklären, warum es in der GFK um Verbindung geht und nicht ums Rechthaben.",
+  "zeilen": [
+   [
+    "Gleiche Bedürfnisse",
+    "Alle Menschen teilen dieselben Grundbedürfnisse – verschieden sind nur die Wege."
+   ],
+   [
+    "Handeln hat einen Grund",
+    "Jedes Verhalten versucht, ein Bedürfnis zu erfüllen – manchmal auf schmerzhafte Weise."
+   ],
+   [
+    "Gefühle zeigen an",
+    "Sie melden, ob Bedürfnisse gerade erfüllt sind oder nicht."
+   ],
+   [
+    "Auslöser, nicht Ursache",
+    "Was andere tun, stößt Gefühle an. Die Wurzel liegt in eigenen Bedürfnissen."
+   ],
+   [
+    "Freiwillig geben",
+    "Menschen geben am liebsten ohne Angst, Schuld, Scham oder Pflichtgefühl."
+   ],
+   [
+    "Das Ziel",
+    "Eine Verbindung, in der beide gern geben – kein Trick, um zu bekommen, was ich will."
+   ]
+  ],
+  "probier": "Was könnte dieser Mensch gerade brauchen?",
+  "merksatz": "Im Kern brauchen alle Menschen dasselbe – gestritten wird über die Wege.",
+  "eselsbruecke": "Gefühle sind wie Kontrollleuchten im Auto: Sie zeigen, wo etwas Aufmerksamkeit braucht, nicht, wer schuld ist.",
+  "hoeren": "Die Gewaltfreie Kommunikation ruht auf fünf Grundannahmen. Erstens: Alle Menschen teilen dieselben Grundbedürfnisse, zum Beispiel nach Sicherheit, Verbindung und Selbstbestimmung. Zweitens: Hinter allem, was Menschen tun, steckt der Versuch, sich ein Bedürfnis zu erfüllen. Manchmal gelingt das auf eine Weise, die anderen wehtut. Drittens: Gefühle zeigen an, ob unsere Bedürfnisse gerade erfüllt sind oder nicht. Viertens: Was andere tun, kann Gefühle auslösen. Die Ursache liegt aber in unseren eigenen Bedürfnissen und Gedanken. Fünftens: Menschen geben am liebsten freiwillig, ohne Angst, Schuld oder Pflichtgefühl. Deshalb geht es nicht darum, andere zu etwas zu bringen. Es geht um eine Verbindung, in der beide gern geben. Sprich diesen Satz einmal laut nach: Was könnte dieser Mensch gerade brauchen?",
+  "uebung": "K01"
+ },
+ {
+  "id": "SZ02",
+  "titel": "Giraffe und Wolf",
+  "gruppe": "grundlagen",
+  "abschnitt": "§2",
+  "kurz": "Zwei Bilder für zwei Arten zu denken und zu sprechen – beide stecken in jedem Menschen.",
+  "zeilen": [
+   [
+    "Giraffe",
+    "Steht für ein großes Herz – und mit dem langen Hals für den Überblick"
+   ],
+   [
+    "Giraffe fragt",
+    "„Was ist gerade in mir und in dir lebendig? Was würde es schöner machen?“"
+   ],
+   [
+    "Wolf",
+    "Denkt in richtig und falsch, Schuld und Strafe – ein gelerntes Muster, kein böser Mensch"
+   ],
+   [
+    "Wolf fragt",
+    "„Wer hat recht? Wer ist schuld? Wer hat was verdient?“"
+   ],
+   [
+    "Wolfssprache",
+    "Urteil, Vorwurf, Forderung, Diagnose: „Das ist mal wieder typisch für dich!“"
+   ],
+   [
+    "Übersetzen",
+    "„Du bist so egoistisch!“ → „Ich bin enttäuscht, weil mir Rücksicht wichtig ist.“"
+   ],
+   [
+    "Schakal",
+    "In vielen deutschen Seminaren heißt der Wolf Schakal – gemeint ist dasselbe."
+   ]
+  ],
+  "probier": "Mein Wolf sagt: ‚…‘ – meine Giraffe hört darin: Mir ist … wichtig.",
+  "merksatz": "Jeder Wolfssatz ist ein Bedürfnis, das noch keine freundlichen Worte gefunden hat.",
+  "eselsbruecke": "Die Giraffe schaut mit langem Hals über den Streit hinweg – und mit großem Herzen auf das, was beide brauchen.",
+  "hoeren": "Giraffe und Wolf sind zwei Bilder für zwei Arten zu denken und zu sprechen. Die Giraffe hat das größte Herz aller Landtiere und mit ihrem langen Hals den Überblick. Sie fragt: Was ist gerade in mir und in dir lebendig? Was würde das Leben schöner machen? Der Wolf denkt in richtig und falsch, in Schuld und Strafe. Er urteilt, macht Vorwürfe und stellt Forderungen. In manchen Seminaren heißt er Schakal. Wichtig ist: Der Wolf ist kein schlechter Mensch, sondern ein gelerntes Muster. Beide Stimmen stecken in uns allen. Hinter jedem Wolfssatz versteckt sich ein Bedürfnis. Aus dem Vorwurf „Du bist so egoistisch“ kann zum Beispiel werden: Ich bin enttäuscht, weil mir Rücksicht wichtig ist. Sprich diesen Satz einmal laut nach: Ich bin enttäuscht, weil mir Rücksicht wichtig ist.",
+  "uebung": "K02"
+ },
+ {
+  "id": "SZ03",
+  "titel": "Lebensentfremdende Kommunikation",
+  "gruppe": "grundlagen",
+  "abschnitt": "§3",
+  "kurz": "Fünf Sprachmuster machen es schwer, das Bedürfnis hinter den Worten zu hören.",
+  "zeilen": [
+   [
+    "Moralische Urteile",
+    "Etiketten, Schuld, Diagnosen: „Du bist so rücksichtslos.“ „Total unprofessionell.“"
+   ],
+   [
+    "Vergleiche",
+    "An anderen messen: „Deine Schwester schafft das doch auch.“"
+   ],
+   [
+    "Verantwortung leugnen",
+    "„Ich musste.“ „Man macht das so.“ „Wegen dir.“ „Vorschrift ist Vorschrift.“"
+   ],
+   [
+    "Forderungen",
+    "Bei einem Nein drohen Schuld oder Strafe: „Wenn du nicht …, dann …“"
+   ],
+   [
+    "Verdienst-Denken",
+    "Lohn und Strafe als Logik: „Das hat sie sich selbst zuzuschreiben.“"
+   ],
+   [
+    "Warnwörter",
+    "muss, sollte, man, schuld, verdient, typisch, wegen dir"
+   ],
+   [
+    "Umbauen",
+    "„Ich muss …“ → „Ich entscheide mich für …, weil mir … wichtig ist.“"
+   ]
+  ],
+  "probier": "Ich entscheide mich, …, weil mir … wichtig ist.",
+  "merksatz": "Aus „Ich muss“ wird „Ich wähle“ – und plötzlich wird sichtbar, wofür.",
+  "eselsbruecke": "Eine Hand voll Wolf: Urteilen, Vergleichen, Abschieben, Fordern, Verrechnen – fünf Finger, fünf Muster.",
+  "hoeren": "Manche Sprachmuster machen es schwer, das Bedürfnis hinter den Worten zu hören. Rosenberg nannte das lebensentfremdende Kommunikation. Fünf Muster sind typisch. Moralische Urteile kleben Etiketten auf Menschen, etwa faul oder rücksichtslos. Vergleiche messen an anderen: Deine Schwester schafft das doch auch. Wer Verantwortung leugnet, schiebt sie weg: Ich musste, man macht das so, wegen dir. Forderungen drohen bei einem Nein mit Schuld oder Strafe. Und das Verdienst-Denken rechnet mit Lohn und Strafe: Das hat er verdient. Ein kleiner Umbau hilft. Statt „Ich muss“ sagst du: Ich entscheide mich dafür, weil mir etwas wichtig ist. Findest du kein Bedürfnis dahinter, darfst du prüfen, ob du es überhaupt weiter tun willst. Sprich diesen Satz einmal laut nach: Ich entscheide mich, heute Abend noch aufzuräumen, weil mir Ruhe am Morgen wichtig ist.",
+  "uebung": "K03"
+ },
+ {
+  "id": "SZ04",
+  "titel": "Die vier Schritte in beide Richtungen",
+  "gruppe": "vier",
+  "abschnitt": "§4",
+  "kurz": "Beobachtung, Gefühl, Bedürfnis und Bitte helfen beim ehrlichen Sagen und beim einfühlsamen Hören.",
+  "zeilen": [
+   [
+    "1 Beobachtung",
+    "Sagen: „Als ich gesehen habe, dass …“ · Hören: „Wenn du siehst, dass …“"
+   ],
+   [
+    "2 Gefühl",
+    "Sagen: „… war ich …“ · Hören: „… bist du dann …?“"
+   ],
+   [
+    "3 Bedürfnis",
+    "Sagen: „… weil mir … wichtig ist.“ · Hören: „… weil dir … wichtig ist?“"
+   ],
+   [
+    "4 Bitte",
+    "Sagen: „Wärst du bereit, …?“ · Hören: „Wünschst du dir, dass …?“"
+   ],
+   [
+    "Zwei Richtungen",
+    "Ehrlich sagen, was in mir lebt – oder einfühlsam vermuten, was im anderen lebt"
+   ],
+   [
+    "Beispiel",
+    "„Als ich die Wäsche im Flur sah, war ich genervt – mir ist Ordnung wichtig.“"
+   ],
+   [
+    "Alltags-Giraffe",
+    "Die Reihenfolge ist eine Lernhilfe. Oft reicht ein Schritt in eigenen Worten."
+   ]
+  ],
+  "probier": "Als ich … gesehen habe, war ich …, weil mir … wichtig ist. Wärst du bereit, …?",
+  "merksatz": "Sehen, fühlen, brauchen, bitten – ehrlich gesagt oder einfühlsam gehört.",
+  "eselsbruecke": "Augen, Herz, Wurzel, Hand: was ich sehe, was ich fühle, was ich brauche, worum ich bitte.",
+  "hoeren": "Die vier Schritte der Gewaltfreien Kommunikation heißen Beobachtung, Gefühl, Bedürfnis und Bitte. Du kannst sie in zwei Richtungen nutzen. Beim ehrlichen Ausdrücken sagst du, was in dir lebendig ist. Zum Beispiel: Als ich die Wäsche im Flur gesehen habe, war ich genervt, weil mir Ordnung wichtig ist. Wärst du bereit, sie bis heute Abend wegzuräumen? Beim einfühlsamen Hören vermutest du, was im anderen lebendig ist, und fragst nach. Zum Beispiel: Bist du gerade genervt, weil dir Ordnung wichtig ist? Die Reihenfolge ist eine Lernhilfe. Im Alltag reicht oft ein einziger Schritt, in deinen eigenen Worten. Es kommt nicht auf die Formel an, sondern darauf, dass Bedürfnis und Bitte hörbar werden. Sprich diesen Satz einmal laut nach: Bist du gerade erschöpft, weil du Ruhe brauchst?",
+  "uebung": "K20"
+ },
+ {
+  "id": "SZ05",
+  "titel": "Beobachtung statt Bewertung",
+  "gruppe": "vier",
+  "abschnitt": "§4.1",
+  "kurz": "Eine Beobachtung beschreibt nur, was eine Kamera aufgenommen hätte – ohne Deutung.",
+  "zeilen": [
+   [
+    "Kamera-Test",
+    "Hätte eine Kamera genau das aufgenommen? Dann ist es eine Beobachtung."
+   ],
+   [
+    "Verallgemeinern",
+    "immer, nie, ständig, dauernd, schon wieder → lieber: wann genau, wie oft"
+   ],
+   [
+    "„zu“-Wörter",
+    "zu laut, zu spät, zu viel → lieber: wie laut, wie spät, wie viel genau"
+   ],
+   [
+    "Etiketten",
+    "faul, rücksichtslos, unzuverlässig → lieber: Was hat die Person getan oder gesagt?"
+   ],
+   [
+    "Gedankenlesen",
+    "„Du willst mich ärgern.“ → lieber: was ich gesehen oder gehört habe"
+   ],
+   [
+    "Beispiel",
+    "„Sie lassen mich ewig warten.“ → „Ich warte seit 40 Minuten, mein Termin war um 10.“"
+   ],
+   [
+    "Urteile sind menschlich",
+    "Sie sind nicht verboten. Es hilft, sie von der Beobachtung zu trennen."
+   ]
+  ],
+  "probier": "Als ich gesehen habe, dass …",
+  "merksatz": "Erst die Kamera, dann die Meinung.",
+  "eselsbruecke": "Stell dir das Video der Situation vor – ohne Kommentar aus dem Off.",
+  "hoeren": "Eine Beobachtung beschreibt nur, was eine Kamera aufgenommen hätte. Ohne Deutung und ohne Urteil. Das ist schwerer, als es klingt. Achte auf ein paar Warnsignale. Wörter wie immer, nie, ständig oder schon wieder verallgemeinern. Wörter mit zu, wie zu laut oder zu spät, enthalten schon eine Bewertung. Eigenschaften wie faul oder unzuverlässig sind Etiketten. Und wenn du sagst, du willst mich ärgern, liest du Gedanken. Frag dich stattdessen: Was genau habe ich gesehen oder gehört? Wann war das, und wie oft? Bewerten ist menschlich und nicht verboten. Es hilft nur, Beobachtung und Bewertung zu trennen. Dann kann dein Gegenüber leichter zuhören, statt sich zu verteidigen. Sprich diesen Satz einmal laut nach: Heute bist du zwanzig Minuten nach der vereinbarten Zeit gekommen.",
+  "uebung": "K04"
+ },
+ {
+  "id": "SZ06",
+  "titel": "Gefühle und Pseudogefühle",
+  "gruppe": "vier",
+  "abschnitt": "§4.2",
+  "kurz": "Echte Gefühle beschreiben, was in dir los ist – Pseudogefühle deuten, was andere dir angeblich antun.",
+  "zeilen": [
+   [
+    "Echtes Gefühl",
+    "Ein Zustand in dir: traurig, erleichtert, nervös, froh, erschöpft"
+   ],
+   [
+    "„Ich fühle, dass …“",
+    "leitet meist einen Gedanken ein: „Ich fühle, dass du mich nicht magst.“"
+   ],
+   [
+    "„wie“ und „als ob“",
+    "„Ich fühle mich wie ein Versager.“ – ein Urteil über dich, kein Gefühl"
+   ],
+   [
+    "Pseudogefühle",
+    "Sie deuten, was andere dir angeblich antun. Test: Passt die Frage „von wem?“"
+   ],
+   [
+    "übergangen",
+    "→ vielleicht verletzt, traurig · wichtig: Einbezogensein, Wertschätzung"
+   ],
+   [
+    "unter Druck gesetzt",
+    "→ vielleicht angespannt, gestresst · wichtig: Wahlfreiheit, Ruhe"
+   ],
+   [
+    "ausgenutzt",
+    "→ vielleicht erschöpft, ärgerlich · wichtig: Gegenseitigkeit, Fairness"
+   ]
+  ],
+  "probier": "Darunter bin ich eigentlich …, weil mir … wichtig ist.",
+  "merksatz": "Ein Gefühl sagt, was in mir los ist – nicht, was du mir angetan hast.",
+  "eselsbruecke": "Von-wem-Test: übergangen von wem? ausgenutzt von wem? Passt die Frage, steckt meist ein Gedanke drin.",
+  "hoeren": "Ein echtes Gefühl beschreibt, was in dir los ist. Zum Beispiel traurig, erleichtert, nervös oder erschöpft. Viele Sätze klingen nach Gefühl, sind aber Gedanken. „Ich fühle, dass du mich nicht magst“ ist eine Vermutung über den anderen. „Ich fühle mich wie ein Versager“ ist ein Urteil über dich selbst. Und Wörter wie übergangen, ausgenutzt oder unter Druck gesetzt beschreiben, was andere dir angeblich antun. Man nennt sie Pseudogefühle. Ein einfacher Test: Passt die Frage „von wem“? Dann steckt meist ein Gedanke darin. Übersetze ihn. Hinter übergangen liegt vielleicht Traurigkeit, und dir ist Wertschätzung wichtig. Hinter unter Druck gesetzt liegt vielleicht Anspannung, und du brauchst Wahlfreiheit. Sprich diesen Satz einmal laut nach: Darunter bin ich eigentlich traurig, weil mir Wertschätzung wichtig ist.",
+  "uebung": "K05"
+ },
+ {
+  "id": "SZ07",
+  "titel": "Bedürfnisse und Strategien",
+  "gruppe": "vier",
+  "abschnitt": "§4.3",
+  "kurz": "Bedürfnisse teilen alle Menschen – Strategien sind die vielen Wege, sie zu erfüllen.",
+  "zeilen": [
+   [
+    "Bedürfnis",
+    "Universell, ohne bestimmte Person, Ort, Zeit oder Handlung: „Verbindung“"
+   ],
+   [
+    "Strategie",
+    "Ein konkreter Weg dahin: „dass du mich jeden Abend anrufst“"
+   ],
+   [
+    "Strategie-Test",
+    "Kommt eine bestimmte Person oder Handlung vor? Dann ist es eine Strategie."
+   ],
+   [
+    "Weiterfragen",
+    "„Und wenn das klappt – was hättest du dann?“ So kommst du zum Bedürfnis."
+   ],
+   [
+    "Wo es kracht",
+    "Konflikte entstehen fast immer bei Strategien, kaum bei Bedürfnissen."
+   ],
+   [
+    "Beispiel",
+    "„Ich brauche, dass du pünktlich bist.“ → darunter vielleicht Verlässlichkeit"
+   ],
+   [
+    "Acht Bereiche",
+    "Körper, Verbindung, Autonomie, Sinn, Integrität, Leichtigkeit, Frieden, Übergänge"
+   ]
+  ],
+  "probier": "Wenn das klappen würde – was hätte ich dann?",
+  "merksatz": "Über Wege lässt sich verhandeln, sobald die Bedürfnisse gehört sind.",
+  "eselsbruecke": "Das Bedürfnis ist das Ziel auf der Landkarte, die Strategie ist die Route – zu jedem Ziel führen viele Wege.",
+  "hoeren": "Bedürfnisse teilen alle Menschen. Zum Beispiel Ruhe, Verbindung, Selbstbestimmung oder Sinn. Ein Bedürfnis hängt nicht an einer bestimmten Person, an einem Ort oder an einer bestimmten Handlung. Sobald so etwas vorkommt, ist es eine Strategie, also ein Weg zum Bedürfnis. „Ich brauche, dass du mich jeden Abend anrufst“ ist eine Strategie. Darunter liegt vielleicht Verbindung oder Verlässlichkeit. Ein guter Test ist die Frage: Und wenn das klappt, was hättest du dann? So kommst du Schritt für Schritt zum Bedürfnis. Streit entsteht fast immer über Strategien, kaum über Bedürfnisse. Wenn beide ihre Bedürfnisse kennen, finden sich oft neue Wege, die für beide passen. Sprich diesen Satz einmal laut nach: Mir ist Verlässlichkeit wichtig, und ich bin offen, wie wir das hinkriegen.",
+  "uebung": "K06"
+ },
+ {
+  "id": "SZ08",
+  "titel": "Die Bitte",
+  "gruppe": "vier",
+  "abschnitt": "§4.4",
+  "kurz": "Eine Bitte sagt konkret, was jetzt helfen würde – und lässt ein Nein wirklich zu.",
+  "zeilen": [
+   [
+    "Konkret",
+    "Wer tut was, bis wann? „Wärst du bereit, heute bis 20 Uhr abzuwaschen?“"
+   ],
+   [
+    "Positiv",
+    "Sag, was du möchtest, nicht, was aufhören soll: „Zimmerlautstärke ab 22 Uhr“"
+   ],
+   [
+    "Machbar und jetzt",
+    "Die Person kann es tun und gleich Ja oder Nein sagen."
+   ],
+   [
+    "Verbindungsbitte",
+    "„Magst du sagen, was bei dir angekommen ist?“ Sag dazu, warum du fragst."
+   ],
+   [
+    "Im Beruf",
+    "„Könnten Sie mir den Bescheid bis Freitag per Mail schicken?“"
+   ],
+   [
+    "Bitte oder Forderung?",
+    "Zeigt sich am Nein: Druck oder Schuld → Forderung. Neugier → Bitte."
+   ],
+   [
+    "Nein hören",
+    "Ein Nein ist ein Ja zu etwas anderem. Frag: „Wozu sagst du gerade Ja?“"
+   ]
+  ],
+  "probier": "Wärst du bereit, …?",
+  "merksatz": "Ob es eine Bitte war, zeigt sich daran, wie du mit dem Nein umgehst.",
+  "eselsbruecke": "Eine gute Bitte ist wie eine Einladung: mit Ort und Uhrzeit – und man darf absagen.",
+  "hoeren": "Eine Bitte sagt, was jetzt konkret helfen würde. Sie ist positiv formuliert, also was du möchtest, nicht was aufhören soll. Sie ist machbar, und die andere Person kann gleich Ja oder Nein sagen. Es gibt Handlungsbitten, zum Beispiel: Wärst du bereit, heute bis acht Uhr abends abzuwaschen? Und es gibt Verbindungsbitten, zum Beispiel: Magst du mir sagen, was bei dir angekommen ist? Ob du eine Bitte oder eine Forderung gestellt hast, zeigt sich am Nein. Reagierst du mit Druck oder Vorwürfen, war es eine Forderung. Wirst du neugierig, war es eine Bitte. Ein Nein ist oft ein Ja zu etwas anderem. Frag ruhig: Wozu sagst du gerade Ja? Sprich diesen Satz einmal laut nach: Wärst du bereit, heute Abend zehn Minuten mit mir die Woche zu planen?",
+  "uebung": "K07"
+ },
+ {
+  "id": "SZ09",
+  "titel": "Vier Ohren",
+  "gruppe": "hoeren",
+  "abschnitt": "§5",
+  "kurz": "Eine schwierige Botschaft kannst du auf vier Arten hören – und das Ohr bewusst wechseln.",
+  "zeilen": [
+   [
+    "Der Satz",
+    "„Du denkst immer nur an dich!“ – vier Ohren, vier verschiedene Antworten"
+   ],
+   [
+    "Wolfsohr nach innen",
+    "Schuld bei mir: „Sie hat recht, ich kann nichts richtig machen.“ → Scham"
+   ],
+   [
+    "Wolfsohr nach außen",
+    "Schuld beim anderen: „Was fällt ihr ein!“ → Ärger, Gegenangriff"
+   ],
+   [
+    "Giraffenohr nach innen",
+    "Bei mir: „Ich bin verletzt, weil mir Wertschätzung wichtig ist.“"
+   ],
+   [
+    "Giraffenohr nach außen",
+    "Beim anderen: „Bist du enttäuscht, weil dir Rücksicht wichtig ist?“"
+   ],
+   [
+    "Ziel",
+    "Bemerken, welches Ohr gerade an ist – und bewusst zu einem Giraffenohr wechseln."
+   ]
+  ],
+  "probier": "Welches Ohr ist bei mir gerade an?",
+  "merksatz": "Was ich höre, kann ich nicht wählen – wie ich es höre, schon.",
+  "eselsbruecke": "Zwei Tiere, zwei Richtungen: Wolf oder Giraffe, nach innen oder nach außen – das ergibt vier Ohren.",
+  "hoeren": "Stell dir vor, jemand sagt zu dir: Du denkst immer nur an dich! Du kannst das auf vier Arten hören. Mit dem Wolfsohr nach innen suchst du die Schuld bei dir: Sie hat recht, ich kann nichts richtig machen. Das führt oft zu Scham. Mit dem Wolfsohr nach außen suchst du die Schuld beim anderen: Was fällt ihr ein! Das führt oft zum Gegenangriff. Mit dem Giraffenohr nach innen hörst du dich selbst: Ich bin verletzt, weil mir Wertschätzung wichtig ist. Mit dem Giraffenohr nach außen hörst du den anderen: Bist du enttäuscht, weil dir Rücksicht wichtig ist? Niemand hört sofort mit Giraffenohren. Es reicht, zu bemerken, welches Ohr gerade an ist, und dann zu wechseln. Sprich diesen Satz einmal laut nach: Bist du enttäuscht, weil dir Rücksicht wichtig ist?",
+  "uebung": "K09"
+ },
+ {
+  "id": "SZ10",
+  "titel": "Empathie und ihre Blocker",
+  "gruppe": "hoeren",
+  "abschnitt": "§6",
+  "kurz": "Empathie heißt, ganz da zu sein mit dem, was im anderen lebendig ist – ohne eigenes Programm.",
+  "zeilen": [
+   [
+    "Empathie",
+    "Ganz da sein mit dem, was im anderen lebendig ist. Erst Verbindung, dann Lösung."
+   ],
+   [
+    "Form",
+    "Vermuten statt wissen: „Bist du enttäuscht?“ Alltag: „Klingt, als wäre dir das zu viel?“"
+   ],
+   [
+    "Gut gemeinte Blocker",
+    "Ratschlag, Übertrumpfen, Belehren, Trösten, eigene Geschichte, Aufmuntern"
+   ],
+   [
+    "… und noch mehr",
+    "Bemitleiden, Ausfragen, Erklären, Rechtfertigen, Korrigieren"
+   ],
+   [
+    "Wann ist genug?",
+    "Die Person entspannt sich, wird ruhiger, fragt nach Lösungen oder nach dir."
+   ],
+   [
+    "Schweigen, Nein, Ärger",
+    "Auch dahinter leben Gefühle und Bedürfnisse. Hören heißt nicht zustimmen."
+   ],
+   [
+    "Selbst aufgewühlt?",
+    "Erst Selbstempathie oder um eine kurze Pause bitten – auch das ist Giraffe."
+   ]
+  ],
+  "probier": "Klingt, als wäre dir … gerade wichtig?",
+  "merksatz": "Empathie fragt nach, statt zu reparieren.",
+  "eselsbruecke": "Empathie ist wie Mitgehen am Ufer: Du gehst neben dem Fluss her, statt ihn umzuleiten.",
+  "hoeren": "Empathie heißt, ganz da zu sein mit dem, was im anderen gerade lebendig ist. Ohne eigenes Programm. Erst Verbindung, dann Lösung. Viele gut gemeinte Reaktionen bremsen Empathie aus. Zum Beispiel Ratschläge, Trösten, Aufmuntern, eine eigene Geschichte erzählen, Belehren, Ausfragen, Erklären oder Korrigieren. Sie kommen oft aus dem Wunsch zu helfen. Empathie klingt eher wie eine vorsichtige Vermutung: Bist du enttäuscht, weil du dir mehr Verlässlichkeit gewünscht hättest? Woran merkst du, dass es genug ist? Die Person entspannt sich, redet langsamer, wird weicher oder fragt selbst nach Lösungen. Bist du selbst zu aufgewühlt, gib dir zuerst Selbstempathie oder bitte um eine kurze Pause. Sprich diesen Satz einmal laut nach: Klingt, als wäre dir das gerade alles zu viel?",
+  "uebung": "K10"
+ },
+ {
+  "id": "SZ11",
+  "titel": "Selbstempathie, Bedauern, Entschuldigung",
+  "gruppe": "selbst",
+  "abschnitt": "§7",
+  "kurz": "Auch der innere Wolf spricht von Bedürfnissen – Selbstempathie hört ihn, statt dich zu bestrafen.",
+  "zeilen": [
+   [
+    "Innerer Wolf",
+    "„Ich bin so blöd!“ – ein Selbstvorwurf, hinter dem ein Bedürfnis steckt"
+   ],
+   [
+    "Selbstempathie",
+    "Was fühle ich? Was war mir wichtig? Zum Beispiel Wirksamkeit, Lernen, Beitrag."
+   ],
+   [
+    "Bedauern",
+    "Statt Selbstbestrafung: Trauer über das Bedürfnis, das zu kurz kam"
+   ],
+   [
+    "Selbstvergebung",
+    "Welches Bedürfnis wollte ich damals erfüllen? Beide Seiten in mir bekommen Gehör."
+   ],
+   [
+    "Entschuldigung",
+    "Kein Schuld-Ritual: Empathie für den anderen und ehrliches Bedauern"
+   ],
+   [
+    "… mit Angebot",
+    "Wo es passt, Wiedergutmachung anbieten: „Was würde dir jetzt helfen?“"
+   ]
+  ],
+  "probier": "Ich bedaure, dass …, weil mir … wichtig ist.",
+  "merksatz": "Trauer statt Schuld: Ich spüre, was mir wichtig war – und lerne daraus.",
+  "eselsbruecke": "Sprich mit dir so, wie du mit einer guten Freundin sprechen würdest, die gerade etwas bereut.",
+  "hoeren": "Der innere Wolf meldet sich oft nach einem schwierigen Moment: Ich bin so blöd. Ich hätte das wissen müssen. Auch dieser Selbstvorwurf zeigt auf ein Bedürfnis. Vielleicht wolltest du etwas bewirken, dazulernen oder etwas beitragen. Selbstempathie heißt: Du hörst hin, statt dich zu bestrafen. Was fühle ich? Was war mir wichtig? Daraus entsteht Bedauern. Das ist ehrliche Trauer über ein Bedürfnis, das zu kurz kam, ohne Schuld. Dann kannst du fragen: Was wollte ich damals eigentlich erreichen? So bekommen beide Seiten in dir Gehör. Eine Entschuldigung ist hier kein Schuld-Ritual. Sie verbindet Empathie für den anderen mit deinem ehrlichen Bedauern und, wo es passt, einem Angebot zur Wiedergutmachung. Sprich diesen Satz einmal laut nach: Ich bedaure, dass ich laut geworden bin, weil mir Respekt zwischen uns wichtig ist.",
+  "uebung": "K12"
+ },
+ {
+  "id": "SZ12",
+  "titel": "Wut in vier Schritten",
+  "gruppe": "selbst",
+  "abschnitt": "§8",
+  "kurz": "Wut ist ein Weckruf: Sie zeigt, dass du in Soll-Gedanken steckst und ein Bedürfnis zu kurz kommt.",
+  "zeilen": [
+   [
+    "Wut zeigt",
+    "Soll- und Schuld-Gedanken: „Er sollte …“, „Sie hat kein Recht …“"
+   ],
+   [
+    "1 Stopp",
+    "Atmen. Nichts tun oder sagen, was Schuld zuweist."
+   ],
+   [
+    "2 Urteile bemerken",
+    "Welche Gedanken heizen mich an? „Rücksichtslos!“ „Unverschämt!“"
+   ],
+   [
+    "3 Bedürfnisse finden",
+    "Was steckt hinter dem Urteil? Vielleicht Respekt, Sicherheit, Fairness."
+   ],
+   [
+    "4 Ausdrücken",
+    "Gefühle und unerfüllte Bedürfnisse sagen – oft erst nach Empathie für den anderen."
+   ],
+   [
+    "Wut ist erlaubt",
+    "Sie soll nicht weg, sondern ganz ausgedrückt werden – ohne Schuldzuweisung."
+   ]
+  ],
+  "probier": "Ich bin wütend, weil mir … so wichtig ist.",
+  "merksatz": "Wut ist ein Wecker, kein Feind – sie klingelt, wenn ein Bedürfnis zu kurz kommt.",
+  "eselsbruecke": "Wut ist wie ein Rauchmelder: Erst nachsehen, wo es brennt – dann reden.",
+  "hoeren": "Wut ist ein Weckruf. Sie zeigt, dass du gerade in Gedanken steckst wie: Er sollte doch, oder: Sie hat kein Recht dazu. Dahinter wartet ein Bedürfnis. Die Gewaltfreie Kommunikation will Wut nicht wegmachen, sondern ganz ausdrücken. Das geht in vier Schritten. Erstens: Stopp. Atme, und tu oder sag nichts, was jemandem Schuld gibt. Zweitens: Bemerke die Urteile in deinem Kopf, etwa rücksichtslos oder unverschämt. Drittens: Frag dich, welches Bedürfnis hinter diesen Urteilen steht. Vielleicht Respekt, Sicherheit oder Fairness. Viertens: Sag deine Gefühle und dein unerfülltes Bedürfnis. Oft hilft es, vorher dem anderen Empathie zu geben. Dann kann er oder sie dich überhaupt hören. Sprich diesen Satz einmal laut nach: Ich bin wütend, weil mir Fairness hier sehr wichtig ist.",
+  "uebung": "K13"
+ },
+ {
+  "id": "SZ13",
+  "titel": "Dank statt Lob",
+  "gruppe": "selbst",
+  "abschnitt": "§9",
+  "kurz": "Lob bewertet – ein Dank erzählt, was jemand getan hat und was es in dir bewirkt hat.",
+  "zeilen": [
+   [
+    "Lob",
+    "„Gut gemacht!“ „Du bist toll!“ – auch ein Urteil, nur ein freundliches"
+   ],
+   [
+    "Warum anders?",
+    "Lob kann sich nach Steuerung anfühlen und sagt wenig darüber, was genau half."
+   ],
+   [
+    "1 Handlung",
+    "Was hat die Person konkret getan? „Als du gestern …“"
+   ],
+   [
+    "2 Bedürfnis",
+    "Welches Bedürfnis hat das bei mir erfüllt? „… mir war … so wichtig.“"
+   ],
+   [
+    "3 Gefühl",
+    "Wie geht es mir damit? „… ich bin richtig erleichtert.“"
+   ],
+   [
+    "Beispiel",
+    "„Als Sie mir das Formular erklärt haben, war ich erleichtert. Mir war Klarheit wichtig.“"
+   ],
+   [
+    "Dank empfangen",
+    "Ohne Abwinken und ohne Überheblichkeit: Freude, beigetragen zu haben"
+   ]
+  ],
+  "probier": "Als du …, war ich so …, weil mir … wichtig war. Danke!",
+  "merksatz": "Dank sagt nicht, wie gut du bist – sondern was du in meinem Leben schöner gemacht hast.",
+  "eselsbruecke": "Ein Dank mit Inhalt: Was hast du getan, was hat es mir gegeben, wie geht es mir damit?",
+  "hoeren": "Lob wie „gut gemacht“ oder „du bist toll“ ist freundlich gemeint. Es bleibt aber ein Urteil, nur ein positives. Manche erleben es sogar als Steuerung. Und es sagt wenig darüber, was dir genau gutgetan hat. Ein Dank in der Gewaltfreien Kommunikation hat drei Teile. Erstens: die konkrete Handlung. Was hat die Person getan? Zweitens: das Bedürfnis, das dadurch erfüllt wurde. Drittens: dein Gefühl dabei. Zum Beispiel: Als Sie mir gestern das Formular noch einmal erklärt haben, war ich sehr erleichtert. Mir war Klarheit vor dem Termin wichtig. Wenn du selbst Dank bekommst, darfst du ihn einfach annehmen und dich freuen, dass du etwas beigetragen hast. Sprich diesen Satz einmal laut nach: Als du mir gestern zugehört hast, war ich so erleichtert, weil mir Verständnis wichtig war.",
+  "uebung": "K14"
+ },
+ {
+  "id": "SZ14",
+  "titel": "Mediation in fünf Schritten",
+  "gruppe": "konflikt",
+  "abschnitt": "§10",
+  "kurz": "Bei der Mediation hören beide zuerst die Bedürfnisse des anderen – erst danach geht es um Lösungen.",
+  "zeilen": [
+   [
+    "1 A spricht",
+    "Person A sagt, was ihr wichtig ist: Gefühle und Bedürfnisse."
+   ],
+   [
+    "2 B gibt wieder",
+    "Mit Hilfe der Vermittlung sagt B in eigenen Worten, was A wichtig ist."
+   ],
+   [
+    "3 B spricht",
+    "Jetzt sagt B, was ihm oder ihr wichtig ist."
+   ],
+   [
+    "4 A gibt wieder",
+    "A gibt die Bedürfnisse von B wieder, bis B sich verstanden fühlt."
+   ],
+   [
+    "5 Lösungen",
+    "Erst jetzt: konkrete, positiv formulierte Bitten, die beiden dienen."
+   ],
+   [
+    "Werkzeuge",
+    "Urteile übersetzen, verlangsamen, bei Ausbruch zuerst Empathie, freundlich unterbrechen"
+   ]
+  ],
+  "probier": "Ich höre, dass dir … wichtig ist. Stimmt das?",
+  "merksatz": "Wenn beide sich gehört fühlen, finden sich Lösungen oft fast von selbst.",
+  "eselsbruecke": "Erst die Brücke bauen, dann gemeinsam darüber gehen.",
+  "hoeren": "Bei einem Streit zwischen zwei Menschen kann eine dritte Person vermitteln. Das Ziel: Beide nehmen die Bedürfnisse des anderen ernst. Der Ablauf hat fünf Schritte. Erstens: Person A sagt, was ihr wichtig ist. Zweitens: Die vermittelnde Person hilft B, diese Bedürfnisse zu hören und in eigenen Worten wiederzugeben. Drittens: Jetzt sagt B, was ihm oder ihr wichtig ist. Viertens: A gibt die Bedürfnisse von B wieder. Erst im fünften Schritt geht es um Lösungen, also um konkrete Bitten, die beiden dienen. Hilfreich sind dabei: Urteile in Bedürfnisse übersetzen, langsamer werden und bei einem Ausbruch zuerst Empathie geben. Wenn beide sich gehört fühlen, finden sich Lösungen oft fast von selbst. Sprich diesen Satz einmal laut nach: Ich höre, dass dir Ruhe nach der Arbeit wichtig ist. Stimmt das?",
+  "uebung": "K16"
+ },
+ {
+  "id": "SZ15",
+  "titel": "Schützende statt strafende Macht",
+  "gruppe": "konflikt",
+  "abschnitt": "§11",
+  "kurz": "Manchmal braucht es Macht – entscheidend ist, ob sie schützt oder bestraft.",
+  "zeilen": [
+   [
+    "Schützende Macht",
+    "Nur um Leben oder Wohlbefinden zu schützen – ohne Urteil, ohne Absicht zu strafen"
+   ],
+   [
+    "Beispiel",
+    "Ein Kind von der Straße ziehen, bevor ein Auto kommt"
+   ],
+   [
+    "Strafende Macht",
+    "Will Leid zufügen, damit jemand „lernt“ – erzeugt oft Groll und Widerstand"
+   ],
+   [
+    "Zwei Fragen",
+    "Was soll die Person tun? Und aus welchem Grund soll sie es tun?"
+   ],
+   [
+    "Danach",
+    "Nach dem Schützen kommt das Gespräch: Gefühle, Bedürfnisse, Bitten."
+   ],
+   [
+    "Grenzen setzen",
+    "Ist erlaubt – ohne Beschämen und ohne Strafe als Lektion."
+   ]
+  ],
+  "probier": "Ich halte dich jetzt fest, weil ich Angst um deine Sicherheit habe.",
+  "merksatz": "Schützen ja, strafen nein – Macht dient dem Leben, nicht der Lektion.",
+  "eselsbruecke": "Ein Schutzschild, kein Stock.",
+  "hoeren": "Manchmal muss man handeln, bevor Zeit für ein Gespräch ist. Die Gewaltfreie Kommunikation unterscheidet dabei zwei Arten von Macht. Schützende Macht setzt du nur ein, um Leben oder Wohlbefinden zu schützen. Ohne Urteil und ohne Absicht zu strafen. Zum Beispiel ziehst du ein Kind von der Straße, bevor ein Auto kommt. Strafende Macht dagegen will Leid zufügen, damit jemand etwas lernt. Das erzeugt oft Groll und Widerstand. Zwei Fragen helfen dir: Was soll die Person tun? Und aus welchem Grund soll sie es tun? Aus Angst vor Strafe, oder weil sie den Sinn sieht? Nach dem Schützen kommt das Gespräch über Gefühle und Bedürfnisse. Grenzen setzen ist also erlaubt, nur ohne Beschämen. Sprich diesen Satz einmal laut nach: Ich halte dich jetzt fest, weil ich Angst um deine Sicherheit habe.",
+  "uebung": "K17"
+ },
+ {
+  "id": "SZ16",
+  "titel": "Missverständnisse und Grenzen",
+  "gruppe": "konflikt",
+  "abschnitt": "§12/§13",
+  "kurz": "GFK ist weder Nettsein noch Formel – und sie hat Grenzen, die gut zu kennen sind.",
+  "zeilen": [
+   [
+    "„GFK heißt nett sein“",
+    "Nein. GFK ist ehrlich – mit klarem Nein und deutlich ausgedrückter Wut."
+   ],
+   [
+    "„GFK ist eine Formel“",
+    "Die Schritte sind Lernhilfe. Alltagssprache ist gut, oft reicht ein Schritt."
+   ],
+   [
+    "„GFK als Hebel“",
+    "Wer damit andere steuern will, spricht außen Giraffe, innen Wolf – das spürt man."
+   ],
+   [
+    "Keine Waffe",
+    "„Das ist aber keine Beobachtung!“ – GFK-Wörter nicht zum Abwerten nutzen"
+   ],
+   [
+    "Machtgefälle",
+    "In Hierarchien reicht Sprache allein nicht – Strukturen bleiben eine eigene Frage."
+   ],
+   [
+    "Grenze zur Therapie",
+    "Bei Trauma, Gewalterfahrung oder seelischer Krise ersetzt GFK keine Fachhilfe."
+   ],
+   [
+    "Hilfe in Krisen",
+    "TelefonSeelsorge 0800 111 0 111 · 0800 111 0 222 · 116 123 – kostenlos, rund um die Uhr · akute Gefahr: 112"
+   ]
+  ],
+  "probier": "Nein, das möchte ich nicht, weil mir gerade Ruhe wichtig ist.",
+  "merksatz": "GFK ist ehrlich, nicht nett – und kein Ersatz für Hilfe, wenn es wirklich schwer ist.",
+  "eselsbruecke": "Die Giraffe hat ein großes Herz und einen langen Hals – aber keine Zauberkräfte.",
+  "hoeren": "Rund um die Gewaltfreie Kommunikation gibt es einige Missverständnisse. Sie heißt nicht, immer nett zu sein. Sie ist ehrlich, mit klarem Nein und deutlich ausgedrückter Wut. Sie ist auch keine Formel. Die vier Schritte sind eine Lernhilfe, im Alltag zählt die Absicht. Wer sie nutzt, um andere zu steuern, spricht außen Giraffe und innen Wolf. Das spürt das Gegenüber. Und Sprache allein hebt kein Machtgefälle auf, etwa zwischen Chefin und Angestelltem. Wichtig ist auch die Grenze zur Therapie. Wenn es dir wirklich schlecht geht, ersetzt sie keine professionelle Hilfe. Die TelefonSeelsorge erreichst du kostenlos und rund um die Uhr unter null achthundert, eins eins eins, null, eins eins eins. In akuter Gefahr wähle eins eins zwei. Sprich diesen Satz einmal laut nach: Nein, das möchte ich nicht, weil mir gerade Ruhe wichtig ist.",
+  "uebung": "K18"
+ }
+]

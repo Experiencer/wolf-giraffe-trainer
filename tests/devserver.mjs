@@ -19,7 +19,9 @@ globalThis.fetch = async (url, opts = {}) => {
   if (url.includes("api.anthropic.com")) {
     const b = JSON.parse(opts.body); const all = b.messages.map(m => m.content).join("\n");
     let p;
-    if (all.includes('"einschaetzung"')) p = { einschaetzung: "Vermutlich ist sie gerade erschöpft und fühlt sich allein gelassen.", warum: "Wenn sie sich verstanden fühlt, kann sie dir auch zuhören.", vorschlag: "Klingt, als wärst du gerade echt am Limit – brauchst du mehr Unterstützung?" };
+    if (all.includes('"schritt"')) p = { gut: "Du hast die Verallgemeinerung weggelassen.", schritt: "Ergänze noch einen Zeitpunkt." };
+    else if (all.includes('"art"')) p = { art: "treffer", antwort: "Ja … genau das. Danke, dass du fragst.", coach: "Du hast Gefühl und Bedürfnis als Frage vermutet." };
+    else if (all.includes('"einschaetzung"')) p = { einschaetzung: "Vermutlich ist sie gerade erschöpft und fühlt sich allein gelassen.", warum: "Wenn sie sich verstanden fühlt, kann sie dir auch zuhören.", vorschlag: "Klingt, als wärst du gerade echt am Limit – brauchst du mehr Unterstützung?" };
     else if (all.includes('"verlauf"')) p = { verlauf: "Ihr seid angespannt gestartet. Mit deiner Empathie-Vermutung wurde es ruhiger.", staerken: ["Du hast konkret beschrieben, was passiert ist.", "Du hast nach ihrem Bedürfnis gefragt."], lernfokus: "Formuliere am Ende eine kleine, machbare Bitte." };
     else if (all.includes('"probleme"')) p = { probleme: ["„Immer“ verallgemeinert – das löst Verteidigung aus."], o: "Als ich heute um 9:20 Uhr …", g: "war ich angespannt", b: "weil mir Verlässlichkeit wichtig ist", r: "Wärst du bereit, mir Bescheid zu geben, wenn es später wird?", alltag: "Ich war heute angespannt, als du später kamst – mir ist Verlässlichkeit wichtig. Magst du mir schreiben, wenn es später wird?" };
     else if (all.includes("Übungsszenario")) p = { titel: "Nachbar und die laute Musik", fokus: "Bitte statt Forderung", kontext: "Dein Nachbar hört nachts laute Musik. Du willst ihn freundlich ansprechen.", rolle: "Jonas, Nachbar, Mitte 30, fühlt sich schnell kritisiert", eroeffnung: "Ja? Was gibt’s denn?", verborgen: { gefuehle: ["unsicher", "gestresst"], beduerfnisse: ["Freiheit", "Anerkennung"] }, lernziel: "Eine konkrete, verhandelbare Bitte formulieren.", eskalation: "Bei Vorwurf: wird laut ('Ich darf ja wohl Musik hören!'). Bei Empathie: wird weicher ('Ehrlich gesagt hatte ich einen harten Tag.')." };
@@ -44,6 +46,10 @@ createServer(async (req, res) => {
   }
   if (u.pathname === "/__calls") { res.writeHead(200, { "content-type": "application/json" }); return res.end(JSON.stringify(globalThis.__calls)); }
   if (u.pathname === "/__reset") { globalThis.__calls = []; res.writeHead(200); return res.end("ok"); }
+  if (u.pathname.startsWith("/pdf/") && /^[\w-]+\.pdf$/.test(u.pathname.slice(5))) {
+    try { const pdf = await readFile(ROOT + u.pathname); res.writeHead(200, { "content-type": "application/pdf" }); return res.end(pdf); }
+    catch (e) { res.writeHead(404); return res.end(); }
+  }
   const html = await readFile(ROOT + "/index.html");
   res.writeHead(200, { "content-type": "text/html" }); res.end(html);
 }).listen(PORT, () => console.log("listening " + PORT));

@@ -4,3 +4,4 @@ node_modules
 .vercel
 .build-script.js
 tests/shots/
+tools/.fontcache/

@@ -58,12 +58,17 @@ def build():
     body = body.replace("__WOLF__", wolf).replace("__GIRAFFE__", giraffe).replace("__BANNER__", banner)
     engine = (SRC / "engine.js").read_text(encoding="utf-8")
     engine = (engine.replace("__SZ__", js_json(SRC / "data" / "szenarien.json", "szenarien"))
-                    .replace("__QUIZ__", js_json(SRC / "data" / "quiz.json"))
+                    .replace("__KU__", js_json(SRC / "data" / "kurzuebungen.json"))
+                    .replace("__SPICK__", js_json(SRC / "data" / "spickzettel.json"))
+                    .replace("__LK__", js_json(SRC / "data" / "lernkarten.json"))
+                    .replace("__EMP__", js_json(SRC / "data" / "empathie.json"))
                     .replace("__WOLF__", wolf).replace("__GIRAFFE__", giraffe))
     ui = (SRC / "ui.js").read_text(encoding="utf-8")
-    script = engine + "\n" + ui
+    pdf_info = {p.name: round(p.stat().st_size / 1024) for p in sorted((ROOT / "pdf").glob("*.pdf"))}
+    lernen = (SRC / "lernen.js").read_text(encoding="utf-8").replace("__PDFINFO__", json.dumps(pdf_info))
+    script = engine + "\n" + ui + "\n" + lernen
 
-    for name in ("__FONTS__", "__WOLF__", "__GIRAFFE__", "__BANNER__", "__SZ__", "__QUIZ__"):
+    for name in ("__FONTS__", "__WOLF__", "__GIRAFFE__", "__BANNER__", "__SZ__", "__KU__", "__SPICK__", "__LK__", "__EMP__", "__PDFINFO__"):
         assert name not in css + body + script, f"Platzhalter {name} nicht ersetzt"
 
     title = "<title>Wolf &amp; Giraffe Trainer</title>"

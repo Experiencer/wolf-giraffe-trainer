@@ -119,13 +119,112 @@ with sync_playwright() as p:
     ok("Mein Weg: Tabelle", "eher sicher" in pg.inner_text("#wegBody"), pg.inner_text("#wegBody")[:200])
     pg.screenshot(path=S + "v5_weg.png")
 
-    # 9 Quiz
+    # 9 Kurzübungen (v6): Übersicht, Einordnen mit Feier, Teil-Erfolg, Tastatur, Umformulieren, Schritte
     pg.click("#t-quiz"); pg.wait_for_timeout(150)
+    ok("Kurzübungen: 23 Übungen + gemischte Runde", pg.locator("#deckgrid [data-deck]").count() == 24, pg.locator("#deckgrid [data-deck]").count())
+    ok("Fünf Themengruppen", pg.locator("#deckgrid .kugroup").count() == 5)
+    pg.screenshot(path=S + "v6_ku_home.png", full_page=True)
+    ANS = "(() => { const e = KZ.queue[KZ.pos]; return e.u.items[e.i].ans; })()"
+    OTHER = "(() => { const e = KZ.queue[KZ.pos], a = e.u.items[e.i].ans; return e.u.optionen.find(o => o.id !== a).id; })()"
     pg.click('[data-deck="obs"]')
     for i in range(10):
-        pg.click('#quizRun [data-ans="a"]'); pg.click("#qNext")
-    ok("Quiz-Ergebnis", "von 10 richtig" in pg.inner_text("#quizRun"))
-    pg.screenshot(path=S + "v5_quiz.png")
+        pg.click(f'#quizRun [data-ans="{pg.evaluate(ANS)}"]'); pg.click("#qNext")
+    ok("Alles klar eingeordnet + grüner Abschluss", "Alles klar eingeordnet" in pg.inner_text("#quizRun") and pg.locator(".kzend.done").count() == 1, pg.inner_text("#quizRun")[:200])
+    ok("Konfetti erscheint", pg.locator("#confetti i").count() > 10, pg.locator("#confetti i").count())
+    pg.wait_for_timeout(1300)
+    ok("Entdeckung als Hinweis", "Entdeckt" in pg.inner_text("#toast"), pg.inner_text("#toast"))
+    pg.screenshot(path=S + "v6_ku_done.png")
+    pg.wait_for_timeout(1000)
+    pg.click('#quizRun [data-kz="home"]'); pg.click('[data-deck="K17"]')
+    n = pg.evaluate("KZ.queue.length")
+    for i in range(n):
+        pg.click(f'#quizRun [data-ans="{pg.evaluate(OTHER if i == 0 else ANS)}"]')
+        if i == 0:
+            ok("Andere Antwort: neutral markiert (◐, kein Rot)", pg.locator("#quizRun .ans.is-part").count() == 1 and "Eher:" in pg.inner_text("#qFb"))
+        pg.click("#qNext")
+    txt = pg.inner_text("#quizRun")
+    ok("Teil-Erfolg würdigend, ohne Konfetti", "klar eingeordnet" in txt and "offenen nochmal" in txt and pg.locator("#confetti i").count() == 0, txt[:200])
+    ok("Keine Wörter wie falsch/Fehler", "falsch" not in txt.lower() and "fehler" not in txt.lower())
+    pg.click('#quizRun [data-kz="wrong"]'); pg.wait_for_timeout(100)
+    idx = pg.evaluate("(() => { const e = KZ.queue[KZ.pos]; return e.u.optionen.findIndex(o => o.id === e.u.items[e.i].ans) + 1; })()")
+    pg.keyboard.press(str(idx)); pg.wait_for_timeout(100)
+    ok("Tastatur 1–6 beantwortet", pg.locator("#quizRun .ans.is-ok").count() == 1)
+    pg.click('#quizRun [data-kz="home"]'); pg.click('[data-deck="K04"]')
+    pg.fill("#kzIn", "Du kommst immer zu spät."); pg.click("#kzCheck")
+    ok("Erst selbst einschätzen, dann Vorschläge", pg.is_visible("#kzRate") and "LERNFORM" not in pg.inner_text("#kzRes").upper())
+    pg.click('#kzRate [data-rate="2"]'); pg.wait_for_timeout(100)
+    res = pg.inner_text("#kzRes")
+    ok("Umformulieren: Schnellhinweis nennt „immer“", "„immer“ steckt noch drin" in res, res[:200])
+    ok("Umformulieren: Lernform + Alltag", "LERNFORM" in res.upper() and "ALLTAG" in res.upper())
+    pg.click("#kzCoach"); pg.wait_for_selector("#kzCoachOut .fb", timeout=5000)
+    ok("Umformulieren: Coach-Rückmeldung live", "Verallgemeinerung" in pg.inner_text("#kzCoachOut"))
+    ok("Einschätzung bleibt sichtbar, Weiter aktiv", "fast" in pg.inner_text("#kzRes") and not pg.is_disabled("#kzNext"))
+    nags = pg.evaluate("""(() => { let n = 0, all = 0, ex = []; KU.uebungen.filter(u => u.typ === 'umformulieren').forEach(u => u.items.forEach(it => (it.muster || []).forEach(m => { all++; const q = quickCheck(u.check, m, it.warn); if(q.next){ n++; if(ex.length < 6) ex.push(u.id + ': ' + q.next + ' | ' + m); } }))); return {n, all, ex}; })()""")
+    ok("Schnellhinweis keine Formel-Polizei (Musterlösungen ≤ 10 % mit Hinweis)", nags["n"] <= nags["all"] * 0.1, nags)
+    pg.screenshot(path=S + "v6_ku_umf.png", full_page=True)
+    pg.click('#quizRun [data-kz="home"]'); pg.click('[data-deck="K12"]'); pg.click('#quizRun [data-kz="example"]')
+    pg.click('#quizRun [data-kz="stepnext"]')
+    pg.click('#quizRun [data-chip="traurig"]'); pg.fill("#kzIn", "traurig, weil mir Verlässlichkeit wichtig ist"); pg.click('#quizRun [data-kz="stepnext"]')
+    pg.click('#quizRun [data-chip="Erholung"]'); pg.click('#quizRun [data-kz="stepnext"]')
+    pg.click('#quizRun [data-kz="skip"]'); pg.wait_for_timeout(150)
+    fin = pg.inner_text("#quizRun")
+    ok("Schritte: Satz zusammengesetzt", "Was ich bedauere:" in fin and "Erholung" in fin and "Nächstes Mal" not in fin, fin[:300])
+    pg.screenshot(path=S + "v6_ku_schritte.png")
+
+    # 9b Spickzettel mit Hörkarten
+    pg.click("#t-cheat"); pg.wait_for_timeout(150)
+    ok("16 Spickzettel", pg.locator("#szGrid .szcard").count() == 16)
+    pg.click('#szFilters [data-szf="hoeren"]')
+    ok("Filter Zuhören: 2 Karten", pg.locator("#szGrid .szcard").count() == 2)
+    reset(); pg.click('#szGrid [data-hear="SZ09"]'); pg.wait_for_timeout(1500)
+    tts = [x for x in calls() if "audio/speech" in x["url"]]
+    ok("Hörkarte über Coach-Stimme", any('"voice":"sage"' in x["body"] for x in tts), [x["body"][:80] for x in tts])
+    pg.click('#szFilters [data-szf="all"]'); pg.click('#szGrid [data-godeck="K04"]'); pg.wait_for_timeout(150)
+    ok("Spickzettel → Übung", pg.is_visible("#quizRun") and "Kamera-Test" in pg.inner_text("#quizRun") or pg.is_visible("#kzIn"))
+    pg.click("#t-cheat"); pg.screenshot(path=S + "v6_spick.png")
+
+    # 9c Lernkarten + PDFs
+    pg.click("#t-karten"); pg.wait_for_timeout(150)
+    ok("Gefühlskarten sichtbar", pg.locator("#lkBody .lkcard").count() >= 60, pg.locator("#lkBody .lkcard").count())
+    pg.click('#lkKind [data-kind="bed"]'); ok("Bedürfniskarten sichtbar", pg.locator("#lkBody .lkcard").count() >= 50)
+    pg.click('#lkKind [data-kind="pseudo"]'); ok("Pseudogefühle-Tabelle", pg.locator("#lkBody tbody tr").count() >= 16)
+    pg.click('#lkKind [data-kind="gef"]'); pg.click("#lkDraw"); ok("Karte ziehen", pg.is_visible("#lkDrawn") and "Wann hast du dich" in pg.inner_text("#lkDrawn"))
+    links = pg.eval_on_selector_all("#lkDownloads a[href$='.pdf']", "els => els.map(e => e.getAttribute('href'))")
+    ok("4 PDF-Downloads", len(links) == 4, links)
+    good = 0
+    for h in links:
+        r = pg.request.get(BASE + h)
+        if r.status == 200 and r.body()[:4] == b"%PDF": good += 1
+    ok("PDFs werden ausgeliefert", good == 4, good)
+    pg.screenshot(path=S + "v6_karten.png")
+
+    # 9d Empathisch zuhören
+    pg.click("#t-hoeren"); pg.wait_for_timeout(150)
+    ok("15 Personen + Zufall", pg.locator("#empGrid [data-emp]").count() == 16)
+    pg.screenshot(path=S + "v6_hoeren_home.png")
+    pg.click('#empGrid [data-emp="E01"]'); pg.wait_for_timeout(150)
+    E = pg.evaluate("EMP_BY.E01")
+    ok("Person erzählt", E["sagt"][:30] in pg.inner_text("#erLog"))
+    dg = [w for w in E["auswahl_g"] if w not in E["gefuehle"] + E["nahe_gefuehle"]][0]
+    db = [w for w in E["auswahl_b"] if w not in E["beduerfnisse"] + E["nahe_beduerfnisse"]][0]
+    pg.click(f'#erInput [data-pick="g"][data-w="{dg}"]'); pg.click(f'#erInput [data-pick="b"][data-w="{db}"]')
+    ok("Vorschau als Frage", pg.inner_text("#erPreview").startswith("Bist du") and pg.inner_text("#erPreview").endswith("?"))
+    pg.click('#erInput [data-er="ask"]'); pg.wait_for_timeout(700)
+    ok("Daneben: Person bleibt im Gespräch", E["reaktion"]["daneben"][:25] in pg.inner_text("#erLog"))
+    pg.click(f'#erInput [data-pick="g"][data-w="{E["gefuehle"][0]}"]'); pg.click(f'#erInput [data-pick="b"][data-w="{E["beduerfnisse"][0]}"]')
+    pg.click('#erInput [data-er="ask"]'); pg.wait_for_selector("#erCoach .coachfin", timeout=4000)
+    ok("Treffer: Person fühlt sich verstanden", pg.locator("#erLog .msg.them.hit").count() == 1 and E["reaktion"]["mehr"][:25] in pg.inner_text("#erLog"))
+    ok("Coach würdigt + Auflösung", "Schon gut" in pg.inner_text("#erCoach") and E["gefuehle"][0] in pg.inner_text("#erCoach"))
+    ok("Zuhören gespeichert", pg.evaluate("JSON.parse(localStorage.getItem('gfk.emp')).E01.hit") is True)
+    pg.screenshot(path=S + "v6_hoeren_treffer.png", full_page=True)
+    ok("Blocker erkannt (offline)", pg.evaluate("evalGuess(EMP_BY.E01, 'Du solltest dir einen Babysitter suchen.').art") == "blocker")
+    ok("Alltagswörter zählen (offline)", pg.evaluate("evalGuess(EMP_BY.E01, 'Bist du total fertig und brauchst mal eine Pause?').art") == "treffer")
+    pg.click('#erCoach [data-er="home"]'); pg.click('#empHow [data-how="text"]'); pg.click('#empGrid [data-emp="E12"]'); pg.wait_for_timeout(100)
+    ok("Siezen bei Anrede Sie", "Sind Sie" in pg.inner_text("#erInput"))
+    pg.fill("#erIn", "Sind Sie verzweifelt, weil Sie sich Sicherheit für Ihr Baby wünschen?"); pg.press("#erIn", "Enter")
+    pg.wait_for_selector("#erCoach .coachfin", timeout=5000)
+    ok("Freie Vermutung live bewertet", "Danke, dass du fragst" in pg.inner_text("#erLog"))
+    pg.click('#erCoach [data-er="home"]'); pg.click('#empHow [data-how="pick"]')
 
     # 10 Übersetzer
     pg.click("#t-xl"); pg.fill("#wolfIn", "Du kommst immer zu spät!"); pg.click("#xlGo")
@@ -209,6 +308,14 @@ with sync_playwright() as p:
     pg.click("#rtStop"); pg.wait_for_timeout(150)
     ok("Echtzeit beendet", "Gespräch beginnen" in pg.inner_text("#micLabel"))
 
+    pg.click("#t-weg"); pg.wait_for_timeout(150)
+    weg = pg.inner_text("#wegBody")
+    ok("Mein Weg: Woche, Kurzübungen, Zuhören, Entdeckungen", all(s in weg for s in ["Diese Woche", "Kurzübungen", "Zuhören", "Entdeckungen", "sicher"]), weg[:300])
+    ok("Mein Weg: heutiger Übungstag", pg.locator(".weekdots li.on").count() >= 1)
+    pg.screenshot(path=S + "v6_weg.png", full_page=True)
+    pg.click("#t-ueben")
+    if pg.is_visible("#backBtn"): pg.click("#backBtn")
+    pg.click('#filters [data-f="all"]'); pg.click('[data-open="S04"]'); pg.wait_for_timeout(150)
     ok("Nur ein Coach-Knopf sichtbar (Desktop)", not pg.is_visible("#askCoach") and pg.is_visible("#askCoach2"))
     ok("Keine Konsolenfehler", not errors, errors[:5])
     ctx.close()
@@ -227,6 +334,62 @@ with sync_playwright() as p:
     pg.screenshot(path=S + "v5_autocoach.png")
     ok("Offline ohne Fehler", not errors2, errors2)
     ctx.close()
+
+    # 15 Sprachmodus beim Lernen (Spracherkennung nachgebildet) + Feiern abschaltbar
+    FAKE_SR = r"""
+    window.__srQueue = []; window.__srStarted = 0;
+    class FakeSR { start(){ window.__srStarted++; const t = window.__srQueue.shift(); setTimeout(() => {
+        if(t == null){ this.onerror && this.onerror({error:"no-speech"}); this.onend && this.onend(); return; }
+        const r = [{transcript:t}]; r.isFinal = true; this.onresult && this.onresult({resultIndex:0, results:[r]}); this.onend && this.onend(); }, 80); }
+      stop(){} abort(){ this.onend && this.onend(); } }
+    window.SpeechRecognition = FakeSR; window.webkitSpeechRecognition = FakeSR;
+    """
+    ctx = b.new_context(viewport={"width": 1280, "height": 900})
+    ctx.add_init_script(FAKE_SR)
+    pg = ctx.new_page(); errors3 = []
+    pg.on("pageerror", lambda e: errors3.append(str(e)))
+    pg.goto(BASE); pg.wait_for_timeout(600)
+    pg.evaluate("localStorage.setItem('gfk.access','geheim')"); pg.reload(); pg.wait_for_timeout(600)
+    pg.click("#t-quiz"); pg.click('#kuHow [data-how="voice"]')
+    ok("Hinweis Sprachmodus", "antwortest mit deiner Stimme" in pg.inner_text("#kuHowNote"))
+    pg.click('[data-deck="K01"]'); pg.wait_for_timeout(100)
+    spoken = pg.evaluate("(() => { const e = KZ.queue[KZ.pos], it = e.u.items[e.i]; return e.u.optionen.find(o => o.id === it.ans).sprich[0]; })()")
+    pg.evaluate(f"window.__srQueue.push({spoken!r})")
+    pg.wait_for_function("KZ && KZ.pos >= 1", timeout=12000)
+    ok("Gesprochene Antwort erkannt und gewertet", pg.evaluate("KZ.right") == 1)
+    pg.click('#quizRun [data-kz="home"]'); pg.click('[data-deck="K04"]'); pg.wait_for_timeout(100)
+    pg.evaluate("window.__srQueue.push('Heute bist du um 9:20 Uhr gekommen, verabredet war 9 Uhr.', 'sitzt', 'weiter')")
+    pg.wait_for_function("KZ && KZ.pos >= 1", timeout=20000)
+    ok("Umformulieren per Stimme + „sitzt“", pg.evaluate("KZ.rates[0]") == 3)
+    pg.click('#quizRun [data-kz="home"]'); pg.click('#kuHow [data-how="tap"]')
+    pg.click("#t-hoeren"); pg.click('#empHow [data-how="voice"]'); pg.click('#empGrid [data-emp="E02"]')
+    pg.evaluate("window.__srQueue.push('Bist du erleichtert, weil dir Anerkennung wichtig ist?')")
+    pg.wait_for_selector("#erCoach .coachfin", timeout=20000)
+    ok("Zuhören per Stimme", pg.locator("#erLog .msg.me").count() == 1)
+    pg.click('#erCoach [data-er="home"]'); pg.click('#empHow [data-how="pick"]')
+    # Feiern aus: grüner Abschluss bleibt, kein Konfetti
+    pg.click("#openSettings"); pg.click("#swAnim"); pg.keyboard.press("Escape")
+    pg.click("#t-quiz"); pg.click('[data-deck="feel"]')
+    for i in range(10):
+        pg.click(f'#quizRun [data-ans="{pg.evaluate(ANS)}"]'); pg.click("#qNext")
+    ok("Feiern aus: Abschluss grün, kein Konfetti", pg.locator(".kzend.done").count() == 1 and pg.locator("#confetti i").count() == 0)
+    ok("Sprachmodus ohne Fehler", not errors3, errors3)
+    ctx.close()
+
+    # 16 Handy (390 px), hell und dunkel: kein waagrechtes Scrollen
+    for scheme in ["light", "dark"]:
+        ctx = b.new_context(viewport={"width": 390, "height": 844}, color_scheme=scheme, is_mobile=True, has_touch=True)
+        pg = ctx.new_page(); pg.goto(BASE + "#hoeren"); pg.wait_for_timeout(600)
+        sw = []
+        for tab in ["hoeren", "quiz", "karten", "cheat", "weg"]:
+            pg.click("#t-" + tab); pg.wait_for_timeout(150); sw.append(pg.evaluate("document.documentElement.scrollWidth"))
+            if tab in ("hoeren", "karten"): pg.screenshot(path=S + f"v6_mob_{scheme}_{tab}.png")
+        pg.click("#t-hoeren"); pg.click('#empGrid [data-emp="E11"]'); pg.wait_for_timeout(150); sw.append(pg.evaluate("document.documentElement.scrollWidth"))
+        pg.screenshot(path=S + f"v6_mob_{scheme}_hoeren_run.png", full_page=True)
+        pg.click("#t-quiz"); pg.click('[data-deck="K10"]'); pg.wait_for_timeout(150); sw.append(pg.evaluate("document.documentElement.scrollWidth"))
+        pg.screenshot(path=S + f"v6_mob_{scheme}_k10.png", full_page=True)
+        ok(f"Handy {scheme}: kein waagrechtes Scrollen", max(sw) <= 390, sw)
+        ctx.close()
     b.close()
 
 fails = [r for r in results if not r[1]]

@@ -8,9 +8,11 @@
 <div class="navwrap"><div class="wrap">
   <div class="tabs" role="tablist" aria-label="Bereiche">
     <button class="tab" role="tab" id="t-ueben" aria-controls="p-ueben" aria-selected="true">Üben</button>
+    <button class="tab" role="tab" id="t-hoeren" aria-controls="p-hoeren" aria-selected="false" tabindex="-1">Zuhören</button>
     <button class="tab" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false" tabindex="-1">Kurzübungen</button>
-    <button class="tab" role="tab" id="t-xl" aria-controls="p-xl" aria-selected="false" tabindex="-1">Übersetzer</button>
+    <button class="tab" role="tab" id="t-karten" aria-controls="p-karten" aria-selected="false" tabindex="-1">Lernkarten</button>
     <button class="tab" role="tab" id="t-cheat" aria-controls="p-cheat" aria-selected="false" tabindex="-1">Spickzettel</button>
+    <button class="tab" role="tab" id="t-xl" aria-controls="p-xl" aria-selected="false" tabindex="-1">Übersetzer</button>
     <button class="tab" role="tab" id="t-weg" aria-controls="p-weg" aria-selected="false" tabindex="-1">Mein Weg</button>
   </div>
 </div></div>
@@ -130,14 +132,64 @@
   </div>
 </section>
 
+<!-- ================= ZUHÖREN ================= -->
+<section role="tabpanel" id="p-hoeren" aria-labelledby="t-hoeren" hidden>
+  <div id="empHome" class="stack">
+    <h1 class="section-title" style="font-size:24px">Empathisch zuhören</h1>
+    <p class="muted" style="max-width:68ch" id="empIntro"></p>
+    <div class="empctl">
+      <div class="field"><span class="lbl" id="empHowLbl">Wie möchtest du vermuten?</span>
+        <div class="seg" role="radiogroup" aria-labelledby="empHowLbl" id="empHow">
+          <button role="radio" aria-checked="true" data-how="pick">Wörter auswählen</button>
+          <button role="radio" aria-checked="false" data-how="text">Selbst formulieren</button>
+          <button role="radio" aria-checked="false" data-how="voice">Sprechen</button>
+        </div></div>
+      <div class="filters" role="group" aria-label="Personen filtern" id="empFilters">
+        <button class="chip" aria-pressed="true" data-f="all">Alle</button>
+        <button class="chip" aria-pressed="false" data-f="1">Einstieg</button>
+        <button class="chip" aria-pressed="false" data-f="2">Mittel</button>
+        <button class="chip" aria-pressed="false" data-f="3">Herausfordernd</button>
+      </div>
+    </div>
+    <div class="grid" id="empGrid"></div>
+  </div>
+  <div id="empRun" hidden></div>
+</section>
+
 <!-- ================= KURZÜBUNGEN ================= -->
 <section role="tabpanel" id="p-quiz" aria-labelledby="t-quiz" hidden>
   <div id="quizHome" class="stack">
     <h1 class="section-title" style="font-size:24px">Kurzübungen</h1>
-    <p class="muted" style="max-width:65ch">Fünf Minuten, ein Thema: Du entscheidest bei jedem Satz, was er ist. Das Erinnern festigt das Wissen besser als nochmal Lesen.</p>
-    <div class="deckgrid" id="deckgrid"></div>
+    <p class="muted" style="max-width:68ch">Zwei bis fünf Minuten, ein Thema. Du ordnest Sätze ein, formulierst sie um oder gehst Schritt für Schritt durch eine kleine Reflexion. Erinnern festigt das Wissen besser als nochmal Lesen.</p>
+    <div class="field"><span class="lbl" id="kuHowLbl">Wie möchtest du üben?</span>
+      <div class="seg" role="radiogroup" aria-labelledby="kuHowLbl" id="kuHow">
+        <button role="radio" aria-checked="true" data-how="tap">Lesen und tippen</button>
+        <button role="radio" aria-checked="false" data-how="voice">Hören und sprechen</button>
+      </div>
+      <p class="help" id="kuHowNote"></p></div>
+    <div id="deckgrid" class="stack"></div>
   </div>
   <div id="quizRun" class="quizcard" hidden></div>
+</section>
+
+<!-- ================= LERNKARTEN ================= -->
+<section role="tabpanel" id="p-karten" aria-labelledby="t-karten" hidden>
+  <div class="stack">
+    <h1 class="section-title" style="font-size:24px">Lernkarten</h1>
+    <p class="muted" style="max-width:68ch">Wörter für das, was in dir und anderen lebendig ist. Zum Ansehen, zum Ziehen und zum Ausdrucken – für dich oder deine Übungsgruppe.</p>
+    <div class="row" style="justify-content:space-between;align-items:flex-end">
+      <div class="seg" role="radiogroup" aria-label="Kartenart" id="lkKind">
+        <button role="radio" aria-checked="true" data-kind="gef">Gefühle</button>
+        <button role="radio" aria-checked="false" data-kind="bed">Bedürfnisse</button>
+        <button role="radio" aria-checked="false" data-kind="pseudo">Pseudogefühle</button>
+      </div>
+      <button class="btn" id="lkDraw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="12" height="16" rx="2"/><path d="M8 21h10a2 2 0 0 0 2-2V7"/></svg>Karte ziehen</button>
+    </div>
+    <div id="lkDrawn" class="lkdrawn" hidden aria-live="polite"></div>
+    <div id="lkBody"></div>
+    <div class="card stack" id="lkDownloads"></div>
+    <p class="xs muted" id="lkSource"></p>
+  </div>
 </section>
 
 <!-- ================= ÜBERSETZER ================= -->
@@ -162,44 +214,14 @@
 
 <!-- ================= SPICKZETTEL ================= -->
 <section role="tabpanel" id="p-cheat" aria-labelledby="t-cheat" hidden>
-  <div class="cheat">
-    <div class="card"><h2>Die vier Schritte</h2>
-      <table>
-        <tr><td>Beobachtung</td><td>Was hätte eine Kamera aufgenommen? Ohne „immer“, „nie“ und Etiketten.</td></tr>
-        <tr><td>Gefühl</td><td>Was fühle ich? Nicht „ich fühle, dass …“.</td></tr>
-        <tr><td>Bedürfnis</td><td>Was ist mir wichtig – ohne eine bestimmte Person oder Handlung?</td></tr>
-        <tr><td>Bitte</td><td>Konkret, machbar, jetzt beantwortbar. Ein Nein ist erlaubt.</td></tr>
-      </table>
-      <p style="margin-top:12px"><span class="hand">Probier mal:</span><br>„Als ich … gesehen habe, war ich …, weil mir … wichtig ist. Wärst du bereit, …?“</p>
+  <div class="stack">
+    <h1 class="section-title" style="font-size:24px">Spickzettel</h1>
+    <p class="muted" style="max-width:68ch">Das Wichtigste auf einen Blick. Jede Karte gibt es auch als Hörkarte – unter einer Minute, zum Anhören unterwegs.</p>
+    <div class="row" style="justify-content:space-between">
+      <div class="filters" role="group" aria-label="Spickzettel filtern" id="szFilters"></div>
+      <a class="btn small" id="szPdf" download>Alle als PDF</a>
     </div>
-    <div class="card"><h2>Gedanke oder Gefühl?</h2>
-      <table>
-        <tr><td>übergangen</td><td>verletzt, traurig – Bedürfnis: dazugehören</td></tr>
-        <tr><td>unter Druck gesetzt</td><td>angespannt – Bedürfnis: Wahlfreiheit, Ruhe</td></tr>
-        <tr><td>nicht ernst genommen</td><td>frustriert – Bedürfnis: gehört werden</td></tr>
-        <tr><td>ausgenutzt</td><td>erschöpft, ärgerlich – Bedürfnis: Gegenseitigkeit</td></tr>
-        <tr><td>im Stich gelassen</td><td>enttäuscht, allein – Bedürfnis: Unterstützung</td></tr>
-        <tr><td>angegriffen</td><td>erschrocken, wütend – Bedürfnis: Sicherheit, Respekt</td></tr>
-      </table>
-    </div>
-    <div class="card"><h2>Die vier Ohren</h2>
-      <table>
-        <tr><td>Wolf nach innen</td><td>„Ich bin schuld.“ – führt zu Scham</td></tr>
-        <tr><td>Wolf nach außen</td><td>„Der spinnt doch.“ – führt zu Gegenangriff</td></tr>
-        <tr><td>Giraffe nach innen</td><td>„Was fühle und brauche ich?“</td></tr>
-        <tr><td>Giraffe nach außen</td><td>„Was fühlt und braucht der andere?“</td></tr>
-      </table>
-    </div>
-    <div class="card"><h2>Was Empathie blockiert</h2>
-      <table>
-        <tr><td>Ratschlag</td><td>„Du solltest einfach …“</td></tr>
-        <tr><td>Trösten</td><td>„Ist doch halb so wild.“</td></tr>
-        <tr><td>Übertrumpfen</td><td>„Das ist gar nichts, bei mir …“</td></tr>
-        <tr><td>Rechtfertigen</td><td>„Aber ich hab doch nur …“</td></tr>
-        <tr><td>Ausfragen</td><td>„Warum hast du nicht …?“</td></tr>
-      </table>
-      <p style="margin-top:12px"><span class="hand">Stattdessen:</span><br>„Bist du …, weil dir … wichtig ist?“</p>
-    </div>
+    <div class="cheat" id="szGrid"></div>
   </div>
 </section>
 
@@ -230,6 +252,11 @@
     <label for="coachVoice">Stimme des Coachs</label><select id="coachVoice"><option value="sage">Sage – ruhig (Standard)</option><option value="cedar">Cedar</option><option value="marin">Marin</option><option value="coral">Coral</option><option value="ballad">Ballad</option><option value="nova">Nova</option></select>
     <p class="help">Natürliche Stimmen von OpenAI – am besten einmal ausprobieren. Ohne Verbindung nutzt die App die Stimmen deines Browsers.</p></div>
   <div class="field" id="browserVoices" hidden><label for="bvThem">Browser-Stimme Gegenüber</label><select id="bvThem"></select><label for="bvCoach">Browser-Stimme Coach</label><select id="bvCoach"></select></div>
+  <h3>Feiern und Rückblick</h3>
+  <div class="switchrow"><span>Kleine Feiern<small>Farbe und Konfetti, wenn dir eine Übung ganz gelingt. Bei „Bewegung reduzieren“ nur Farbe.</small></span><button class="sw" id="swAnim" role="switch" aria-checked="true" aria-label="Kleine Feiern"></button></div>
+  <div class="switchrow"><span>Leiser Ton bei Erfolg</span><button class="sw" id="swSound" role="switch" aria-checked="false" aria-label="Leiser Ton bei Erfolg"></button></div>
+  <div class="switchrow"><span>Übungstage zeigen<small>in „Mein Weg“ – ohne Serien, Pausen sind jederzeit okay</small></span><button class="sw" id="swDays" role="switch" aria-checked="true" aria-label="Übungstage zeigen"></button></div>
+  <div class="field"><label for="optWeek">Mein Wochenrhythmus</label><select id="optWeek"><option value="1">1 Tag pro Woche</option><option value="2">2 Tage pro Woche</option><option value="3">3 Tage pro Woche</option><option value="4">4 Tage pro Woche</option><option value="5">5 Tage pro Woche</option><option value="7">jeden Tag</option></select></div>
   <h3 id="setPrivacy">Datenschutz</h3>
   <p class="small muted">Diese App speichert keine Aufnahmen. Für die natürliche Stimme und den ausführlichen Coach gehen deine Sätze an OpenAI bzw. Anthropic. OpenAI nutzt API-Daten laut eigener Angabe nicht zum Training und bewahrt sie bis zu 30 Tage zur Missbrauchskontrolle auf. Bitte keine echten Nachnamen oder sensiblen Daten eingeben.</p>
   <div class="field" id="setAccess" hidden><label for="accessCode">Zugangscode</label><input id="accessCode" type="password" autocomplete="off"><button class="btn small" id="accessSave">Speichern</button></div>
@@ -273,6 +300,9 @@
   </form>
   <div id="custPreview" class="stack" hidden></div>
 </div></dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
 
 <dialog id="dlgConsent" aria-labelledby="consTitle"><div class="dlg">
   <h2 id="consTitle">Echtzeit-Gespräch</h2>

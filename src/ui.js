@@ -24,8 +24,12 @@ function selectTab(id, focus){
     if(on && focus) t.focus();
   });
   if(id !== "t-ueben"){ stopListen(); hushAll(); }
+  stopVoiceLearning();
   if(id === "t-weg") renderWeg();
   if(id === "t-quiz"){ $("#quizRun").hidden = true; $("#quizHome").hidden = false; renderDecks(); }
+  if(id === "t-hoeren"){ $("#empRun").hidden = true; $("#empHome").hidden = false; renderEmpHome(); }
+  if(id === "t-karten") renderLK();
+  if(id === "t-cheat") renderSZ();
   try{ history.replaceState(null, "", "#" + id.slice(2)); }catch(e){}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest('[role="tab"]'); if(t) selectTab(t.id); });
@@ -178,7 +182,7 @@ function me(text){
 }
 function speakingUI(who, on){
   $("#avThem").classList.toggle("talking", on && who === "them");
-  if(on) status(who === "coach" ? "Coach spricht" : `${personName(SESSION.cur)} spricht …`);
+  if(on) status(who === "coach" ? "Coach spricht" : `${SESSION.cur ? personName(SESSION.cur) : "Gegenüber"} spricht …`);
 }
 function updateCollected(){
   const n = SESSION.log.length;
@@ -707,7 +711,7 @@ $("#dlgPause").addEventListener("click", e => {
   const b = e.target.closest("[data-se]"); if(!b) return;
   b.parentElement.querySelectorAll("[data-se]").forEach(x => x.setAttribute("aria-pressed", x === b));
   const f = $("#seFeel [aria-pressed=true]")?.dataset.se, n = $("#seNeed [aria-pressed=true]")?.dataset.se;
-  if(f && n){ $("#seSentence").hidden = false; $("#seSentence").textContent = `Ich bin gerade ${f}, weil ich ${n} brauche. Das darf so sein.`; }
+  if(f && n){ $("#seSentence").hidden = false; $("#seSentence").textContent = `Ich bin gerade ${f}, weil ich ${n} brauche. Das darf so sein.`; discover("selbst"); }
 });
 function resumeFromPause(){
   if(RT.on && RT.wasLive){ RT.wasLive = false; rtResume(); } else status("Du bist dran");
@@ -743,6 +747,7 @@ async function finish(){
   stopListen(); hushAll(); if(RT.on) rtStop();
   const f = computeFacts();
   const entry = saveHistory(f);
+  markDay(); if(LEVEL === "frei") discover("frei");
   const d = $("#dlgReport"), body = $("#repBody");
   body.innerHTML = `<div class="row"><h2 id="repTitle" class="grow">Wie lief's?</h2><button class="iconbtn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="field"><span class="lbl" id="rateLbl">Wie sicher hast du dich gefühlt?</span><div class="row" role="group" aria-labelledby="rateLbl" id="repRate">${RATES.map((r, i) => `<button class="chip" aria-pressed="false" data-rate="${i + 1}">${r}</button>`).join("")}</div></div>
@@ -802,82 +807,7 @@ function dueReviews(){
     .filter(x => findSz(x.sid) && (x.days === 1 || x.days === 3 || x.days === 7 || x.days >= 14))
     .sort((a, b) => b.days - a.days).map(x => ({...x, ago: x.days === 1 ? "vor 1 Tag" : x.days >= 14 ? "vor über 2 Wochen" : `vor ${x.days} Tagen`}));
 }
-function renderWeg(){
-  const hist = store.json("gfk.history", []).slice().reverse();
-  const quiz = store.json("gfk.quiz", {});
-  if(!hist.length && !Object.keys(quiz).length){
-    $("#wegBody").innerHTML = `<h1 class="section-title" style="font-size:24px">Mein Weg</h1><p class="empty">Noch keine Übungen. Starte mit einem Szenario – hier siehst du dann, was du geübt hast und was heute zum Wiederholen dran ist.</p>`; return;
-  }
-  const due = dueReviews();
-  const rated = hist.filter(h => h.rating).slice(0, 12).reverse();
-  const W = 320, H = 110, pad = 24;
-  const spark = rated.length >= 2 ? `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Sicherheitsgefühl der letzten ${rated.length} Übungen" style="max-width:420px;width:100%">
-      ${[1,3,5].map(v => `<line x1="${pad}" x2="${W - 8}" y1="${H - pad - (v - 1) / 4 * (H - 2 * pad)}" y2="${H - pad - (v - 1) / 4 * (H - 2 * pad)}" stroke="var(--line)"/><text x="0" y="${H - pad - (v - 1) / 4 * (H - 2 * pad) + 4}" font-size="11" fill="var(--muted)">${v}</text>`).join("")}
-      <polyline fill="none" stroke="var(--accent)" stroke-width="2" points="${rated.map((h, i) => `${pad + i * (W - pad - 16) / (rated.length - 1)},${H - pad - (h.rating - 1) / 4 * (H - 2 * pad)}`).join(" ")}"/>
-      ${rated.map((h, i) => `<circle cx="${pad + i * (W - pad - 16) / (rated.length - 1)}" cy="${H - pad - (h.rating - 1) / 4 * (H - 2 * pad)}" r="${i === rated.length - 1 ? 5 : 3.5}" fill="var(--accent)"/>`).join("")}
-    </svg><p class="small muted">1 = sehr unsicher · 5 = sehr sicher</p>` : `<p class="small muted">Sobald du nach zwei Übungen angegeben hast, wie sicher du dich gefühlt hast, siehst du hier deinen Verlauf.</p>`;
-  const fmt = t => new Date(t).toLocaleDateString("de-DE", {day:"2-digit", month:"2-digit"});
-  const modeName = {text:"Schreiben", voice:"Sprechen", rt:"Echtzeit"};
-  const lastAtLevel = hist.filter(h => h.level === LEVEL).slice(0, 3);
-  const nextLvl = LEVEL === "gefuehrt" ? "begleitet" : LEVEL === "begleitet" ? "frei" : null;
-  const ready = nextLvl && lastAtLevel.length === 3 && lastAtLevel.every(h => (h.strong || 0) >= 3);
-  $("#wegBody").innerHTML = `<h1 class="section-title" style="font-size:24px">Mein Weg</h1>
-    ${ready ? `<div class="notice row"><span class="grow">Deine letzten drei Übungen liefen stark. Magst du es mit „${LEVELS[nextLvl].name}“ probieren?</span><button class="btn small" data-setlevel="${nextLvl}">Ja, ${LEVELS[nextLvl].name}</button></div>` : ""}
-    <div class="two">
-      <div class="card stack"><h2 class="section-title" style="margin:0">Heute dran</h2>${due.length ? `<div class="row">${due.map(d => `<button class="chip" data-open="${esc(d.sid)}">${esc(d.title)} · ${esc(d.ago)}</button>`).join("")}</div><p class="small muted">Wiederholen nach 1, 3 und 7 Tagen festigt, was du geübt hast.</p>` : `<p class="muted">Heute ist nichts zum Wiederholen fällig.</p>`}</div>
-      <div class="card stack"><h2 class="section-title" style="margin:0">Wie sicher du dich fühlst</h2>${spark}</div>
-    </div>
-    ${Object.keys(quiz).length ? `<div class="card stack"><h2 class="section-title" style="margin:0">Kurzübungen</h2><div class="row">${QUIZ.filter(q => quiz[q.id]).map(q => `<span class="chip" style="cursor:default">${esc(q.title)}: ${quiz[q.id].best} von ${quiz[q.id].total}</span>`).join("")}</div></div>` : ""}
-    ${hist.length ? `<div class="card stack"><h2 class="section-title" style="margin:0">Deine Übungen</h2><div class="tablewrap"><table class="hist"><thead><tr><th>Datum</th><th>Szenario</th><th>Begleitung</th><th>Art</th><th>Gefühl danach</th><th>Stärke</th></tr></thead><tbody>
-      ${hist.slice(0, 20).map(h => `<tr><td>${fmt(h.at)}</td><td>${esc(h.title)}</td><td>${esc(LEVELS[h.level]?.name || "")}</td><td>${esc(modeName[h.mode] || "")}</td><td>${h.rating ? esc(RATES[h.rating - 1]) : "–"}</td><td>${esc(h.strength || "")}</td></tr>`).join("")}
-      </tbody></table></div></div>` : ""}
-    <p class="small muted">Alles hier liegt nur in diesem Browser. Löschen kannst du es in den Einstellungen.</p>`;
-}
-
-/* ===================== Kurzübungen ===================== */
-let QZ = null;
-function renderDecks(){
-  const res = store.json("gfk.quiz", {});
-  $("#deckgrid").innerHTML = QUIZ.map(q => `<button class="scard" data-deck="${q.id}"><span class="meta">${q.items.length} Sätze${res[q.id] ? ` · bisher ${res[q.id].best} von ${res[q.id].total}` : ""}</span><h3>${esc(q.title)}</h3><span class="focus">${esc(q.desc)}</span></button>`).join("");
-}
-$("#deckgrid").addEventListener("click", e => { const b = e.target.closest("[data-deck]"); if(b) startDeck(b.dataset.deck); });
-function shuffle(a){ a = a.slice(); for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
-function startDeck(id, only){
-  const d = QUIZ.find(q => q.id === id); if(!d) return;
-  QZ = {d, queue: shuffle(only || d.items.map((_, i) => i)), i:0, right:0, wrong:[], answered:false};
-  $("#quizHome").hidden = true; $("#quizRun").hidden = false; renderQ();
-}
-function renderQ(){
-  const {d, queue, i} = QZ;
-  if(i >= queue.length){
-    const total = queue.length, res = store.json("gfk.quiz", {});
-    if(total === d.items.length && (!res[d.id] || QZ.right > res[d.id].best)){ res[d.id] = {best: QZ.right, total}; store.setJson("gfk.quiz", res); }
-    $("#quizRun").innerHTML = `<h2 class="section-title">${esc(d.title)}</h2><p class="quizcard stmt" style="font-size:24px">${QZ.right} von ${total} richtig.</p>
-      <p class="muted">${QZ.wrong.length ? "Die offenen Sätze nochmal zu üben, festigt am meisten." : "Alles sicher erkannt."}</p>
-      <div class="row">${QZ.wrong.length ? `<button class="btn primary" id="qWrong">Die ${QZ.wrong.length} offenen nochmal</button>` : ""}<button class="btn" id="qBack">Andere Übung</button></div>`;
-    $("#qWrong")?.addEventListener("click", () => startDeck(d.id, QZ.wrong));
-    $("#qBack").addEventListener("click", () => { $("#quizRun").hidden = true; $("#quizHome").hidden = false; renderDecks(); });
-    return;
-  }
-  const it = d.items[queue[i]];
-  $("#quizRun").innerHTML = `<div class="row"><button class="btn ghost small" id="qBack">Übersicht</button><span class="grow"></span><span class="xs muted">${i + 1} von ${queue.length}</span></div>
-    <div class="progress" aria-hidden="true"><i style="width:${i / queue.length * 100}%"></i></div>
-    <p class="lbl xs muted">${esc(d.title)}</p><p class="stmt">„${esc(it.t)}“</p>
-    <div class="answers"><button class="btn" data-ans="a">${esc(d.a)}</button><button class="btn" data-ans="b">${esc(d.b)}</button></div>
-    <div id="qFb" role="status"></div>`;
-  $("#qBack").addEventListener("click", () => { $("#quizRun").hidden = true; $("#quizHome").hidden = false; renderDecks(); });
-  QZ.answered = false;
-}
-$("#quizRun").addEventListener("click", e => {
-  const b = e.target.closest("[data-ans]"); if(b && !QZ.answered){
-    QZ.answered = true; const it = QZ.d.items[QZ.queue[QZ.i]], ok = b.dataset.ans === it.ans;
-    if(ok) QZ.right++; else QZ.wrong.push(QZ.queue[QZ.i]);
-    $$("#quizRun [data-ans]").forEach(x => { x.disabled = true; if(x.dataset.ans === it.ans) x.classList.add("primary"); });
-    $("#qFb").innerHTML = `<div class="notice"><b>${ok ? "Stimmt." : `Fast – das ist eher ${it.ans === "a" ? "eine " + esc(QZ.d.a) : "ein " + esc(QZ.d.b)}.`}</b> ${esc(it.why)}</div><div class="row" style="margin-top:12px"><button class="btn primary" id="qNext">Weiter</button></div>`;
-    $("#qNext").focus();
-  }
-  if(e.target.closest("#qNext")){ QZ.i++; renderQ(); }
-});
+/* renderWeg und Kurzübungen: siehe lernen.js */
 
 /* ===================== Übersetzer ===================== */
 function renderXL(a, out){
@@ -967,6 +897,7 @@ function applySettingsUI(){
   $("#setLocalKeys").hidden = INSIDE_CLAUDE || !!SERVER;
   $("#apiKey").value = keys.anthropic; $("#oaKey").value = keys.openai; $("#ekKey").value = store.get("gfk.ek") || "";
   renderBrowserVoiceSelects();
+  if(typeof applyLernSettings === "function") applyLernSettings();
 }
 function openSettings(section){ applySettingsUI(); $("#dlgSettings").showModal(); if(section === "privacy") $("#setPrivacy").scrollIntoView({block:"start"}); if(section === "access") $("#accessCode").focus(); }
 $("#openSettings").addEventListener("click", () => openSettings());
@@ -989,7 +920,7 @@ $("#keysSave").addEventListener("click", () => {
 $("#wipe").addEventListener("click", () => {
   const b = $("#wipe");
   if(!b.dataset.armed){ b.dataset.armed = "1"; b.textContent = "Wirklich alles löschen?"; return; }
-  ["gfk.history","gfk.custom","gfk.quiz","gfk.settings","gfk.level","gfk.mode","gfk.sz","gfk.apikey","gfk.oakey","gfk.ek","gfk.access","gfk.rtConsent"].forEach(k => store.del(k));
+  ["gfk.history","gfk.custom","gfk.quiz","gfk.ku","gfk.emp","gfk.days","gfk.found","gfk.hk","gfk.settings","gfk.level","gfk.mode","gfk.sz","gfk.apikey","gfk.oakey","gfk.ek","gfk.access","gfk.rtConsent"].forEach(k => store.del(k));
   $("#wipeNote").textContent = "Gelöscht. Die Seite startet neu."; setTimeout(() => location.reload(), 900);
 });
 function askAccess(){
@@ -1002,7 +933,7 @@ function askAccess(){
 function init(){
   setLevel(LEVEL); setMode(MODE); renderGallery(); applySettingsUI();
   const h = (location.hash || "").slice(1);
-  if(["quiz","xl","cheat","weg"].includes(h)) selectTab("t-" + h);
+  if(["hoeren","quiz","karten","xl","cheat","weg"].includes(h)) selectTab("t-" + h);
   (async () => {
     if(INSIDE_CLAUDE){
       try{ sample = await window.claude.use("sample"); }catch(e){ sample = null; }
@@ -1012,4 +943,4 @@ function init(){
     applySettingsUI(); micUI(); renderContinue();
   })();
 }
-init();
+/* init() wird am Ende von lernen.js aufgerufen, damit alle Teile geladen sind. */

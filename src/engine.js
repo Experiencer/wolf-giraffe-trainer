@@ -1,6 +1,9 @@
 /* ===================== Grundlagen ===================== */
 const SZ = __SZ__;
-const QUIZ = __QUIZ__;
+const KU = __KU__;
+const SPICK = __SPICK__;
+const LK = __LK__;
+const EMP = __EMP__;
 const IMG = {wolf:"__WOLF__", giraffe:"__GIRAFFE__"};
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -15,7 +18,8 @@ const store = {
 const INSIDE_CLAUDE = !!(window.claude && window.claude.use);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-const SETTINGS_DEFAULT = {selfAssess:true, themVoice:true, coachVoice:true, readFeedback:false, hands:false, rate:1, rtVoice:"marin", coachTts:"sage", bvThem:"", bvCoach:"", live:true};
+const SETTINGS_DEFAULT = {selfAssess:true, themVoice:true, coachVoice:true, readFeedback:false, hands:false, rate:1, rtVoice:"marin", coachTts:"sage", bvThem:"", bvCoach:"", live:true,
+  anim:true, sound:false, days:true, weekGoal:3, kuVoice:false, empHow:"pick"};
 const settings = Object.assign({}, SETTINGS_DEFAULT, store.json("gfk.settings", {}));
 const saveSettings = () => store.setJson("gfk.settings", settings);
 
