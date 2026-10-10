@@ -220,8 +220,9 @@ function hushAll(){
   try{ document.getElementById("avThem")?.classList.remove("talking"); }catch(e){}
   try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
 }
-async function fetchTts(text, who){
-  const body = {text: text.slice(0, 1400), voice: who === "coach" ? settings.coachTts : settings.rtVoice, style: who, mood: who === "them" ? moodWord(SESSION.open) : ""};
+/* o.voice / o.mood: optional, z. B. für die Stimmen-Vorschau in den Einstellungen */
+async function fetchTts(text, who, o = {}){
+  const body = {text: text.slice(0, 1400), voice: o.voice || (who === "coach" ? settings.coachTts : settings.rtVoice), style: who, mood: o.mood !== undefined ? o.mood : (who === "them" ? moodWord(SESSION.open) : "")};
   if(SERVER && SERVER.tts){
     const r = await serverPost("/api/tts", body);
     if(!(r instanceof Response)) throw {code:"upstream_error"};

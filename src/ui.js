@@ -893,20 +893,72 @@ function applySettingsUI(){
   sw("#swSelf", settings.selfAssess); sw("#swThem", settings.themVoice); sw("#swCoachVoice", settings.coachVoice); sw("#swFeedback", settings.readFeedback); sw("#swHands", settings.hands);
   $("#optRate").value = settings.rate; $("#rateOut").textContent = rateLabel(settings.rate); $("#rtVoice").value = settings.rtVoice; $("#coachVoice").value = settings.coachTts;
   $("#natVoices").hidden = !(canTts() || canRealtime());
+  $$("[data-vp]").forEach(b => b.hidden = !canTts());
   $("#setAccess").hidden = !(SERVER && SERVER.locked); $("#accessCode").value = accessCode;
   $("#setLocalKeys").hidden = INSIDE_CLAUDE || !!SERVER;
   $("#apiKey").value = keys.anthropic; $("#oaKey").value = keys.openai; $("#ekKey").value = store.get("gfk.ek") || "";
   renderBrowserVoiceSelects();
   if(typeof applyLernSettings === "function") applyLernSettings();
 }
-function openSettings(section){ applySettingsUI(); $("#dlgSettings").showModal(); if(section === "privacy") $("#setPrivacy").scrollIntoView({block:"start"}); if(section === "access") $("#accessCode").focus(); }
+function openSettings(section){ applySettingsUI(); $("#dlgSettings").showModal(); if(section === "privacy") $("#setPrivacy").scrollIntoView({block:"start"}); if(section === "access") $("#accessCode").focus(); if(section === "voices"){ $("#natVoices").scrollIntoView({block:"center"}); $("#rtVoice").focus(); } }
 $("#openSettings").addEventListener("click", () => openSettings());
 const SW = {"#swLive":"live", "#swSelf":"selfAssess", "#swThem":"themVoice", "#swCoachVoice":"coachVoice", "#swFeedback":"readFeedback", "#swHands":"hands"};
 for(const [id, key] of Object.entries(SW)) $(id).addEventListener("click", () => { settings[key] = !settings[key]; saveSettings(); applySettingsUI(); });
 function rateLabel(v){ return (+v).toFixed(2).replace(/0$/, "").replace(".", ",") + "×"; }
 $("#optRate").addEventListener("input", e => { settings.rate = +e.target.value; $("#rateOut").textContent = rateLabel(settings.rate); saveSettings(); });
-$("#rtVoice").addEventListener("change", e => { settings.rtVoice = e.target.value; saveSettings(); });
-$("#coachVoice").addEventListener("change", e => { settings.coachTts = e.target.value; saveSettings(); });
+$("#rtVoice").addEventListener("change", e => { settings.rtVoice = e.target.value; saveSettings(); stopPreview(); });
+$("#coachVoice").addEventListener("change", e => { settings.coachTts = e.target.value; saveSettings(); stopPreview(); });
+
+/* ===================== Stimmen anhören (v6.2) =====================
+   Der Knopf neben der Auswahl spricht einen kurzen Beispielsatz mit der gewählten Stimme – über denselben Weg wie das
+   Vorlesen (/api/tts). Im Live-Gespräch (Echtzeit) kann die Stimme ein wenig anders klingen; darauf weist der Hilfetext hin.
+   Kein Abspielen beim bloßen Durchblättern der Liste (Pfeiltasten würden sonst bei jedem Eintrag Kosten auslösen). */
+const VOICE_SAMPLE = {
+  them: "Hallo, ich bin eine KI-Stimme. Im Gespräch spiele ich dein Gegenüber – so klinge ich.",
+  coach: "Hallo, ich bin eine KI-Stimme und dein Coach. So klinge ich, wenn ich dir etwas zurückmelde."
+};
+const VOICE_WHO = {them: "Gegenübers", coach: "Coachs"};
+const voiceCache = new Map();   // nur im Arbeitsspeicher: jede Stimme wird pro Besuch höchstens einmal geladen, nichts wird gespeichert
+let voicePrev = null;           // {who, gen}, solange eine Vorschau lädt oder spielt
+const voiceName = who => ($(who === "coach" ? "#coachVoice" : "#rtVoice").selectedOptions[0]?.textContent || "").split(" – ")[0];
+function previewUI(who, note){
+  for(const b of $$("[data-vp]")){
+    const on = !!who && b.dataset.vp === who;
+    b.dataset.state = on ? "on" : "off";
+    b.querySelector("span").textContent = on ? "Stopp" : "Anhören";
+    b.setAttribute("aria-label", on ? "Stopp: Vorschau beenden" : `Stimme des ${VOICE_WHO[b.dataset.vp]} anhören`);
+  }
+  $("#voiceNote").textContent = note || "";
+  if(note) $("#voiceNote").scrollIntoView({block:"nearest"});   // Meldung nicht außerhalb des sichtbaren Bereichs lassen
+}
+const endPreview = (gen, note) => { if(voicePrev && voicePrev.gen === gen){ voicePrev = null; previewUI(null, note); } };
+function stopPreview(){ if(!voicePrev) return; voicePrev = null; hushAll(); previewUI(null); }
+async function previewVoice(who){
+  if(voicePrev && voicePrev.who === who){ stopPreview(); return; }   // zweiter Druck = Stopp
+  stopPreview();
+  if(!canTts()) return;
+  const voice = $(who === "coach" ? "#coachVoice" : "#rtVoice").value, name = voiceName(who);
+  hushAll(); const gen = speakGen; voicePrev = {who, gen};
+  previewUI(who, "Stimme wird geladen …");
+  try{
+    const key = who + "|" + voice;
+    let blob = voiceCache.get(key);
+    if(!blob){ blob = await fetchTts(VOICE_SAMPLE[who], who, {voice, mood: "hört zu"}); voiceCache.set(key, blob); }
+    if(gen !== speakGen) return endPreview(gen);
+    previewUI(who, `Du hörst: ${name}.`);
+    const played = await playBlob(blob);
+    if(gen !== speakGen) return endPreview(gen);
+    if(!played) throw {code: "play"};
+    endPreview(gen);
+  } catch(e){
+    endPreview(gen, e && e.code === "access" ? "Dafür brauchst du den Zugangscode. Gib ihn weiter unten in diesem Fenster ein."
+      : e && e.code === "rate_limited" ? "Gerade sind es zu viele Anfragen. Versuch es gleich noch einmal."
+      : "Die Vorschau klappt gerade nicht. Probier es später noch einmal oder wähle eine andere Stimme.");
+  }
+}
+$$("[data-vp]").forEach(b => b.addEventListener("click", () => previewVoice(b.dataset.vp)));
+$("#dlgSettings").addEventListener("close", stopPreview);
+$("#rtVoicePick").addEventListener("click", () => openSettings("voices"));
 $("#bvThem").addEventListener("change", e => { settings.bvThem = e.target.value; saveSettings(); });
 $("#bvCoach").addEventListener("change", e => { settings.bvCoach = e.target.value; saveSettings(); });
 $("#accessSave").addEventListener("click", () => { accessCode = $("#accessCode").value.trim(); store.set("gfk.access", accessCode); sys("Zugangscode gespeichert."); renderContinue(); });

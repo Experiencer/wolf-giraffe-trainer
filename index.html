@@ -120,6 +120,15 @@ main{padding-block:24px 40px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field label,.field .lbl{font-weight:600;font-size:15px}
 .field .help{font-size:15px;line-height:22px;color:var(--muted)}
+/* Stimmen anhören: Auswahl + Knopf nebeneinander; Zustand über Wort („Anhören“/„Stopp“) und Symbol, nicht nur Farbe */
+.voicerow{display:flex;gap:8px;align-items:stretch}
+.voicerow select{flex:1;min-width:0;width:auto}
+.vpbtn{flex:none;width:124px;padding:0 12px}
+.vpbtn .i-stop{display:none}
+.vpbtn[data-state="on"] .i-play{display:none}
+.vpbtn[data-state="on"] .i-stop{display:block}
+.vpbtn[data-state="on"]{border-color:var(--accent);color:var(--accent-soft-ink);background:var(--accent-soft)}
+.vpnote{min-height:22px}
 input[type=text],input[type=password],textarea,select{width:100%;border:1px solid var(--field-border);background:var(--surface);border-radius:10px;padding:10px 12px;min-height:44px;font-size:17px;line-height:24px}
 textarea{resize:vertical}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
@@ -584,7 +593,7 @@ table.pseudo td:first-child{white-space:nowrap}
               <p class="miclabel" id="micLabel"></p>
             </div>
             <div id="m-rt-extra" class="stack" hidden>
-              <p class="rtline">Natürliche Stimme · läuft über OpenAI · <button class="linkbtn" id="rtDetails">Details</button></p>
+              <p class="rtline">Natürliche Stimme · läuft über OpenAI · <button class="linkbtn" id="rtDetails">Details</button> · <button class="linkbtn" id="rtVoicePick">Stimme wählen</button></p>
               <div class="row" style="justify-content:center"><button class="btn small" id="rtStop" hidden>Verbindung trennen</button></div>
               <p class="notice" id="rtUnavail" hidden></p>
             </div>
@@ -722,9 +731,10 @@ table.pseudo td:first-child{white-space:nowrap}
   <div class="switchrow"><span>Feedback vorlesen<small>nach jedem Satz, im Modus „Sprechen“</small></span><button class="sw" id="swFeedback" role="switch" aria-checked="false" aria-label="Feedback vorlesen"></button></div>
   <div class="switchrow"><span>Mikrofon automatisch öffnen<small>nach jeder Antwort, im Modus „Sprechen“</small></span><button class="sw" id="swHands" role="switch" aria-checked="false" aria-label="Mikrofon automatisch öffnen"></button></div>
   <div class="field"><label for="optRate">Sprechtempo <output id="rateOut" class="muted">1,0×</output></label><input type="range" id="optRate" min="0.8" max="1.3" step="0.05" value="1"></div>
-  <div class="field" id="natVoices"><label for="rtVoice">Stimme des Gegenübers</label><select id="rtVoice"><option value="marin">Marin – empfohlen</option><option value="cedar">Cedar – empfohlen</option><option value="coral">Coral</option><option value="sage">Sage</option><option value="ash">Ash</option><option value="verse">Verse</option></select>
-    <label for="coachVoice">Stimme des Coachs</label><select id="coachVoice"><option value="sage">Sage – ruhig (Standard)</option><option value="cedar">Cedar</option><option value="marin">Marin</option><option value="coral">Coral</option><option value="ballad">Ballad</option><option value="nova">Nova</option></select>
-    <p class="help">Natürliche Stimmen von OpenAI – am besten einmal ausprobieren. Ohne Verbindung nutzt die App die Stimmen deines Browsers.</p></div>
+  <div class="field" id="natVoices"><label for="rtVoice">Stimme des Gegenübers</label><div class="voicerow"><select id="rtVoice"><option value="marin">Marin – empfohlen</option><option value="cedar">Cedar – empfohlen</option><option value="coral">Coral</option><option value="sage">Sage</option><option value="ash">Ash</option><option value="verse">Verse</option></select><button type="button" class="btn vpbtn" id="vpThem" data-vp="them" data-state="off" aria-label="Stimme des Gegenübers anhören"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg><span>Anhören</span></button></div>
+    <label for="coachVoice">Stimme des Coachs</label><div class="voicerow"><select id="coachVoice"><option value="sage">Sage – ruhig (Standard)</option><option value="cedar">Cedar</option><option value="marin">Marin</option><option value="coral">Coral</option><option value="ballad">Ballad</option><option value="nova">Nova</option></select><button type="button" class="btn vpbtn" id="vpCoach" data-vp="coach" data-state="off" aria-label="Stimme des Coachs anhören"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg><span>Anhören</span></button></div>
+    <p class="help vpnote" id="voiceNote" role="status" aria-live="polite"></p>
+    <p class="help">Natürliche KI-Stimmen von OpenAI. „Anhören“ spielt einen Beispielsatz mit der gewählten Stimme. Im Live-Gespräch kann sie ein wenig anders klingen. Ohne Verbindung nutzt die App die Stimmen deines Browsers.</p></div>
   <div class="field" id="browserVoices" hidden><label for="bvThem">Browser-Stimme Gegenüber</label><select id="bvThem"></select><label for="bvCoach">Browser-Stimme Coach</label><select id="bvCoach"></select></div>
   <h3>Feiern und Rückblick</h3>
   <div class="switchrow"><span>Kleine Feiern<small>Farbe und Konfetti, wenn dir eine Übung ganz gelingt. Bei „Bewegung reduzieren“ nur Farbe.</small></span><button class="sw" id="swAnim" role="switch" aria-checked="true" aria-label="Kleine Feiern"></button></div>
@@ -1009,8 +1019,9 @@ function hushAll(){
   try{ document.getElementById("avThem")?.classList.remove("talking"); }catch(e){}
   try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
 }
-async function fetchTts(text, who){
-  const body = {text: text.slice(0, 1400), voice: who === "coach" ? settings.coachTts : settings.rtVoice, style: who, mood: who === "them" ? moodWord(SESSION.open) : ""};
+/* o.voice / o.mood: optional, z. B. für die Stimmen-Vorschau in den Einstellungen */
+async function fetchTts(text, who, o = {}){
+  const body = {text: text.slice(0, 1400), voice: o.voice || (who === "coach" ? settings.coachTts : settings.rtVoice), style: who, mood: o.mood !== undefined ? o.mood : (who === "them" ? moodWord(SESSION.open) : "")};
   if(SERVER && SERVER.tts){
     const r = await serverPost("/api/tts", body);
     if(!(r instanceof Response)) throw {code:"upstream_error"};
@@ -1982,20 +1993,72 @@ function applySettingsUI(){
   sw("#swSelf", settings.selfAssess); sw("#swThem", settings.themVoice); sw("#swCoachVoice", settings.coachVoice); sw("#swFeedback", settings.readFeedback); sw("#swHands", settings.hands);
   $("#optRate").value = settings.rate; $("#rateOut").textContent = rateLabel(settings.rate); $("#rtVoice").value = settings.rtVoice; $("#coachVoice").value = settings.coachTts;
   $("#natVoices").hidden = !(canTts() || canRealtime());
+  $$("[data-vp]").forEach(b => b.hidden = !canTts());
   $("#setAccess").hidden = !(SERVER && SERVER.locked); $("#accessCode").value = accessCode;
   $("#setLocalKeys").hidden = INSIDE_CLAUDE || !!SERVER;
   $("#apiKey").value = keys.anthropic; $("#oaKey").value = keys.openai; $("#ekKey").value = store.get("gfk.ek") || "";
   renderBrowserVoiceSelects();
   if(typeof applyLernSettings === "function") applyLernSettings();
 }
-function openSettings(section){ applySettingsUI(); $("#dlgSettings").showModal(); if(section === "privacy") $("#setPrivacy").scrollIntoView({block:"start"}); if(section === "access") $("#accessCode").focus(); }
+function openSettings(section){ applySettingsUI(); $("#dlgSettings").showModal(); if(section === "privacy") $("#setPrivacy").scrollIntoView({block:"start"}); if(section === "access") $("#accessCode").focus(); if(section === "voices"){ $("#natVoices").scrollIntoView({block:"center"}); $("#rtVoice").focus(); } }
 $("#openSettings").addEventListener("click", () => openSettings());
 const SW = {"#swLive":"live", "#swSelf":"selfAssess", "#swThem":"themVoice", "#swCoachVoice":"coachVoice", "#swFeedback":"readFeedback", "#swHands":"hands"};
 for(const [id, key] of Object.entries(SW)) $(id).addEventListener("click", () => { settings[key] = !settings[key]; saveSettings(); applySettingsUI(); });
 function rateLabel(v){ return (+v).toFixed(2).replace(/0$/, "").replace(".", ",") + "×"; }
 $("#optRate").addEventListener("input", e => { settings.rate = +e.target.value; $("#rateOut").textContent = rateLabel(settings.rate); saveSettings(); });
-$("#rtVoice").addEventListener("change", e => { settings.rtVoice = e.target.value; saveSettings(); });
-$("#coachVoice").addEventListener("change", e => { settings.coachTts = e.target.value; saveSettings(); });
+$("#rtVoice").addEventListener("change", e => { settings.rtVoice = e.target.value; saveSettings(); stopPreview(); });
+$("#coachVoice").addEventListener("change", e => { settings.coachTts = e.target.value; saveSettings(); stopPreview(); });
+
+/* ===================== Stimmen anhören (v6.2) =====================
+   Der Knopf neben der Auswahl spricht einen kurzen Beispielsatz mit der gewählten Stimme – über denselben Weg wie das
+   Vorlesen (/api/tts). Im Live-Gespräch (Echtzeit) kann die Stimme ein wenig anders klingen; darauf weist der Hilfetext hin.
+   Kein Abspielen beim bloßen Durchblättern der Liste (Pfeiltasten würden sonst bei jedem Eintrag Kosten auslösen). */
+const VOICE_SAMPLE = {
+  them: "Hallo, ich bin eine KI-Stimme. Im Gespräch spiele ich dein Gegenüber – so klinge ich.",
+  coach: "Hallo, ich bin eine KI-Stimme und dein Coach. So klinge ich, wenn ich dir etwas zurückmelde."
+};
+const VOICE_WHO = {them: "Gegenübers", coach: "Coachs"};
+const voiceCache = new Map();   // nur im Arbeitsspeicher: jede Stimme wird pro Besuch höchstens einmal geladen, nichts wird gespeichert
+let voicePrev = null;           // {who, gen}, solange eine Vorschau lädt oder spielt
+const voiceName = who => ($(who === "coach" ? "#coachVoice" : "#rtVoice").selectedOptions[0]?.textContent || "").split(" – ")[0];
+function previewUI(who, note){
+  for(const b of $$("[data-vp]")){
+    const on = !!who && b.dataset.vp === who;
+    b.dataset.state = on ? "on" : "off";
+    b.querySelector("span").textContent = on ? "Stopp" : "Anhören";
+    b.setAttribute("aria-label", on ? "Stopp: Vorschau beenden" : `Stimme des ${VOICE_WHO[b.dataset.vp]} anhören`);
+  }
+  $("#voiceNote").textContent = note || "";
+  if(note) $("#voiceNote").scrollIntoView({block:"nearest"});   // Meldung nicht außerhalb des sichtbaren Bereichs lassen
+}
+const endPreview = (gen, note) => { if(voicePrev && voicePrev.gen === gen){ voicePrev = null; previewUI(null, note); } };
+function stopPreview(){ if(!voicePrev) return; voicePrev = null; hushAll(); previewUI(null); }
+async function previewVoice(who){
+  if(voicePrev && voicePrev.who === who){ stopPreview(); return; }   // zweiter Druck = Stopp
+  stopPreview();
+  if(!canTts()) return;
+  const voice = $(who === "coach" ? "#coachVoice" : "#rtVoice").value, name = voiceName(who);
+  hushAll(); const gen = speakGen; voicePrev = {who, gen};
+  previewUI(who, "Stimme wird geladen …");
+  try{
+    const key = who + "|" + voice;
+    let blob = voiceCache.get(key);
+    if(!blob){ blob = await fetchTts(VOICE_SAMPLE[who], who, {voice, mood: "hört zu"}); voiceCache.set(key, blob); }
+    if(gen !== speakGen) return endPreview(gen);
+    previewUI(who, `Du hörst: ${name}.`);
+    const played = await playBlob(blob);
+    if(gen !== speakGen) return endPreview(gen);
+    if(!played) throw {code: "play"};
+    endPreview(gen);
+  } catch(e){
+    endPreview(gen, e && e.code === "access" ? "Dafür brauchst du den Zugangscode. Gib ihn weiter unten in diesem Fenster ein."
+      : e && e.code === "rate_limited" ? "Gerade sind es zu viele Anfragen. Versuch es gleich noch einmal."
+      : "Die Vorschau klappt gerade nicht. Probier es später noch einmal oder wähle eine andere Stimme.");
+  }
+}
+$$("[data-vp]").forEach(b => b.addEventListener("click", () => previewVoice(b.dataset.vp)));
+$("#dlgSettings").addEventListener("close", stopPreview);
+$("#rtVoicePick").addEventListener("click", () => openSettings("voices"));
 $("#bvThem").addEventListener("change", e => { settings.bvThem = e.target.value; saveSettings(); });
 $("#bvCoach").addEventListener("change", e => { settings.bvCoach = e.target.value; saveSettings(); });
 $("#accessSave").addEventListener("click", () => { accessCode = $("#accessCode").value.trim(); store.set("gfk.access", accessCode); sys("Zugangscode gespeichert."); renderContinue(); });

@@ -30,7 +30,11 @@ globalThis.fetch = async (url, opts = {}) => {
     return new Response(JSON.stringify({ content: [{ type: "text", text: JSON.stringify(p) }] }), { status: 200 });
   }
   if (url.includes("/v1/realtime/client_secrets")) return new Response(JSON.stringify({ value: "ek_server123", expires_at: 1 }), { status: 200 });
-  if (url.includes("/v1/audio/speech")) return new Response(wav(), { status: 200, headers: { "content-type": "audio/mpeg" } });
+  if (url.includes("/v1/audio/speech")) {
+    // Beispielsätze der Stimmen-Vorschau („KI-Stimme“) dauern länger, damit der Zustand „Stopp“ im Test sichtbar bleibt
+    let ms = 300; try { if (/KI-Stimme/.test(JSON.parse(opts.body).input || "")) ms = 2500; } catch (e) {}
+    return new Response(wav(ms), { status: 200, headers: { "content-type": "audio/mpeg" } });
+  }
   return new Response("blocked in test", { status: 599 });
 };
 const names = ["config", "coach", "realtime-session", "tts"]; const handlers = {};

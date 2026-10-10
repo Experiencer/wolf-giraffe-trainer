@@ -109,6 +109,15 @@ main{padding-block:24px 40px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field label,.field .lbl{font-weight:600;font-size:15px}
 .field .help{font-size:15px;line-height:22px;color:var(--muted)}
+/* Stimmen anhören: Auswahl + Knopf nebeneinander; Zustand über Wort („Anhören“/„Stopp“) und Symbol, nicht nur Farbe */
+.voicerow{display:flex;gap:8px;align-items:stretch}
+.voicerow select{flex:1;min-width:0;width:auto}
+.vpbtn{flex:none;width:124px;padding:0 12px}
+.vpbtn .i-stop{display:none}
+.vpbtn[data-state="on"] .i-play{display:none}
+.vpbtn[data-state="on"] .i-stop{display:block}
+.vpbtn[data-state="on"]{border-color:var(--accent);color:var(--accent-soft-ink);background:var(--accent-soft)}
+.vpnote{min-height:22px}
 input[type=text],input[type=password],textarea,select{width:100%;border:1px solid var(--field-border);background:var(--surface);border-radius:10px;padding:10px 12px;min-height:44px;font-size:17px;line-height:24px}
 textarea{resize:vertical}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}

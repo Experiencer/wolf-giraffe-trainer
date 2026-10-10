@@ -6,7 +6,7 @@ Der Trainer ist eine Übungs-App für **Gewaltfreie Kommunikation (GFK) nach Mar
 Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf dem Server als „Environment Variables“ und erscheinen nie im Browser. Konkret:
 - **Coach und Rollenspiel (Claude):** `/api/coach` leitet Anfragen mit `ANTHROPIC_API_KEY` an Claude weiter – auch im Echtzeit-Gespräch.
 - **Echtzeit-Gespräch (OpenAI):** `/api/realtime-session` erzeugt mit `OPENAI_API_KEY` einen Sitzungs-Schlüssel, der 10 Minuten gilt. Damit verbindet sich der Browser direkt mit OpenAI.
-- **Natürliche Stimme für Coach und Gegenüber (OpenAI):** `/api/tts` liest Texte mit einer OpenAI-Stimme vor. So spricht der Coach seine Hilfe hörbar – auch mitten im Echtzeit-Gespräch.
+- **Natürliche Stimme für Coach und Gegenüber (OpenAI):** `/api/tts` liest Texte mit einer OpenAI-Stimme vor. So spricht der Coach seine Hilfe hörbar – auch mitten im Echtzeit-Gespräch. In den Einstellungen gibt es zu beiden Stimmen einen Knopf „Anhören“ (v6.2): Er spricht einen kurzen Beispielsatz mit der gewählten Stimme; im Echtzeit-Gespräch führt „Stimme wählen“ direkt dorthin. Im Live-Gespräch selbst kann die Stimme ein wenig anders klingen als in der Vorschau.
 - **Zugangscode (empfohlen):** Ist `APP_ACCESS_CODE` gesetzt, kann nur nutzen, wer den Code kennt.
 
 ## Was die App kann

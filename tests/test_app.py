@@ -272,6 +272,9 @@ with sync_playwright() as p:
     pg.click("#backBtn"); pg.click('[data-open="S03"]'); pg.wait_for_timeout(200)
     pg.click('#modeSeg [data-mode="rt"]'); pg.wait_for_timeout(150)
     ok("Echtzeit verfügbar", not pg.is_disabled("#mic"), pg.inner_text("#micLabel"))
+    pg.click("#rtVoicePick"); pg.wait_for_timeout(250)
+    ok("Echtzeit: „Stimme wählen“ öffnet die Einstellungen bei den Stimmen", pg.evaluate("document.querySelector('#dlgSettings').open") and pg.evaluate("document.activeElement.id") == "rtVoice", pg.evaluate("document.activeElement.id"))
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
     pg.click("#mic"); pg.wait_for_timeout(200)
     ok("Einwilligung erscheint", pg.evaluate("document.querySelector('#dlgConsent').open"))
     pg.screenshot(path=S + "v5_consent.png")
@@ -455,6 +458,70 @@ with sync_playwright() as p:
     ok("Desktop dunkel: kein waagrechtes Scrollen", max(sw) <= 1280, sw)
     ok("Desktop dunkel: ohne Konsolenfehler", not errs, errs)
     ctx.close()
+
+    # 18 (v6.2) Stimmen anhören in den Einstellungen (Beispielsatz mit der gewählten Stimme über /api/tts)
+    def sprache(): return [x for x in calls() if "audio/speech" in x["url"]]
+    NOTE = "document.querySelector('#voiceNote').textContent"
+    def wartet_auf_hoeren(pg, name): pg.wait_for_function(f"{NOTE}.includes('Du hörst: {name}')", timeout=5000)
+    def knopf(pg, sel): return pg.inner_text(sel + " span")
+
+    ctx = b.new_context(viewport={"width": 1280, "height": 900}, color_scheme="light")
+    pg = ctx.new_page(); errs = []
+    pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
+    pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
+    reset(); pg.goto(BASE); pg.wait_for_timeout(500)
+    pg.fill("#gAccess", "geheim"); pg.click("#gAccessSave"); pg.wait_for_timeout(200)
+    pg.click("#openSettings"); pg.wait_for_timeout(250)
+    ok("Stimmen: Anhören-Knöpfe sichtbar mit Namen", pg.is_visible("#vpThem") and pg.is_visible("#vpCoach")
+       and pg.get_attribute("#vpThem", "aria-label") == "Stimme des Gegenübers anhören" and pg.get_attribute("#vpCoach", "aria-label") == "Stimme des Coachs anhören")
+    pg.select_option("#rtVoice", "cedar"); pg.wait_for_timeout(300)
+    ok("Stimmen: Auswahl allein startet keine Vorschau", len(sprache()) == 0, len(sprache()))
+    pg.click("#vpThem"); wartet_auf_hoeren(pg, "Cedar")
+    a = sprache()
+    ok("Stimmen: Gegenüber-Vorschau mit gewählter Stimme und ruhiger Grundstimmung",
+       len(a) == 1 and '"voice":"cedar"' in a[0]["body"] and "KI-Stimme" in a[0]["body"] and "Grundstimmung gerade: hört zu" in a[0]["body"], [x["body"][:160] for x in a])
+    ok("Stimmen: Zustand mit Wort und Symbol („Stopp“, nicht nur Farbe)",
+       knopf(pg, "#vpThem") == "Stopp" and pg.get_attribute("#vpThem", "aria-label") == "Stopp: Vorschau beenden" and pg.is_visible("#vpThem .i-stop") and not pg.is_visible("#vpThem .i-play"))
+    ok("Stimmen: beide Knöpfe gleich breit (kein Springen, Auswahlen bündig)", pg.evaluate("document.querySelector('#vpThem').offsetWidth === document.querySelector('#vpCoach').offsetWidth && document.querySelector('#rtVoice').offsetWidth === document.querySelector('#coachVoice').offsetWidth"))
+    pg.screenshot(path=S + "v62_desk_light_stimmen.png")
+    pg.click("#vpThem"); pg.wait_for_timeout(200)
+    ok("Stimmen: zweiter Druck beendet die Vorschau", knopf(pg, "#vpThem") == "Anhören" and pg.evaluate("player.paused") and pg.evaluate(NOTE) == "")
+    pg.click("#vpThem"); wartet_auf_hoeren(pg, "Cedar")
+    ok("Stimmen: dieselbe Stimme wird nicht erneut geladen", len(sprache()) == 1, len(sprache()))
+    pg.select_option("#rtVoice", "coral"); pg.wait_for_timeout(200)
+    ok("Stimmen: Wechsel der Stimme stoppt die Vorschau und speichert sie", knopf(pg, "#vpThem") == "Anhören" and pg.evaluate("player.paused") and pg.evaluate("settings.rtVoice") == "coral")
+    pg.select_option("#coachVoice", "marin"); pg.click("#vpCoach"); wartet_auf_hoeren(pg, "Marin")
+    c = [x for x in sprache() if '"voice":"marin"' in x["body"]]
+    ok("Stimmen: Coach-Vorschau mit Coach-Ton", len(c) == 1 and "warmer, ruhiger Coach" in c[0]["body"] and "dein Coach" in c[0]["body"], [x["body"][:160] for x in c])
+    pg.click("#vpThem"); pg.wait_for_function("document.querySelector('#vpThem').dataset.state === 'on'", timeout=5000)
+    ok("Stimmen: neue Vorschau löst die laufende ab", knopf(pg, "#vpCoach") == "Anhören" and knopf(pg, "#vpThem") == "Stopp")
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(250)
+    ok("Stimmen: Schließen der Einstellungen stoppt die Vorschau", pg.evaluate("player.paused") and knopf(pg, "#vpThem") == "Anhören" and pg.evaluate("voicePrev === null"))
+    ok("Stimmen: ohne Konsolenfehler", not errs, errs)
+    ctx.close()
+
+    ctx = b.new_context(viewport={"width": 1280, "height": 900})
+    pg = ctx.new_page(); reset(); pg.goto(BASE); pg.wait_for_timeout(500)
+    pg.click("#openSettings"); pg.wait_for_timeout(250); pg.click("#vpThem")
+    pg.wait_for_function(f"{NOTE}.includes('Zugangscode')", timeout=5000)
+    ok("Stimmen: ohne Zugangscode freundliche Meldung, Knopf wieder bereit", knopf(pg, "#vpThem") == "Anhören" and len(sprache()) == 0, pg.evaluate(NOTE))
+    ok("Stimmen: Meldung liegt im sichtbaren Bereich", pg.evaluate("(() => { const r = document.querySelector('#voiceNote').getBoundingClientRect(); return r.top >= 0 && r.bottom <= innerHeight; })()"))
+    ctx.close()
+
+    # Handy (390 px), hell und dunkel: Zeile passt, Knopf ≥ 44 px, kein waagrechtes Scrollen
+    for scheme in ["light", "dark"]:
+        ctx = b.new_context(viewport={"width": 390, "height": 844}, color_scheme=scheme, is_mobile=True, has_touch=True)
+        pg = ctx.new_page(); reset(); pg.goto(BASE); pg.wait_for_timeout(500)
+        pg.fill("#gAccess", "geheim"); pg.click("#gAccessSave"); pg.click("#openSettings"); pg.wait_for_timeout(250)
+        pg.evaluate("document.querySelector('#natVoices').scrollIntoView({block:'center'})"); pg.wait_for_timeout(150)
+        pg.click("#vpThem"); wartet_auf_hoeren(pg, "Marin")
+        r = pg.evaluate("""() => { const b = document.querySelector('#vpThem').getBoundingClientRect(), s = document.querySelector('#rtVoice').getBoundingClientRect(), d = document.querySelector('#dlgSettings .dlg');
+          return {knopfL: Math.round(b.left), knopfR: Math.round(b.right), knopfH: Math.round(b.height), selB: Math.round(s.width), dlgOffen: d.scrollWidth - d.clientWidth, seite: document.documentElement.scrollWidth}; }""")
+        ok(f"Handy {scheme}: Stimmenzeile passt, Knopf ≥ 44 px, nichts ragt heraus",
+           r["knopfL"] >= 0 and r["knopfR"] <= 390 and r["knopfH"] >= 44 and r["selB"] >= 120 and r["dlgOffen"] <= 1 and r["seite"] <= 390, r)
+        pg.screenshot(path=S + f"v62_mob_{scheme}_stimmen.png")
+        pg.click("#vpThem"); pg.wait_for_timeout(150)
+        ctx.close()
     b.close()
 
 fails = [r for r in results if not r[1]]
