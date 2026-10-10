@@ -33,6 +33,8 @@ Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf de
 | `api/realtime-session.js` | 10-Minuten-Schlüssel für OpenAI Realtime |
 | `api/tts.js` | Natürliche Stimme (OpenAI Text-to-Speech) |
 | `lib/shared.js` | Gemeinsame Hilfen (Zugangscode-Prüfung) |
+| `tests/` | Test-Server mit nachgebildeten APIs + automatischer Funktionstest (siehe `CLAUDE.md`) |
+| `CLAUDE.md` | Arbeitsregeln für Claude Code |
 | `vercel.json` | Erlaubt das Mikrofon, setzt Sicherheits-Header |
 | `.env.example` | Vorlage für die Environment Variables |
 
