@@ -41,6 +41,14 @@ $(".tabs").addEventListener("keydown", e => {
   if(n !== null){ e.preventDefault(); selectTab(tabs[n].id, true); }
 });
 
+/* v6.3: Höhe der festen Kopfzone (Banner + Reiter) als CSS-Variable, damit Sprungziele und Hinweise nicht darunter verschwinden */
+(function kopfHoehe(){
+  const k = $("#kopfzone"); if(!k) return;
+  const setH = () => document.documentElement.style.setProperty("--kopf-h", Math.round(k.getBoundingClientRect().height) + "px");
+  setH();
+  if(window.ResizeObserver) new ResizeObserver(setH).observe(k); else addEventListener("resize", setH);
+})();
+
 /* ===================== Begleitstufe & Antwortart ===================== */
 function setLevel(l){
   if(!LEVELS[l]) return;
@@ -985,7 +993,7 @@ function askAccess(){
 function init(){
   setLevel(LEVEL); setMode(MODE); renderGallery(); applySettingsUI();
   const h = (location.hash || "").slice(1);
-  if(["hoeren","quiz","karten","xl","cheat","weg"].includes(h)) selectTab("t-" + h);
+  if(["klaeren","hoeren","quiz","karten","xl","cheat","weg"].includes(h)) selectTab("t-" + h);
   (async () => {
     if(INSIDE_CLAUDE){
       try{ sample = await window.claude.use("sample"); }catch(e){ sample = null; }

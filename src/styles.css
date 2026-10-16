@@ -1,5 +1,5 @@
 /* Wolf & Giraffe Trainer – Gestaltungssystem
-   Layout: schmales Marken-Band oben, darunter Navigation; „Üben“ hat zwei Zustände:
+   Layout: feste Kopfzone oben (v6.3: Banner als Marken-Band + Zahnrad, darunter die Reiter); „Üben“ hat zwei Zustände:
    Szenario-Auswahl (Galerie) und Gesprächsbildschirm (Gespräch links, Coach-Spalte rechts).
    Farben: Kontraste nach WCAG 2.2 geprüft; Leuchtorange nur für das Marken-Band. */
 __FONTS__
@@ -9,8 +9,10 @@ __FONTS__
   --accent:#B83C00; --accent-ink:#FFFFFF; --accent-hover:#9A3200; --link:#B83C00;
   --accent-soft:#FFE6D9; --accent-soft-ink:#8F2F00;
   --coach-soft:#FCEBDC; --coach-ink:#8A4A12;
-  --band:#FC4700; --band-ink:#1A1411; --band-line:transparent;
-  --brand-ink:#FFFFFF; /* Schriftzug „Wolf & Giraffe“: weiß wie im Original-Banner (Logo, daher von der Kontrastpflicht ausgenommen) */
+  /* v6.3: Das Marken-Band ist in hell und dunkel das Banner-Orange. #FD4D01 = Grundfarbe des Banner-Bilds,
+     damit Bild und Leiste nahtlos ineinander übergehen. Zahnrad weiß auf Orange: 3,4 : 1 (Bedienelement ≥ 3 : 1). */
+  --band:#FD4D01; --band-ink:#FFFFFF; --band-line:transparent;
+  --kopf-h:150px; /* Höhe der festen Kopfzone, wird per Skript nachgemessen */
   --ok-bg:#E2F3E9; --ok-ink:#1F6A45; --part-bg:#FBF0CF; --part-ink:#7A5600;
   --open-bg:#ECEFF3; --open-ink:#4B5866; --open-border:#7D8A97;
   --focus:#1D4ED8; --shadow:0 1px 2px rgba(34,27,23,.06),0 8px 24px rgba(34,27,23,.06);
@@ -27,7 +29,7 @@ __FONTS__
   --ok-bg:#183226; --ok-ink:#8EDCB0; --part-bg:#33290F; --part-ink:#F2CC66;
   --open-bg:#252B31; --open-ink:#B9C4CF; --open-border:#6E7A86;
   --focus:#8AB4FF; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --brand-ink:#F4EDE7; --lkg-mix:50%;
+  --lkg-mix:50%;
   color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#161210; --surface:#211B18; --surface-2:#2A231F; --text:#F4EDE7; --muted:#B7AAA2;
@@ -37,7 +39,7 @@ __FONTS__
   --ok-bg:#183226; --ok-ink:#8EDCB0; --part-bg:#33290F; --part-ink:#F2CC66;
   --open-bg:#252B31; --open-ink:#B9C4CF; --open-border:#6E7A86;
   --focus:#8AB4FF; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  --band:#211B18; --band-ink:#F4EDE7; --band-line:#FC4700; --brand-ink:#F4EDE7; --lkg-mix:50%;
+  --lkg-mix:50%;
   color-scheme:dark }
 
 *{box-sizing:border-box}
@@ -60,16 +62,19 @@ p{margin:0}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .grow{flex:1}
 
-/* Marken-Band */
+/* Feste Kopfzone (v6.3): Banner + Zahnrad + Reiter bleiben beim Scrollen oben */
+html{scroll-padding-top:calc(var(--kopf-h) + 8px)}
+.kopfzone{position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.14)}
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
-.band .wrap{display:flex;align-items:center;gap:12px;min-height:56px}
-.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--brand-ink);border:0;background:none;padding:0;cursor:pointer}
-.brand img{width:36px;height:36px;border-radius:50%}
-.brand b{font:400 20px/1 var(--f-display);letter-spacing:.01em}
-.band .spacer{flex:1}
+.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:4px;padding-block:6px;padding-right:6px}
+.brand{display:flex;align-items:center;flex:1;min-width:0;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}
+.brand img{width:100%;max-width:420px;height:auto}
+.band :focus-visible{outline-color:#FFFFFF;outline-offset:1px}
 .iconbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border-radius:10px;border:0;background:transparent;color:inherit;cursor:pointer;font-weight:600}
 .iconbtn svg{width:22px;height:22px}
-.band .iconbtn:hover{background:color-mix(in srgb,var(--band-ink) 12%,transparent)}
+.band .iconbtn{flex:none;color:var(--band-ink)}
+.band .iconbtn svg{width:28px;height:28px}
+.band .iconbtn:hover{background:color-mix(in srgb,#1A1411 14%,transparent)}
 
 /* Navigation (Tabs) */
 .navwrap{border-bottom:1px solid var(--line);background:var(--bg)}
@@ -129,8 +134,6 @@ input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 
 /* ---------- Galerie ---------- */
 .hero{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-bottom:28px}
-.hero .banner{background:var(--band);border-radius:var(--r);overflow:hidden;display:flex;justify-content:center}
-.hero .banner img{max-width:680px;width:100%}
 .hero h1{font:400 34px/40px var(--f-display)}
 .hero p{max-width:65ch;color:var(--muted)}
 .section-title{font-weight:700;font-size:20px;line-height:28px;margin-bottom:12px}
@@ -243,7 +246,7 @@ input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 .rtline{font-size:15px;color:var(--muted);text-align:center}
 
 /* Coach-Spalte */
-.coachcol{position:sticky;top:16px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;gap:12px;background:var(--coach-soft);border-radius:var(--r);padding:16px}
+.coachcol{position:sticky;top:calc(var(--kopf-h) + 16px);max-height:calc(100vh - var(--kopf-h) - 32px);display:flex;flex-direction:column;gap:12px;background:var(--coach-soft);border-radius:var(--r);padding:16px}
 .lvl-begleitet .coachcol{background:var(--surface);border:1px solid var(--line)}
 .lvl-begleitet .coachcol .fcard{background:var(--surface-2)}
 .lvl-frei .coachcol{background:transparent;border:1px dashed var(--field-border)}
@@ -338,11 +341,10 @@ input[type=range]{accent-color:var(--accent);width:100%}
 .tablewrap{overflow-x:auto}
 footer{border-top:1px solid var(--line);padding-block:20px;font-size:15px;line-height:22px;color:var(--muted)}
 footer b{color:var(--text)}
+footer .credit{margin-top:8px}
 @media (pointer:coarse){.kbdhint{display:none}}
 @media (max-width:700px){
   .hide-sm{display:none}
-  .brand b{font-size:17px;white-space:nowrap}
-  .brand img{width:30px;height:30px}
   .tabs{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:32px}
   .helpers{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-inline:-16px;padding-inline:16px}
   .helpers .chip{flex:none}
@@ -438,7 +440,7 @@ table.pseudo td:first-child{white-space:nowrap}
 .confetti i{position:fixed;width:8px;height:13px;border-radius:2px;opacity:0;animation:confetti 1.2s cubic-bezier(.2,.7,.4,1) forwards}
 .confetti i.round{width:9px;height:9px;border-radius:50%}
 @keyframes confetti{0%{opacity:1;transform:translate(0,0) rotate(0)}30%{opacity:1;transform:translate(calc(var(--dx) * .4),-70px) rotate(calc(var(--rot) * .3))}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot))}}
-.toast{position:fixed;right:16px;top:72px;z-index:70;width:max-content;max-width:min(420px,calc(100vw - 32px));background:var(--text);color:var(--bg);padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);font-size:15px;line-height:22px;cursor:pointer;animation:toastin .25s ease-out}
+.toast{position:fixed;right:16px;top:calc(var(--kopf-h) + 12px);z-index:70;width:max-content;max-width:min(420px,calc(100vw - 32px));background:var(--text);color:var(--bg);padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);font-size:15px;line-height:22px;cursor:pointer;animation:toastin .25s ease-out}
 .toast b{display:block} .toast .xs{display:block;font-weight:400;opacity:.85;margin-top:2px}
 .toast:empty{display:none}
 @keyframes toastin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
@@ -454,11 +456,12 @@ table.pseudo td:first-child{white-space:nowrap}
 .ernote{text-align:left;max-width:860px;padding-inline:0;color:var(--coach-ink);font-weight:600}
 @keyframes flash{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
 .flash{animation:flash 1.2s ease-out}
-@media (pointer:coarse){.btn.small,.linkbtn{min-height:44px}.linkbtn{display:inline-flex;align-items:center}.brand{min-height:44px}}
+@media (pointer:coarse){.btn.small,.linkbtn{min-height:44px}.linkbtn{display:inline-flex;align-items:center}.brand{min-height:44px}.tab{min-height:44px}}
 @media (max-width:700px){
-  .tabs{flex-wrap:wrap;-webkit-mask-image:none;mask-image:none;padding-right:0;gap:0 2px}
-  .tab{padding:10px 10px;min-height:44px}
-  .toast{left:16px;right:16px;top:64px;width:auto}
+  .tabs{flex-wrap:wrap;-webkit-mask-image:none;mask-image:none;padding-right:0;gap:0}
+  .tab{padding:6px 8px;line-height:22px;min-height:40px}
+  .band .wrap{padding-left:12px}
+  .toast{left:16px;right:16px;top:calc(var(--kopf-h) + 8px);width:auto}
   .lkdrawn{grid-template-columns:1fr}
   .lkgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
   .answers.n3,.answers.n4,.answers.n5,.answers.n6{grid-template-columns:1fr}
@@ -466,3 +469,13 @@ table.pseudo td:first-child{white-space:nowrap}
   .dllist .btn{min-width:0;width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Klären – „Gemeinsam klären“ (v6.3: Startseite, Abläufe folgen). Bewusst ruhig: keine Feiern, keine Zahlen. */
+.klgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.klcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.klcard h2{font-size:22px;line-height:28px;font-weight:700}
+.klcard p:not(.hand):not(.klstate){color:var(--muted)}
+.klstate{align-self:flex-start;margin-top:6px;padding:4px 12px;border-radius:999px;background:var(--open-bg);color:var(--open-ink);border:1px solid var(--open-border);font-size:15px;line-height:22px;font-weight:600}
+.klnote{max-width:70ch;margin-top:4px}
+/* v6.3: Reiter bei Touch immer mindestens 44 px (steht am Ende, damit es die Handy-Regel oben überstimmt) */
+@media (pointer:coarse){.tab{min-height:44px}}

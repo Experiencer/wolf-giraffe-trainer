@@ -53,7 +53,16 @@ with sync_playwright() as p:
 
     # 1 Galerie + Zugangscode
     ok("Galerie sichtbar", pg.is_visible("#gallery"))
-    ok("Schriftzug hell: weiß", pg.evaluate("getComputedStyle(document.querySelector('.brand b')).color") == "rgb(255, 255, 255)")
+    ok("Kopfleiste: Banner-Bild im Logo-Knopf", pg.evaluate("!!document.querySelector('#homeBtn img') && document.querySelector('#homeBtn img').naturalWidth > 0"))
+    ok("Kopfleiste hell: Banner-Orange", pg.evaluate("getComputedStyle(document.querySelector('.band')).backgroundColor") == "rgb(253, 77, 1)")
+    ok("Kopfleiste: altes Startseiten-Banner entfernt", pg.locator(".hero .banner").count() == 0)
+    ok("Fußzeile: Bildnachweis", "Katemangostar – Freepik.com" in pg.inner_text("footer .credit"))
+    # v6.3: Reiter „Klären“ mit zwei Wegen, noch ohne Gesprächsablauf
+    pg.click("#t-klaeren"); pg.wait_for_timeout(150)
+    ok("Klären: Bereich sichtbar, zwei Wege", pg.is_visible("#p-klaeren") and pg.locator("#p-klaeren .klcard").count() == 2)
+    ok("Klären: Stand mit Wort und Form", pg.locator("#p-klaeren .klstate").first.inner_text().startswith("○"))
+    ok("Klären: Reiter an zweiter Stelle", pg.evaluate("[...document.querySelectorAll('[role=tab]')].map(t => t.id).indexOf('t-klaeren')") == 1)
+    pg.click("#t-ueben"); pg.wait_for_timeout(150)
     ok("24 Szenarien + Eigenes-Karte", pg.locator("#sgrid .scard").count() == 25, pg.locator("#sgrid .scard").count())
     ok("Zugangscode-Karte (locked)", pg.is_visible("#gAccess"))
     pg.screenshot(path=S + "v5_gallery_light.png")
@@ -407,7 +416,7 @@ with sync_playwright() as p:
       .map(e => (e.innerText || e.getAttribute('aria-label') || e.id || e.tagName).trim().replace(/\\s+/g, ' ').slice(0, 30) + ' ' + Math.round(e.getBoundingClientRect().height))"""
     DLG_JS = "(() => { const r = document.querySelector('#dlgPause').getBoundingClientRect(); return [Math.round(r.left), Math.round(r.right)]; })()"
     SCROLLW = "document.documentElement.scrollWidth"
-    WORT = "getComputedStyle(document.querySelector('.brand b')).color"
+    WORT = "getComputedStyle(document.querySelector('#openSettings')).color"
 
     def uebung_mit_coach(pg):
         reset(); pg.goto(BASE); pg.wait_for_timeout(500)
@@ -418,13 +427,18 @@ with sync_playwright() as p:
         pg.wait_for_function("[...document.querySelectorAll('.fcard.turn')].some(e => e.offsetParent !== null && e.textContent.includes('Schon gut'))", timeout=6000)
         pg.wait_for_timeout(300)
 
-    for scheme, wort in [("light", "rgb(255, 255, 255)"), ("dark", "rgb(244, 237, 231)")]:
+    for scheme, wort in [("light", "rgb(255, 255, 255)"), ("dark", "rgb(255, 255, 255)")]:
         ctx = b.new_context(viewport={"width": 390, "height": 844}, color_scheme=scheme, is_mobile=True, has_touch=True)
         pg = ctx.new_page(); errs = []
         pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
         pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
         reset(); pg.goto(BASE); pg.wait_for_timeout(500)
-        ok(f"Handy {scheme}: Schriftzug-Farbe", pg.evaluate(WORT) == wort, pg.evaluate(WORT))
+        ok(f"Handy {scheme}: Zahnrad weiß auf Orange", pg.evaluate(WORT) == wort and pg.evaluate("getComputedStyle(document.querySelector('.band')).backgroundColor") == "rgb(253, 77, 1)", pg.evaluate(WORT))
+        kz = pg.evaluate("document.querySelector('#kopfzone').getBoundingClientRect().height")
+        pg.evaluate("scrollTo(0, 900)"); pg.wait_for_timeout(150)
+        ok(f"Handy {scheme}: Kopfzone bleibt beim Scrollen oben", pg.evaluate("window.scrollY") > 0 and pg.evaluate("document.querySelector('#kopfzone').getBoundingClientRect().top") == 0)
+        ok(f"Handy {scheme}: Kopfzone höchstens 180 px, Reiter in 2 Zeilen", kz <= 180 and len(set(pg.evaluate("[...document.querySelectorAll('[role=tab]')].map(t => Math.round(t.getBoundingClientRect().top))"))) == 2, kz)
+        pg.evaluate("scrollTo(0, 0)")
         ok(f"Handy {scheme}: Galerie, Tippflächen ≥ 44 px", pg.evaluate(SMALL_JS) == [], pg.evaluate(SMALL_JS))
         uebung_mit_coach(pg)
         sw = [pg.evaluate(SCROLLW)]
@@ -447,7 +461,7 @@ with sync_playwright() as p:
     pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
     pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
     uebung_mit_coach(pg)
-    ok("Desktop dunkel: Schriftzug-Farbe", pg.evaluate(WORT) == "rgb(244, 237, 231)", pg.evaluate(WORT))
+    ok("Desktop dunkel: Zahnrad weiß auf Banner-Orange", pg.evaluate(WORT) == "rgb(255, 255, 255)" and pg.evaluate("getComputedStyle(document.querySelector('.band')).backgroundColor") == "rgb(253, 77, 1)", pg.evaluate(WORT))
     ok("Desktop dunkel: Coach-Spalte sichtbar", pg.is_visible("#coachcol") and "Schon gut" in pg.inner_text("#feed"))
     pg.screenshot(path=S + "v61_desk_dark_uebung.png")
     sw = [pg.evaluate(SCROLLW)]

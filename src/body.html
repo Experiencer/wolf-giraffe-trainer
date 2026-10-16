@@ -1,13 +1,14 @@
 <div id="app" lang="de" class="lvl-gefuehrt">
+<div class="kopfzone" id="kopfzone">
 <header class="band"><div class="wrap">
-  <button class="brand" id="homeBtn" aria-label="Wolf und Giraffe – zur Szenario-Auswahl"><img src="__WOLF__" alt=""><b>Wolf &amp; Giraffe</b><img src="__GIRAFFE__" alt=""></button>
-  <span class="spacer"></span>
-  <button class="iconbtn" id="openSettings" aria-haspopup="dialog" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="hide-sm">Einstellungen</span></button>
+  <button class="brand" id="homeBtn" aria-label="Wolf und Giraffe – wertschätzend kommunizieren. Zur Startseite"><img src="__KOPF__" alt="" width="900" height="176"></button>
+  <button class="iconbtn" id="openSettings" aria-haspopup="dialog" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
 </div></header>
 
 <div class="navwrap"><div class="wrap">
   <div class="tabs" role="tablist" aria-label="Bereiche">
     <button class="tab" role="tab" id="t-ueben" aria-controls="p-ueben" aria-selected="true">Üben</button>
+    <button class="tab" role="tab" id="t-klaeren" aria-controls="p-klaeren" aria-selected="false" tabindex="-1">Klären</button>
     <button class="tab" role="tab" id="t-hoeren" aria-controls="p-hoeren" aria-selected="false" tabindex="-1">Zuhören</button>
     <button class="tab" role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false" tabindex="-1">Kurzübungen</button>
     <button class="tab" role="tab" id="t-karten" aria-controls="p-karten" aria-selected="false" tabindex="-1">Lernkarten</button>
@@ -16,13 +17,13 @@
     <button class="tab" role="tab" id="t-weg" aria-controls="p-weg" aria-selected="false" tabindex="-1">Mein Weg</button>
   </div>
 </div></div>
+</div>
 
 <main class="wrap">
 <!-- ================= ÜBEN ================= -->
 <section role="tabpanel" id="p-ueben" aria-labelledby="t-ueben">
   <div id="gallery">
     <div class="hero">
-      <div class="banner"><img src="__BANNER__" alt="Wolf und Giraffe – wertschätzend kommunizieren"></div>
       <h1>Schwierige Gespräche üben</h1>
       <p>Du sprichst mit einer KI-Figur, die so reagiert wie ein echter Mensch – und ein Coach zeigt dir, was dir schon gelingt und was du als Nächstes probieren kannst. Grundlage ist die Gewaltfreie Kommunikation nach Marshall B. Rosenberg.</p>
     </div>
@@ -132,6 +133,31 @@
   </div>
 </section>
 
+<!-- ================= KLÄREN (Gemeinsam klären) ================= -->
+<section role="tabpanel" id="p-klaeren" aria-labelledby="t-klaeren" hidden>
+  <div class="stack klaeren">
+    <div class="hero">
+      <h1>Gemeinsam klären</h1>
+      <p>Hier geht es nicht ums Üben, sondern ums Gehört-Werden. Du erzählst, was dich beschäftigt – allein mit dem Coach oder zu zweit mit einem Menschen, mit dem du etwas klären möchtest.</p>
+    </div>
+    <div class="klgrid">
+      <article class="klcard" aria-labelledby="klA">
+        <p class="hand">Allein</p>
+        <h2 id="klA">Erzähl mal</h2>
+        <p>Sortieren, was in dir los ist. Die KI hört zu, gibt wieder, was angekommen ist, und fragt nach, was dir wichtig sein könnte. Du entscheidest, ob es passt.</p>
+        <p class="klstate"><span aria-hidden="true">○</span> In Vorbereitung</p>
+      </article>
+      <article class="klcard" aria-labelledby="klB">
+        <p class="hand">Zu zweit</p>
+        <h2 id="klB">Gespräch zu zweit</h2>
+        <p>Nacheinander sprechen, einander wiedergeben. Der Coach begleitet still und hilft, wenn ihr ihn ruft. Für zwei Erwachsene auf Augenhöhe am selben Gerät.</p>
+        <p class="klstate"><span aria-hidden="true">○</span> In Vorbereitung</p>
+      </article>
+    </div>
+    <p class="small muted klnote">Beide Wege kommen nach und nach dazu – schriftlich, gesprochen oder im Echtzeit-Gespräch. Zuerst sorgen wir dafür, dass die App in schweren Momenten verlässlich auf Hilfe hinweist. Bis dahin findest du Selbstempathie in den Kurzübungen und kannst ein schwieriges Gespräch im Bereich Üben vorbereiten.</p>
+  </div>
+</section>
+
 <!-- ================= ZUHÖREN ================= -->
 <section role="tabpanel" id="p-hoeren" aria-labelledby="t-hoeren" hidden>
   <div id="empHome" class="stack">
@@ -233,7 +259,8 @@
 
 <footer class="wrap">
   <p><b>Du übst mit KI-Figuren</b> – kein Ersatz für Beratung oder Therapie. Wenn es dir gerade nicht gut geht: TelefonSeelsorge <b>0800 111 0 111</b> oder <b>0800 111 0 222</b>, kostenlos und rund um die Uhr. In akuter Gefahr: 112.</p>
-  <p style="margin-top:8px">Nach Marshall B. Rosenbergs Gewaltfreier Kommunikation · Illustrationen: Katemangostar / Freepik · Schriften: Ultra, Caveat Brush, Source Sans 3 (SIL Open Font License)</p>
+  <p style="margin-top:8px">Nach Marshall B. Rosenbergs Gewaltfreier Kommunikation · Schriften: Ultra, Caveat Brush, Source Sans 3 (SIL Open Font License)</p>
+  <p class="credit">Bildnachweis: Wolf- und Giraffen-Icons von Katemangostar – Freepik.com</p>
 </footer>
 
 <!-- ================= DIALOGE ================= -->

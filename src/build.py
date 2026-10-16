@@ -51,11 +51,11 @@ def build():
     ])
     wolf = data_uri(SRC / "assets" / "wolf.jpg", "image/jpeg")
     giraffe = data_uri(SRC / "assets" / "giraffe.jpg", "image/jpeg")
-    banner = data_uri(SRC / "assets" / "banner.jpg", "image/jpeg")
+    kopf = data_uri(SRC / "assets" / "banner-kopf.jpg", "image/jpeg")  # v6.3: Banner als Kopfleiste
 
     css = (SRC / "styles.css").read_text(encoding="utf-8").replace("__FONTS__", fonts)
     body = (SRC / "body.html").read_text(encoding="utf-8")
-    body = body.replace("__WOLF__", wolf).replace("__GIRAFFE__", giraffe).replace("__BANNER__", banner)
+    body = body.replace("__WOLF__", wolf).replace("__GIRAFFE__", giraffe).replace("__KOPF__", kopf)
     engine = (SRC / "engine.js").read_text(encoding="utf-8")
     engine = (engine.replace("__SZ__", js_json(SRC / "data" / "szenarien.json", "szenarien"))
                     .replace("__KU__", js_json(SRC / "data" / "kurzuebungen.json"))
@@ -68,7 +68,7 @@ def build():
     lernen = (SRC / "lernen.js").read_text(encoding="utf-8").replace("__PDFINFO__", json.dumps(pdf_info))
     script = engine + "\n" + ui + "\n" + lernen
 
-    for name in ("__FONTS__", "__WOLF__", "__GIRAFFE__", "__BANNER__", "__SZ__", "__KU__", "__SPICK__", "__LK__", "__EMP__", "__PDFINFO__"):
+    for name in ("__FONTS__", "__WOLF__", "__GIRAFFE__", "__KOPF__", "__SZ__", "__KU__", "__SPICK__", "__LK__", "__EMP__", "__PDFINFO__"):
         assert name not in css + body + script, f"Platzhalter {name} nicht ersetzt"
 
     title = "<title>Wolf &amp; Giraffe Trainer</title>"
