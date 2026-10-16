@@ -434,10 +434,19 @@ with sync_playwright() as p:
         pg.on("pageerror", lambda e: errs.append("PAGEERROR " + str(e)))
         reset(); pg.goto(BASE); pg.wait_for_timeout(500)
         ok(f"Handy {scheme}: Zahnrad weiß auf Orange", pg.evaluate(WORT) == wort and pg.evaluate("getComputedStyle(document.querySelector('.band')).backgroundColor") == "rgb(253, 77, 1)", pg.evaluate(WORT))
-        kz = pg.evaluate("document.querySelector('#kopfzone').getBoundingClientRect().height")
-        pg.evaluate("scrollTo(0, 900)"); pg.wait_for_timeout(150)
-        ok(f"Handy {scheme}: Kopfzone bleibt beim Scrollen oben", pg.evaluate("window.scrollY") > 0 and pg.evaluate("document.querySelector('#kopfzone').getBoundingClientRect().top") == 0)
+        KZ = "(() => { const b = document.querySelector('.band').getBoundingClientRect(), n = document.querySelector('.navwrap').getBoundingClientRect(); return {bandTop: Math.round(b.top), bandBottom: Math.round(b.bottom), navBottom: Math.round(n.bottom), weg: document.querySelector('.navwrap').classList.contains('weg'), kopfH: getComputedStyle(document.documentElement).getPropertyValue('--kopf-h').trim()}; })()"
+        kz = pg.evaluate("document.querySelector('.band').getBoundingClientRect().height + document.querySelector('.navwrap').getBoundingClientRect().height")
         ok(f"Handy {scheme}: Kopfzone höchstens 180 px, Reiter in 2 Zeilen", kz <= 180 and len(set(pg.evaluate("[...document.querySelectorAll('[role=tab]')].map(t => Math.round(t.getBoundingClientRect().top))"))) == 2, kz)
+        # v6.4: Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück
+        for y in (300, 600, 900):
+            pg.evaluate(f"scrollTo(0, {y})"); pg.wait_for_timeout(120)
+        pg.wait_for_timeout(350); k = pg.evaluate(KZ)
+        ok(f"Handy {scheme}: runter – Banner bleibt oben, Reiter darunter verschwunden", k["bandTop"] == 0 and k["weg"] and k["navBottom"] <= k["bandBottom"] and k["kopfH"] == f"{k['bandBottom']}px", k)
+        pg.evaluate("scrollTo(0, 860)"); pg.wait_for_timeout(450); k = pg.evaluate(KZ)
+        ok(f"Handy {scheme}: hoch – Reiter wieder sichtbar unter dem Banner", k["bandTop"] == 0 and not k["weg"] and k["navBottom"] > k["bandBottom"] + 40, k)
+        pg.evaluate("scrollTo(0, 1200)"); pg.wait_for_timeout(120); pg.evaluate("scrollTo(0, 1500)"); pg.wait_for_timeout(400)
+        pg.focus("#t-hoeren"); pg.wait_for_timeout(350); k = pg.evaluate(KZ)
+        ok(f"Handy {scheme}: Tastatur-Fokus holt die Reiter zurück", not k["weg"] and k["navBottom"] > k["bandBottom"] + 40, k)
         pg.evaluate("scrollTo(0, 0)")
         ok(f"Handy {scheme}: Galerie, Tippflächen ≥ 44 px", pg.evaluate(SMALL_JS) == [], pg.evaluate(SMALL_JS))
         uebung_mit_coach(pg)

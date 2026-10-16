@@ -31,6 +31,7 @@ function selectTab(id, focus){
   if(id === "t-karten") renderLK();
   if(id === "t-cheat") renderSZ();
   try{ history.replaceState(null, "", "#" + id.slice(2)); }catch(e){}
+  try{ kopf.zeigen(); }catch(e){}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest('[role="tab"]'); if(t) selectTab(t.id); });
 $(".tabs").addEventListener("keydown", e => {
@@ -41,12 +42,31 @@ $(".tabs").addEventListener("keydown", e => {
   if(n !== null){ e.preventDefault(); selectTab(tabs[n].id, true); }
 });
 
-/* v6.3: Höhe der festen Kopfzone (Banner + Reiter) als CSS-Variable, damit Sprungziele und Hinweise nicht darunter verschwinden */
-(function kopfHoehe(){
-  const k = $("#kopfzone"); if(!k) return;
-  const setH = () => document.documentElement.style.setProperty("--kopf-h", Math.round(k.getBoundingClientRect().height) + "px");
-  setH();
-  if(window.ResizeObserver) new ResizeObserver(setH).observe(k); else addEventListener("resize", setH);
+/* v6.3/v6.4: Kopfzone. Das Banner steht immer oben. Die Reiter verschwinden beim Herunterscrollen
+   unter dem Banner und erscheinen beim Hochscrollen wieder; ganz oben, bei Tastatur-Fokus und beim
+   Reiterwechsel sind sie immer sichtbar. Die sichtbare Höhe steht als --kopf-h bereit, damit Sprungziele
+   und Hinweise nicht unter der Kopfzone verschwinden. */
+const kopf = (function(){
+  const band = $(".kopfzone .band"), nav = $(".kopfzone .navwrap"), root = document.documentElement;
+  if(!band || !nav) return { zeigen(){} };
+  let bandH = 0, navH = 0, lastY = scrollY, weg = false, tick = false;
+  const messen = () => {
+    bandH = Math.round(band.getBoundingClientRect().height); navH = Math.round(nav.getBoundingClientRect().height);
+    root.style.setProperty("--band-h", bandH + "px"); root.style.setProperty("--nav-h", navH + "px");
+    root.style.setProperty("--kopf-h", (weg ? bandH : bandH + navH) + "px");
+  };
+  const setzen = w => { if(w === weg) return; weg = w; nav.classList.toggle("weg", w); messen(); };
+  const pruefen = () => {
+    tick = false; const y = scrollY, dy = y - lastY;
+    if(y <= bandH + navH){ setzen(false); lastY = y; return; }
+    if(nav.contains(document.activeElement)){ setzen(false); lastY = y; return; }
+    if(dy > 8){ setzen(true); lastY = y; } else if(dy < -8){ setzen(false); lastY = y; }
+  };
+  addEventListener("scroll", () => { if(!tick){ tick = true; requestAnimationFrame(pruefen); } }, {passive:true});
+  nav.addEventListener("focusin", () => setzen(false));
+  messen();
+  if(window.ResizeObserver){ const ro = new ResizeObserver(messen); ro.observe(band); ro.observe(nav); } else addEventListener("resize", messen);
+  return { zeigen(){ setzen(false); lastY = scrollY; } };
 })();
 
 /* ===================== Begleitstufe & Antwortart ===================== */

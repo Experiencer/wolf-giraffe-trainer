@@ -12,7 +12,7 @@ __FONTS__
   /* v6.3: Das Marken-Band ist in hell und dunkel das Banner-Orange. #FD4D01 = Grundfarbe des Banner-Bilds,
      damit Bild und Leiste nahtlos ineinander übergehen. Zahnrad weiß auf Orange: 3,4 : 1 (Bedienelement ≥ 3 : 1). */
   --band:#FD4D01; --band-ink:#FFFFFF; --band-line:transparent;
-  --kopf-h:150px; /* Höhe der festen Kopfzone, wird per Skript nachgemessen */
+  --kopf-h:150px; /* sichtbare Höhe der Kopfzone (Banner + ggf. Reiter), wird per Skript nachgemessen */
   --ok-bg:#E2F3E9; --ok-ink:#1F6A45; --part-bg:#FBF0CF; --part-ink:#7A5600;
   --open-bg:#ECEFF3; --open-ink:#4B5866; --open-border:#7D8A97;
   --focus:#1D4ED8; --shadow:0 1px 2px rgba(34,27,23,.06),0 8px 24px rgba(34,27,23,.06);
@@ -64,7 +64,12 @@ p{margin:0}
 
 /* Feste Kopfzone (v6.3): Banner + Zahnrad + Reiter bleiben beim Scrollen oben */
 html{scroll-padding-top:calc(var(--kopf-h) + 8px)}
-.kopfzone{position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.14)}
+/* v6.4: Banner bleibt immer oben. Die Reiter gleiten beim Herunterscrollen unter das Banner
+   und kommen beim Hochscrollen zurück. Beide sind einzeln „sticky“; die Hülle .kopfzone gibt es nur fürs Markup. */
+.kopfzone{display:contents}
+.kopfzone .band{position:sticky;top:0;z-index:21}
+.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top .22s ease}
+.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px)}
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
 .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:4px;padding-block:6px;padding-right:6px}
 .brand{display:flex;align-items:center;flex:1;min-width:0;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}

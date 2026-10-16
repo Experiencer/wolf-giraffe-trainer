@@ -3,7 +3,7 @@
 ## Worum geht es – und was wird damit erreicht?
 Der Trainer ist eine Übungs-App für **Gewaltfreie Kommunikation (GFK) nach Marshall B. Rosenberg**. Du führst schwierige Gespräche mit einer KI-Figur – schriftlich, gesprochen oder als natürliches Echtzeit-Gespräch. Ein **Coach** (die Giraffe) begleitet dich: Er würdigt, was schon gelingt, zeigt genau einen nächsten Schritt und hilft, wenn du ihn rufst.
 
-**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Sie bleibt beim Scrollen stehen. Der Reiter **„Klären“** („Gemeinsam klären“) zeigt die beiden geplanten Wege „Erzähl mal“ (allein) und „Gespräch zu zweit“; die Abläufe folgen nach dem Krisenpfad (A-24). Der Bildnachweis steht in der Fußzeile.
+**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Das Banner bleibt beim Scrollen immer oben; die Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück (v6.4), ganz oben und bei Tastatur-Fokus sind sie immer sichtbar. Der Reiter **„Klären“** („Gemeinsam klären“) zeigt die beiden geplanten Wege „Erzähl mal“ (allein) und „Gespräch zu zweit“; die Abläufe folgen nach dem Krisenpfad (A-24). Der Bildnachweis steht in der Fußzeile.
 
 Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf dem Server als „Environment Variables“ und erscheinen nie im Browser. Konkret:
 - **Coach und Rollenspiel (Claude):** `/api/coach` leitet Anfragen mit `ANTHROPIC_API_KEY` an Claude weiter – auch im Echtzeit-Gespräch.
