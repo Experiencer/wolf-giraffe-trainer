@@ -50,14 +50,21 @@ const kopf = (function(){
   const band = $(".kopfzone .band"), nav = $(".kopfzone .navwrap"), root = document.documentElement;
   if(!band || !nav) return { zeigen(){} };
   let bandH = 0, navH = 0, lastY = scrollY, weg = false, tick = false;
+  let sY = scrollY, sT = performance.now(), tempo = 0; // Scroll-Tempo in px/ms, leicht geglättet
   const messen = () => {
     bandH = Math.round(band.getBoundingClientRect().height); navH = Math.round(nav.getBoundingClientRect().height);
     root.style.setProperty("--band-h", bandH + "px"); root.style.setProperty("--nav-h", navH + "px");
     root.style.setProperty("--kopf-h", (weg ? bandH : bandH + navH) + "px");
   };
-  const setzen = w => { if(w === weg) return; weg = w; nav.classList.toggle("weg", w); messen(); };
+  const setzen = w => {
+    if(w === weg) return;
+    // v6.5: Verschwinden dauert bei langsamem Scrollen länger (bis 0,8 s), bei schnellem kürzer (ab 0,35 s)
+    if(w) nav.style.setProperty("--nav-dur", Math.min(0.8, Math.max(0.35, 0.8 - tempo * 0.22)).toFixed(2) + "s");
+    weg = w; nav.classList.toggle("weg", w); messen();
+  };
   const pruefen = () => {
-    tick = false; const y = scrollY, dy = y - lastY;
+    tick = false; const y = scrollY, dy = y - lastY, t = performance.now();
+    if(t > sT){ tempo = tempo * 0.5 + (Math.abs(y - sY) / (t - sT)) * 0.5; sY = y; sT = t; }
     if(y <= bandH + navH){ setzen(false); lastY = y; return; }
     if(nav.contains(document.activeElement)){ setzen(false); lastY = y; return; }
     if(dy > 8){ setzen(true); lastY = y; } else if(dy < -8){ setzen(false); lastY = y; }

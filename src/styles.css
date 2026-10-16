@@ -68,8 +68,9 @@ html{scroll-padding-top:calc(var(--kopf-h) + 8px)}
    und kommen beim Hochscrollen zurück. Beide sind einzeln „sticky“; die Hülle .kopfzone gibt es nur fürs Markup. */
 .kopfzone{display:contents}
 .kopfzone .band{position:sticky;top:0;z-index:21}
-.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top .22s ease}
-.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px)}
+.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top .24s ease-out}
+/* v6.5: Verschwinden langsamer und an die Scroll-Geschwindigkeit angepasst (0,35–0,8 s, per Skript in --nav-dur) */
+.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px);transition:top var(--nav-dur,.55s) cubic-bezier(.45,0,.3,1)}
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
 .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:4px;padding-block:6px;padding-right:6px}
 .brand{display:flex;align-items:center;flex:1;min-width:0;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}

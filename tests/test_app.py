@@ -440,11 +440,13 @@ with sync_playwright() as p:
         # v6.4: Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück
         for y in (300, 600, 900):
             pg.evaluate(f"scrollTo(0, {y})"); pg.wait_for_timeout(120)
-        pg.wait_for_timeout(350); k = pg.evaluate(KZ)
+        pg.wait_for_timeout(900); k = pg.evaluate(KZ)
         ok(f"Handy {scheme}: runter – Banner bleibt oben, Reiter darunter verschwunden", k["bandTop"] == 0 and k["weg"] and k["navBottom"] <= k["bandBottom"] and k["kopfH"] == f"{k['bandBottom']}px", k)
         pg.evaluate("scrollTo(0, 860)"); pg.wait_for_timeout(450); k = pg.evaluate(KZ)
         ok(f"Handy {scheme}: hoch – Reiter wieder sichtbar unter dem Banner", k["bandTop"] == 0 and not k["weg"] and k["navBottom"] > k["bandBottom"] + 40, k)
-        pg.evaluate("scrollTo(0, 1200)"); pg.wait_for_timeout(120); pg.evaluate("scrollTo(0, 1500)"); pg.wait_for_timeout(400)
+        pg.evaluate("scrollTo(0, 1200)"); pg.wait_for_timeout(120); pg.evaluate("scrollTo(0, 1500)"); pg.wait_for_timeout(900)
+        d = pg.evaluate("parseFloat(getComputedStyle(document.querySelector('.navwrap')).transitionDuration)")
+        ok(f"Handy {scheme}: Verschwinden dauert 0,35–0,8 s", 0.35 <= d <= 0.8, d)
         pg.focus("#t-hoeren"); pg.wait_for_timeout(350); k = pg.evaluate(KZ)
         ok(f"Handy {scheme}: Tastatur-Fokus holt die Reiter zurück", not k["weg"] and k["navBottom"] > k["bandBottom"] + 40, k)
         pg.evaluate("scrollTo(0, 0)")
