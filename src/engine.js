@@ -179,7 +179,14 @@ async function serverPost(path, body, signal){
   if(!r.ok) throw {code: r.status === 401 ? "access" : d.error === "rate_limited" ? "rate_limited" : "upstream_error", message: d.message || ("Server meldet " + r.status)};
   return d;
 }
-async function llmJSON(input, {tier = "quick", signal} = {}){
+/* Jeder KI-Aufruf läuft hier durch: Die Sicherheitsregel (krise.js) wird angehängt, und meldet die KI
+   "krise": true, öffnet sich die Hilfe-Ansicht und der Aufrufer bekommt den Fehlercode "krise". */
+async function llmJSON(input, opts = {}){
+  const res = await llmRaw(mitKrisenRegel(input), opts);
+  if(res && (res.krise === true || res.krise === "ja" || res.krise === "true")){ kriseVonKI(); throw {code:"krise"}; }
+  return res;
+}
+async function llmRaw(input, {tier = "quick", signal} = {}){
   if(sample) return sample.json(input, {modelTier:tier, cache:false, signal});
   if(SERVER && SERVER.coach){ const d = await serverPost("/api/coach", {input, tier}, signal); return looseJSON(d.text || ""); }
   if(INSIDE_CLAUDE || !keys.anthropic) throw {code:"offline"};

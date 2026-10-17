@@ -400,8 +400,9 @@ function quickCheck(check, text, warn){
   return {good, next: next[0] || ""};
 }
 /* Erst selbst einschätzen, dann Schnellhinweis und Vorschläge (Produktprinzip „Feedback stärkt“) */
-function checkUmf(fromVoice){
+async function checkUmf(fromVoice){
   const text = ($("#kzIn")?.value || "").trim();
+  if(text && await kriseVorab(text)) return;
   stopListenL();
   $("#kzCheck").disabled = true; $("#kzSkip").hidden = true;
   if(!text) return revealUmf(fromVoice);
@@ -456,6 +457,7 @@ function rateUmf(v){
 }
 async function coachUmf(){
   const e = KZ.queue[KZ.pos], u = e.u, it = u.items[e.i], text = $("#kzIn").value.trim(), out = $("#kzCoachOut"), b = $("#kzCoach");
+  if(await kriseVorab(text)) return;
   b.disabled = true; out.innerHTML = `<p class="note">Der Coach liest …</p>`;
   try{
     const r = await llmJSON(`Du bist ein warmer Coach für Gewaltfreie Kommunikation nach Marshall B. Rosenberg. Übung: „${u.titel}“ – Auftrag: ${u.aufgabe}
@@ -467,6 +469,7 @@ Antworte NUR mit JSON: {"gut":"1 Satz: was konkret gelungen ist","schritt":"1 Sa
     out.innerHTML = `<div class="fb coachfb"><p><b>Coach:</b> ${esc(r.gut || "")}</p>${r.schritt ? `<p><b>Nächster Schritt:</b> ${esc(r.schritt)}</p>` : ""}</div>`;
     if(KZ.voice) voiceSay((r.gut || "") + " " + (r.schritt || ""), () => listenRate(vtoken));
   }catch(err){
+    if(istKrise(err)){ out.innerHTML = ""; b.disabled = false; return; }
     if(err && err.code === "access") askAccess();
     out.innerHTML = `<p class="note">Der Coach ist gerade nicht erreichbar. Die Vorschläge oben helfen dir trotzdem weiter.</p>`; b.disabled = false;
   }
@@ -547,9 +550,10 @@ function listenStepNext(tok){
   }, error: er => { if(tok === vtoken) kzNote(micErrText(er)); }});
 }
 function stepSave(){ const s = KZ.u.schritte[KZ.step]; if(s && $("#kzIn")) KZ.answers[s.key] = $("#kzIn").value.trim(); }
-function stepNext(){
+async function stepNext(){
   const s = KZ.u.schritte[KZ.step];
   stepSave();
+  if(KZ.answers[s.key] && await kriseVorab(KZ.answers[s.key])) return;
   if(!s.optional && !KZ.answers[s.key]){ kzNote("Schreib oder sag ein paar Worte – oder nimm das Beispiel aus dem Platzhalter."); $("#kzIn").focus(); return; }
   KZ.step++; renderKZ();
 }
@@ -847,6 +851,7 @@ function erListen(){
 }
 async function erAsk(text){
   if(!ER || ER.done || !text.trim() || ER.busy) return;
+  if(await kriseVorab(text)) return;
   const e = ER.e; ER.busy = true; ER.tries++; stopListenL();
   erMe(text.trim());
   if($("#erIn")) $("#erIn").value = "";
@@ -865,7 +870,7 @@ Ordne ein: "treffer" (Gefühl UND Bedürfnis im Kern getroffen, Alltagssprache z
 Antworte als ${e.person} menschlich in 1–2 kurzen Sätzen, Anrede „${e.anrede || "du"}“. Verrate ein nicht getroffenes Bedürfnis nicht als Wort, deute es höchstens an.
 Antworte NUR mit JSON: {"art":"…","antwort":"…","coach":"1 kurzer Satz an die übende Person: würdigend, oder genau ein nächster Schritt"}`, {tier:"quick"});
       if(j && e.reaktion[j.art] && j.antwort){ art = j.art; reply = j.antwort; note = j.coach || ""; }
-    }catch(err){ if(err && err.code === "access") askAccess(); }
+    }catch(err){ if(istKrise(err)){ ER.busy = false; return; } if(err && err.code === "access") askAccess(); }
   }
   if(!note){
     if(art === "blocker") note = `Das klingt nach ${r.blocker || "einer Lösung"} – gut gemeint. Magst du vorher vermuten, was ${e.person} fühlt und braucht?`;

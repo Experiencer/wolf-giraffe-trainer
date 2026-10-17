@@ -19,7 +19,8 @@ globalThis.fetch = async (url, opts = {}) => {
   if (url.includes("api.anthropic.com")) {
     const b = JSON.parse(opts.body); const all = b.messages.map(m => m.content).join("\n");
     let p;
-    if (all.includes('"schritt"')) p = { gut: "Du hast die Verallgemeinerung weggelassen.", schritt: "Ergänze noch einen Zeitpunkt." };
+    if (all.includes("TESTKRISE")) p = { antwort: "…", krise: true };   // A-24: KI meldet eine Krise
+    else if (all.includes('"schritt"')) p = { gut: "Du hast die Verallgemeinerung weggelassen.", schritt: "Ergänze noch einen Zeitpunkt." };
     else if (all.includes('"art"')) p = { art: "treffer", antwort: "Ja … genau das. Danke, dass du fragst.", coach: "Du hast Gefühl und Bedürfnis als Frage vermutet." };
     else if (all.includes('"einschaetzung"')) p = { einschaetzung: "Vermutlich ist sie gerade erschöpft und fühlt sich allein gelassen.", warum: "Wenn sie sich verstanden fühlt, kann sie dir auch zuhören.", vorschlag: "Klingt, als wärst du gerade echt am Limit – brauchst du mehr Unterstützung?" };
     else if (all.includes('"verlauf"')) p = { verlauf: "Ihr seid angespannt gestartet. Mit deiner Empathie-Vermutung wurde es ruhiger.", staerken: ["Du hast konkret beschrieben, was passiert ist.", "Du hast nach ihrem Bedürfnis gefragt."], lernfokus: "Formuliere am Ende eine kleine, machbare Bitte." };

@@ -23,6 +23,7 @@
   /* v6.3: Das Marken-Band ist in hell und dunkel das Banner-Orange. #FD4D01 = Grundfarbe des Banner-Bilds,
      damit Bild und Leiste nahtlos ineinander übergehen. Zahnrad weiß auf Orange: 3,4 : 1 (Bedienelement ≥ 3 : 1). */
   --band:#FD4D01; --band-ink:#FFFFFF; --band-line:transparent;
+  --nav-dur:.55s; /* Tempo der Reiter beim Verschwinden und Erscheinen (v6.6: „Mittel“) */
   --kopf-h:150px; /* sichtbare Höhe der Kopfzone (Banner + ggf. Reiter), wird per Skript nachgemessen */
   --ok-bg:#E2F3E9; --ok-ink:#1F6A45; --part-bg:#FBF0CF; --part-ink:#7A5600;
   --open-bg:#ECEFF3; --open-ink:#4B5866; --open-border:#7D8A97;
@@ -79,9 +80,9 @@ html{scroll-padding-top:calc(var(--kopf-h) + 8px)}
    und kommen beim Hochscrollen zurück. Beide sind einzeln „sticky“; die Hülle .kopfzone gibt es nur fürs Markup. */
 .kopfzone{display:contents}
 .kopfzone .band{position:sticky;top:0;z-index:21}
-.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top .24s ease-out}
-/* v6.5: Verschwinden langsamer und an die Scroll-Geschwindigkeit angepasst (0,35–0,8 s, per Skript in --nav-dur) */
-.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px);transition:top var(--nav-dur,.55s) cubic-bezier(.45,0,.3,1)}
+/* v6.6: Ein Tempo für das ganze Menü: Verschwinden und Erscheinen je 0,55 s („Mittel“), weiche Kurve */
+.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top var(--nav-dur) cubic-bezier(.45,0,.3,1)}
+.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px)}
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
 .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:4px;padding-block:6px;padding-right:6px}
 .brand{display:flex;align-items:center;flex:1;min-width:0;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}
@@ -485,6 +486,15 @@ table.pseudo td:first-child{white-space:nowrap}
   .emphead h1{font-size:22px;line-height:28px}
   .dllist .btn{min-width:0;width:100%}
 }
+/* Krisenpfad (A-24): Hilfe-Ansicht */
+dialog.krise{max-width:min(560px,calc(100vw - 32px))}
+.hilfeliste{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hilfe{display:flex;flex-direction:column;gap:2px;padding:12px 14px;min-height:44px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);text-decoration:none}
+.hilfe b{font-size:17px;line-height:24px}
+.hilfe span{font-size:15px;line-height:22px;color:var(--muted)}
+.hilfe:hover{border-color:var(--accent)}
+.hilfe.notruf{border-color:var(--field-border)}
+dialog.krise q{font-style:italic}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Klären – „Gemeinsam klären“ (v6.3: Startseite, Abläufe folgen). Bewusst ruhig: keine Feiern, keine Zahlen. */
@@ -656,7 +666,7 @@ table.pseudo td:first-child{white-space:nowrap}
         <p class="klstate"><span aria-hidden="true">○</span> In Vorbereitung</p>
       </article>
     </div>
-    <p class="small muted klnote">Beide Wege kommen nach und nach dazu – schriftlich, gesprochen oder im Echtzeit-Gespräch. Zuerst sorgen wir dafür, dass die App in schweren Momenten verlässlich auf Hilfe hinweist. Bis dahin findest du Selbstempathie in den Kurzübungen und kannst ein schwieriges Gespräch im Bereich Üben vorbereiten.</p>
+    <p class="small muted klnote">Beide Wege kommen nach und nach dazu – schriftlich, gesprochen oder im Echtzeit-Gespräch. Als Erstes kommt „Erzähl mal“. Bis dahin findest du Selbstempathie in den Kurzübungen und kannst ein schwieriges Gespräch im Bereich Üben vorbereiten.</p>
   </div>
 </section>
 
@@ -811,6 +821,8 @@ table.pseudo td:first-child{white-space:nowrap}
   <div class="help-line"><b>Wenn es gerade schwer ist:</b>TelefonSeelsorge 0800 111 0 111 · 0800 111 0 222 · 116 123 – kostenlos, rund um die Uhr. In akuter Gefahr: 112.</div>
   <div class="actions"><button class="btn" id="pRestart">Szene neu beginnen</button><button class="btn" id="pQuit">Für heute aufhören</button><button class="btn primary" id="pResume">Weiter, wenn ich bereit bin</button></div>
 </div></dialog>
+
+<dialog id="dlgKrise" class="krise" aria-labelledby="kriseTitel"><div class="dlg" id="kriseBody"></div></dialog>
 
 <dialog id="dlgReport" aria-labelledby="repTitle"><div class="dlg" id="repBody"></div></dialog>
 
@@ -1024,7 +1036,14 @@ async function serverPost(path, body, signal){
   if(!r.ok) throw {code: r.status === 401 ? "access" : d.error === "rate_limited" ? "rate_limited" : "upstream_error", message: d.message || ("Server meldet " + r.status)};
   return d;
 }
-async function llmJSON(input, {tier = "quick", signal} = {}){
+/* Jeder KI-Aufruf läuft hier durch: Die Sicherheitsregel (krise.js) wird angehängt, und meldet die KI
+   "krise": true, öffnet sich die Hilfe-Ansicht und der Aufrufer bekommt den Fehlercode "krise". */
+async function llmJSON(input, opts = {}){
+  const res = await llmRaw(mitKrisenRegel(input), opts);
+  if(res && (res.krise === true || res.krise === "ja" || res.krise === "true")){ kriseVonKI(); throw {code:"krise"}; }
+  return res;
+}
+async function llmRaw(input, {tier = "quick", signal} = {}){
   if(sample) return sample.json(input, {modelTier:tier, cache:false, signal});
   if(SERVER && SERVER.coach){ const d = await serverPost("/api/coach", {input, tier}, signal); return looseJSON(d.text || ""); }
   if(INSIDE_CLAUDE || !keys.anthropic) throw {code:"offline"};
@@ -1170,6 +1189,7 @@ function selectTab(id, focus){
     if(on && focus) t.focus();
   });
   if(id !== "t-ueben"){ stopListen(); hushAll(); }
+  kriseFrageOk = false;
   stopVoiceLearning();
   if(id === "t-weg") renderWeg();
   if(id === "t-quiz"){ $("#quizRun").hidden = true; $("#quizHome").hidden = false; renderDecks(); }
@@ -1196,21 +1216,14 @@ const kopf = (function(){
   const band = $(".kopfzone .band"), nav = $(".kopfzone .navwrap"), root = document.documentElement;
   if(!band || !nav) return { zeigen(){} };
   let bandH = 0, navH = 0, lastY = scrollY, weg = false, tick = false;
-  let sY = scrollY, sT = performance.now(), tempo = 0; // Scroll-Tempo in px/ms, leicht geglättet
   const messen = () => {
     bandH = Math.round(band.getBoundingClientRect().height); navH = Math.round(nav.getBoundingClientRect().height);
     root.style.setProperty("--band-h", bandH + "px"); root.style.setProperty("--nav-h", navH + "px");
     root.style.setProperty("--kopf-h", (weg ? bandH : bandH + navH) + "px");
   };
-  const setzen = w => {
-    if(w === weg) return;
-    // v6.5: Verschwinden dauert bei langsamem Scrollen länger (bis 0,8 s), bei schnellem kürzer (ab 0,35 s)
-    if(w) nav.style.setProperty("--nav-dur", Math.min(0.8, Math.max(0.35, 0.8 - tempo * 0.22)).toFixed(2) + "s");
-    weg = w; nav.classList.toggle("weg", w); messen();
-  };
+  const setzen = w => { if(w === weg) return; weg = w; nav.classList.toggle("weg", w); messen(); }; // Tempo: --nav-dur in styles.css
   const pruefen = () => {
-    tick = false; const y = scrollY, dy = y - lastY, t = performance.now();
-    if(t > sT){ tempo = tempo * 0.5 + (Math.abs(y - sY) / (t - sT)) * 0.5; sY = y; sT = t; }
+    tick = false; const y = scrollY, dy = y - lastY;
     if(y <= bandH + navH){ setzen(false); lastY = y; return; }
     if(nav.contains(document.activeElement)){ setzen(false); lastY = y; return; }
     if(dy > 8){ setzen(true); lastY = y; } else if(dy < -8){ setzen(false); lastY = y; }
@@ -1312,7 +1325,7 @@ function backToGallery(){
 }
 function resetSession(){
   SESSION.ctl && SESSION.ctl.abort(); stopListen(); hushAll(); if(RT.on) rtStop();
-  HELP.key = ""; HELP.p = null;
+  HELP.key = ""; HELP.p = null; kriseFrageOk = false;
   Object.assign(SESSION, {open:30, turns:[], log:[], posUsed:false, struggle:0, sinceHelp:9, busy:false, coachBusy:false, lastThem:"", startedAt:Date.now(), saved:null});
   for(const k in CARDS) delete CARDS[k];
   const sz = SESSION.cur, name = personName(sz);
@@ -1487,7 +1500,7 @@ async function processTurn(text){
       const coach = normCoach(res.coach || {});
       return {coach, reply:{say:String(res.antwort || "…")}, open: typeof res.offenheit === "number" ? res.offenheit : SESSION.open, wolf: coach.ear.startsWith("wolf") ? 1 : 0, pts: ptsOf(coach)};
     }catch(e){
-      if(e && e.code === "cancelled"){ SESSION.turns.pop(); throw e; }
+      if(e && (e.code === "cancelled" || e.code === "krise")){ SESSION.turns.pop(); throw e; }
       if(e && e.code === "access") askAccess();
       sys("Der ausführliche Coach ist gerade nicht erreichbar – diesmal prüft die Schnellanalyse.");
     }
@@ -1528,13 +1541,14 @@ async function submitTurn(text, from){
   text = (text || "").trim(); if(!text || SESSION.busy) return;
   if(STOP_WORDS.test(text)){ openPause("pause"); return; }
   if(COACH_WORDS.test(text)){ callCoach(false); return; }
+  if(await kriseVorab(text)) return;   // A-24: Hilfe-Ansicht statt Übung
   SESSION.busy = true; setBusy(true); status(`${personName(SESSION.cur)} denkt nach …`);
   const anchor = me(text);
   const card = LEVEL !== "frei" ? createTurnCard(text, anchor, from === "text" && LEVEL === "gefuehrt" && settings.selfAssess) : null;
   const before = SESSION.open;
   let r;
   try{ r = await processTurn(text); }
-  catch(e){ SESSION.busy = false; setBusy(false); status("Du bist dran"); card && card.remove(); anchor.remove(); if(from === "voice") $("#vSay").value = text; else $("#say").value = text; return; }
+  catch(e){ SESSION.busy = false; setBusy(false); status("Du bist dran"); card && card.remove(); anchor.remove(); if(istKrise(e)) return; if(from === "voice") $("#vSay").value = text; else $("#say").value = text; return; }
   recordTurn(text, r, before, card);
   them(r.reply.say, r.reply.narr);
   SESSION.turns.push({role:"assistant", content: r.reply.say || `(${r.reply.narr})`});
@@ -1554,7 +1568,9 @@ $("#send").addEventListener("click", () => { const v = $("#say").value; $("#say"
 $("#say").addEventListener("keydown", e => { if(e.key === "Enter" && !e.shiftKey && !e.isComposing){ e.preventDefault(); $("#send").click(); } });
 $("#vSend").addEventListener("click", () => {
   const v = $("#vSay").value.trim(); $("#vSay").value = ""; if(!v) return;
-  if(MODE === "rt" && RT.on){ if(STOP_WORDS.test(v)){ openPause("pause"); return; } if(COACH_WORDS.test(v)){ rtPauseForCoach(false); return; } if(RT.paused) rtResume();
+  if(MODE === "rt" && RT.on){ if(STOP_WORDS.test(v)){ openPause("pause"); return; } if(COACH_WORDS.test(v)){ rtPauseForCoach(false); return; }
+    const kc = krisenCheck(v); if(kc && !(kc.stufe === "frage" && kriseFrageOk)){ kriseVorab(v).then(stop => { if(!stop){ $("#vSay").value = v; } }); return; }
+    if(RT.paused) rtResume();
     rtSend({type:"conversation.item.create", item:{type:"message", role:"user", content:[{type:"input_text", text:v}]}}); rtSend({type:"response.create"}); rtUserTurn(v); return; }
   submitTurn(v, "voice");
 });
@@ -1605,7 +1621,7 @@ async function callCoach(auto){
       const pre = takeHelp(auto);
       if(pre) h = await pre;
       if(!h) h = await fetchHelp(auto);
-    }catch(e){ if(e && e.code === "access") askAccess(); }
+    }catch(e){ if(istKrise(e)){ pair.remove(); SESSION.coachBusy = false; return; } if(e && e.code === "access") askAccess(); }
   }
   if(!h) h = offlineHelp();
   pair.set(auto ? "auto" : "help", helpHTML(h, auto, ctx));
@@ -1698,6 +1714,7 @@ REGELN:
 - Lass Gefühle in der Stimme hörbar werden – passend zu deiner Lage.
 - Auf Vorwürfe, Urteile, Drohungen, Ratschläge oder Rechtfertigungen reagierst du mit Abwehr. Auf echte Empathie und ehrliche, vorwurfsfreie Sätze öffnest du dich schrittweise.
 - Wenn der Übende nur „Coach“, „Hilfe“, „Auszeit“, „Stopp“ oder „Pause“ sagt, antworte nur mit „Mhm.“
+${KRISE_RT}
 ${sz.eroeffnung && SESSION.turns.length <= 1 ? `Dein erster Satz lautet: „${sz.eroeffnung}“` : "Warte, bis der Übende spricht."}${hist}`;
 }
 function rtSessionConfig(withModel){
@@ -1811,6 +1828,8 @@ function rtEvent(ev){
       if(!text) break;
       if(STOP_WORDS.test(text)){ openPause("pause"); break; }
       if(COACH_WORDS.test(text)){ rtPauseForCoach(false); break; }
+      { const kc = krisenCheck(text);
+        if(kc && !(kc.stufe === "frage" && kriseFrageOk)){ kriseVorab(text).then(stop => { if(!stop) rtUserTurn(text); }); break; } }
       rtUserTurn(text); break; }
     case "response.created": RT.responseActive = true; RT.aiText = ""; break;
     case "response.output_audio_transcript.delta":
@@ -1820,6 +1839,7 @@ function rtEvent(ev){
     case "response.output_audio_transcript.done": {
       const text = (ev.transcript || RT.aiText || "").trim();
       if(!text || RT.paused || /^mhm\.?$/i.test(text)) break;
+      if(/telefonseelsorge|0800\s*111/i.test(text)){ them(text); kriseVonKI(); break; }   // KI hat die Rolle wegen einer Krise verlassen
       if(RT.skipFirst){ RT.skipFirst = false; $("#caption").textContent = text; prefetchHelp(); break; }
       them(text); SESSION.turns.push({role:"assistant", content:text}); prefetchHelp(); break; }
     case "response.done":
@@ -1836,6 +1856,7 @@ async function rtUserTurn(text){
   const card = LEVEL !== "frei" ? createTurnCard(text, anchor, false) : null;
   const before = SESSION.open;
   const r = await coachTurn(text);
+  if(!r){ card && card.remove(); return; }   // Krise: Hilfe-Ansicht ist offen
   recordTurn(text, r, before, card);
   const intervene = evaluateStruggle(r, before);
   if(intervene) autoCoach(intervene);
@@ -1852,7 +1873,7 @@ Bewerte NUR die letzte Nutzer-Aussage: „${text}“ – die Funktion, nicht For
 Antworte NUR mit JSON: {"offenheit":0-100,"coach":{"O":"g|y|r|n","G":"g|y|r|n","B":"g|y|r|n","R":"g|y|r|n","empathie":true|false,"ohr":"wolf-innen|wolf-aussen|giraffe-innen|giraffe-aussen|ausdruck","gut":["…"],"besser":"…","lernform":"…","alltag":"…"}}`, {tier:"quick"});
       const coach = normCoach(res.coach || {});
       return {coach, open: typeof res.offenheit === "number" ? res.offenheit : SESSION.open, wolf: coach.ear.startsWith("wolf") ? 1 : 0, pts: ptsOf(coach)};
-    }catch(e){ if(e && e.code === "access") askAccess(); }
+    }catch(e){ if(istKrise(e)) return null; if(e && e.code === "access") askAccess(); }
   }
   const r = offlineTurn(text);
   return {coach:r.coach, open:r.open, wolf:r.wolf, pts:r.pts};
@@ -1943,7 +1964,7 @@ Verlauf:
 ${transcript}
 
 Antworte NUR mit JSON: {"verlauf":"2 Sätze: was im Gespräch passiert ist, mit Wendepunkt","staerken":["2–3 Dinge, die wirklich gelungen sind, konkret mit Bezug auf Sätze des Nutzers"],"lernfokus":"1 Satz: genau ein nächster Schritt"}`, {tier:"default"});
-    }catch(e){ if(e && e.code === "access") askAccess(); }
+    }catch(e){ if(istKrise(e)) return; if(e && e.code === "access") askAccess(); }
   }
   const sz = SESSION.cur, nx = nextScenario();
   const strengths = (live && Array.isArray(live.staerken) && live.staerken.length ? live.staerken : f.strengths);
@@ -2002,13 +2023,14 @@ function renderXL(a, out){
 }
 $("#xlGo").addEventListener("click", async () => {
   const txt = $("#wolfIn").value.trim(); if(!txt) return;
+  if(await kriseVorab(txt)) return;
   const a = analyze(txt);
   if(!liveOn()){ renderXL(a, {}); return; }
   $("#xlState").textContent = "Claude übersetzt …"; $("#xlGo").disabled = true;
   try{
     const r = await llmJSON(`Übersetze diesen Satz in Gewaltfreie Kommunikation nach Marshall B. Rosenberg. Erfinde keine Fakten; wo Details fehlen, setze kurze Platzhalter in [eckige Klammern].\nSatz: "${txt}"\nAntworte NUR mit JSON: {"probleme":["kurze, freundliche Hinweise, was der Satz beim Gegenüber auslösen kann"],"o":"Beobachtung","g":"Gefühl","b":"Bedürfnis","r":"Bitte","alltag":"natürliche Alltagsfassung in 1–2 Sätzen"}`, {tier:"quick"});
     renderXL({...a, issues: Array.isArray(r.probleme) && r.probleme.length ? r.probleme : a.issues}, r); $("#xlState").textContent = "";
-  }catch(e){ renderXL(a, {}); $("#xlState").textContent = "Claude ist gerade nicht erreichbar – hier das Gerüst."; }
+  }catch(e){ if(istKrise(e)){ $("#xlState").textContent = ""; return; } renderXL(a, {}); $("#xlState").textContent = "Claude ist gerade nicht erreichbar – hier das Gerüst."; }
   finally{ $("#xlGo").disabled = false; }
 });
 
@@ -2029,6 +2051,7 @@ $("#custForm").addEventListener("submit", async e => {
   const f = {who:$("#cWho").value.trim(), what:$("#cWhat").value.trim(), goal:$("#cGoal").value.trim(), react:$("#cReact").value.trim(),
     start:$("#cStart [aria-checked=true]").dataset.v, lvl:+$("#cLvl [aria-checked=true]").dataset.v};
   if(!f.who || !f.what){ $("#custState").textContent = "Bitte sag, mit wem du sprechen willst und was passiert ist."; return; }
+  if(await kriseVorab([f.who, f.what, f.goal, f.react].join(". "))) return;
   let sz = null; const btn = $("#custForm [type=submit]");
   if(liveOn()){
     $("#custState").textContent = "Claude baut dein Szenario …"; if(btn) btn.disabled = true;
@@ -2042,7 +2065,7 @@ Wer beginnt: ${f.start === "them" ? "das Gegenüber" : "der Übende"}
 Antworte NUR mit JSON: {"titel":"kurzer Titel, max. 6 Wörter","fokus":"z. B. Ehrlicher Ausdruck / Empathie hören / Nein sagen / Bitte statt Forderung","kontext":"2 Sätze in Du-Form aus Sicht des Übenden","rolle":"Name oder Rolle, Beziehung, kurze innere Lage","eroeffnung":"${f.start === "them" ? "erster Satz des Gegenübers, realistisch und leicht angespannt" : ""}","verborgen":{"gefuehle":["2–3"],"beduerfnisse":["2–3"]},"lernziel":"1 Satz","eskalation":"Bei Vorwurf: … ('wörtlicher Satz'). Bei Empathie: … ('wörtlicher Satz')."}`, {tier:"default"});
       sz = {...offlineCustom(f), ...r, bereich:"Eigenes", stufe:f.lvl};
       if(f.start !== "them") sz.eroeffnung = "";
-    }catch(err){ sz = null; if(err && err.code === "access") askAccess(); }
+    }catch(err){ sz = null; if(istKrise(err)){ if(btn) btn.disabled = false; $("#custState").textContent = ""; return; } if(err && err.code === "access") askAccess(); }
     if(btn) btn.disabled = false;
   }
   if(!sz) sz = offlineCustom(f);
@@ -2177,6 +2200,161 @@ function init(){
   })();
 }
 /* init() wird am Ende von lernen.js aufgerufen, damit alle Teile geladen sind. */
+
+/* ===================== Krisenpfad (A-24, v6.7) =====================
+   Worum geht es? Menschen erzählen beim Üben manchmal von etwas, das größer ist als eine Übung:
+   Gedanken, nicht mehr leben zu wollen, Selbstverletzung, Gewalt, Missbrauch oder akute Gefahr.
+   Dann verlässt die App die Übung, gibt kurz Empathie und nennt Hilfe, die sofort erreichbar ist.
+
+   Zwei Netze, damit es auch ohne Verbindung funktioniert:
+   1. Im Browser (immer, auch offline): krisenCheck() prüft jeden eigenen Satz, bevor er weitergeht.
+      - „akut“  = eindeutig (z. B. „Ich will nicht mehr leben“, „Er schlägt mich“) → Übung endet, Hilfe-Ansicht.
+      - „frage“ = mehrdeutig (z. B. „Ich bring dich um“, „Ich kann nicht mehr.“) → einmal behutsam nachfragen.
+        Im Rollenspiel gehören solche Sätze oft dazu (Wut ist in der GFK willkommen) – deshalb fragen statt urteilen.
+   2. In jeder KI-Anweisung (KRISE_REGEL, Echtzeit: KRISE_RT): Die KI meldet ernste Hinweise mit "krise": true
+      bzw. verlässt im Echtzeit-Gespräch die Rolle und nennt die TelefonSeelsorge.
+   Keine Diagnose, keine Bewertung; die Person entscheidet. Der Satz wird nirgends gespeichert. */
+
+const KRISE_REGEL = `SICHERHEIT (gilt vor allen anderen Regeln): Prüfe die Worte der übenden Person selbst. Gibt es ernste Hinweise, dass sie gerade in Gefahr ist oder jemand anderes – Gedanken, nicht mehr leben zu wollen, Selbstverletzung, aktuelle Gewalt, Missbrauch, Bedrohung oder eine akute Krise –, dann füge dem JSON zusätzlich das Feld "krise": true hinzu. Nicht gemeint sind Wut im Rollenspiel, Übertreibungen und Redewendungen („Das bringt mich um“, „Ich platze gleich“) und Inhalte, die nur zum Szenario gehören. Sonst lass das Feld weg.`;
+
+const KRISE_RT = `SICHERHEIT (gilt vor allen anderen Regeln): Spricht die übende Person ernsthaft davon, nicht mehr leben zu wollen, sich selbst zu verletzen, Gewalt oder Missbrauch zu erleben oder in Gefahr zu sein, dann verlass sofort die Rolle. Sag ruhig und warm in höchstens zwei Sätzen, dass das gerade wichtiger ist als die Übung und dass die TelefonSeelsorge unter 0800 111 0 111 jederzeit kostenlos zuhört und in akuter Gefahr die 112 hilft. Danach schweig. Wut, Übertreibungen und Redewendungen im Rollenspiel sind damit nicht gemeint.`;
+
+/* Muster: kleingeschrieben, auf normalisierten Text. „vor“-Sperre verhindert „schlägt mich als Leitung vor“. */
+const KEIN_VOR = "(?![^.!?]*\\bvor\\b)";
+const KRISE_MUSTER = {
+  selbst: [
+    /\b(suizid|selbstmord|freitod|lebensmüde)/,
+    /\b(mich|mir)\s+(selbst\s+)?(umbringen|umzubringen|töten|zu töten|das leben (zu )?nehmen|etwas antun|was antun|etwas anzutun)\b/,
+    /\bbringe?\s+mich\s+(selbst\s+)?um\b/,
+    /\bich\s+töte\s+mich\b/,
+    /\b(will|möchte|mag|kann)\s+(einfach\s+|so\s+|echt\s+)?nicht\s+mehr\s+leben\b/,
+    /\bnicht\s+mehr\s+leben\s+(will|möchte|wollen)\b/,
+    /\b(will|möchte)\s+(einfach\s+|nur\s+noch\s+|am liebsten\s+)?(sterben|tot sein)\b/,
+    /\b(wäre|wär)\s+(ich\s+)?(lieber|besser)\s+tot\b/,
+    /\bmich\s+selbst\s+(verletzen|verletze)\b/,
+    /\b(ritze|ritzen|ritzte)\s+mich\b/, /\bmich\s+(zu\s+)?ritzen\b/,
+    /\bmeinem\s+leben\s+ein\s+ende\b/, /\bschluss\s+machen\s+mit\s+(meinem|dem)\s+leben\b/,
+    /\b(will|möchte)\s+nicht\s+mehr\s+aufwachen\b/,
+    /\bkein(en)?\s+grund\s+mehr,?\s+(zu|um zu)\s+leben\b/,
+  ],
+  gewalt: [
+    new RegExp("\\b(schlägt|schlug|tritt|würgt|würgte|verprügelt)\\s+(mich|uns|meine kinder|die kinder|mein kind|meinen sohn|meine tochter)\\b" + KEIN_VOR),
+    /\bhat\s+mich\s+(\S+\s+){0,3}(geschlagen|getreten|gewürgt|verprügelt|vergewaltigt|missbraucht)\b/,
+    /\b(werde|wurde|werden)\s+(geschlagen|verprügelt|missbraucht|vergewaltigt)\b/,
+    /\bvergewaltig/, /\bsexuell(en|er)?\s+(missbrauch|übergriff|belästig)/, /\bmissbraucht\s+(mich|uns)\b/,
+    /\bhäusliche\w*\s+gewalt\b/,
+    /\b(droht|drohte|bedroht)\s*,?\s*mich\s+(umzubringen|zu töten|zu schlagen)\b/, /\bbedroht\s+mich\s+mit\s+(dem tod|einem messer|einer waffe)\b/,
+    /\bangst\s+um\s+mein\s+leben\b/, /\bangst,?\s+dass\s+(er|sie)\s+mich\s+(umbringt|tötet|schlägt)\b/,
+  ],
+  frage: [
+    /\bbringe?\s+(dich|ihn|sie|euch|jemanden)\s+um\b/, /\b(dich|ihn|sie|euch|jemanden)\s+(umbringen|töten|abstechen|erschießen)\b/,
+    /\bich\s+kann\s+(einfach\s+|echt\s+|wirklich\s+|so\s+|überhaupt\s+|bald\s+)?nicht\s+mehr\s*($|[.!…,])/,
+    /\b(halte|ertrage)\s+(das|es|dich|alles)?\s*(alles\s+)?nicht\s+mehr\s+aus\b/,
+    /\b(will|möchte)\s+(einfach\s+)?nicht\s+mehr\s*($|[.!…])/,
+    /\balles\s+beenden\b/, /\bkeinen\s+sinn\s+mehr\b/, /\bbedroht\s+mich\b/,
+    new RegExp("\\b(schlägt|schlug|verprügelt)\\s+(meine frau|meinen mann|meine partnerin|meinen partner|meine freundin|meinen freund|meine mutter|meinen vater|meine schwester|meinen bruder)\\b" + KEIN_VOR),
+    /\bhat\s+(meine|meinen|mein)\s+\w+\s+(\S+\s+){0,2}(geschlagen|verprügelt|missbraucht)\b/,
+  ],
+};
+function krisenNorm(t){ return String(t || "").toLowerCase().replace(/[„“”"»«]/g, " ").replace(/\s+/g, " ").trim(); }
+/* Liefert {stufe:"akut"|"frage", art:"selbst"|"gewalt"|"allgemein"} oder null. */
+function krisenCheck(text){
+  const t = krisenNorm(text); if(!t) return null;
+  if(KRISE_MUSTER.selbst.some(r => r.test(t))) return {stufe:"akut", art:"selbst"};
+  if(KRISE_MUSTER.gewalt.some(r => r.test(t))) return {stufe:"akut", art:"gewalt"};
+  if(KRISE_MUSTER.frage.some(r => r.test(t))) return {stufe:"frage", art:"allgemein"};
+  return null;
+}
+/* KI-Anweisung um die Sicherheitsregel ergänzen (für llmJSON) */
+function mitKrisenRegel(input){
+  if(typeof input === "string") return input + "\n\n" + KRISE_REGEL;
+  if(Array.isArray(input) && input.length){
+    const copy = input.map(m => ({...m})); const i = copy.findIndex(m => m.role === "user");
+    if(i >= 0) copy[i].content = String(copy[i].content) + "\n\n" + KRISE_REGEL; return copy;
+  }
+  return input;
+}
+const istKrise = e => !!(e && e.code === "krise");
+
+/* ---------- Hilfe-Ansicht ---------- */
+const HILFE = {
+  seelsorge: `<li><a class="hilfe" href="tel:08001110111"><b>TelefonSeelsorge 0800 111 0 111</b><span>oder 0800 111 0 222 · 116 123 – kostenlos, anonym, rund um die Uhr</span></a></li>`,
+  seelsorgeOnline: `<li><a class="hilfe" href="https://online.telefonseelsorge.de/" target="_blank" rel="noopener"><b>Lieber schreiben?</b><span>Chat und Mail der TelefonSeelsorge: online.telefonseelsorge.de</span></a></li>`,
+  frauen: `<li><a class="hilfe" href="tel:116016"><b>Hilfetelefon Gewalt gegen Frauen 116 016</b><span>kostenlos, rund um die Uhr, auch Chat auf hilfetelefon.de</span></a></li>`,
+  maenner: `<li><a class="hilfe" href="tel:08001239900"><b>Hilfetelefon Gewalt an Männern 0800 123 99 00</b><span>kostenlos, Mo–Do 8–20 Uhr, Fr 8–15 Uhr</span></a></li>`,
+  notruf: `<li><a class="hilfe notruf" href="tel:112"><b>In akuter Gefahr: 112</b><span>Notruf · Polizei 110</span></a></li>`,
+};
+let kriseFrageOk = false;           // „Gehört zur Übung“ gilt bis zur nächsten Übung (siehe resetSession, selectTab)
+let kriseResolve = null;
+function kriseAlleStoppen(){
+  try{ SESSION.ctl && SESSION.ctl.abort(); }catch(e){}
+  try{ if(RT.on) rtStop(); }catch(e){}
+  try{ stopListen(); }catch(e){}
+  try{ stopVoiceLearning(); }catch(e){}
+  try{ hushAll(); }catch(e){}
+}
+function kriseRtPause(){
+  if(!(typeof RT !== "undefined" && RT.on && !RT.paused)) return false;
+  RT.paused = true; if(RT.responseActive) rtSend({type:"response.cancel"}); if(RT.audio) RT.audio.muted = true; rtMute(true); return true;
+}
+function kriseHTML(k){
+  const liste = k.art === "gewalt" ? [HILFE.notruf, HILFE.frauen, HILFE.maenner, HILFE.seelsorge] : [HILFE.seelsorge, HILFE.seelsorgeOnline, HILFE.notruf];
+  if(k.stufe === "frage") return `<h2 id="kriseTitel">Darf ich kurz nachfragen?</h2>
+    <p>Du hast gerade geschrieben: <q>${esc(String(k.text || "").slice(0, 160))}</q></p>
+    <p>Im Rollenspiel kann so ein Satz dazugehören – Wut darf sein. Falls es dir aber gerade wirklich so geht, ist das wichtiger als jede Übung.</p>
+    <ul class="hilfeliste">${HILFE.seelsorge}${HILFE.notruf}</ul>
+    <div class="actions"><button class="btn" id="kriseErnst">Mir geht es gerade wirklich nicht gut</button><button class="btn primary" id="kriseWeiter">Gehört zur Übung – weiter</button></div>`;
+  return `<h2 id="kriseTitel">Das klingt gerade sehr schwer.</h2>
+    <p>${k.art === "gewalt" ? "Was du beschreibst, klingt, als wärst du oder jemand anderes nicht sicher." : "Was du beschreibst, klingt, als ginge es gerade um viel mehr als eine Übung."} Deshalb halten wir hier an. Du musst damit nicht allein bleiben – hier hören dir Menschen zu, sofort und kostenlos:</p>
+    <ul class="hilfeliste">${liste.join("")}</ul>
+    <p class="small muted">Diese App ist ein Übungsraum mit KI. In so einem Moment kann sie nicht da sein wie ein Mensch. Die Übung ist beendet; dein Satz wird nicht gespeichert.</p>
+    <div class="actions"><button class="btn primary" id="kriseEnde">Zur Startseite</button></div>`;
+}
+/* Zeigt die Hilfe-Ansicht. Ergebnis: "weiter" (nur bei „frage“) oder "ende". */
+function kriseZeigen(k){
+  const d = document.getElementById("dlgKrise"), box = document.getElementById("kriseBody");
+  if(!d || !box) return Promise.resolve(k.stufe === "akut" ? "ende" : "weiter");
+  if(kriseResolve){ const r = kriseResolve; kriseResolve = null; r("ende"); }
+  return new Promise(resolve => {
+    const akut = () => {
+      kriseAlleStoppen();
+      document.querySelectorAll("dialog[open]").forEach(x => { if(x !== d) x.close(); });
+      box.innerHTML = kriseHTML({...k, stufe:"akut"}); d.dataset.stufe = "akut";
+      if(!d.open) d.showModal();
+      box.querySelector("#kriseEnde").focus();
+      box.querySelector("#kriseEnde").onclick = () => d.close();
+    };
+    kriseResolve = resolve;
+    if(k.stufe === "akut"){ akut(); kriseResolve = null; resolve("ende"); return; }
+    const rtWar = kriseRtPause(); try{ stopListen(); hushAll(); }catch(e){}
+    box.innerHTML = kriseHTML(k); d.dataset.stufe = "frage";
+    d.showModal(); box.querySelector("#kriseWeiter").focus();
+    box.querySelector("#kriseWeiter").onclick = () => d.close();
+    box.querySelector("#kriseErnst").onclick = () => { const r = kriseResolve; kriseResolve = null; akut(); if(r) r("ende"); };
+    d.dataset.rt = rtWar ? "1" : "";
+  });
+}
+document.getElementById("dlgKrise")?.addEventListener("close", () => {
+  const d = document.getElementById("dlgKrise");
+  if(d.dataset.stufe === "akut"){
+    d.dataset.stufe = "";
+    try{ if(!$("#practice").hidden) backToGallery(); }catch(e){}
+    try{ selectTab("t-ueben"); window.scrollTo({top:0}); }catch(e){}
+    return;
+  }
+  // „frage“ geschlossen (Knopf „weiter“ oder Esc): weiter üben, diesmal nicht erneut fragen
+  kriseFrageOk = true;
+  if(d.dataset.rt === "1"){ d.dataset.rt = ""; try{ rtResume(); }catch(e){} }
+  if(kriseResolve){ const r = kriseResolve; kriseResolve = null; r("weiter"); }
+});
+/* Für alle Eingabestellen: true = nicht weiterverarbeiten (Hilfe-Ansicht ist offen bzw. Übung beendet). */
+async function kriseVorab(text){
+  const k = krisenCheck(text); if(!k) return false;
+  if(k.stufe === "frage" && kriseFrageOk) return false;
+  return (await kriseZeigen({...k, text})) !== "weiter";
+}
+/* Die KI hat "krise": true gemeldet */
+function kriseVonKI(){ kriseZeigen({stufe:"akut", art:"allgemein"}); }
 
 /* ======================================================================
    Lernen (v6): Kurzübungen mit Sprachmodus, Empathisch zuhören, Lernkarten,
@@ -2580,8 +2758,9 @@ function quickCheck(check, text, warn){
   return {good, next: next[0] || ""};
 }
 /* Erst selbst einschätzen, dann Schnellhinweis und Vorschläge (Produktprinzip „Feedback stärkt“) */
-function checkUmf(fromVoice){
+async function checkUmf(fromVoice){
   const text = ($("#kzIn")?.value || "").trim();
+  if(text && await kriseVorab(text)) return;
   stopListenL();
   $("#kzCheck").disabled = true; $("#kzSkip").hidden = true;
   if(!text) return revealUmf(fromVoice);
@@ -2636,6 +2815,7 @@ function rateUmf(v){
 }
 async function coachUmf(){
   const e = KZ.queue[KZ.pos], u = e.u, it = u.items[e.i], text = $("#kzIn").value.trim(), out = $("#kzCoachOut"), b = $("#kzCoach");
+  if(await kriseVorab(text)) return;
   b.disabled = true; out.innerHTML = `<p class="note">Der Coach liest …</p>`;
   try{
     const r = await llmJSON(`Du bist ein warmer Coach für Gewaltfreie Kommunikation nach Marshall B. Rosenberg. Übung: „${u.titel}“ – Auftrag: ${u.aufgabe}
@@ -2647,6 +2827,7 @@ Antworte NUR mit JSON: {"gut":"1 Satz: was konkret gelungen ist","schritt":"1 Sa
     out.innerHTML = `<div class="fb coachfb"><p><b>Coach:</b> ${esc(r.gut || "")}</p>${r.schritt ? `<p><b>Nächster Schritt:</b> ${esc(r.schritt)}</p>` : ""}</div>`;
     if(KZ.voice) voiceSay((r.gut || "") + " " + (r.schritt || ""), () => listenRate(vtoken));
   }catch(err){
+    if(istKrise(err)){ out.innerHTML = ""; b.disabled = false; return; }
     if(err && err.code === "access") askAccess();
     out.innerHTML = `<p class="note">Der Coach ist gerade nicht erreichbar. Die Vorschläge oben helfen dir trotzdem weiter.</p>`; b.disabled = false;
   }
@@ -2727,9 +2908,10 @@ function listenStepNext(tok){
   }, error: er => { if(tok === vtoken) kzNote(micErrText(er)); }});
 }
 function stepSave(){ const s = KZ.u.schritte[KZ.step]; if(s && $("#kzIn")) KZ.answers[s.key] = $("#kzIn").value.trim(); }
-function stepNext(){
+async function stepNext(){
   const s = KZ.u.schritte[KZ.step];
   stepSave();
+  if(KZ.answers[s.key] && await kriseVorab(KZ.answers[s.key])) return;
   if(!s.optional && !KZ.answers[s.key]){ kzNote("Schreib oder sag ein paar Worte – oder nimm das Beispiel aus dem Platzhalter."); $("#kzIn").focus(); return; }
   KZ.step++; renderKZ();
 }
@@ -3027,6 +3209,7 @@ function erListen(){
 }
 async function erAsk(text){
   if(!ER || ER.done || !text.trim() || ER.busy) return;
+  if(await kriseVorab(text)) return;
   const e = ER.e; ER.busy = true; ER.tries++; stopListenL();
   erMe(text.trim());
   if($("#erIn")) $("#erIn").value = "";
@@ -3045,7 +3228,7 @@ Ordne ein: "treffer" (Gefühl UND Bedürfnis im Kern getroffen, Alltagssprache z
 Antworte als ${e.person} menschlich in 1–2 kurzen Sätzen, Anrede „${e.anrede || "du"}“. Verrate ein nicht getroffenes Bedürfnis nicht als Wort, deute es höchstens an.
 Antworte NUR mit JSON: {"art":"…","antwort":"…","coach":"1 kurzer Satz an die übende Person: würdigend, oder genau ein nächster Schritt"}`, {tier:"quick"});
       if(j && e.reaktion[j.art] && j.antwort){ art = j.art; reply = j.antwort; note = j.coach || ""; }
-    }catch(err){ if(err && err.code === "access") askAccess(); }
+    }catch(err){ if(istKrise(err)){ ER.busy = false; return; } if(err && err.code === "access") askAccess(); }
   }
   if(!note){
     if(art === "blocker") note = `Das klingt nach ${r.blocker || "einer Lösung"} – gut gemeint. Magst du vorher vermuten, was ${e.person} fühlt und braucht?`;

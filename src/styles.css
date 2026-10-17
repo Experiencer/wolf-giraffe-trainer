@@ -12,6 +12,7 @@ __FONTS__
   /* v6.3: Das Marken-Band ist in hell und dunkel das Banner-Orange. #FD4D01 = Grundfarbe des Banner-Bilds,
      damit Bild und Leiste nahtlos ineinander übergehen. Zahnrad weiß auf Orange: 3,4 : 1 (Bedienelement ≥ 3 : 1). */
   --band:#FD4D01; --band-ink:#FFFFFF; --band-line:transparent;
+  --nav-dur:.55s; /* Tempo der Reiter beim Verschwinden und Erscheinen (v6.6: „Mittel“) */
   --kopf-h:150px; /* sichtbare Höhe der Kopfzone (Banner + ggf. Reiter), wird per Skript nachgemessen */
   --ok-bg:#E2F3E9; --ok-ink:#1F6A45; --part-bg:#FBF0CF; --part-ink:#7A5600;
   --open-bg:#ECEFF3; --open-ink:#4B5866; --open-border:#7D8A97;
@@ -68,9 +69,9 @@ html{scroll-padding-top:calc(var(--kopf-h) + 8px)}
    und kommen beim Hochscrollen zurück. Beide sind einzeln „sticky“; die Hülle .kopfzone gibt es nur fürs Markup. */
 .kopfzone{display:contents}
 .kopfzone .band{position:sticky;top:0;z-index:21}
-.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top .24s ease-out}
-/* v6.5: Verschwinden langsamer und an die Scroll-Geschwindigkeit angepasst (0,35–0,8 s, per Skript in --nav-dur) */
-.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px);transition:top var(--nav-dur,.55s) cubic-bezier(.45,0,.3,1)}
+/* v6.6: Ein Tempo für das ganze Menü: Verschwinden und Erscheinen je 0,55 s („Mittel“), weiche Kurve */
+.kopfzone .navwrap{position:sticky;top:var(--band-h,77px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.14);transition:top var(--nav-dur) cubic-bezier(.45,0,.3,1)}
+.kopfzone .navwrap.weg{top:calc(var(--band-h,77px) - var(--nav-h,90px) - 10px)}
 .band{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--band-line)}
 .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:4px;padding-block:6px;padding-right:6px}
 .brand{display:flex;align-items:center;flex:1;min-width:0;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}
@@ -474,6 +475,15 @@ table.pseudo td:first-child{white-space:nowrap}
   .emphead h1{font-size:22px;line-height:28px}
   .dllist .btn{min-width:0;width:100%}
 }
+/* Krisenpfad (A-24): Hilfe-Ansicht */
+dialog.krise{max-width:min(560px,calc(100vw - 32px))}
+.hilfeliste{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hilfe{display:flex;flex-direction:column;gap:2px;padding:12px 14px;min-height:44px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);text-decoration:none}
+.hilfe b{font-size:17px;line-height:24px}
+.hilfe span{font-size:15px;line-height:22px;color:var(--muted)}
+.hilfe:hover{border-color:var(--accent)}
+.hilfe.notruf{border-color:var(--field-border)}
+dialog.krise q{font-style:italic}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Klären – „Gemeinsam klären“ (v6.3: Startseite, Abläufe folgen). Bewusst ruhig: keine Feiern, keine Zahlen. */

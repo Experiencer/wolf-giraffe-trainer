@@ -3,7 +3,7 @@
 ## Worum geht es – und was wird damit erreicht?
 Der Trainer ist eine Übungs-App für **Gewaltfreie Kommunikation (GFK) nach Marshall B. Rosenberg**. Du führst schwierige Gespräche mit einer KI-Figur – schriftlich, gesprochen oder als natürliches Echtzeit-Gespräch. Ein **Coach** (die Giraffe) begleitet dich: Er würdigt, was schon gelingt, zeigt genau einen nächsten Schritt und hilft, wenn du ihn rufst.
 
-**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Das Banner bleibt beim Scrollen immer oben; die Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück (v6.4; das Verschwinden dauert je nach Scroll-Tempo 0,35–0,8 s, v6.5), ganz oben und bei Tastatur-Fokus sind sie immer sichtbar. Der Reiter **„Klären“** („Gemeinsam klären“) zeigt die beiden geplanten Wege „Erzähl mal“ (allein) und „Gespräch zu zweit“; die Abläufe folgen nach dem Krisenpfad (A-24). Der Bildnachweis steht in der Fußzeile.
+**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Das Banner bleibt beim Scrollen immer oben; die Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück (v6.4; Verschwinden und Erscheinen je 0,55 s, v6.6), ganz oben und bei Tastatur-Fokus sind sie immer sichtbar. Der Reiter **„Klären“** („Gemeinsam klären“) zeigt die beiden geplanten Wege „Erzähl mal“ (allein) und „Gespräch zu zweit“; die Abläufe folgen (als Erstes „Erzähl mal“). Der Bildnachweis steht in der Fußzeile.
 
 Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf dem Server als „Environment Variables“ und erscheinen nie im Browser. Konkret:
 - **Coach und Rollenspiel (Claude):** `/api/coach` leitet Anfragen mit `ANTHROPIC_API_KEY` an Claude weiter – auch im Echtzeit-Gespräch.
@@ -31,7 +31,7 @@ Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf de
 | Datei / Ordner | Zweck |
 |---|---|
 | `index.html` | Die fertige App (wird aus `src/` gebaut – nicht direkt bearbeiten) |
-| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `lernen.js` (v6: Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg), `data/`, `fonts/`, `assets/` |
+| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `krise.js` (v6.7: Krisenpfad), `lernen.js` (v6: Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg), `data/`, `fonts/`, `assets/` |
 | `src/data/` | Inhalte: `szenarien.json`, `kurzuebungen.json`, `empathie.json`, `spickzettel.json`, `lernkarten.json`, `handout.json` |
 | `pdf/` | Druckfertige PDFs (auf Vercel unter `/pdf/…`), erzeugt mit `python3 tools/make_pdfs.py` |
 | `tools/make_pdfs.py` | Erzeugt die vier PDFs aus `src/data/` (braucht `pip install reportlab fonttools brotli`) |
@@ -73,6 +73,12 @@ Neu einrichten (falls nötig): vercel.com → **Add New → Project** → Reposi
 5. **Coach fragen** antippen → das Gespräch pausiert, der Coach **spricht** seine Hilfe. Weiter geht es mit einem Tipp aufs Mikrofon.
 6. **Beenden & auswerten** → Auswertung in Worten.
 7. **+ Eigenes Szenario** → Situation beschreiben → „Speichern & üben“.
+
+## Krisenpfad (A-24, v6.7)
+Erzählt jemand beim Üben von Gedanken, nicht mehr leben zu wollen, von Selbstverletzung, Gewalt, Missbrauch oder akuter Gefahr, verlässt die App die Übung und zeigt eine Hilfe-Ansicht: kurz Empathie, dann TelefonSeelsorge (0800 111 0 111 · 0800 111 0 222 · 116 123, Chat online.telefonseelsorge.de), Notruf 112 / Polizei 110 und bei Gewalt das Hilfetelefon Gewalt gegen Frauen (116 016) und das Hilfetelefon Gewalt an Männern (0800 123 99 00). Die Nummern sind antippbar.
+- **Netz 1 – im Browser, auch offline** (`src/krise.js`, `krisenCheck`): prüft jeden eigenen Satz *bevor* er weitergeht – im Rollenspiel (Schreiben, Sprechen, Echtzeit), im Übersetzer, beim eigenen Szenario, in Kurzübungen und beim Zuhören. Eindeutige Sätze → Übung endet, Hilfe-Ansicht. Mehrdeutige Sätze („Ich bring dich um!“, „Ich kann nicht mehr.“) → einmal behutsame Nachfrage mit „Gehört zur Übung – weiter“; Wut bleibt in der Übung erlaubt.
+- **Netz 2 – in jeder KI-Anweisung**: `llmJSON` hängt allen acht Claude-Aufrufen die Sicherheitsregel an; meldet Claude `"krise": true`, öffnet sich die Hilfe-Ansicht. Die Echtzeit-Figur verlässt bei ernsten Hinweisen die Rolle und nennt die TelefonSeelsorge; die App erkennt das und trennt die Verbindung.
+- Der auslösende Satz wird nicht gespeichert und (bei Netz 1) nicht an die KI geschickt. Die Muster werden mit Beispiel- und Gegenbeispielsätzen geprüft (Funktionstest Abschnitt 19).
 
 ## Sicherheit und Kosten
 - In **beiden** Anbieter-Konsolen ein monatliches **Budget-Limit** setzen.
