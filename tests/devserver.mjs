@@ -15,14 +15,15 @@ function wav(ms = 300) { const n = Math.round(8000 * ms / 1000); const b = Buffe
   b.write("RIFF", 0); b.writeUInt32LE(36 + n, 4); b.write("WAVE", 8); b.write("fmt ", 12); b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22);
   b.writeUInt32LE(8000, 24); b.writeUInt32LE(8000, 28); b.writeUInt16LE(1, 32); b.writeUInt16LE(8, 34); b.write("data", 36); b.writeUInt32LE(n, 40); b.fill(128, 44); return b; }
 globalThis.fetch = async (url, opts = {}) => {
-  url = String(url); globalThis.__calls.push({ url, body: String(opts.body || "").slice(0, 3000) });
+  url = String(url); globalThis.__calls.push({ url, body: String(opts.body || "").slice(0, 20000) });
   if (url.includes("api.anthropic.com")) {
     const b = JSON.parse(opts.body); const all = b.messages.map(m => m.content).join("\n");
     let p;
     if (all.includes("TESTKRISE")) p = { antwort: "…", krise: true };   // A-24: KI meldet eine Krise
-    else if (all.includes('"spiegel"')) p = all.includes("PERSON: Ja, genau")   // Klären – „Erzähl mal“
-      ? { spiegel: "Verlässlichkeit ist dir wichtig – und du bist enttäuscht.", vermutung: { gefuehle: [], beduerfnisse: [] }, frage: "Ist etwas angekommen? Magst du weitergehen oder es hier stehen lassen?", genug_signal: true }
-      : { spiegel: "Dein Bruder hat wieder kurzfristig abgesagt – und du bist richtig sauer.", vermutung: { gefuehle: ["enttäuscht"], beduerfnisse: ["Verlässlichkeit"] }, frage: "Bist du enttäuscht, weil du dich auf ihn verlassen können möchtest?", genug_signal: false };
+    else if (all.includes('"spiegel"')) { const ja = (all.split("VERLAUF:").pop().match(/PERSON: (Ja, genau|Zum Teil)/g) || []).length;   // Klären – „Erzähl mal“
+      p = ja >= 2 ? { spiegel: "Jedes Wochenende … und jetzt so selten. Das klingt nach Sehnsucht nach euch beiden.", vermutung: { gefuehle: [], beduerfnisse: [] }, frage: "Wie ist es für dich, das so auszusprechen?", phase: "nachspueren" }
+        : ja === 1 ? { spiegel: "Gerade bei ihm.", vermutung: { gefuehle: ["traurig"], beduerfnisse: ["Nähe"] }, frage: "Ich frage mich, ob unter dem Ärger auch etwas Trauriges liegt – vermisst du ihn vielleicht?", phase: "vertiefen" }
+        : { spiegel: "Wieder eine Absage – und du bist richtig sauer.", vermutung: { gefuehle: ["enttäuscht"], beduerfnisse: ["Verlässlichkeit"] }, frage: "Hättest du dich gern auf ihn verlassen können?", phase: "vertiefen" }; }
     else if (all.includes('"schritt"')) p = { gut: "Du hast die Verallgemeinerung weggelassen.", schritt: "Ergänze noch einen Zeitpunkt." };
     else if (all.includes('"art"')) p = { art: "treffer", antwort: "Ja … genau das. Danke, dass du fragst.", coach: "Du hast Gefühl und Bedürfnis als Frage vermutet." };
     else if (all.includes('"einschaetzung"')) p = { einschaetzung: "Vermutlich ist sie gerade erschöpft und fühlt sich allein gelassen.", warum: "Wenn sie sich verstanden fühlt, kann sie dir auch zuhören.", vorschlag: "Klingt, als wärst du gerade echt am Limit – brauchst du mehr Unterstützung?" };

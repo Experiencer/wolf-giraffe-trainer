@@ -1216,6 +1216,7 @@ function selectTab(id, focus){
   if(id === "t-cheat") renderSZ();
   if(id === "t-klaeren" && KL.phase === "stopp") klHome();
   try{ history.replaceState(null, "", "#" + id.slice(2)); }catch(e){}
+  if(scrollY > 0) window.scrollTo({top:0});   // v6.9: neuer Bereich beginnt oben
   try{ kopf.zeigen(); }catch(e){}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest('[role="tab"]'); if(t) selectTab(t.id); });
@@ -1227,31 +1228,40 @@ $(".tabs").addEventListener("keydown", e => {
   if(n !== null){ e.preventDefault(); selectTab(tabs[n].id, true); }
 });
 
-/* v6.3/v6.4: Kopfzone. Das Banner steht immer oben. Die Reiter verschwinden beim Herunterscrollen
-   unter dem Banner und erscheinen beim Hochscrollen wieder; ganz oben, bei Tastatur-Fokus und beim
-   Reiterwechsel sind sie immer sichtbar. Die sichtbare Höhe steht als --kopf-h bereit, damit Sprungziele
-   und Hinweise nicht unter der Kopfzone verschwinden. */
+/* v6.3–v6.9: Kopfzone. Das Banner steht immer oben. Die Reiter verschwinden beim Herunterscrollen
+   unter dem Banner und erscheinen beim Hochscrollen wieder.
+   v6.9 (gleiches Verhalten überall):
+   - früher weg: schon ab 24 px unter dem Seitenanfang, sobald 6 px nach unten gescrollt wird;
+   - zurück, sobald 6 px nach oben gescrollt wird, und immer ganz oben;
+   - nur Tastatur-Fokus hält die Reiter fest (ein angetippter Reiter behält sonst den Fokus und blockierte das Verschwinden);
+   - Gummiband-Effekt am Seitenende (iPhone) zählt nicht als Hochscrollen;
+   - beim Reiterwechsel beginnt der neue Bereich oben, die Reiter sind sichtbar.
+   Die sichtbare Höhe steht als --kopf-h bereit, damit Sprungziele und Hinweise nicht verdeckt werden. */
+const KOPF_AB = 24, KOPF_SCHRITT = 6;
 const kopf = (function(){
   const band = $(".kopfzone .band"), nav = $(".kopfzone .navwrap"), root = document.documentElement;
   if(!band || !nav) return { zeigen(){} };
-  let bandH = 0, navH = 0, lastY = scrollY, weg = false, tick = false;
+  let bandH = 0, navH = 0, weg = false, tick = false;
+  const posY = () => Math.min(Math.max(scrollY, 0), Math.max(0, root.scrollHeight - innerHeight));
+  let lastY = posY();
   const messen = () => {
     bandH = Math.round(band.getBoundingClientRect().height); navH = Math.round(nav.getBoundingClientRect().height);
     root.style.setProperty("--band-h", bandH + "px"); root.style.setProperty("--nav-h", navH + "px");
     root.style.setProperty("--kopf-h", (weg ? bandH : bandH + navH) + "px");
   };
   const setzen = w => { if(w === weg) return; weg = w; nav.classList.toggle("weg", w); messen(); }; // Tempo: --nav-dur in styles.css
+  const tastaturFokus = () => { try{ return !!nav.querySelector(":focus-visible"); }catch(e){ return false; } };
   const pruefen = () => {
-    tick = false; const y = scrollY, dy = y - lastY;
-    if(y <= bandH + navH){ setzen(false); lastY = y; return; }
-    if(nav.contains(document.activeElement)){ setzen(false); lastY = y; return; }
-    if(dy > 8){ setzen(true); lastY = y; } else if(dy < -8){ setzen(false); lastY = y; }
+    tick = false; const y = posY(), dy = y - lastY;
+    if(y <= KOPF_AB || tastaturFokus()){ setzen(false); lastY = y; return; }
+    if(dy >= KOPF_SCHRITT){ setzen(true); lastY = y; } else if(dy <= -KOPF_SCHRITT){ setzen(false); lastY = y; }
+    else if((weg && dy > 0) || (!weg && dy < 0)) lastY = y;   // Bezugspunkt mitführen: jede Umkehr um 6 px schaltet zuverlässig
   };
   addEventListener("scroll", () => { if(!tick){ tick = true; requestAnimationFrame(pruefen); } }, {passive:true});
-  nav.addEventListener("focusin", () => setzen(false));
+  nav.addEventListener("focusin", () => { if(tastaturFokus()) setzen(false); });
   messen();
   if(window.ResizeObserver){ const ro = new ResizeObserver(messen); ro.observe(band); ro.observe(nav); } else addEventListener("resize", messen);
-  return { zeigen(){ setzen(false); lastY = scrollY; } };
+  return { zeigen(){ setzen(false); lastY = posY(); } };
 })();
 
 /* ===================== Begleitstufe & Antwortart ===================== */
@@ -2376,7 +2386,7 @@ async function kriseVorab(text){
 /* Die KI hat "krise": true gemeldet */
 function kriseVonKI(){ kriseZeigen({stufe:"akut", art:"allgemein"}); }
 
-/* ===================== Klären – „Erzähl mal“ (Weg A, K1 Schreiben, v6.8) =====================
+/* ===================== Klären – „Erzähl mal“ (Weg A, K1 Schreiben, v6.8 · Tiefe v6.9) =====================
    Worum geht es? Bisher übt man in der App immer selbst. Hier ist es umgekehrt: Du erzählst,
    was dich beschäftigt, und der Coach hört empathisch zu. Er gibt wieder, was angekommen ist,
    und vermutet als Frage, was du fühlst und was dir wichtig ist. Du entscheidest, ob es passt.
@@ -2387,11 +2397,11 @@ function kriseVonKI(){ kriseZeigen({stufe:"akut", art:"allgemein"}); }
    Daten: nur im Arbeitsspeicher, nichts wird gespeichert. Krisenpfad: kriseVorab + llmJSON (krise.js).
    Eingabeart: Schreiben. Sprechen und Echtzeit folgen nach dem Stimmen-Testlabor (E-26). */
 
-const KL = {phase:"home", turns:[], first:"", conf:{g:[], b:[]}, last:null, nein:0, rejected:{g:[], b:[]}, bitte:"", wichtig:"", busy:false, angekommen:false};
+const KL = {phase:"home", turns:[], first:"", conf:{g:[], b:[]}, last:null, nein:0, rejected:{g:[], b:[]}, bitte:"", wichtig:"", busy:false, angekommen:false, gespuert:false};
 const KL_TEIL = []; // ausgewählte Wörter bei „Teilweise“
 
 function klReset(){
-  Object.assign(KL, {phase:"home", turns:[], first:"", conf:{g:[], b:[]}, last:null, nein:0, rejected:{g:[], b:[]}, bitte:"", wichtig:"", busy:false});
+  Object.assign(KL, {phase:"home", turns:[], first:"", conf:{g:[], b:[]}, last:null, nein:0, rejected:{g:[], b:[]}, bitte:"", wichtig:"", busy:false, gespuert:false});
   KL_TEIL.length = 0;
 }
 function klHome(){
@@ -2443,40 +2453,113 @@ function klMsg(who, text, cls){
 }
 
 /* ---------- Coach: empathisch spiegeln ---------- */
+/* v6.9: Der Coach bleibt länger beim Zuhören und geht in die Tiefe: Nach einem „Ja“ fasst er nicht zusammen,
+   sondern hört eine Schicht tiefer (was unter dem Ärger liegt, was im Bedürfnis steckt, die Sehnsucht).
+   Er wechselt die Formulierungen, gibt manchmal nur wieder (ohne Frage) und spürt erst nach,
+   wenn erkennbar Entspannung kommt (GFK-Wissensbasis §6: „Wann ist genug Empathie gegeben?“). */
+const KL_RUNDE = () => KL.turns.filter(t => t.role === "user").length;
 function klPrompt(){
   const verlauf = KL.turns.map(t => (t.role === "user" ? "PERSON: " : "COACH: ") + t.content).join("\n");
-  return `Du hörst einer Person empathisch zu – nach Marshall B. Rosenberg (Gewaltfreie Kommunikation). Sie erzählt von sich. Du bist kein Rollenspiel-Gegenüber und kein Lehrer: Hier geht es darum, dass sie sich gehört fühlt.
-REGELN:
-- 2–3 kurze Sätze, du-Form, Alltagssprache, keine Fachbegriffe.
-- Erst kurz und ohne Urteil wiedergeben, was angekommen ist. Dann genau EINE Vermutung zu Gefühl und Bedürfnis, als Frage („Bist du …, weil dir … wichtig ist?“). Die Person entscheidet, ob es passt.
-- Urteile und Pseudogefühle übersetzen, nicht korrigieren („übergangen“ → „Wolltest du einbezogen werden?“). Wörter wie „nie“ oder „immer“ nicht verbessern.
-- Keine Ratschläge („du solltest“, „versuch mal“), kein Trost („Kopf hoch“, „wird schon“), keine eigene Geschichte, kein Ausfragen nach Fakten, keine Erklärungen. Höchstens eine Frage.
-- Empathie ist nicht Zustimmung: Urteile nicht über die abwesende Person und verteidige sie auch nicht („Vielleicht meinte er es nicht so“ ist ein Blocker). Höre die Bedürfnisse hinter dem Urteil.
+  return `Du hörst einer Person empathisch zu – nach Marshall B. Rosenberg (Gewaltfreie Kommunikation). Sie erzählt von sich. Du bist kein Rollenspiel-Gegenüber und kein Lehrer. Es geht nur darum, dass sie sich wirklich gehört fühlt – so lange, bis spürbar Entspannung kommt. Erst Verbindung, keine Lösung.
+
+SO HÖRST DU ZU
+- 2–3 kurze Sätze, du-Form, warme Alltagssprache. Nimm die Worte der Person auf („immer ich“, „schon wieder“).
+- Gib zuerst in eigenen Worten wieder, was du hörst – ohne Urteil. Dann höchstens EINE Vermutung zu dem, was in ihr lebendig ist und was ihr wichtig ist. Die Person entscheidet, ob es passt.
+- Etwa jede zweite oder dritte Antwort darf ganz ohne Frage sein: nur wiedergeben, Raum lassen („Erzähl gern weiter, wenn da noch mehr ist.“). Dann lass "vermutung" leer.
+
+ABWECHSELN – keine Formel
+- Wechsle die Form der Vermutung. Nie zweimal hintereinander dieselbe. „Bist du …, weil dir … wichtig ist?“ höchstens einmal im ganzen Gespräch.
+- Mögliche Formen: „Klingt, als wärst du ziemlich …“ · „Kann es sein, dass …?“ · „Ich frage mich, ob …“ · „Sehnst du dich nach …?“ · „Hättest du gern, dass …?“ · „Wünschst du dir …?“ · „Ist da vielleicht auch …?“ · „… – stimmt das?“
+
+IN DIE TIEFE (besonders nach einem „Ja“)
+- Nach einer Bestätigung nicht zusammenfassen und nicht abschließen. Bleib beim Bestätigten und hör eine Schicht tiefer, zum Beispiel:
+  - Was liegt unter dem Ärger? Oft Erschöpfung, Traurigkeit, Enttäuschung, Einsamkeit, Sorge.
+  - Was steckt im Bedürfnis? Hinter „Gerechtigkeit“ zum Beispiel: gesehen werden mit dem, was man alles trägt; Wertschätzung; Gegenseitigkeit.
+  - Die Sehnsucht: Wie schön es wäre, wenn es erfüllt wäre („…, wenn auch mal jemand anderes sagt: Ich mach das.“).
+  - Dass es nicht zum ersten Mal so ist – ohne Analyse.
+- Nimm neue Dinge, die die Person erzählt, ernst und verbinde sie mit dem schon Gehörten.
+
+NICHT
+- Keine Ratschläge („du solltest“, „versuch mal“), kein Trost („Kopf hoch“, „wird schon“), keine eigene Geschichte, kein Ausfragen nach Fakten, keine Erklärungen, keine Lösungen.
+- Kein Urteil über die abwesende Person und keine Verteidigung („Vielleicht meinte er es nicht so“). Hör die Bedürfnisse hinter Urteilen. Wörter wie „nie“ oder „immer“ nicht korrigieren.
 - Wut ist willkommen. Bitte nie darum, netter zu formulieren.
+- Nicht über die Methode reden: kein „Es ist angekommen, dass dir … wichtig ist“, keine Wörter wie „Gefühl“, „Bedürfnis“, „Empathie“, „GFK“.
 - Keine Diagnosen, keine Therapiesprache, nichts über Stimme, Tonfall oder Weinen.
-- Hat die Person zweimal „Eher nicht“ gesagt, stell eine offene Frage („Was trifft es eher?“) statt einer neuen Vermutung.
-- Wird es ruhiger, oder sagt die Person, dass etwas angekommen ist, frag: „Ist etwas angekommen? Magst du weitergehen oder es hier stehen lassen?“ und setze genug_signal auf true.
-Schon bestätigt – Gefühle: ${KL.conf.g.join(", ") || "noch nichts"}; wichtig: ${KL.conf.b.join(", ") || "noch nichts"}. Nicht gepasst hat: ${[...KL.rejected.g, ...KL.rejected.b].join(", ") || "–"}.
+- Hat die Person zweimal „Nicht ganz“ gesagt: offene Frage („Was trifft es eher?“) statt neuer Vermutung.
+
+NACHSPÜREN – erst, wenn Entspannung erkennbar ist
+- Zeichen: Antworten werden kürzer oder weicher, „genau, das ist es“, Erleichterung, Seufzen, die Person fragt nach Lösungen oder sagt, dass es gut tut. Frühestens ab Runde 4, außer die Person sagt es selbst.
+- Dann setze "phase" auf "nachspueren" und frag (abwechseln, nicht wörtlich wiederholen): „Wie ist es für dich, das so zu hören?“ · „Wie geht es dir jetzt, wo es ausgesprochen ist?“ · „Ist da noch mehr – oder fühlt es sich gerade rund an?“ · „Magst du noch bei etwas bleiben, oder ist es für den Moment gut so?“
+- Erzählt die Person danach weiter, hör weiter zu. Nicht drängen.
+
+SO KANN ES KLINGEN (Beispiel, nicht kopieren)
+PERSON: Mein Bruder hat schon wieder abgesagt. Auf den kann man sich echt nie verlassen.
+COACH: Wieder eine Absage – und du bist richtig sauer. Hättest du dich gern auf ihn verlassen können?
+PERSON: Ja, genau.
+COACH: Gerade bei ihm. Ich frage mich, ob unter dem Ärger auch etwas Trauriges liegt – vermisst du ihn vielleicht?
+PERSON: Ja … wir sehen uns kaum noch.
+COACH: Ihr seht euch kaum noch. Da fehlt dir die Nähe, so wie es früher vielleicht mal war.
+PERSON: Früher waren wir jedes Wochenende zusammen.
+COACH: Jedes Wochenende … und jetzt so selten. Das klingt nach Sehnsucht nach euch beiden. Wie ist es für dich, das so auszusprechen?
+
+STAND: Runde ${KL_RUNDE()}. Schon bestätigt – lebendig: ${KL.conf.g.join(", ") || "noch nichts"}; wichtig: ${KL.conf.b.join(", ") || "noch nichts"}. Nicht gepasst: ${[...KL.rejected.g, ...KL.rejected.b].join(", ") || "–"}.
 VERLAUF:
 ${verlauf}
 
-Antworte NUR mit JSON: {"spiegel":"1–2 Sätze: was angekommen ist","vermutung":{"gefuehle":["1–2 Wörter"],"beduerfnisse":["1–2 Wörter"]},"frage":"1 Satz: die Vermutung als Frage (oder offene Frage)","genug_signal":false}`;
+Antworte NUR mit JSON: {"spiegel":"1–2 Sätze: wiedergeben, was du hörst","vermutung":{"gefuehle":["0–2 Wörter"],"beduerfnisse":["0–2 Wörter"]},"frage":"1 Satz oder leer","phase":"vertiefen|nachspueren"}`;
 }
-/* Ohne Verbindung: Alltagswörter, Pseudogefühle und Lernkarten-Wörter im Text finden (umgedreht wie bei „Zuhören“) */
-function klOffline(text){
+
+/* ---------- Ohne Verbindung: Wortabgleich, mit Tiefe und wechselnden Formen ---------- */
+const KL_AERGER = ["ärgerlich", "wütend", "verärgert", "genervt", "gereizt", "frustriert", "sauer", "irritiert"];
+const KL_DARUNTER = ["erschöpft", "traurig", "enttäuscht", "einsam", "müde"];
+const KL_TIEFER = {"Gerechtigkeit":"Wertschätzung", "Fairness":"Wertschätzung", "Entlastung":"Unterstützung", "Verlässlichkeit":"Vertrauen", "Respekt":"Wertschätzung",
+  "Ruhe":"Erholung", "Erholung":"Leichtigkeit", "Unterstützung":"gesehen werden", "Verständnis":"Verbindung", "Anerkennung":"gesehen werden", "Nähe":"Verbindung", "Einbezogensein":"Zugehörigkeit"};
+const KL_FORM = [
+  (g, b) => g && b ? `Klingt, als wärst du ziemlich ${g} – hättest du gern mehr ${b}?` : g ? `Klingt, als wärst du ziemlich ${g}?` : `Hättest du gern mehr ${b}?`,
+  (g, b) => g && b ? `Kann es sein, dass du ${g} bist und dir ${b} fehlt?` : g ? `Kann es sein, dass du ${g} bist?` : `Kann es sein, dass dir ${b} fehlt?`,
+  (g, b) => g && b ? `Ich frage mich, ob du ${g} bist – und dich nach ${b} sehnst?` : g ? `Ich frage mich, ob du auch ${g} bist?` : `Ich frage mich, ob du dich nach ${b} sehnst?`,
+  (g, b) => g && b ? `Bist du ${g}, weil dir ${b} wichtig ist?` : g ? `Fühlst du dich ${g}?` : `Ist dir ${b} wichtig?`,
+];
+const KL_SPUEREN = ["Wie ist es für dich, das so zu hören?", "Wie geht es dir jetzt, wo es ausgesprochen ist?", "Ist da noch mehr – oder fühlt es sich gerade rund an?", "Magst du noch bei etwas bleiben, oder ist es für den Moment gut so?"];
+function klFinde(text){
   const low = String(text || "").toLowerCase(), g = [], b = [];
   const add = (arr, w, rej) => { if(w && !arr.includes(w) && !rej.includes(w)) arr.push(w); };
   Object.keys(PSEUDO).forEach(p => { if(low.includes(p)){ const lp = (LK.pseudo || []).find(x => x.w === p);
     (lp ? lp.gefuehle : PSEUDO[p].split(" / ")).forEach(w => add(g, w, KL.rejected.g)); (lp ? lp.beduerfnisse : []).forEach(w => add(b, w, KL.rejected.b)); } });
   EMP_SYN.forEach(([keys, ws]) => { if(keys.some(k => startsWord(low, k))) ws.forEach(w => /^[A-ZÄÖÜ]/.test(w) ? add(b, w, KL.rejected.b) : add(g, w, KL.rejected.g)); });
+  if(/\b(immer ich|schon wieder ich|immer muss ich|nur ich)\b/.test(low)){ add(g, "genervt", KL.rejected.g); add(b, "Gerechtigkeit", KL.rejected.b); add(b, "Entlastung", KL.rejected.b); }
   [...LK.gefuehle.unerfuellt, ...LK.gefuehle.erfuellt].forEach(gr => gr.woerter.forEach(x => { if(stemHit(low, x.w)) add(g, x.w, KL.rejected.g); }));
   LK.beduerfnisse.forEach(br => br.woerter.forEach(x => { if(x.w.length >= 5 && stemHit(low, x.w)) add(b, x.w, KL.rejected.b); }));
-  const gg = g.filter(w => !KL.conf.g.includes(w)).slice(0, 1), bb = b.filter(w => !KL.conf.b.includes(w)).slice(0, 1);
-  const kurz = text.length > 110 ? text.slice(0, 100).replace(/\s+\S*$/, "") + " …" : text;
-  if(KL.nein >= 2 || (!gg.length && !bb.length)) return {spiegel: KL.turns.length > 1 ? "Danke, dass du das ergänzt." : `Angekommen ist bei mir: „${kurz}“`, vermutung:{gefuehle:[], beduerfnisse:[]},
-    frage: "Was trifft es eher – wie geht es dir, wenn du daran denkst? Die Gefühlskarten können helfen, ein Wort zu finden.", genug_signal:false, offen:true};
-  const fr = gg.length && bb.length ? `Bist du ${gg[0]}, weil dir ${bb[0]} wichtig ist?` : gg.length ? `Bist du ${gg[0]}?` : `Ist dir ${bb[0]} wichtig?`;
-  return {spiegel: KL.turns.length > 1 ? "Danke, dass du das ergänzt." : `Angekommen ist bei mir: „${kurz}“`, vermutung:{gefuehle:gg, beduerfnisse:bb}, frage: fr, genug_signal: KL.conf.g.length + KL.conf.b.length >= 3};
+  return {g: g.filter(w => !KL.conf.g.includes(w)), b: b.filter(w => !KL.conf.b.includes(w))};
+}
+const KL_NOMEN = {erschöpft:"Erschöpfung", traurig:"Traurigkeit", enttäuscht:"Enttäuschung", einsam:"Einsamkeit", müde:"Müdigkeit"};
+const KL_DA = ["Und das nicht zum ersten Mal.", "Das kennst du schon.", "Das sitzt.", "Da kommt einiges zusammen."];
+function klTiefer(spiegel){
+  const aerger = KL.conf.g.some(w => KL_AERGER.includes(w.toLowerCase()));
+  const g2 = aerger ? KL_DARUNTER.find(w => !KL.conf.g.includes(w) && !KL.rejected.g.includes(w)) : "";
+  const b2 = KL.conf.b.map(w => KL_TIEFER[w]).find(w => w && !KL.conf.b.includes(w) && !KL.rejected.b.includes(w)) || "";
+  if(!g2 && !b2) return null;
+  const n = KL_NOMEN[g2] || g2;
+  return {spiegel, vermutung:{gefuehle:g2 ? [g2] : [], beduerfnisse:b2 ? [b2] : []}, phase:"vertiefen",
+    frage: g2 && b2 ? `Ist unter dem Ärger vielleicht auch ${n} – und wünschst du dir ${b2}?` : g2 ? `Ist unter dem Ärger vielleicht auch ${n}?` : `Wünschst du dir auch ${b2} – dass jemand sieht, was du alles trägst?`};
+}
+function klOffline(letzte){
+  const runde = KL_RUNDE(), form = KL_FORM[runde % KL_FORM.length], da = KL_DA[runde % KL_DA.length];
+  const antwort = /^(ja|zum teil|nicht ganz|da ist noch mehr)\b/i.test(letzte), ja = /^(ja|zum teil)\b/i.test(letzte);
+  const alles = KL.turns.filter(x => x.role === "user").map(x => x.content).join(" ");
+  const kurz = s => s.length > 110 ? s.slice(0, 100).replace(/\s+\S*$/, "") + " …" : s;
+  // Nachspüren erst nach einem „Ja“, mehreren Bestätigungen und frühestens ab Runde 4
+  if(ja && runde >= 4 && KL.conf.g.length + KL.conf.b.length >= 3 && !KL.gespuert){ KL.gespuert = true;
+    return {spiegel: `${joinDe(KL.conf.b.slice(-2)) || "Das"} – das ist dir richtig wichtig.`, vermutung:{gefuehle:[], beduerfnisse:[]}, frage: KL_SPUEREN[runde % KL_SPUEREN.length], phase:"nachspueren"}; }
+  // Nach einem „Ja“ tiefer hören: unter dem Ärger, im Bedürfnis
+  if(ja && (KL.conf.g.length || KL.conf.b.length)) return klTiefer(da) || {spiegel: "Erzähl gern weiter, wenn da noch mehr ist.", vermutung:{gefuehle:[], beduerfnisse:[]}, frage:"", phase:"vertiefen", offen:true};
+  const f = klFinde(antwort ? alles : letzte), gg = f.g[0] || "", bb = f.b[0] || "";
+  const spiegel = runde <= 1 ? `Ich höre: „${kurz(alles)}“`
+    : /^nicht ganz/i.test(letzte) ? "Danke – dann hab ich es noch nicht richtig getroffen."
+    : antwort ? "Danke, dass du das so genau sagst." : `„${kurz(letzte)}“ – das kommt noch obendrauf.`;
+  if(KL.nein < 2 && !gg && !bb && !antwort){ const t = klTiefer(spiegel); if(t) return t; }
+  if(KL.nein >= 2 || (!gg && !bb)) return {spiegel, vermutung:{gefuehle:[], beduerfnisse:[]}, frage: "Was trifft es eher – wie geht es dir, wenn du daran denkst? Die Gefühlskarten können helfen, ein Wort zu finden.", phase:"vertiefen", offen:true};
+  return {spiegel, vermutung:{gefuehle: gg ? [gg] : [], beduerfnisse: bb ? [bb] : []}, frage: form(gg, bb), phase:"vertiefen"};
 }
 async function klCoach(){
   KL.busy = true; const t = klMsg("Coach", "Der Coach hört zu …", "them klwait"); t.setAttribute("aria-busy", "true");
@@ -2486,29 +2569,40 @@ async function klCoach(){
     catch(e){ t.remove(); KL.busy = false; if(istKrise(e)) return; if(e && e.code === "access") askAccess(); r = null; }
   }
   if(t.isConnected) t.remove();
-  if(!r || (!r.spiegel && !r.frage)) r = klOffline(KL.turns.filter(x => x.role === "user").map(x => x.content).join(" "));
-  const v = r.vermutung || {}; KL.last = {g:(v.gefuehle || []).filter(Boolean).slice(0, 2), b:(v.beduerfnisse || []).filter(Boolean).slice(0, 2), offen: !!r.offen || !((v.gefuehle || []).length || (v.beduerfnisse || []).length)};
-  const text = [r.spiegel, r.frage].filter(Boolean).join(" ");
+  const letzte = (KL.turns.filter(x => x.role === "user").slice(-1)[0] || {}).content || "";
+  if(!r || (!r.spiegel && !r.frage)) r = klOffline(letzte);
+  const v = r.vermutung || {}, g = (v.gefuehle || []).filter(Boolean).slice(0, 2), b = (v.beduerfnisse || []).filter(Boolean).slice(0, 2);
+  const spueren = r.phase === "nachspueren" || r.genug_signal === true;
+  KL.last = {g, b, spueren, offen: !spueren && (!!r.offen || !(g.length || b.length) || !String(r.frage || "").trim())};
+  const text = [r.spiegel, r.frage].filter(x => String(x || "").trim()).join(" ");
   klMsg("Coach", text, "them"); KL.turns.push({role:"assistant", content:text});
   KL.busy = false;
   $("#klWeiterLink").hidden = false;
-  if(r.genug_signal === true || r.genug_signal === "ja") return klWieWeiter(true);
   klAntwortZeigen();
 }
+/* Antwortmöglichkeiten unter der Coach-Antwort. Weitererzählen geht immer über das Textfeld. */
 function klAntwortZeigen(){
   const box = $("#klAntwort"); KL_TEIL.length = 0;
-  if(KL.last.offen){ box.hidden = true; $("#klIn").placeholder = "Was trifft es eher? …"; if(KL.nein >= 2) klKartenAuf(true); refocus("#klIn"); return; }
+  if(KL.last.spueren){
+    box.hidden = false;
+    box.innerHTML = `<div class="row klpasst" role="group" aria-label="Wie möchtest du weitermachen?"><button class="btn" data-klant="mehr">Da ist noch mehr</button><button class="btn" data-klant="rund">Für jetzt ist es gut</button></div>
+      <p class="small muted">Oder schreib einfach, wie es dir gerade damit geht.</p>`;
+    $("#klIn").placeholder = "Wie geht es dir jetzt? …";
+    return refocus('[data-klant="mehr"]');
+  }
+  if(KL.last.offen){ box.hidden = true; $("#klIn").placeholder = "Erzähl gern weiter …"; if(KL.nein >= 2) klKartenAuf(true); return refocus("#klIn"); }
   box.hidden = false;
-  box.innerHTML = `<p class="lbl" id="klPasstLbl">Passt das?</p>
-    <div class="row klpasst" role="group" aria-labelledby="klPasstLbl"><button class="btn" data-klant="ja">● Ja, genau</button><button class="btn" data-klant="teil">◐ Teilweise</button><button class="btn" data-klant="nein">○ Eher nicht</button></div>
+  box.innerHTML = `<p class="lbl" id="klPasstLbl">Trifft es das?</p>
+    <div class="row klpasst" role="group" aria-labelledby="klPasstLbl"><button class="btn" data-klant="ja">● Ja, genau</button><button class="btn" data-klant="teil">◐ Zum Teil</button><button class="btn" data-klant="nein">○ Nicht ganz</button></div>
     <div id="klTeil" hidden></div>
-    <p class="small muted">Du kannst unten auch etwas ergänzen oder einfach weitererzählen.</p>`;
+    <p class="small muted">Oder erzähl einfach weiter – in deinen Worten.</p>`;
   $("#klIn").placeholder = "Ergänzen oder weitererzählen …";
   refocus('[data-klant="ja"]');
 }
 function klBestaetigen(g, b){ g.forEach(w => { if(!KL.conf.g.includes(w)) KL.conf.g.push(w); }); b.forEach(w => { if(!KL.conf.b.includes(w)) KL.conf.b.push(w); }); }
 async function klAntwort(art){
   if(KL.busy) return;
+  if(art === "rund") return klWieWeiter(true);
   const extra = $("#klIn").value.trim(), L = KL.last || {g:[], b:[]};
   if(art === "teil" && !$("#klTeil").dataset.offen){
     const words = [...L.g, ...L.b];
@@ -2517,12 +2611,13 @@ async function klAntwort(art){
     refocus("#klTeil [data-klteil]"); return;
   }
   if(extra && await kriseVorab(extra)) return;
-  let say = art === "ja" ? "Ja, genau." : art === "nein" ? "Eher nicht." : "Teilweise.";
+  let say = art === "ja" ? "Ja, genau." : art === "nein" ? "Nicht ganz." : art === "mehr" ? "Da ist noch mehr." : "Zum Teil.";
   if(art === "ja"){ klBestaetigen(L.g, L.b); KL.nein = 0; }
   if(art === "teil"){ const sel = [...KL_TEIL]; klBestaetigen(L.g.filter(w => sel.includes(w)), L.b.filter(w => sel.includes(w)));
     L.g.filter(w => !sel.includes(w)).forEach(w => KL.rejected.g.push(w)); L.b.filter(w => !sel.includes(w)).forEach(w => KL.rejected.b.push(w));
-    if(sel.length) say += " Es passt: " + sel.join(", ") + "."; KL.nein = 0; }
+    say = sel.length ? `Zum Teil – vor allem ${joinDe(sel)}.` : "Zum Teil."; KL.nein = 0; }
   if(art === "nein"){ KL.nein++; KL.rejected.g.push(...L.g); KL.rejected.b.push(...L.b); }
+  if(art === "mehr") KL.gespuert = false;
   if(extra) say += " " + extra;
   $("#klIn").value = ""; $("#klAntwort").hidden = true; $("#klAntwort").innerHTML = "";
   klMsg("Du", say, "me"); KL.turns.push({role:"user", content:say});
@@ -2533,7 +2628,7 @@ async function klSenden(){
   const text = $("#klIn").value.trim(); if(!text) { $("#klNote").textContent = "Schreib ein paar Worte – oder tipp eine Gefühlskarte an."; return; }
   $("#klNote").textContent = "";
   if(await kriseVorab(text)) return;
-  if(!KL.first) KL.first = text;
+  if(!KL.first){ KL.first = text; const h = $("#klHilfe"); if(h) h.hidden = true; }   // Hilfsfragen nur am Anfang
   if(KL.last && !KL.last.offen && !$("#klAntwort").hidden){ /* weitererzählt statt geantwortet: Vermutung bleibt offen */ }
   $("#klIn").value = ""; $("#klAntwort").hidden = true; klKartenAuf(false);
   klMsg("Du", text, "me"); KL.turns.push({role:"user", content:text});
@@ -2545,7 +2640,7 @@ function klWieWeiter(vomCoach){
   KL.phase = "weiter"; $("#klAntwort").hidden = true;
   const box = $("#klEnde"); box.hidden = false;
   box.innerHTML = `<div class="card stack klweiter" tabindex="-1" id="klWeiterBox">
-    <h2 class="klh2">${vomCoach ? "Magst du weitergehen oder es hier stehen lassen?" : "Wie möchtest du weitergehen?"}</h2>
+    <h2 class="klh2">${vomCoach ? "Wie möchtest du es für heute abrunden?" : "Wie möchtest du weitergehen?"}</h2>
     <p class="small muted">Nichts davon ist Pflicht.</p>
     <div class="klwahl">
       <button class="btn primary" data-kl="stehen">So stehen lassen</button>

@@ -33,6 +33,7 @@ function selectTab(id, focus){
   if(id === "t-cheat") renderSZ();
   if(id === "t-klaeren" && KL.phase === "stopp") klHome();
   try{ history.replaceState(null, "", "#" + id.slice(2)); }catch(e){}
+  if(scrollY > 0) window.scrollTo({top:0});   // v6.9: neuer Bereich beginnt oben
   try{ kopf.zeigen(); }catch(e){}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest('[role="tab"]'); if(t) selectTab(t.id); });
@@ -44,31 +45,40 @@ $(".tabs").addEventListener("keydown", e => {
   if(n !== null){ e.preventDefault(); selectTab(tabs[n].id, true); }
 });
 
-/* v6.3/v6.4: Kopfzone. Das Banner steht immer oben. Die Reiter verschwinden beim Herunterscrollen
-   unter dem Banner und erscheinen beim Hochscrollen wieder; ganz oben, bei Tastatur-Fokus und beim
-   Reiterwechsel sind sie immer sichtbar. Die sichtbare Höhe steht als --kopf-h bereit, damit Sprungziele
-   und Hinweise nicht unter der Kopfzone verschwinden. */
+/* v6.3–v6.9: Kopfzone. Das Banner steht immer oben. Die Reiter verschwinden beim Herunterscrollen
+   unter dem Banner und erscheinen beim Hochscrollen wieder.
+   v6.9 (gleiches Verhalten überall):
+   - früher weg: schon ab 24 px unter dem Seitenanfang, sobald 6 px nach unten gescrollt wird;
+   - zurück, sobald 6 px nach oben gescrollt wird, und immer ganz oben;
+   - nur Tastatur-Fokus hält die Reiter fest (ein angetippter Reiter behält sonst den Fokus und blockierte das Verschwinden);
+   - Gummiband-Effekt am Seitenende (iPhone) zählt nicht als Hochscrollen;
+   - beim Reiterwechsel beginnt der neue Bereich oben, die Reiter sind sichtbar.
+   Die sichtbare Höhe steht als --kopf-h bereit, damit Sprungziele und Hinweise nicht verdeckt werden. */
+const KOPF_AB = 24, KOPF_SCHRITT = 6;
 const kopf = (function(){
   const band = $(".kopfzone .band"), nav = $(".kopfzone .navwrap"), root = document.documentElement;
   if(!band || !nav) return { zeigen(){} };
-  let bandH = 0, navH = 0, lastY = scrollY, weg = false, tick = false;
+  let bandH = 0, navH = 0, weg = false, tick = false;
+  const posY = () => Math.min(Math.max(scrollY, 0), Math.max(0, root.scrollHeight - innerHeight));
+  let lastY = posY();
   const messen = () => {
     bandH = Math.round(band.getBoundingClientRect().height); navH = Math.round(nav.getBoundingClientRect().height);
     root.style.setProperty("--band-h", bandH + "px"); root.style.setProperty("--nav-h", navH + "px");
     root.style.setProperty("--kopf-h", (weg ? bandH : bandH + navH) + "px");
   };
   const setzen = w => { if(w === weg) return; weg = w; nav.classList.toggle("weg", w); messen(); }; // Tempo: --nav-dur in styles.css
+  const tastaturFokus = () => { try{ return !!nav.querySelector(":focus-visible"); }catch(e){ return false; } };
   const pruefen = () => {
-    tick = false; const y = scrollY, dy = y - lastY;
-    if(y <= bandH + navH){ setzen(false); lastY = y; return; }
-    if(nav.contains(document.activeElement)){ setzen(false); lastY = y; return; }
-    if(dy > 8){ setzen(true); lastY = y; } else if(dy < -8){ setzen(false); lastY = y; }
+    tick = false; const y = posY(), dy = y - lastY;
+    if(y <= KOPF_AB || tastaturFokus()){ setzen(false); lastY = y; return; }
+    if(dy >= KOPF_SCHRITT){ setzen(true); lastY = y; } else if(dy <= -KOPF_SCHRITT){ setzen(false); lastY = y; }
+    else if((weg && dy > 0) || (!weg && dy < 0)) lastY = y;   // Bezugspunkt mitführen: jede Umkehr um 6 px schaltet zuverlässig
   };
   addEventListener("scroll", () => { if(!tick){ tick = true; requestAnimationFrame(pruefen); } }, {passive:true});
-  nav.addEventListener("focusin", () => setzen(false));
+  nav.addEventListener("focusin", () => { if(tastaturFokus()) setzen(false); });
   messen();
   if(window.ResizeObserver){ const ro = new ResizeObserver(messen); ro.observe(band); ro.observe(nav); } else addEventListener("resize", messen);
-  return { zeigen(){ setzen(false); lastY = scrollY; } };
+  return { zeigen(){ setzen(false); lastY = posY(); } };
 })();
 
 /* ===================== Begleitstufe & Antwortart ===================== */
