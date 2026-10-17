@@ -66,8 +66,9 @@ def build():
     ui = (SRC / "ui.js").read_text(encoding="utf-8")
     pdf_info = {p.name: round(p.stat().st_size / 1024) for p in sorted((ROOT / "pdf").glob("*.pdf"))}
     krise = (SRC / "krise.js").read_text(encoding="utf-8")  # A-24 Krisenpfad (v6.7)
+    klaeren = (SRC / "klaeren.js").read_text(encoding="utf-8")  # Klären – „Erzähl mal“ (v6.8)
     lernen = (SRC / "lernen.js").read_text(encoding="utf-8").replace("__PDFINFO__", json.dumps(pdf_info))
-    script = engine + "\n" + ui + "\n" + krise + "\n" + lernen
+    script = engine + "\n" + ui + "\n" + krise + "\n" + klaeren + "\n" + lernen  # lernen.js ruft am Ende init() auf
 
     for name in ("__FONTS__", "__WOLF__", "__GIRAFFE__", "__KOPF__", "__SZ__", "__KU__", "__SPICK__", "__LK__", "__EMP__", "__PDFINFO__"):
         assert name not in css + body + script, f"Platzhalter {name} nicht ersetzt"

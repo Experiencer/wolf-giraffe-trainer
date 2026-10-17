@@ -10,7 +10,7 @@ Technische Regeln für die Arbeit am Code. Inhaltliche Leitlinien (GFK-Coach, Ex
 ## Aufbau
 | Pfad | Zweck |
 |---|---|
-| `src/body.html` · `src/styles.css` · `src/engine.js` · `src/ui.js` · `src/krise.js` · `src/lernen.js` | Quelltext der App (kein Framework). `krise.js` (v6.7) ist der Krisenpfad (A-24): Browser-Prüfung jedes eigenen Satzes, Sicherheitsregel für alle KI-Aufrufe, Hilfe-Ansicht. `lernen.js` (v6) enthält Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg und ruft am Ende `init()` auf |
+| `src/body.html` · `src/styles.css` · `src/engine.js` · `src/ui.js` · `src/krise.js` · `src/klaeren.js` · `src/lernen.js` | Quelltext der App (kein Framework). `klaeren.js` (v6.8) ist „Gemeinsam klären“ – Weg A „Erzähl mal“ (Schreiben, Offline-Spiegel), ruhig: kein `celebrate()`, keine Zahlen, nichts speichern. `krise.js` (v6.7) ist der Krisenpfad (A-24): Browser-Prüfung jedes eigenen Satzes, Sicherheitsregel für alle KI-Aufrufe, Hilfe-Ansicht. `lernen.js` (v6) enthält Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg und ruft am Ende `init()` auf |
 | `src/data/*.json` | Inhalte: `szenarien.json` (24), `kurzuebungen.json` (23 Übungen), `empathie.json` (15 Personen), `spickzettel.json` (16), `lernkarten.json`, `handout.json` (Workshop) |
 | `pdf/` · `tools/make_pdfs.py` | Druck-PDFs und ihr Generator (`python3 tools/make_pdfs.py`, nach Änderungen an lernkarten/spickzettel/handout) |
 | `src/fonts/` · `src/assets/` | Schriften (SIL OFL) und Bilder, werden eingebettet |

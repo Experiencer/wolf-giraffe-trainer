@@ -136,6 +136,7 @@ document.getElementById("dlgKrise")?.addEventListener("close", () => {
   if(d.dataset.stufe === "akut"){
     d.dataset.stufe = "";
     try{ if(!$("#practice").hidden) backToGallery(); }catch(e){}
+    try{ klReset(); klHome(); }catch(e){}
     try{ selectTab("t-ueben"); window.scrollTo({top:0}); }catch(e){}
     return;
   }

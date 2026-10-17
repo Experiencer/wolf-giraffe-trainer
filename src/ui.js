@@ -31,6 +31,7 @@ function selectTab(id, focus){
   if(id === "t-hoeren"){ $("#empRun").hidden = true; $("#empHome").hidden = false; renderEmpHome(); }
   if(id === "t-karten") renderLK();
   if(id === "t-cheat") renderSZ();
+  if(id === "t-klaeren" && KL.phase === "stopp") klHome();
   try{ history.replaceState(null, "", "#" + id.slice(2)); }catch(e){}
   try{ kopf.zeigen(); }catch(e){}
 }

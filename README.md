@@ -3,7 +3,7 @@
 ## Worum geht es – und was wird damit erreicht?
 Der Trainer ist eine Übungs-App für **Gewaltfreie Kommunikation (GFK) nach Marshall B. Rosenberg**. Du führst schwierige Gespräche mit einer KI-Figur – schriftlich, gesprochen oder als natürliches Echtzeit-Gespräch. Ein **Coach** (die Giraffe) begleitet dich: Er würdigt, was schon gelingt, zeigt genau einen nächsten Schritt und hilft, wenn du ihn rufst.
 
-**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Das Banner bleibt beim Scrollen immer oben; die Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück (v6.4; Verschwinden und Erscheinen je 0,55 s, v6.6), ganz oben und bei Tastatur-Fokus sind sie immer sichtbar. Der Reiter **„Klären“** („Gemeinsam klären“) zeigt die beiden geplanten Wege „Erzähl mal“ (allein) und „Gespräch zu zweit“; die Abläufe folgen (als Erstes „Erzähl mal“). Der Bildnachweis steht in der Fußzeile.
+**Aufbau der Oberfläche (v6.3):** Oben steht eine feste Kopfzone. Sie besteht aus dem Banner „Wolf & Giraffe – wertschätzend kommunizieren“ mit dem Zahnrad für die Einstellungen und den Reitern darunter. Das Banner bleibt beim Scrollen immer oben; die Reiter gleiten beim Herunterscrollen unter das Banner und kommen beim Hochscrollen zurück (v6.4; Verschwinden und Erscheinen je 0,55 s, v6.6), ganz oben und bei Tastatur-Fokus sind sie immer sichtbar. Der Reiter **„Klären“** („Gemeinsam klären“) hat zwei Wege: **„Erzähl mal“** (allein, v6.8, schriftlich) – du erzählst, der Coach gibt wieder, was angekommen ist, und vermutet als Frage Gefühl und Bedürfnis; du antwortest „Ja, genau · Teilweise · Eher nicht“, am Ende steht „Was du heute über dich gehört hast“ (nichts wird gespeichert, ohne Verbindung hilft eine Wortabgleich-Fassung). „Gespräch zu zweit“ folgt; Sprechen und Echtzeit kommen nach dem Stimmen-Testlabor. Der Bildnachweis steht in der Fußzeile.
 
 Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf dem Server als „Environment Variables“ und erscheinen nie im Browser. Konkret:
 - **Coach und Rollenspiel (Claude):** `/api/coach` leitet Anfragen mit `ANTHROPIC_API_KEY` an Claude weiter – auch im Echtzeit-Gespräch.
@@ -31,7 +31,7 @@ Die App läuft als Website auf **Vercel**. Alle API-Schlüssel liegen nur auf de
 | Datei / Ordner | Zweck |
 |---|---|
 | `index.html` | Die fertige App (wird aus `src/` gebaut – nicht direkt bearbeiten) |
-| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `krise.js` (v6.7: Krisenpfad), `lernen.js` (v6: Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg), `data/`, `fonts/`, `assets/` |
+| `src/` | Quelltext: `body.html`, `styles.css`, `engine.js`, `ui.js`, `krise.js` (v6.7: Krisenpfad), `klaeren.js` (v6.8: „Erzähl mal“), `lernen.js` (v6: Zuhören, Kurzübungen, Lernkarten, Spickzettel, Feiern, Mein Weg), `data/`, `fonts/`, `assets/` |
 | `src/data/` | Inhalte: `szenarien.json`, `kurzuebungen.json`, `empathie.json`, `spickzettel.json`, `lernkarten.json`, `handout.json` |
 | `pdf/` | Druckfertige PDFs (auf Vercel unter `/pdf/…`), erzeugt mit `python3 tools/make_pdfs.py` |
 | `tools/make_pdfs.py` | Erzeugt die vier PDFs aus `src/data/` (braucht `pip install reportlab fonttools brotli`) |

@@ -135,7 +135,7 @@
 
 <!-- ================= KLÄREN (Gemeinsam klären) ================= -->
 <section role="tabpanel" id="p-klaeren" aria-labelledby="t-klaeren" hidden>
-  <div class="stack klaeren">
+  <div class="stack klaeren" id="klHome">
     <div class="hero">
       <h1>Gemeinsam klären</h1>
       <p>Hier geht es nicht ums Üben, sondern ums Gehört-Werden. Du erzählst, was dich beschäftigt – allein mit dem Coach oder zu zweit mit einem Menschen, mit dem du etwas klären möchtest.</p>
@@ -145,7 +145,7 @@
         <p class="hand">Allein</p>
         <h2 id="klA">Erzähl mal</h2>
         <p>Sortieren, was in dir los ist. Die KI hört zu, gibt wieder, was angekommen ist, und fragt nach, was dir wichtig sein könnte. Du entscheidest, ob es passt.</p>
-        <p class="klstate"><span aria-hidden="true">○</span> In Vorbereitung</p>
+        <div class="row"><button class="btn primary" data-kl="start">Erzählen</button></div>
       </article>
       <article class="klcard" aria-labelledby="klB">
         <p class="hand">Zu zweit</p>
@@ -154,8 +154,9 @@
         <p class="klstate"><span aria-hidden="true">○</span> In Vorbereitung</p>
       </article>
     </div>
-    <p class="small muted klnote">Beide Wege kommen nach und nach dazu – schriftlich, gesprochen oder im Echtzeit-Gespräch. Als Erstes kommt „Erzähl mal“. Bis dahin findest du Selbstempathie in den Kurzübungen und kannst ein schwieriges Gespräch im Bereich Üben vorbereiten.</p>
+    <p class="small muted klnote">„Erzähl mal“ geht schon schriftlich. Sprechen, Echtzeit und das Gespräch zu zweit kommen nach und nach dazu.</p>
   </div>
+  <div class="stack" id="klRun" hidden></div>
 </section>
 
 <!-- ================= ZUHÖREN ================= -->
